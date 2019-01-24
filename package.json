@@ -1,0 +1,19 @@
+{
+  "name": "iti_gp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaniaG/ITI_GP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
