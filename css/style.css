@@ -1,0 +1,48 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem; }
+
+a {
+  text-decoration: none;
+  cursor: pointer; }
+
+ul {
+  list-style: none; }
+
+.row {
+  display: flex; }
+
+.itemcard {
+  width: 27rem;
+  border: 1px solid #888;
+  align-content: center;
+  padding: 5px;
+  font-family: 'Titillium Web', sans-serif; }
+  .itemcard__overlay {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    opacity: 0; }
+  .itemcard__img {
+    background-image: url("../images/miniverse_m.jpg");
+    height: 150px; }
+    .itemcard__img:hover .itemcard__overlay {
+      opacity: 1; }
+  .itemcard__header {
+    color: #2b373a;
+    font-weight: 700; }
+  .itemcard__description {
+    font-weight: 600;
+    font-size: 0.75em;
+    color: #888; }
+  .itemcard__category {
+    color: #06b99b;
+    font-weight: 700;
+    font-size: 0.75em; }

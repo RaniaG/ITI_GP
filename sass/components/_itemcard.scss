@@ -1,0 +1,34 @@
+.itemcard{
+    width: 27rem;
+    border:1px solid #888;
+    align-content: center;
+    padding:5px;  
+    font-family: 'Titillium Web', sans-serif;
+    &__overlay{
+        width: 100%;
+        background-color: rgba(0,0,0,0.7);
+        height: 100%;
+        opacity:0;
+    }
+    &__img{
+        background-image: url("../images/miniverse_m.jpg");
+        height: 150px;
+        &:hover .itemcard__overlay{
+        opacity: 1;
+        }
+    }
+    &__header{
+        color: #2b373a;
+        font-weight: 700;
+    }
+    &__description{
+        font-weight: 600;
+        font-size: 0.75em;
+        color: #888;
+    }
+    &__category{
+        color: #06b99b;
+        font-weight: 700;
+        font-size: 0.75em;
+    }
+}
