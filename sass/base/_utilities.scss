@@ -1,3 +1,32 @@
-.row{
+.row {
     display: flex;
+}
+
+.justify--content--end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.justify--content--between {
+    display: flex;
+    justify-content: space-between;
+}
+.justify--content--evenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+.align--items--center {
+    align-items: center
+}
+.p--bm--sm{
+    padding-bottom: 0.8rem;
+}
+.white{
+    color: white;
+}
+.text--center{
+text-align: center;
+}
+.m-auto{
+    margin: auto;
 }

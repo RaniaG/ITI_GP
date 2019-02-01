@@ -1,0 +1,14 @@
+.stars {
+    margin-left: auto;
+    cursor: pointer;
+    &:hover {
+        .star polygon {
+            fill: #ffd055;
+        }
+    }
+    .star {
+        polygon {
+            fill: #d8d8d8;
+        }
+    }
+}

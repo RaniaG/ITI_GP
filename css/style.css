@@ -63,11 +63,38 @@ ul {
 .row {
   display: flex; }
 
+.justify--content--end {
+  display: flex;
+  justify-content: flex-end; }
+
+.justify--content--between {
+  display: flex;
+  justify-content: space-between; }
+
+.justify--content--evenly {
+  display: flex;
+  justify-content: space-evenly; }
+
+.align--items--center {
+  align-items: center; }
+
+.p--bm--sm {
+  padding-bottom: 0.8rem; }
+
+.white {
+  color: white; }
+
+.text--center {
+  text-align: center; }
+
+.m-auto {
+  margin: auto; }
+
 .itemcard {
   width: 27rem;
   border: 1px solid #888;
   align-content: center;
-  padding: 5px;
+  padding: 0.5rem;
   font-family: 'Titillium Web', sans-serif; }
   .itemcard__overlay {
     width: 100%;
@@ -79,17 +106,53 @@ ul {
     height: 150px; }
     .itemcard__img:hover .itemcard__overlay {
       opacity: 1; }
+      .itemcard__img:hover .itemcard__overlay .itemcard__icon__circle {
+        opacity: 1; }
+  .itemcard__icon__circle {
+    background-color: #06b99b;
+    border-radius: 50%;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-items: center;
+    opacity: 0;
+    transition-delay: 0.2s; }
+  .itemcard .itemcard__icon__circle2 {
+    background-color: #69a9f1;
+    opacity: 0;
+    transition-delay: 0.5s; }
+  .itemcard__icon {
+    margin: auto; }
   .itemcard__header {
     color: #2b373a;
     font-weight: 700; }
+    .itemcard__header__small {
+      font-size: 0.75em; }
   .itemcard__description {
     font-weight: 600;
     font-size: 0.75em;
-    color: #888; }
+    color: #888;
+    margin-bottom: 1rem; }
   .itemcard__category {
     color: #06b99b;
     font-weight: 700;
     font-size: 0.75em; }
+  .itemcard__price {
+    text-align: right; }
+  .itemcard__lineseparator {
+    background-color: #ebebeb;
+    height: 1px;
+    border: none; }
+  .itemcard__footer {
+    margin-top: 0.6rem;
+    margin-bottom: 0.4rem;
+    align-items: center; }
+    .itemcard__footer__img {
+      border-radius: 50%;
+      width: 2.6rem;
+      height: 2.6rem;
+      margin-right: 0.2rem; }
 
 .cube {
   height: 40vw;
@@ -215,3 +278,11 @@ ul {
     animation-name: cube_left;
     animation-duration: 2s;
     animation-fill-mode: forwards; }
+
+.stars {
+  margin-left: auto;
+  cursor: pointer; }
+  .stars:hover .star polygon {
+    fill: #ffd055; }
+  .stars .star polygon {
+    fill: #d8d8d8; }
