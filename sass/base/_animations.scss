@@ -1,0 +1,59 @@
+@keyframes cube_up{
+    0%{
+     transform:scale(1) rotateX(0deg);
+
+    }
+    20%{
+        transform:scale(0.5) rotateX(0deg);
+    }
+    80%{
+        transform:scale(0.5) rotateX(180deg);
+    }
+    100%{
+     transform:scale(1) rotateX(180deg);
+    }
+}
+
+@keyframes cube_down{
+    0%{
+     transform:scale(1) rotateX(0deg);
+    }
+    20%{
+        transform:scale(0.5) rotateX(0deg);
+    }
+    80%{
+        transform:scale(0.5) rotateX(-180deg);
+    }
+    100%{
+     transform:scale(1) rotateX(-180deg);
+    }
+}
+@keyframes cube_right{
+        0%{
+        transform:scale(1) rotateY(0deg);
+       }
+       20%{
+           transform:scale(0.5) rotateY(0deg);
+       }
+       80%{
+           transform:scale(0.5) rotateY(-180deg);
+       }
+       100%{
+        transform:scale(1) rotateY(-180deg);
+       }
+}
+@keyframes cube_left{
+    0%{
+    transform:scale(1) rotateY(0deg);
+   }
+   20%{
+       transform:scale(0.5) rotateY(0deg);
+   }
+   80%{
+       transform:scale(0.5) rotateY(180deg);
+   }
+   100%{
+    transform:scale(1) rotateY(180deg);
+   }
+}
+

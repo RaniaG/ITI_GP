@@ -1,3 +1,7 @@
+/*colors*/
+/*media query breakpoints*/
+/*cuboid slider variables*/
+/*media query mixin*/
 * {
   padding: 0px;
   margin: 0px;
@@ -8,6 +12,46 @@ html {
 
 body {
   font-size: 1.6rem; }
+
+@keyframes cube_up {
+  0% {
+    transform: scale(1) rotateX(0deg); }
+  20% {
+    transform: scale(0.5) rotateX(0deg); }
+  80% {
+    transform: scale(0.5) rotateX(180deg); }
+  100% {
+    transform: scale(1) rotateX(180deg); } }
+
+@keyframes cube_down {
+  0% {
+    transform: scale(1) rotateX(0deg); }
+  20% {
+    transform: scale(0.5) rotateX(0deg); }
+  80% {
+    transform: scale(0.5) rotateX(-180deg); }
+  100% {
+    transform: scale(1) rotateX(-180deg); } }
+
+@keyframes cube_right {
+  0% {
+    transform: scale(1) rotateY(0deg); }
+  20% {
+    transform: scale(0.5) rotateY(0deg); }
+  80% {
+    transform: scale(0.5) rotateY(-180deg); }
+  100% {
+    transform: scale(1) rotateY(-180deg); } }
+
+@keyframes cube_left {
+  0% {
+    transform: scale(1) rotateY(0deg); }
+  20% {
+    transform: scale(0.5) rotateY(0deg); }
+  80% {
+    transform: scale(0.5) rotateY(180deg); }
+  100% {
+    transform: scale(1) rotateY(180deg); } }
 
 a {
   text-decoration: none;
@@ -46,3 +90,128 @@ ul {
     color: #06b99b;
     font-weight: 700;
     font-size: 0.75em; }
+
+.cube {
+  height: 40vw;
+  width: 100vw;
+  min-height: 20rem;
+  position: relative;
+  transform-style: preserve-3d; }
+  .cube-slider {
+    height: 40vw;
+    min-height: 20rem;
+    position: relative;
+    overflow: hidden; }
+    .cube-slider__slide {
+      height: 40vw;
+      width: 100vw;
+      min-height: 20rem;
+      position: absolute;
+      background-size: cover;
+      background-repeat: round; }
+    .cube-slider__btn {
+      background-color: grey;
+      filter: opacity(0%);
+      transition-duration: 1s;
+      top: 50%;
+      z-index: 3;
+      position: absolute;
+      border-radius: 50%;
+      height: 25px;
+      width: 25px; }
+      .cube-slider__btn.active {
+        filter: opacity(100%); }
+      .cube-slider__btn:hover:before {
+        border-color: black; }
+      @media (min-width: 992px) {
+        .cube-slider__btn {
+          height: 50px;
+          width: 50px; } }
+      .cube-slider__btn:before {
+        border-style: solid;
+        border-color: white;
+        border-width: 2px 2px 0 0;
+        content: '';
+        display: inline-block;
+        height: 4px;
+        width: 4px;
+        position: absolute;
+        top: 20%; }
+        @media (min-width: 992px) {
+          .cube-slider__btn:before {
+            height: 10px;
+            width: 10px;
+            border-width: 5px 5px 0 0; } }
+      .cube-slider__btn--next {
+        right: 1%; }
+        .cube-slider__btn--next:before {
+          transform: translateX(50%) translateY(-50%) rotate(45deg);
+          right: 50%;
+          top: 50%; }
+      .cube-slider__btn--prev {
+        left: 1%; }
+        .cube-slider__btn--prev:before {
+          transform: translateX(50%) translateY(-50%) rotate(-135deg);
+          right: 50%;
+          top: 50%; }
+    .cube-slider .slide {
+      display: none; }
+      .cube-slider .slide__content {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        animation-duration: 5s; }
+        .cube-slider .slide__content--left {
+          left: 0%; }
+        .cube-slider .slide__content--center {
+          left: 25%; }
+        .cube-slider .slide__content--right {
+          left: 50%; }
+  .cube_side {
+    position: absolute;
+    width: 100vw;
+    height: 40vw;
+    min-height: 20rem;
+    background-color: #ededed;
+    background-size: cover;
+    background-repeat: round;
+    backface-visibility: hidden; }
+    .cube_side--front-vertical {
+      transform: translateZ(20vw); }
+    .cube_side--front-horizontal {
+      transform: translateZ(50vw); }
+    .cube_side--top {
+      transform: translateY(50%) rotateX(90deg);
+      backface-visibility: visible; }
+    .cube_side--back-vertical {
+      transform: translateZ(-20vw) rotateX(180deg); }
+    .cube_side--back-horizontal {
+      transform: translateZ(-50vw) rotateY(180deg); }
+    .cube_side--bottom {
+      transform: translateY(-50%) rotateX(-90deg);
+      backface-visibility: visible; }
+    .cube_side--right {
+      transform: translateX(50%) rotateY(-90deg);
+      backface-visibility: visible; }
+    .cube_side--left {
+      transform: translateX(-50%) rotateY(90deg);
+      backface-visibility: visible; }
+  .cube--down {
+    animation-name: cube_down;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
+  .cube--up {
+    animation-name: cube_up;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
+  .cube--right {
+    animation-name: cube_right;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
+  .cube--left {
+    animation-name: cube_left;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
