@@ -1,0 +1,18 @@
+.adsBanner {
+    overflow: hidden;
+    .scalecard1 {
+        grid-area: sc1;
+    }
+    .scalecard2 {
+        grid-area: sc2;
+    }
+    .scalecard3 {
+        grid-area: sc3;
+    }
+    .scalecard4 {
+        grid-area: sc4;
+    }
+    display: grid;
+    grid-template-columns: repeat(57rem, 27rem, 27rem); 
+    grid-template-areas : 'sc1 sc2 sc4' 'sc1 sc3 sc4';
+}

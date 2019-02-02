@@ -1,21 +1,21 @@
-
 /*colors*/
+
 $shade_grey_1:rgb(93%, 93%, 93%);
 $shade_grey_2:rgb(30%, 18%, 14%);
-
-
 /*media query breakpoints*/
-$breakpoints: (
-    'small':(min-width:576px),
-  'medium': (min-width: 768px),
-  'large': (min-width: 992px),
-  'huge': (min-width: 1200px),
-);
 
-
-
+$breakpoints: ( 'small':(min-width:576px), 'medium': (min-width: 768px), 'large': (min-width: 992px), 'huge': (min-width: 1200px), );
 /*cuboid slider variables*/
+
 $cuboid-height:40vw;
 $cuboid-width:100vw;
 $cuboid-minheight:20rem;
 $cuboid-animation-time:2s;
+/*scalecard*/
+
+$bigcard--width: 57rem;
+$bigcard--height: 52.4rem;
+$smallcard--height: 20rem;
+$smallcard--width:27rem;
+$mediumcard--height: 30rem;
+$bigcard--height: 52.4rem;

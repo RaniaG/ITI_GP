@@ -1,6 +1,7 @@
 /*colors*/
 /*media query breakpoints*/
 /*cuboid slider variables*/
+/*scalecard*/
 /*media query mixin*/
 * {
   padding: 0px;
@@ -286,3 +287,49 @@ ul {
     fill: #ffd055; }
   .stars .star polygon {
     fill: #d8d8d8; }
+
+/*-------------------------scalecard----------------------------*/
+.scalecard {
+  position: relative;
+  overflow: hidden; }
+  .scalecard__img {
+    position: absolute;
+    transition: 0.5s;
+    background-size: cover;
+    background-position: center; }
+  .scalecard:hover .scalecard__img {
+    transform: scale(1.1); }
+  .scalecard1, .scalecard__img1 {
+    width: 57rem;
+    height: 52.4rem; }
+  .scalecard2, .scalecard__img2 {
+    width: 27rem;
+    height: 20rem; }
+  .scalecard3, .scalecard__img3 {
+    width: 27rem;
+    height: 30rem; }
+  .scalecard4, .scalecard__img4 {
+    width: 27rem;
+    height: 52.4rem; }
+  .scalecard__img1 {
+    background-image: url("../images/img1.jpg"); }
+  .scalecard__img2 {
+    background-image: url("../images/img2.jpg"); }
+  .scalecard__img3 {
+    background-image: url("../images/img3.jpg"); }
+  .scalecard__img4 {
+    background-image: url("../images/img4.jpg"); }
+
+.adsBanner {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(57rem, 27rem, 27rem);
+  grid-template-areas: 'sc1 sc2 sc4' 'sc1 sc3 sc4'; }
+  .adsBanner .scalecard1, .adsBanner .scalecard__img1 {
+    grid-area: sc1; }
+  .adsBanner .scalecard2, .adsBanner .scalecard__img2 {
+    grid-area: sc2; }
+  .adsBanner .scalecard3, .adsBanner .scalecard__img3 {
+    grid-area: sc3; }
+  .adsBanner .scalecard4, .adsBanner .scalecard__img4 {
+    grid-area: sc4; }
