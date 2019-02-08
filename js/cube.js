@@ -29,7 +29,7 @@ class CubeSlider{
         });
         this.slide.addEventListener("mouseover",()=>{
             this.pauseSlide();
-            console.log(this.prevBtn);
+            // console.log(this.prevBtn);
             this.prevBtn.classList.add("active");
             this.nextBtn.classList.add("active");
         });
@@ -71,13 +71,13 @@ class CubeSlider{
         this.slide.remove();
         this.slider.appendChild(this.cube);
         this.slide.style.backgroundImage=`url(${this.slidesURL[this.currentSlide]})`;
-        console.log("creating cube element vertical");     
+        // console.log("creating cube element vertical");     
         
         this.CubeSlideTimeout=setTimeout((g)=>{
             g.slider.appendChild(g.slide);
             g.showText();
             g.cube.remove();
-            console.log("removing cube element vertical");
+            // console.log("removing cube element vertical");
         },this.animationTime,this);
     }
     showText(){
@@ -133,7 +133,7 @@ class CubeSlider{
         
     }
     generateNewSlide(){
-        console.log("generating new slide");        
+        // console.log("generating new slide");        
         var rand=Math.floor(Math.random()*4);
         switch (rand) {
             case 0: //top
@@ -180,12 +180,12 @@ class CubeSlider{
         },10000,this)
     }
     pauseSlide(){
-        console.log("paused");
+        // console.log("paused");
         clearTimeout(this.CubeSlideTimeout);
         clearInterval(this.GenerateNewSlideInterval);
     }
     resumeSlide(){
-        console.log("resumed");
+        // console.log("resumed");
         // this.generateNewSlide();
         this.GenerateNewSlideInterval=setInterval(()=>{
             this.generateNewSlide();

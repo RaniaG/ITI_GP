@@ -1,14 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+
+
+    <div class="cube-slider">
+        <div class='slide'>
+            <img src="./images/slide1.jpg" class="slide__img">
+            <div class='slide__content slide__content--left '>
+                <h3>Slide 1</h3>
+            </div>
+        </div>
+        <div class='slide'>
+            <img src="./images/slide2.jpg" class="slide__img">
+            <div class='slide__content slide__content--center '>
+                <h3>Slide 2</h3>
+            </div>
+        </div>
+        <div class='slide'>
+            <img src="./images/slide3.jpg" class="slide__img">
+            <div class='slide__content slide__content--center '>
+                <h3>Slide 3</h3>
+            </div>
+        </div>
+        <div class='slide'>
+            <img src="./images/slide4.jpg" class="slide__img">
+            <div class='slide__content slide__content--left '>
+                <h3>Slide 4</h3>
+            </div>
+        </div>
+        <div class='slide'>
+            <img src="./images/slide5.jpg" class="slide__img">
+            <div class='slide__content slide__content--center '>
+                <h3>Slide 5</h3>
+            </div>
+        </div>
+        <div class="cube-slider__btn cube-slider__btn--next"></div>
+        <div class="cube-slider__btn cube-slider__btn--prev"></div>
+
+    </div>
+
+
+    <div class="productcard productcard--horizontal productcard--small">
+        <div class='productcard__images'>
+            <img src="./images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
+            <img src="./images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
+        </div>
+        <div class="productcard__horizontal-container">
+            <div class="productcard__title">Product Title</div>
+            <div class="productcard__prices">
+                <div class="price price--new price--euro">2.00</div>
+                <div class="price price--old price--euro">3.00</div>
+            </div>
+            <div class="rating rating--static">1.2</div>
+        </div>
+        <div class="productcard__buttons">
+            <div class="productcard__btn">
+                <i class="fas fa-shopping-basket fa-sm"></i>
+                <div class="tooltip">Add to Cart</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-heart fa-sm"></i>
+                <div class="tooltip">Add to Wishlist</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-retweet fa-sm"></i>
+                <div class="tooltip">Compare</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-search fa-sm"></i>
+                <div class="tooltip">View</div>
+            </div>
+        </div>
+    </div>
+    <div class="productcard productcard--horizontal productcard--medium">
+        <div class='productcard__images'>
+            <img src="./images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
+            <img src="./images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
+        </div>
+        <div class="productcard__horizontal-container">
+            <div class="productcard__title">Product Title</div>
+
+            <div class="productcard__prices">
+                <div class="price price--new price--euro">2.00</div>
+                <div class="price price--old price--euro">3.00</div>
+            </div>
+            <div class="rating rating--static">1.2</div>
+        </div>
+        <div class="productcard__buttons">
+            <div class="productcard__btn">
+                <i class="fas fa-shopping-basket fa-sm"></i>
+                <div class="tooltip">Add to Cart</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-heart fa-sm"></i>
+                <div class="tooltip">Add to Wishlist</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-retweet fa-sm"></i>
+                <div class="tooltip">Compare</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-search fa-sm"></i>
+                <div class="tooltip">View</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="productcard productcard--vertical productcard--small">
+        <div class='productcard__images'>
+            <img src="./images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
+            <img src="./images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
+        </div>
+        <div class="productcard__title">Product Title</div>
+        <div class="productcard__body">
+            <div class="productcard__prices">
+                <div class="price price--new price--euro">2.00</div>
+                <div class="price price--old price--euro">3.00</div>
+            </div>
+            <div class="rating rating--static">1.2</div>
+        </div>
+        <div class="productcard__buttons">
+            <div class="productcard__btn">
+                <i class="fas fa-shopping-basket fa-sm"></i>
+                <div class="tooltip">Add to Cart</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-heart fa-sm"></i>
+                <div class="tooltip">Add to Wishlist</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-retweet fa-sm"></i>
+                <div class="tooltip">Compare</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-search fa-sm"></i>
+                <div class="tooltip">View</div>
+            </div>
+        </div>
+    </div>
+    <div class="productcard productcard--vertical productcard--medium">
+        <div class='productcard__images'>
+            <img src="./images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
+            <img src="./images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
+        </div>
+        <div class="productcard__title">Product Title</div>
+        <div class="productcard__body">
+            <div class="productcard__prices">
+                <div class="price price--new price--euro">2.00</div>
+                <div class="price price--old price--euro">3.00</div>
+            </div>
+            <div class="rating rating--static">1.2</div>
+        </div>
+        <div class="productcard__buttons">
+            <div class="productcard__btn">
+                <i class="fas fa-shopping-basket fa-sm"></i>
+                <div class="tooltip">Add to Cart</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-heart fa-sm"></i>
+                <div class="tooltip">Add to Wishlist</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-retweet fa-sm"></i>
+                <div class="tooltip">Compare</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-search fa-sm"></i>
+                <div class="tooltip">View</div>
+            </div>
+        </div>
+    </div>
+    <div class="productcard productcard--vertical productcard--large">
+        <div class='productcard__images'>
+            <img src="./images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
+            <img src="./images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
+        </div>
+        <div class="productcard__title">Product Title</div>
+        <div class="productcard__body">
+            <div class="productcard__prices">
+                <div class="price price--new price--euro">2.00</div>
+                <div class="price price--old price--euro">3.00</div>
+            </div>
+            <div class="rating rating--static">1.2</div>
+        </div>
+        <div class="productcard__buttons">
+            <div class="productcard__btn">
+                <i class="fas fa-shopping-basket fa-sm"></i>
+                <div class="tooltip">Add to Cart</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-heart fa-sm"></i>
+                <div class="tooltip">Add to Wishlist</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-retweet fa-sm"></i>
+                <div class="tooltip">Compare</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-search fa-sm"></i>
+                <div class="tooltip">View</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="productcard productcard--vertical productcard--xlarge">
+        <div class='productcard__images'>
+            <img src="./images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
+            <img src="./images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
+        </div>
+        <div class="productcard__title">Product Title</div>
+        <div class="productcard__body">
+            <div class="productcard__prices">
+                <div class="price price--new price--euro">2.00</div>
+                <div class="price price--old price--euro">3.00</div>
+            </div>
+            <div class="rating rating--static">1.2</div>
+        </div>
+        <div class="productcard__buttons">
+            <div class="productcard__btn">
+                <i class="fas fa-shopping-basket fa-sm"></i>
+                <div class="tooltip">Add to Cart</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-heart fa-sm"></i>
+                <div class="tooltip">Add to Wishlist</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-retweet fa-sm"></i>
+                <div class="tooltip">Compare</div>
+            </div>
+            <div class="productcard__btn">
+                <i class="fas fa-search fa-sm"></i>
+                <div class="tooltip">View</div>
+            </div>
+        </div>
+    </div>
+    <div class="rating rating--dynamic rating--large"></div>
+    <script src="js/cube.js"></script>
+    <script src="js/rating.js"></script>
+
     <!-- <script src="js/script.js"></script> -->
 </body>
+
 </html>
