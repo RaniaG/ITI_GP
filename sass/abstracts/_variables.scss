@@ -14,6 +14,7 @@ $color-primary: #00a5b2;
 $color-grey-1:rgb(93%, 93%, 93%);
 $color-grey-2:rgb(30%, 18%, 14%);
 $color-grey-3:rgb(176, 176, 176);
+$color-grey-4:#7B7B7B;
 $color-red:rgb(215, 71, 4);
 $color-gold:#ffd055;
 
@@ -30,9 +31,15 @@ $cuboid-animation-time:2s;
 
 /*scalecard*/
 
-$bigcard--width: 57rem;
 $bigcard--height: 52.4rem;
+$bigcard--width: 57rem;
+
+$largecard--width:35rem;
+
+$mediumcard--height: 30rem;
+$mediumcard--width: 27rem;
+
 $smallcard--height: 20rem;
 $smallcard--width:27rem;
-$mediumcard--height: 30rem;
-$bigcard--height: 52.4rem;
+
+

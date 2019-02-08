@@ -1,0 +1,19 @@
+.infocard {
+    width: $largecard--width;
+    text-align: center;
+    &__header {
+        &__title {
+            color: $color-grey-3;
+        }
+    }
+    &__desc {
+        color: $color-grey-4;
+    }
+    &__img {
+        background-image: url("../images/imgt.jpg");
+        height: 267px;
+    }
+    &__footer {
+        background-color: $color-grey-1;
+    }
+}

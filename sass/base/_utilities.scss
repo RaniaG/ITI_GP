@@ -7,6 +7,10 @@
     justify-content: flex-end;
 }
 
+.justify--items--center{
+    display: flex;
+    justify-items: center;
+}
 .justify--content--between {
     display: flex;
     justify-content: space-between;
@@ -15,8 +19,12 @@
     display: flex;
     justify-content: space-evenly;
 }
+.justify--content--center {
+    display: flex;
+    justify-content: center;
+}
 .align--items--center {
-    align-items: center
+    align-items: center;
 }
 .p--bm--sm{
     padding-bottom: 0.8rem;
@@ -29,4 +37,19 @@ text-align: center;
 }
 .m-auto{
     margin: auto;
+}
+.p--lg{
+    padding:2rem;
+}
+.p--bottom--lg{
+    padding-bottom:2rem;
+}
+.p--top--lg{
+    padding-top:2rem;
+}
+.p--right--lg{
+    padding-right:2rem;
+}
+.p--left--lg{
+    padding-left:2rem;
 }
