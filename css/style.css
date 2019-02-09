@@ -70,23 +70,18 @@ ul {
   display: flex; }
 
 .justify--content--end {
-  display: flex;
   justify-content: flex-end; }
 
 .justify--items--center {
-  display: flex;
   justify-items: center; }
 
 .justify--content--between {
-  display: flex;
   justify-content: space-between; }
 
 .justify--content--evenly {
-  display: flex;
   justify-content: space-evenly; }
 
 .justify--content--center {
-  display: flex;
   justify-content: center; }
 
 .align--items--center {
@@ -118,6 +113,12 @@ ul {
 
 .p--left--lg {
   padding-left: 2rem; }
+
+.border--right {
+  border-right: 1px solid #b0b0b0; }
+
+.color--primary {
+  color: #00a5b2; }
 
 .price {
   font-family: Lora, Helvetica, Arial, sans-serif;
@@ -559,5 +560,13 @@ ul {
   .infocard__img {
     background-image: url("../images/imgt.jpg");
     height: 267px; }
+  .infocard__overlay {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    transition: 0.5s;
+    opacity: 0; }
   .infocard__footer {
     background-color: #ededed; }
+  .infocard:hover .infocard__overlay {
+    opacity: 1; }

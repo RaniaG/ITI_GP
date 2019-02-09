@@ -3,24 +3,24 @@
 }
 
 .justify--content--end {
-    display: flex;
+
     justify-content: flex-end;
 }
 
 .justify--items--center{
-    display: flex;
+   
     justify-items: center;
 }
 .justify--content--between {
-    display: flex;
+
     justify-content: space-between;
 }
 .justify--content--evenly {
-    display: flex;
+
     justify-content: space-evenly;
 }
 .justify--content--center {
-    display: flex;
+   
     justify-content: center;
 }
 .align--items--center {
@@ -52,4 +52,10 @@ text-align: center;
 }
 .p--left--lg{
     padding-left:2rem;
+}
+.border--right{
+    border-right:1px solid $color-grey-3;
+}
+.color--primary{
+    color:$color-primary;
 }
