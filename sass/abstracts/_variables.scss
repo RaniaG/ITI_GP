@@ -1,23 +1,60 @@
+/*fonts*/
+
+$font-1:"Heebo",
+Arial,
+sans-serif;
+$font-2:Lora,
+Helvetica,
+Arial,
+sans-serif;
+
 /*colors*/
 
-$shade_grey_1:rgb(93%, 93%, 93%);
-$shade_grey_2:rgb(30%, 18%, 14%);
-$white:white;
-$black : rgb(20, 20, 20);
+$color-primary: #00a5b2;
+$color-grey-1:rgb(93%, 93%, 93%);
+$color-grey-2:rgb(30%, 18%, 14%);
+$color-grey-3:rgb(176, 176, 176);
+$color-grey-4:#7B7B7B;
+$color-red:rgb(215, 71, 4);
+$color-gold:#ffd055;
+
 /*media query breakpoints*/
 
 $breakpoints: ( 'small':(min-width:576px), 'medium': (min-width: 768px), 'large': (min-width: 992px), 'huge': (min-width: 1200px), );
+
 /*cuboid slider variables*/
 
 $cuboid-height:40vw;
 $cuboid-width:100vw;
 $cuboid-minheight:20rem;
 $cuboid-animation-time:2s;
+
 /*scalecard*/
 
-$bigcard--width: 57rem;
 $bigcard--height: 52.4rem;
+$bigcard--width: 57rem;
+
+$largecard--width:35rem;
+
+$mediumcard--height: 30rem;
+$mediumcard--width: 27rem;
+
 $smallcard--height: 20rem;
 $smallcard--width:27rem;
-$mediumcard--height: 30rem;
-$bigcard--height: 52.4rem;
+
+
+
+$white : white;
+$black : black;
+
+
+//  Border 
+$border-width: 1px;
+$border-radius: .25rem ;
+$card-border-radius: $border-radius;
+
+
+// Card
+$card-bg: $white;
+$card-x: 1.25rem;
+$card-y: .75rem ;

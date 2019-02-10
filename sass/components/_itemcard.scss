@@ -21,7 +21,7 @@
         }
     }
     &__icon__circle {
-        background-color: #06b99b;
+        background-color: $color-primary;
         border-radius: 50%;
         color: white;
         width: 40px;
@@ -31,8 +31,9 @@
         opacity: 0;
         transition-delay: 0.2s;
     }
+    
     .itemcard__icon__circle2 {
-        background-color: #69a9f1;
+        background-color: $color-primary;
         opacity: 0;
         transition-delay: 0.5s;
     }
@@ -53,7 +54,7 @@
         margin-bottom: 1rem;
     }
     &__category {
-        color: #06b99b;
+        color: $color-primary;
         font-weight: 700;
         font-size: 0.75em;
     }

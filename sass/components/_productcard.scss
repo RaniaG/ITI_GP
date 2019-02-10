@@ -1,0 +1,175 @@
+.productcard {
+    border: 1px solid black;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    .front,
+    .back {
+        display: none;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        &--front {
+            position: absolute;
+        }
+        &--back {
+            visibility: hidden;
+            filter: opacity(0%);
+            position: absolute;
+            transition-duration: 0.3s;
+            filter: opacity(0%);
+            transform: scale(2);
+            &:hover {
+                visibility: visible;
+                filter: opacity(100%);
+                transform: scale(1);
+            }
+        }
+    }
+    &__images {
+        position: relative;
+        width: 100%;
+        height: 70%;
+    }
+    &__title {
+        font-family: $font-1;
+        font-weight: 400;
+        font-size: 1.8rem;
+    }
+    &--horizontal {
+        flex-flow: row;
+        .productcard__horizontal-container {
+            display: flex;
+            flex-flow: column;
+            justify-content: flex-start;
+            gap: 1rem;
+        }
+        &.productcard--small {
+            height: 15rem;
+            width: 30rem;
+            .productcard__images {
+                width: 15rem;
+                height: inherit;
+            }
+        }
+        &.productcard--medium {
+            height: 20rem;
+            width: 40rem;
+            .productcard__images {
+                width: 20rem;
+                height: inherit;
+            }
+        }
+    }
+    &--vertical {
+        flex-flow: column;
+        justify-content: space-between;
+        .productcard__body {
+            display: flex;
+            flex-flow: row;
+            & .rating {
+                margin-left: auto;
+            }
+        }
+        &.productcard--small {
+            width: 20rem;
+            height: 28rem;
+            .productcard__images {
+                width: inherit;
+                height: 20rem;
+            }
+        }
+        &.productcard--medium {
+            width: 25rem;
+            height: 33rem;
+            .productcard__images {
+                width: inherit;
+                height: 25rem;
+            }
+        }
+        &.productcard--large {
+            width: 40rem;
+            height: 48rem;
+            .productcard__images {
+                width: inherit;
+                height: 40rem;
+            }
+        }
+        &.productcard--xlarge {
+            width: 50rem;
+            height: 58rem;
+            .productcard__images {
+                width: inherit;
+                height: 50rem;
+            }
+        }
+    }
+    &__buttons {
+        position: absolute;
+        display: flex;
+        visibility: hidden;
+        filter: opacity(0%);
+        transition-duration: 0.5s;
+        flex-flow: row;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+        align-items: center;
+    }
+    &__btn {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 20%;
+        border: 1px solid transparent;
+        background-color: white;
+        box-shadow: 0 0 0.5rem black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .fas {
+            color: $color-primary;
+        }
+        &:hover {
+            cursor: pointer;
+            border-color: $color-primary;
+            & .tooltip {
+                visibility: visible;
+            }
+        }
+    }
+    &:hover &__img--back {
+        visibility: visible;
+        filter: opacity(100%);
+        transform: scale(1);
+    }
+    &:hover &__buttons {
+        visibility: visible;
+        filter: opacity(100%);
+    }
+}
+
+.tooltip {
+    visibility: hidden;
+    background: $color-primary;
+    position: absolute;
+    border-radius: 1rem;
+    width: 10rem;
+    padding: 0.5rem 0;
+    text-align: center;
+    // top: 50%;
+    color: white;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100%;
+        width: 0;
+        height: 0;
+        border-left: 0.5rem solid transparent;
+        border-top: 1rem solid $color-primary;
+        border-right: 0.5rem solid transparent;
+    }
+}

@@ -1,0 +1,30 @@
+.infocard {
+    width: $largecard--width;
+    text-align: center;
+   
+    &__header {
+        &__title {
+            color: $color-grey-3;
+        }
+    }
+    &__desc {
+        color: $color-grey-4;
+    }
+    &__img {
+        background-image: url("../images/imgt.jpg");
+        height: 267px;
+    }
+    &__overlay {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        height: 100%;
+        transition:0.5s;
+        opacity: 0;
+    }
+    &__footer {
+        background-color: $color-grey-1;
+    }
+    &:hover .infocard__overlay {
+        opacity: 1;
+    }
+}

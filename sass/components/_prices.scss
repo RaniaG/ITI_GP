@@ -1,0 +1,34 @@
+.price{
+    font-family: $font-2;
+    display: inline-block;
+    &--old{
+        text-decoration: line-through;
+        color:$color-grey-3;        
+        font-size: 1.6rem;
+        font-style: italic;
+    }
+    &--new{
+        color:$color-red;
+        font-size:1.8rem;
+    }
+    &--euro{
+        &::before{
+            content:"€";
+        }
+    }
+    &--egp{
+        &::before{
+            content:"EGP";
+        }
+    }
+    &--sterling{
+        &::before{
+            content:"£";
+        }
+    }
+    &--dollar{
+        &::before{
+            content:"$";
+        }
+    }
+}

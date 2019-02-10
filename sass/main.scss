@@ -1,3 +1,7 @@
+/*fonts*/
+
+@import url('https://fonts.googleapis.com/css?family=Heebo');
+@import url('https://fonts.googleapis.com/css?family=Lora');
 @import 'abstracts/variables';
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
@@ -11,11 +15,16 @@
 @import 'layout/header';
 @import 'layout/footer';
 // @import 'component/';
+@import 'components/prices';
+@import 'components/rating';
 @import 'components/itemcard';
-@import 'components/cubeslider';
+@import 'components/cubeslider'; 
 @import 'components/stars';
 @import 'components/scalecard';
 @import 'components/adsBanner';
+@import 'components/productcard';
+@import 'components/infocard';
+@import 'components/blogCard';
 
 @import 'pages/home';
 
