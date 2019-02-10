@@ -27,6 +27,32 @@
 .text--center{
 text-align: center;
 }
+.text--left{
+    text-align: left;
+}
+.text--right{
+    text-align: right;
+}
 .m-auto{
     margin: auto;
+}
+
+.flipY
+{
+    transform: rotateY(0deg);
+    &--right
+    {
+        &:hover
+        {
+        transform: rotateY(45deg);
+        }
+    }
+    &--left
+    {
+        &:hover
+        {
+        transform: rotateY(-45deg);
+        }
+    }
+   
 }

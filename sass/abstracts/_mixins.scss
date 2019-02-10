@@ -18,3 +18,8 @@
            + 'Please make sure it is defined in `$breakpoints` map.';
     }
   }
+
+  @mixin set-fore-back-colors($fore-color,$back-color) {
+    background-color: $back-color;
+    color:$fore-color;
+  }

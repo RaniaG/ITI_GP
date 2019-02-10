@@ -61,6 +61,9 @@ a {
 ul {
   list-style: none; }
 
+img {
+  width: 100%; }
+
 .row {
   display: flex; }
 
@@ -88,8 +91,21 @@ ul {
 .text--center {
   text-align: center; }
 
+.text--left {
+  text-align: left; }
+
+.text--right {
+  text-align: right; }
+
 .m-auto {
   margin: auto; }
+
+.flipY {
+  transform: rotateY(0deg); }
+  .flipY--right:hover {
+    transform: rotateY(45deg); }
+  .flipY--left:hover {
+    transform: rotateY(-45deg); }
 
 .itemcard {
   width: 27rem;
@@ -333,3 +349,48 @@ ul {
     grid-area: sc3; }
   .adsBanner .scalecard4, .adsBanner .scalecard__img4 {
     grid-area: sc4; }
+
+.collectionCard {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 23.5rem;
+  height: 30rem;
+  background-image: url("../images/9-1-805x1024-front.jpg");
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.3s ease-in-out; }
+  .collectionCard:hover {
+    background-image: url("../images/9-2-805x1024-back.jpg"); }
+    .collectionCard:hover .collectionCard__gradient {
+      display: block; }
+  .collectionCard__transbox {
+    position: absolute;
+    bottom: 0; }
+    .collectionCard__transbox--dark {
+      background-color: rgba(20, 20, 20, 0.8);
+      color: white; }
+    .collectionCard__transbox--light {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #141414; }
+  .collectionCard__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-image: none; }
+    .collectionCard__gradient--toLeft:hover {
+      background-image: linear-gradient(to left, rgba(20, 20, 20, 0.6) 35%, transparent 65%); }
+    .collectionCard__gradient--toRight:hover {
+      background-image: linear-gradient(to right, transparent 35%, rgba(20, 20, 20, 0.6) 65%); }
+
+.collectionCardVeiw {
+  perspective: 1000px;
+  perspective-origin: center;
+  transform-style: preserve-3d; }
