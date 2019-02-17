@@ -9,13 +9,17 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+
     <title>profile</title>
 
 </head>
 
 <body>
-
+    <!-- 
     <div class="itemcard">
         <div class="itemcard__img">
             <div class="itemcard__overlay row justify--content--evenly align--items--center">
@@ -153,8 +157,72 @@
 
         </div>
 
+    </div> -->
+
+    <div class="container">
+        <div class="row p--bottom--lg">
+            <div class="userCard text--center" style="width: 20rem;">
+                <div class="userCard__thumbnail" style="background-image: url('images/Woman.jpg'); "></div>
+                <!-- must be h3 due to css -->
+                <h3>Bassant Fahmy</h3>
+                <p>PRODUCT MANAGER</p>
+                <div class="userCard__socialIconsBox">
+                    <div class="userCard__socialIcon"><i class="fab fa-facebook-f"></i></div>
+                    <div class="userCard__socialIcon"><i class="fab fa-twitter"></i></div>
+                    <div class="userCard__socialIcon"><i class="fab fa-linkedin-in"></i></div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary ml-auto" style=" align-self: center;">
+                <h2>Edit Profile</h2>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Badges</h3>
+                <hr>
+                <img src="images/badges.png">
+            </div>
+            <div class="col-md-6">
+                <h3>View Shop</h3>
+                <hr>
+                <img src="images/shop.jpg">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Cources</h3>
+                <hr>
+                <img src="images/handbag.jpg">
+            </div>
+            <div class="col-md-6">
+                <h3>Recent Activity</h3>
+                <hr>
+                <div class="row">
+                    <div><img src="images/mr.png"></div>
+                    <div>
+                        <p>You don't have any activity yet.</p>
+                        <p>Recent activity will show up here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
