@@ -66,6 +66,9 @@ a {
 ul {
   list-style: none; }
 
+img {
+  width: 100%; }
+
 .row {
   display: flex; }
 
@@ -96,9 +99,21 @@ ul {
 .text--center {
   text-align: center; }
 
+.text--left {
+  text-align: left; }
+
+.text--right {
+  text-align: right; }
+
 .m-auto {
   margin: auto; }
 
+.flipY {
+  transform: rotateY(0deg); }
+  .flipY--right:hover {
+    transform: rotateY(45deg); }
+  .flipY--left:hover {
+    transform: rotateY(-45deg); }
 .p--lg {
   padding: 2rem; }
 
@@ -409,6 +424,50 @@ ul {
   .adsBanner .scalecard4, .adsBanner .scalecard__img4 {
     grid-area: sc4; }
 
+.collectionCard {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 23.5rem;
+  height: 30rem;
+  background-image: url("../images/9-1-805x1024-front.jpg");
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.3s ease-in-out; }
+  .collectionCard:hover {
+    background-image: url("../images/9-2-805x1024-back.jpg"); }
+    .collectionCard:hover .collectionCard__gradient {
+      display: block; }
+  .collectionCard__transbox {
+    position: absolute;
+    bottom: 0; }
+    .collectionCard__transbox--dark {
+      background-color: rgba(20, 20, 20, 0.8);
+      color: white; }
+    .collectionCard__transbox--light {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #141414; }
+  .collectionCard__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-image: none; }
+    .collectionCard__gradient--toLeft:hover {
+      background-image: linear-gradient(to left, rgba(20, 20, 20, 0.6) 35%, transparent 65%); }
+    .collectionCard__gradient--toRight:hover {
+      background-image: linear-gradient(to right, transparent 35%, rgba(20, 20, 20, 0.6) 65%); }
+
+.collectionCardVeiw {
+  perspective: 1000px;
+  perspective-origin: center;
+  transform-style: preserve-3d; }
 .productcard {
   border: 1px solid black;
   overflow: hidden;
@@ -569,5 +628,63 @@ ul {
   .infocard__footer {
     background-color: #ededed; }
   .infocard:hover .infocard__overlay {
+
     opacity: 1;
     height: 100%; }
+
+
+
+.card {
+  position: relative;
+  width: 35rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column; }
+  .card__img {
+    height: 23rem;
+    overflow: hidden; }
+    .card__img__item {
+      width: 100%;
+      height: 24rem;
+      transition: 0.3s ease-in-out; }
+      .card__img__item:hover {
+        transform: scale(1.15); }
+  .card__hearder {
+    display: flex;
+    align-items: flex-end; }
+  .card__posteddate {
+    width: 6rem;
+    text-align: center;
+    padding: 1rem;
+    margin-right: 1rem;
+    background: #00a5b2;
+    color: white; }
+    .card__posteddate a {
+      color: white; }
+  .card__title a {
+    color: black; }
+    .card__title a:hover {
+      color: #00a5b2; }
+  .card__body {
+    position: absolute;
+    top: 18rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column; }
+    .card__body span {
+      font-size: 1.5rem;
+      font-style: normal;
+      line-height: 1.4; }
+  .card__content-info {
+    margin: 0.5rem; }
+    .card__content-info span a {
+      color: lightgrey;
+      font-style: italic; }
+  .card__content-details p {
+    font-size: 1.5rem;
+    overflow: hidden;
+    height: 2rem;
+    text-overflow: ellipsis; }
+  .card__content-details p, .card__content-details a {
+    color: gray; }
+
