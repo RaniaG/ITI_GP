@@ -114,6 +114,7 @@ img {
     transform: rotateY(45deg); }
   .flipY--left:hover {
     transform: rotateY(-45deg); }
+
 .p--lg {
   padding: 2rem; }
 
@@ -424,50 +425,6 @@ img {
   .adsBanner .scalecard4, .adsBanner .scalecard__img4 {
     grid-area: sc4; }
 
-.collectionCard {
-  position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  width: 23.5rem;
-  height: 30rem;
-  background-image: url("../images/9-1-805x1024-front.jpg");
-  background-origin: border-box;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transition: all 0.3s ease-in-out; }
-  .collectionCard:hover {
-    background-image: url("../images/9-2-805x1024-back.jpg"); }
-    .collectionCard:hover .collectionCard__gradient {
-      display: block; }
-  .collectionCard__transbox {
-    position: absolute;
-    bottom: 0; }
-    .collectionCard__transbox--dark {
-      background-color: rgba(20, 20, 20, 0.8);
-      color: white; }
-    .collectionCard__transbox--light {
-      background-color: rgba(255, 255, 255, 0.8);
-      color: #141414; }
-  .collectionCard__gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: none;
-    background-image: none; }
-    .collectionCard__gradient--toLeft:hover {
-      background-image: linear-gradient(to left, rgba(20, 20, 20, 0.6) 35%, transparent 65%); }
-    .collectionCard__gradient--toRight:hover {
-      background-image: linear-gradient(to right, transparent 35%, rgba(20, 20, 20, 0.6) 65%); }
-
-.collectionCardVeiw {
-  perspective: 1000px;
-  perspective-origin: center;
-  transform-style: preserve-3d; }
 .productcard {
   border: 1px solid black;
   overflow: hidden;
@@ -688,3 +645,76 @@ img {
   .card__content-details p, .card__content-details a {
     color: gray; }
 
+.collectionCard {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 23.5rem;
+  height: 30rem;
+  background-image: url("../images/9-1-805x1024-front.jpg");
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.3s ease-in-out; }
+  .collectionCard:hover {
+    background-image: url("../images/9-2-805x1024-back.jpg"); }
+    .collectionCard:hover .collectionCard__gradient {
+      display: block; }
+  .collectionCard__transbox {
+    position: absolute;
+    bottom: 0; }
+    .collectionCard__transbox--dark {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white; }
+    .collectionCard__transbox--light {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black; }
+  .collectionCard__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-image: none; }
+    .collectionCard__gradient--toLeft:hover {
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0.6) 35%, transparent 65%); }
+    .collectionCard__gradient--toRight:hover {
+      background-image: linear-gradient(to right, transparent 35%, rgba(0, 0, 0, 0.6) 65%); }
+
+.collectionCardVeiw {
+  perspective: 1000px;
+  perspective-origin: center;
+  transform-style: preserve-3d; }
+
+.userCard {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+  color: black; }
+  .userCard:hover.userCard > h3 {
+    color: #00a5b2; }
+  .userCard:hover.userCard > .userCard__thumbnail {
+    box-shadow: 0 1px 10px -1px rgba(0, 0, 0, 0.2); }
+  .userCard__thumbnail {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-color: aqua;
+    background-size: cover;
+    background-position: center;
+    background-clip: border-box;
+    box-shadow: none; }
+  .userCard__socialIconsBox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
+  .userCard__socialIcon {
+    width: 20%;
+    border-radius: 50%;
+    margin: 0px 2%;
+    padding-top: 20%;
+    background-color: blueviolet; }
