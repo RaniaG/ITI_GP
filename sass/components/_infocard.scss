@@ -12,12 +12,12 @@
     }
     &__img {
         background-image: url("../images/imgt.jpg");
-        height: 267px;
+        height: 26.7rem;
     }
     &__overlay {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
-        height: 100%;
+        height: 10%;
         transition:0.5s;
         opacity: 0;
     }
@@ -26,5 +26,6 @@
     }
     &:hover .infocard__overlay {
         opacity: 1;
+        height: 100%;
     }
 }
