@@ -136,6 +136,27 @@ img {
 .color--primary {
   color: #00a5b2; }
 
+.nav-bar {
+  padding: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+  .nav-bar .logo-container {
+    height: 10rem;
+    width: 15rem; }
+    .nav-bar .logo-container .logo {
+      float: left; }
+  .nav-bar .search-box {
+    float: right; }
+    .nav-bar .search-box .search {
+      height: 2rem;
+      border-radius: .5rem;
+      padding: .1rem; }
+    .nav-bar .search-box .fa-search:hover {
+      color: #00a5b2;
+      cursor: pointer; }
+
 .price {
   font-family: Lora, Helvetica, Arial, sans-serif;
   display: inline-block; }
@@ -641,6 +662,76 @@ img {
     text-overflow: ellipsis; }
   .card__content-details p, .card__content-details a {
     color: gray; }
+
+.drop-downs-container {
+  display: flex;
+  flex-direction: row; }
+  .drop-downs-container .drop-down-list {
+    position: relative; }
+    .drop-downs-container .drop-down-list:hover .list-container--visibility {
+      visibility: visible;
+      opacity: 1; }
+    .drop-downs-container .drop-down-list .list-title {
+      line-height: 100%;
+      margin-top: 0;
+      margin-right: 2rem;
+      margin-bottom: 0;
+      color: #666666;
+      border-right: .1rem solid #88888841;
+      padding: .5rem;
+      transition: ease-in .4s; }
+      .drop-downs-container .drop-down-list .list-title:hover {
+        color: #00a5b2; }
+        .drop-downs-container .drop-down-list .list-title:hover + .list-container--visibility {
+          visibility: visible;
+          opacity: 1;
+          top: 2.5rem; }
+    .drop-downs-container .drop-down-list .list-container {
+      position: absolute;
+      top: 3.5rem;
+      background-color: #00a5b2;
+      width: 11rem;
+      padding: 1rem 0;
+      padding-left: 0;
+      visibility: hidden;
+      transition: ease-in .4s;
+      opacity: 0;
+      box-shadow: 5px 5px #88888893; }
+      .drop-downs-container .drop-down-list .list-container--visibility:hover {
+        visibility: visible;
+        opacity: 1; }
+      .drop-downs-container .drop-down-list .list-container .list {
+        list-style: none; }
+        .drop-downs-container .drop-down-list .list-container .list li {
+          position: relative;
+          list-style: none;
+          margin-bottom: 1rem; }
+          .drop-downs-container .drop-down-list .list-container .list li .fa-angle-right {
+            color: white;
+            float: right;
+            margin-right: .5rem;
+            transition: .3s; }
+          .drop-downs-container .drop-down-list .list-container .list li .list-item, .drop-downs-container .drop-down-list .list-container .list li .sub-list-item {
+            color: white;
+            font-size: 18px;
+            transition: .3s;
+            font-weight: bold;
+            text-decoration: none; }
+          .drop-downs-container .drop-down-list .list-container .list li .sub-list {
+            top: 0;
+            left: 9rem; }
+            .drop-downs-container .drop-down-list .list-container .list li .sub-list:hover {
+              visibility: visible;
+              opacity: 1; }
+          .drop-downs-container .drop-down-list .list-container .list li:hover .fa-angle-right {
+            color: #666666; }
+          .drop-downs-container .drop-down-list .list-container .list li:hover .list-item {
+            color: #666666; }
+          .drop-downs-container .drop-down-list .list-container .list li:hover .sub-list {
+            visibility: visible;
+            opacity: 1; }
+        .drop-downs-container .drop-down-list .list-container .list .sub-list-item:hover {
+          color: #666666; }
 
 .collectionCard {
   position: relative;

@@ -1,0 +1,34 @@
+.nav-bar
+{
+    padding: 5rem;
+    .logo-container
+    {
+        height: 10rem;
+        width: 15rem;
+        .logo{
+            float: left;
+        }
+    }
+   
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+
+.search-box
+{
+    float: right;
+    .search
+{
+    height: 2rem;
+    border-radius: .5rem;
+    padding: .1rem;
+}
+.fa-search{
+&:hover{
+    color: $color-primary;
+    cursor: pointer;
+}
+}
+}
+}
