@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <style>
+        .cover {
+            height: 200px;
+            background-color: red;
+            background-size: contain;
+            background-repeat: round;
+        }
+
+        .shop-photo {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            background-size: contain;
+            background-repeat: round;
+            position: absolute;
+            top: -200%;
+            left: 8%;
+        }
+
+        .user-profile {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            background-size: contain;
+            background-repeat: round;
+            border-radius: 50%;
+        }
+
+        .slide-img {
+            height: 300px;
+            background-size: cover;
+            background-repeat: round;
+        }
+
+        .no-gutters {
+            padding-left: 0px;
+            padding-right: 0px;
+
+        }
+
+        .no-gutters [class^=".col"] {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        .list {
+            height: 200px;
+            display: flex;
+            flex-flow: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid no-gutters">
+        <div class="row no-gutters">
+            <div class="col-12">
+                <div class="cover" style="background-image:url('images/vendor-bg.jpg')">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid no-gutters">
+        <div class="row no-gutters justify-content-center" style="position: relative">
+            <div class="shop-photo"></div>
+            <div class="col-6">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Shop name</h1>
+                    <div>
+                        <div><span>12</span> Followers</div>
+                        <div><span>100</span> Products</div>
+                    </div>
+                    <div>
+                        <div><span>12</span> Sales</div>
+                        <div><span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span></div>
+                    </div>
+                    <div class="user-profile" style="background-image:url('images/vendor-avatar.jpg')"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid no-gutters mt-5">
+
+        <div class="row justify-content-center no-gutters">
+            <div class="col-12">
+                <h2 class="text-center">Recent Products</h2>
+                <div class="owl-carousel owl-theme mt-5">
+                    <div class="item">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5 mb-5">
+
+        <div class="row">
+            <div class="col-2">
+                <h4>Filters</h4>
+                <div class='mt-5'>
+                    <h5>Categories</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Shoes</li>
+                        <li class="list-group-item active">Bags</li>
+                        <li class="list-group-item">Scarf</li>
+                        <li class="list-group-item">Carpet</li>
+                        <li class="list-group-item">Accessories</li>
+                    </ul>
+                </div>
+                <div class='mt-5'>
+                    <label for="customRange3">
+                        <h5>Price</h5>
+                    </label>
+                    <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+                </div>
+                <div class='mt-5'>
+                    <h5>Sellers</h5>
+                    <div class="d-flex justify-content-center flex-column">
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="">
+                            <label class="form-check-label" for="">Crochet shop</label>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="">
+                            <label class="form-check-label" for="">Glass shop</label>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="">
+                            <label class="form-check-label" for="">Embroidery shop</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="row justify-content-between">
+                    <div class="col-3">
+                        <p>Showing results of "query"</p>
+                        <div>
+                            <span class="badge badge-primary">
+                                filter 1 <i class="fas fa-minus-circle fa-md"></i>
+                            </span>
+                            <span class="badge badge-primary">
+                                filter 2 <i class="fas fa-minus-circle fa-md"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sort by
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Price high to low</a>
+                                <a class="dropdown-item" href="#">Price low to high</a>
+                                <a class="dropdown-item" href="#">Highest rated</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 mt-5">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 mt-5">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 mt-5">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 mt-5">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 mt-5">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 mt-5">
+                        <div class="card">
+                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <div>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star checked fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                        <span class="fa fa-star fa-xs"></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5>$20</h5>
+                                    <div>
+                                        <a href=""><i class="fas fa-search"></i></a>
+                                        <a href=""><i class="fas fa-cart-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 d-flex justify-content-end">
+                        <nav aria-label="Page navigation example ">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src="owlcarousel/owl.carousel.min.js"></script>
+<script>
+    $('.carousel').carousel();
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 5
+            }
+        }
+    })
+</script>
+
+</html>
