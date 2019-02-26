@@ -137,16 +137,12 @@ img {
   color: #00a5b2; }
 
 .nav-bar {
-  padding: 5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between; }
-  .nav-bar .logo-container {
-    height: 10rem;
-    width: 15rem; }
-    .nav-bar .logo-container .logo {
-      float: left; }
+  .nav-bar .logo-container .logo {
+    float: left; }
   .nav-bar .search-box {
     float: right; }
     .nav-bar .search-box .search {

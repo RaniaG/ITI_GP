@@ -17,7 +17,7 @@
             background-size: contain;
             background-repeat: round;
         }
-
+        
         .shop-photo {
             width: 200px;
             height: 200px;
@@ -25,10 +25,11 @@
             background-size: contain;
             background-repeat: round;
             position: absolute;
-            top: -200%;
+            top: -50%;
             left: 8%;
+            border-radius: 50%;
         }
-
+        
         .user-profile {
             width: 50px;
             height: 50px;
@@ -37,28 +38,27 @@
             background-repeat: round;
             border-radius: 50%;
         }
-
+        
         .slide-img {
             height: 300px;
             background-size: cover;
             background-repeat: round;
         }
-
+        
         .no-gutters {
             padding-left: 0px;
             padding-right: 0px;
-
         }
-
+        
         .no-gutters [class^=".col"] {
             padding-left: 0px;
             padding-right: 0px;
         }
-
+        
         .checked {
             color: orange;
         }
-
+        
         .list {
             height: 200px;
             display: flex;
@@ -67,14 +67,27 @@
             justify-content: space-between;
             align-content: space-between;
         }
+        
+        .fas,
+        .far {
+            cursor: pointer;
+        }
+        
+        .img-label {
+            color: white;
+            position: absolute;
+            left: 0%;
+            padding: 6px;
+            border-radius: 0% 20%;
+        }
     </style>
 </head>
 
 <body>
+    <!--nav bar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -87,8 +100,7 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -108,37 +120,106 @@
             </form>
         </div>
     </nav>
+    <!--cover-->
     <div class="container-fluid no-gutters">
         <div class="row no-gutters">
             <div class="col-12">
-                <div class="cover" style="background-image:url('images/vendor-bg.jpg')">
+                <div class="cover d-flex justify-content-end" style="background-image:url('images/vendor-bg.jpg')">
+                    <div style="position:absolute">
+                        <i class="far fa-edit fa-lg"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--shop header-->
     <div class="container-fluid no-gutters">
+        <div class="row justify-content-end">
+            <div class="col-3">
+                <span class="badge badge-secondary" style="cursor:pointer">Report</span>
+            </div>
+
+        </div>
         <div class="row no-gutters justify-content-center" style="position: relative">
-            <div class="shop-photo"></div>
+            <div class="col-3">
+                <div class="shop-photo d-flex justify-content-center align-items-center">
+                    <div style="position:absolute">
+                        <i class="far fa-edit fa-lg"></i>
+                    </div>
+                </div>
+            </div>
             <div class="col-6">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h1>Shop name</h1>
                     <div>
-                        <div><span>12</span> Followers</div>
-                        <div><span>100</span> Products</div>
+                        <h1>Shop name</h1>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div><span>12</span> Followers</div>
+                            <span>|</span>
+                            <div><span>100</span> Products</div>
+                        </div>
+                        <div><span>50</span> Sales</div>
                     </div>
+
                     <div>
-                        <div><span>12</span> Sales</div>
                         <div><span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span></div>
+                            <span class="fa fa-star"></span>
+                            <span>(300)</span>
+                        </div>
                     </div>
                     <div class="user-profile" style="background-image:url('images/vendor-avatar.jpg')"></div>
+
                 </div>
+            </div>
+            <div class="col-1 d-flex flex-column justify-content-end pl-4">
+                <button type="button" class="btn btn-secondary">Follow</button>
+                <button type="button" class="btn btn-secondary ">Unfollow</button>
+            </div>
+        </div>
+
+    </div>
+    <!--shop nav bar-->
+    <div class="container-fluid no-gutters">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav justify-content-center bg-secondary p-3" style="filter:opacity(50%);">
+                    <li class="nav-item">
+                        <a class="nav-link  text-light " href="#">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light " href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light " href="#">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light " href="#">Edit shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light " href="#">Dashboard</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+    <!--Overview -->
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 mt-5">
+                <h2 class='text-center'>About</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt
+                    modi sint.</p>
+            </div>
+            <div class="col-12 mt-5">
+                <h2 class='text-center'>Policies and Returns</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt
+                    modi sint.</p>
+            </div>
+        </div>
+    </div>
+    <!--Recent products-->
     <div class="container-fluid no-gutters mt-5">
 
         <div class="row justify-content-center no-gutters">
@@ -349,6 +430,8 @@
             </div>
         </div>
     </div>
+    <hr>
+    <!--listing-->
     <div class="container-fluid mt-5 mb-5">
 
         <div class="row">
@@ -370,23 +453,7 @@
                     </label>
                     <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
                 </div>
-                <div class='mt-5'>
-                    <h5>Sellers</h5>
-                    <div class="d-flex justify-content-center flex-column">
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="">
-                            <label class="form-check-label" for="">Crochet shop</label>
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="">
-                            <label class="form-check-label" for="">Glass shop</label>
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="">
-                            <label class="form-check-label" for="">Embroidery shop</label>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="col-10">
                 <div class="row justify-content-between">
@@ -403,8 +470,7 @@
                     </div>
                     <div class="col-3">
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Sort by
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -418,7 +484,17 @@
                 <div class="row">
                     <div class="col-3 mt-5">
                         <div class="card">
-                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="d-flex justify-content-end" style="position:relative; ">
+                                <div style="position:absolute">
+                                    <i class="far fa-edit fa-2x"></i>
+                                    <i class="far fa-trash-alt fa-2x"></i>
+                                </div>
+                                <div class="img-label bg-primary">
+                                    Featured
+                                </div>
+
+                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            </div>
                             <div class="card-body">
 
                                 <div class="d-flex justify-content-between">
@@ -443,7 +519,16 @@
                     </div>
                     <div class="col-3 mt-5">
                         <div class="card">
-                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="d-flex justify-content-end" style="position:relative; ">
+                                <div style="position:absolute">
+                                    <i class="far fa-edit fa-2x"></i>
+                                    <i class="far fa-trash-alt fa-2x"></i>
+                                </div>
+                                <div class="img-label bg-primary">
+                                    Sale
+                                </div>
+                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            </div>
                             <div class="card-body">
 
                                 <div class="d-flex justify-content-between">
@@ -468,7 +553,16 @@
                     </div>
                     <div class="col-3 mt-5">
                         <div class="card">
-                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="d-flex justify-content-end" style="position:relative; ">
+                                <div style="position:absolute">
+                                    <i class="far fa-edit fa-2x"></i>
+                                    <i class="far fa-trash-alt fa-2x"></i>
+                                </div>
+                                <div class="img-label bg-primary">
+                                    Sale
+                                </div>
+                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            </div>
                             <div class="card-body">
 
                                 <div class="d-flex justify-content-between">
@@ -493,7 +587,16 @@
                     </div>
                     <div class="col-3 mt-5">
                         <div class="card">
-                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="d-flex justify-content-end" style="position:relative; ">
+                                <div style="position:absolute">
+                                    <i class="far fa-edit fa-2x"></i>
+                                    <i class="far fa-trash-alt fa-2x"></i>
+                                </div>
+                                <div class="img-label bg-primary">
+                                    Sale
+                                </div>
+                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            </div>
                             <div class="card-body">
 
                                 <div class="d-flex justify-content-between">
@@ -518,7 +621,16 @@
                     </div>
                     <div class="col-3 mt-5">
                         <div class="card">
-                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <div class="d-flex justify-content-end" style="position:relative; ">
+                                <div style="position:absolute">
+                                    <i class="far fa-edit fa-2x"></i>
+                                    <i class="far fa-trash-alt fa-2x"></i>
+                                </div>
+                                <div class="img-label bg-primary">
+                                    Sale
+                                </div>
+                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            </div>
                             <div class="card-body">
 
                                 <div class="d-flex justify-content-between">
@@ -543,26 +655,9 @@
                     </div>
                     <div class="col-3 mt-5">
                         <div class="card">
-                            <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                            <img src="images/plus-icon.png" class="card-img-top" alt="...">
                             <div class="card-body">
-
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Card Title</h5>
-                                    <div>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <h5>$20</h5>
-                                    <div>
-                                        <a href=""><i class="fas fa-search"></i></a>
-                                        <a href=""><i class="fas fa-cart-plus"></i></a>
-                                    </div>
-                                </div>
+                                <h5 class="card-title">Add New Card</h5>
                             </div>
                         </div>
                     </div>
@@ -585,16 +680,145 @@
             </div>
         </div>
     </div>
+    <hr>
+    <!--Reviews-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center m-5">Reviews</h1>
+                    <div class="card mb-3 border-0">
+                        <div class="row no-gutters border-top-0">
+                            <div class="col-md-2 d-flex flex-column align-items-center">
+                                <div class="user-profile">
+                                </div>
+                                <h5>User name</h5>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body ">
+                                    <div class="card-title">
+                                        <h5>Review Title <small class="text-muted">Posted 3 mins ago</small></h5>
+                                        <div>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star fa-xs"></span>
+                                            <span class="fa fa-star fa-xs"></span>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="card mb-3 border-0">
+                        <div class="row no-gutters border-top-0">
+                            <div class="col-md-2 d-flex flex-column align-items-center">
+                                <div class="user-profile">
+                                </div>
+                                <h5>User name</h5>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body ">
+                                    <div class="card-title">
+                                        <h5>Review Title <small class="text-muted">Posted 3 mins ago</small></h5>
+                                        <div>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star fa-xs"></span>
+                                            <span class="fa fa-star fa-xs"></span>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="card mb-3 border-0">
+                        <div class="row no-gutters border-top-0">
+                            <div class="col-md-2 d-flex flex-column align-items-center">
+                                <div class="user-profile">
+                                </div>
+                                <h5>User name</h5>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body ">
+                                    <div class="card-title">
+                                        <h5>Review Title <small class="text-muted">Posted 3 mins ago</small></h5>
+                                        <div>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star fa-xs"></span>
+                                            <span class="fa fa-star fa-xs"></span>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="card mb-3 border-0">
+                        <div class="row no-gutters border-top-0">
+                            <div class="col-md-2 d-flex flex-column align-items-center">
+                                <div class="user-profile">
+                                </div>
+                                <h5>User name</h5>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body ">
+                                    <div class="card-title">
+                                        <h5>Review Title <small class="text-muted">Posted 3 mins ago</small></h5>
+                                        <div>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star checked fa-xs"></span>
+                                            <span class="fa fa-star fa-xs"></span>
+                                            <span class="fa fa-star fa-xs"></span>
+                                        </div>
+                                    </div>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <h3>Leave a review</h3>
+            </div>
+            <div class="col-9">
+                <form>
+                    <div>
+                        <span class="fa fa-star checked fa-xs"></span>
+                        <span class="fa fa-star checked fa-xs"></span>
+                        <span class="fa fa-star checked fa-xs"></span>
+                        <span class="fa fa-star fa-xs"></span>
+                        <span class="fa fa-star fa-xs"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Review Title</label>
+                        <input type="text" class="form-control" id="">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Description</label>
+                        <textarea class="form-control" id="" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="owlcarousel/owl.carousel.min.js"></script>
 <script>
     $('.carousel').carousel();
