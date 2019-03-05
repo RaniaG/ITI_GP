@@ -20,13 +20,18 @@
 
 <body>
 
+    <style>
+        #form2 {
+            display: none;
+        }
+    </style>
     <div class="container">
         <h1>Create Shop</h1>
         <div class="progress">
             <div class="progress-bar bg-danger" role="progressbar" style="width: 33.3%" aria-valuenow="15"
                 aria-valuemin="0" aria-valuemax="100">Name your shop</div>
             <div class="progress-bar bg-info " role="progressbar" style="width: 33.3%" aria-valuenow="20"
-                aria-valuemin="0" aria-valuemax="100">Stock your shop</div>
+                aria-valuemin="0" aria-valuemax="100">add shop photo</div>
             <div class="progress-bar bg-success " role="progressbar" style="width: 33.3%" aria-valuenow="20"
                 aria-valuemin="0" aria-valuemax="100">How you'll get paid
             </div>
@@ -34,21 +39,13 @@
 
 
 
-        <form id="form1">
+        <form id="form1" class="f1">
             <div class="input-group pt-5">
                 <input type="text" class="form-control" placeholder="shop name" aria-label="Recipient's username"
                     aria-describedby="basic-addon2">
                 <span class="input-group-addon" id="basic-addon2">Check Availabilty</span>
             </div>
 
-
-            <div class="form-group pt-5">
-                <label for="exampleFormControlSelect1">Shop language *</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>English</option>
-                    <option>Arabic</option>
-                </select>
-            </div>
 
             <div class="form-group pt-5">
                 <label for="exampleFormControlSelect1">Shop country *</label>
@@ -61,24 +58,37 @@
                 <label for="exampleFormControlTextarea1">About</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-           
+
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Policies and Returns</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-          
-            <button class="btn btn-success" onclick="form2()">next</button>
+
+            <button type="button" class="btn btn-success" onclick="showform2()">next</button>
             <button class="btn btn-secondary">cancel</button>
 
         </form>
-        <form id="form2"></form>
+        <form id="form2">
+            <div class="col-3 my-5">
+                <div class="card">
+                    <img src="images/plus-icon.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Add shop photo</h5>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success " onclick="showform2()">next</button>
+            <button class="btn btn-secondary">cancel</button>
+
+        </form>
     </div>
     <script>
-        var form1 = document.getElementById(form1);
-        var form2 = document.getElementById(form2);
-        function form2() {
-            form1.style.display = "none";
+
+        var form2 = document.querySelector('#form2');
+        var f1 = document.querySelector('.f1');
+        function showform2() {
+            f1.style.display = "none";
             form2.style.display = "block";
         }
     </script>
