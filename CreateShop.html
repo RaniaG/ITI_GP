@@ -20,21 +20,55 @@
 
 <body>
 
+
+    <style>
+        #form2 {
+            display: none;
+        }
+
+        .cover {
+            height: 200px;
+            background-size: cover;
+            position: relative;
+
+        }
+
+        .shop-photo {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 45%;
+            left: 4%;
+        }
+
+
+
+        .no-gutters {
+            padding-left: 0px;
+            padding-right: 0px;
+
+        }
+
+        .no-gutters [class^=".col"] {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    </style>
     <div class="container">
         <h1>Create Shop</h1>
         <div class="progress">
             <div class="progress-bar bg-danger" role="progressbar" style="width: 33.3%" aria-valuenow="15"
                 aria-valuemin="0" aria-valuemax="100">Name your shop</div>
             <div class="progress-bar bg-info " role="progressbar" style="width: 33.3%" aria-valuenow="20"
-                aria-valuemin="0" aria-valuemax="100">Stock your shop</div>
+                aria-valuemin="0" aria-valuemax="100">add shop photo</div>
             <div class="progress-bar bg-success " role="progressbar" style="width: 33.3%" aria-valuenow="20"
-                aria-valuemin="0" aria-valuemax="100">How you'll get paid
+                aria-valuemin="0" aria-valuemax="100">Address
             </div>
         </div>
 
 
 
-        <form id="form1">
+        <form id="form1" class="f1">
             <div class="input-group pt-5">
                 <input type="text" class="form-control" placeholder="shop name" aria-label="Recipient's username"
                     aria-describedby="basic-addon2">
@@ -42,44 +76,99 @@
             </div>
 
 
-            <div class="form-group pt-5">
-                <label for="exampleFormControlSelect1">Shop language *</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>English</option>
-                    <option>Arabic</option>
-                </select>
-            </div>
-
-            <div class="form-group pt-5">
-                <label for="exampleFormControlSelect1">Shop country *</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Egypt</option>
-                    <option>US</option>
-                </select>
-            </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">About</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-           
+
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Policies and Returns</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-          
-            <button class="btn btn-success" onclick="form2()">next</button>
+
+            <button type="button" class="btn btn-success" onclick="showform2()">next</button>
             <button class="btn btn-secondary">cancel</button>
 
         </form>
-        <form id="form2"></form>
+        <form id="form2">
+            <div class="container-fluid no-gutters">
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <div class="cover" style="background-color: burlywood;position: relative;">
+                            <img src="images/plus-icon.png" style="position: absolute;width: 30px;
+                                ">
+                        </div>
+
+                        <div class="shop-photo" style="background-color: blanchedalmond;border-radius: 50%; ">
+                            <img src="images/plus-icon.png" style="position: absolute;width: 30px;top: 93px;
+                                left: 84px;">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success " style="margin-top: 120px" onclick="showform3()">next</button>
+            <button class="btn btn-secondary" style="margin-top: 120px">cancel</button>
+
+        </form>
+        <form id="form3">
+            <div class="col-12 my-5">
+
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Shop country *</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Egypt</option>
+                        <option>US</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">City*</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Cairo</option>
+                        <option>Alex</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">District*</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>October</option>
+                        <option>Haram</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">street</label>
+                    <input type="text" class="form-control" id="">
+                </div>
+                <div class="form-group">
+                    <label for="">Postal Code</label>
+                    <input type="text" class="form-control" id="">
+                </div>
+
+
+
+            </div>
+            <button type="button" class="btn btn-success " onclick="showform3()">next</button>
+            <button class="btn btn-secondary">cancel</button>
+
+        </form>
     </div>
     <script>
-        var form1 = document.getElementById(form1);
-        var form2 = document.getElementById(form2);
-        function form2() {
-            form1.style.display = "none";
+
+        var form2 = document.querySelector('#form2');
+        var f1 = document.querySelector('.f1');
+        form3.style.display = "none";
+        function showform2() {
+            f1.style.display = "none";
             form2.style.display = "block";
+            form3.style.display = "none";
+        }
+        function showform3() {
+            f1.style.display = "none";
+            form2.style.display = "none";
+            form3.style.display = "block";
         }
     </script>
 
