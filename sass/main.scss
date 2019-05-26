@@ -2,18 +2,31 @@
 
 @import url('https://fonts.googleapis.com/css?family=Heebo');
 @import url('https://fonts.googleapis.com/css?family=Lora');
+
+
 @import 'abstracts/variables';
 @import 'abstracts/functions';
 @import 'abstracts/mixins';
 @import 'abstracts/placeholders';
+
+
 // @import 'vendor/';
+@import 'vendor/custom';
+
+
+
+
 @import 'base/base';
 @import 'base/animations';
 @import 'base/typography';
 @import 'base/utilities';
+
+
 @import 'layout/navigation';
 @import 'layout/header';
 @import 'layout/footer';
+@import 'layout/section';
+
 // @import 'component/';
 @import 'components/prices';
 @import 'components/rating';
@@ -26,8 +39,11 @@
 @import 'components/infocard';
 @import 'components/blogCard';
 @import 'components/dropDown';
-
-@import 'pages/home';
-
 @import 'components/collectionCard';
 @import 'components/userCard';
+
+@import 'pages/home';
+@import 'pages/shop';
+
+
+
