@@ -15,8 +15,16 @@ $font-family-base:$font-1;
     }
 }
 
+.input-group-text{
+    color:white !important;
+    background-color:$primary !important;
+}
+
 
 
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
+.input-group-text{
+    background-color:rgb(111, 122, 143);
+}

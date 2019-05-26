@@ -15,6 +15,10 @@
     padding-left: 0px;
     padding-right: 0px; }
 
+.input-group-text {
+  color: white !important;
+  background-color: #00a5b2 !important; }
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -7037,6 +7041,9 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+.input-group-text {
+  background-color: #6f7a8f; }
+
 * {
   padding: 0px;
   margin: 0px;
@@ -7137,6 +7144,9 @@ img {
     transform: rotateY(45deg); }
   .flipY--left:hover {
     transform: rotateY(-45deg); }
+
+.m--top--md {
+  margin-top: 5.5rem; }
 
 .p--lg {
   padding: 2rem; }
@@ -7861,3 +7871,19 @@ img {
 .shop .fas,
 .shop .far {
   cursor: pointer; }
+
+.cover {
+  height: 200px;
+  background-size: cover;
+  position: relative; }
+
+.shop-photo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 45%;
+  left: 4%; }
+
+.no-gutters {
+  padding-left: 0px;
+  padding-right: 0px; }
