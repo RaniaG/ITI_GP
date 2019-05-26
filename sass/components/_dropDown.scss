@@ -37,7 +37,7 @@
      position: absolute;
      top:3.5rem;
     background-color: $color-primary;
-    width: 11rem;
+    //width: 11rem;
     padding: 1rem 0;
     padding-left: 0;
     visibility: hidden;
@@ -51,13 +51,16 @@
         }
     }
    
-    .list
+    .nav-list
  {
      list-style: none;
+     padding: 0 2rem 0 2rem;
      li{
+         white-space: nowrap;
          position: relative;
         list-style: none;
-        margin-bottom: 1rem;  
+        margin-bottom: 1rem; 
+        margin-right: 2rem; 
         .fa-angle-right{
          color: $white;
          float: right;
@@ -72,9 +75,9 @@
        transition: .3s;
        font-weight: bold;
        text-decoration: none;
-      
-      
-      
+       display: flex;
+       flex-direction: row;
+
       }
       .sub-list{
          top:0;
