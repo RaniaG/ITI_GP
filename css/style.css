@@ -15,6 +15,10 @@
     padding-left: 0px;
     padding-right: 0px; }
 
+.thead-primary {
+  background-color: #00a5b2;
+  color: white; }
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -7095,9 +7099,6 @@ a {
 ul {
   list-style: none; }
 
-img {
-  width: 100%; }
-
 .row {
   display: flex; }
 
@@ -7164,6 +7165,11 @@ img {
 
 .color--primary {
   color: #00a5b2; }
+
+.u-title {
+  color: #00a5b2;
+  font-size: 3rem;
+  font-weight: 600; }
 
 .nav-bar {
   display: flex;
