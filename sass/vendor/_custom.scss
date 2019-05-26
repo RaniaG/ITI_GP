@@ -21,10 +21,9 @@ $font-family-base:$font-1;
 }
 
 
-
+.thead-primary{
+    background-color: $primary;
+    color:white;
+}
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
-
-.input-group-text{
-    background-color:rgb(111, 122, 143);
-}

@@ -19,6 +19,10 @@
   color: white !important;
   background-color: #00a5b2 !important; }
 
+.thead-primary {
+  background-color: #00a5b2;
+  color: white; }
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -7041,9 +7045,6 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-.input-group-text {
-  background-color: #6f7a8f; }
-
 * {
   padding: 0px;
   margin: 0px;
@@ -7095,9 +7096,6 @@ a {
 
 ul {
   list-style: none; }
-
-img {
-  width: 100%; }
 
 .row {
   display: flex; }
@@ -7169,6 +7167,11 @@ img {
 .color--primary {
   color: #00a5b2; }
 
+.u-title {
+  color: #00a5b2;
+  font-size: 3rem;
+  font-weight: 600; }
+
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -7185,6 +7188,23 @@ img {
     .nav-bar .search-box .fa-search:hover {
       color: #00a5b2;
       cursor: pointer; }
+
+.header {
+  height: 20rem;
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10rem; }
+  .header__title {
+    font-size: 3rem;
+    color: #00a5b2;
+    font-weight: 600; }
+  .header__path {
+    font-size: 1.2rem; }
+  .header .fas {
+    font-size: 4rem; }
 
 .section {
   margin-top: 5rem;
@@ -7622,60 +7642,6 @@ img {
     opacity: 1;
     height: 100%; }
 
-.card {
-  position: relative;
-  width: 35rem;
-  margin: 1rem;
-  display: flex;
-  flex-direction: column; }
-  .card__img {
-    height: 23rem;
-    overflow: hidden; }
-    .card__img__item {
-      width: 100%;
-      height: 24rem;
-      transition: 0.3s ease-in-out; }
-      .card__img__item:hover {
-        transform: scale(1.15); }
-  .card__hearder {
-    display: flex;
-    align-items: flex-end; }
-  .card__posteddate {
-    width: 6rem;
-    text-align: center;
-    padding: 1rem;
-    margin-right: 1rem;
-    background: #00a5b2;
-    color: white; }
-    .card__posteddate a {
-      color: white; }
-  .card__title a {
-    color: black; }
-    .card__title a:hover {
-      color: #00a5b2; }
-  .card__body {
-    position: absolute;
-    top: 18rem;
-    padding: 1.25rem;
-    display: flex;
-    flex-direction: column; }
-    .card__body span {
-      font-size: 1.5rem;
-      font-style: normal;
-      line-height: 1.4; }
-  .card__content-info {
-    margin: 0.5rem; }
-    .card__content-info span a {
-      color: lightgrey;
-      font-style: italic; }
-  .card__content-details p {
-    font-size: 1.5rem;
-    overflow: hidden;
-    height: 2rem;
-    text-overflow: ellipsis; }
-  .card__content-details p, .card__content-details a {
-    color: gray; }
-
 .drop-downs-container {
   display: flex;
   flex-direction: row; }
@@ -7703,7 +7669,6 @@ img {
       position: absolute;
       top: 3.5rem;
       background-color: #00a5b2;
-      width: 11rem;
       padding: 1rem 0;
       padding-left: 0;
       visibility: hidden;
@@ -7713,37 +7678,42 @@ img {
       .drop-downs-container .drop-down-list .list-container--visibility:hover {
         visibility: visible;
         opacity: 1; }
-      .drop-downs-container .drop-down-list .list-container .list {
-        list-style: none; }
-        .drop-downs-container .drop-down-list .list-container .list li {
+      .drop-downs-container .drop-down-list .list-container .nav-list {
+        list-style: none;
+        padding: 0 2rem 0 2rem; }
+        .drop-downs-container .drop-down-list .list-container .nav-list li {
+          white-space: nowrap;
           position: relative;
           list-style: none;
-          margin-bottom: 1rem; }
-          .drop-downs-container .drop-down-list .list-container .list li .fa-angle-right {
+          margin-bottom: 1rem;
+          margin-right: 2rem; }
+          .drop-downs-container .drop-down-list .list-container .nav-list li .fa-angle-right {
             color: white;
             float: right;
             margin-right: .5rem;
             transition: .3s; }
-          .drop-downs-container .drop-down-list .list-container .list li .list-item, .drop-downs-container .drop-down-list .list-container .list li .sub-list-item {
+          .drop-downs-container .drop-down-list .list-container .nav-list li .list-item, .drop-downs-container .drop-down-list .list-container .nav-list li .sub-list-item {
             color: white;
             font-size: 18px;
             transition: .3s;
             font-weight: bold;
-            text-decoration: none; }
-          .drop-downs-container .drop-down-list .list-container .list li .sub-list {
+            text-decoration: none;
+            display: flex;
+            flex-direction: row; }
+          .drop-downs-container .drop-down-list .list-container .nav-list li .sub-list {
             top: 0;
             left: 9rem; }
-            .drop-downs-container .drop-down-list .list-container .list li .sub-list:hover {
+            .drop-downs-container .drop-down-list .list-container .nav-list li .sub-list:hover {
               visibility: visible;
               opacity: 1; }
-          .drop-downs-container .drop-down-list .list-container .list li:hover .fa-angle-right {
+          .drop-downs-container .drop-down-list .list-container .nav-list li:hover .fa-angle-right {
             color: #666666; }
-          .drop-downs-container .drop-down-list .list-container .list li:hover .list-item {
+          .drop-downs-container .drop-down-list .list-container .nav-list li:hover .list-item {
             color: #666666; }
-          .drop-downs-container .drop-down-list .list-container .list li:hover .sub-list {
+          .drop-downs-container .drop-down-list .list-container .nav-list li:hover .sub-list {
             visibility: visible;
             opacity: 1; }
-        .drop-downs-container .drop-down-list .list-container .list .sub-list-item:hover {
+        .drop-downs-container .drop-down-list .list-container .nav-list .sub-list-item:hover {
           color: #666666; }
 
 .collectionCard {
@@ -7820,11 +7790,17 @@ img {
     cursor: pointer;
     color: white; }
 
+.listing {
+  width: 90%;
+  margin: auto; }
+  .listing__filters__title {
+    font-size: 2rem;
+    color: #00a5b2; }
+  .listing__filters__categories .list-group-item:hover {
+    cursor: pointer; }
+
 .shop h1, .shop h2 {
   color: #00a5b2; }
-
-.shop-categories .list-group-item:hover {
-  cursor: pointer; }
 
 .shop-slider {
   position: relative; }
