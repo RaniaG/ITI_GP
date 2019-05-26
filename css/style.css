@@ -8,6 +8,13 @@
 /*cuboid slider variables*/
 /*scalecard*/
 /*media query mixin*/
+.no-gutters {
+  padding-left: 0px;
+  padding-right: 0px; }
+  .no-gutters [class^=".col"] {
+    padding-left: 0px;
+    padding-right: 0px; }
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -60,7 +67,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Heebo", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -4156,7 +4163,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Heebo", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -4241,7 +4248,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Heebo", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7030,13 +7037,6 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-.no-gutters {
-  padding-left: 0px;
-  padding-right: 0px; }
-  .no-gutters [class^=".col"] {
-    padding-left: 0px;
-    padding-right: 0px; }
-
 * {
   padding: 0px;
   margin: 0px;
@@ -7482,6 +7482,15 @@ img {
   .productcard .front,
   .productcard .back {
     display: none; }
+  .productcard__controls {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 5;
+    width: 100%; }
+    .productcard__controls button {
+      margin: 0.5rem;
+      box-shadow: 0.1rem 0.1rem grey; }
   .productcard__img {
     width: 100%;
     height: 100%; }

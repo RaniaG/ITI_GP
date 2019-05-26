@@ -1,15 +1,9 @@
 $primary:#00a5b2;
+$font-family-base:$font-1;
 
 
 
 
-
-
-
-
-
-
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 
 .no-gutters {
@@ -20,3 +14,9 @@ $primary:#00a5b2;
         padding-right: 0px;
     }
 }
+
+
+
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
