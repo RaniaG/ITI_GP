@@ -7091,7 +7091,7 @@ a.text-dark:hover, a.text-dark:focus {
     transform: scale(1) rotateY(180deg); } }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer; }
 
 ul {

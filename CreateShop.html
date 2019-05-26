@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -10,32 +9,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
- -->
     <title>Create shop</title>
 </head>
 
 <body>
-    <!-- <style>
-        .input-group-text{
-            background-color:rgb(111, 122, 143);
-        }
-    </style> -->
     <div class="container">
         <h1>Create Shop</h1>
         <div class="progress">
             <div class="progress-bar bg-danger" role="progressbar" style="width: 33.3%" aria-valuenow="15"
-                aria-valuemin="0" aria-valuemax="100">Shop Information</div>
+                aria-valuemin="0" aria-valuemax="100"><a href="#AddShopInfo" class="text-white">Shop Information</a></div>
             <div class="progress-bar bg-info " role="progressbar" style="width: 33.3%" aria-valuenow="20"
-                aria-valuemin="0" aria-valuemax="100">add shop photo</div>
+                aria-valuemin="0" aria-valuemax="100"><a href="#addPhoto" class="text-white">add shop photo</a></div>
             <div class="progress-bar bg-success " role="progressbar" style="width: 33.3%" aria-valuenow="20"
-                aria-valuemin="0" aria-valuemax="100">Address
+                aria-valuemin="0" aria-valuemax="100"><a href="#addAddress" class="text-white">Address</a>
             </div>
         </div>
-
         <form>
-            <div class="form-group pt-4">
+            <div class="form-group pt-4" id="AddShopInfo">
                 <label class="sr-only" for="inlineFormInputGroup">ShopName</label>
                 <div class="input-group mb-2">
 
@@ -59,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" id="addPhoto">
                 <div class="col-md-6 mb-5">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="customFile">
@@ -88,7 +78,7 @@
                 </div>
             </div>
 
-            <div class="form-group pt-3 m--top--md">
+            <div class="form-group pt-3 m--top--md" id="addAddress">
                 <div class="input-group mb-2">
                     <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter Full Address">
                 </div>
@@ -134,28 +124,6 @@
             <button class="mr-auto btn btn-secondary">cancel</button>
         </form>
     </div>
-    <!-- <style>
-        .cover {
-            height: 200px;
-            background-size: cover;
-            position: relative;
-        }
-
-        .shop-photo {
-            width: 200px;
-            height: 200px;
-            position: absolute;
-            top: 45%;
-            left: 4%;
-        }
-
-        .no-gutters {
-            padding-left: 0px;
-            padding-right: 0px;
-        }
-    </style> -->
-
-
 </body>
 
 </html>
