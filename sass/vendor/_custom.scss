@@ -15,6 +15,11 @@ $font-family-base:$font-1;
     }
 }
 
+.input-group-text{
+    color:white !important;
+    background-color:$primary !important;
+}
+
 
 .thead-primary{
     background-color: $primary;
@@ -22,4 +27,3 @@ $font-family-base:$font-1;
 }
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
-

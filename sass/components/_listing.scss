@@ -1,0 +1,15 @@
+.listing{
+    width:90%;
+    margin: auto;
+    &__filters{
+        &__title{
+            font-size:2rem;
+            color:$primary;
+        }
+        &__categories{
+            .list-group-item:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}

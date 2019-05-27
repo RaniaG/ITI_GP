@@ -3,11 +3,7 @@
     h1,h2{
         color:$primary;
     }
-    &-categories{
-        .list-group-item:hover{
-            cursor: pointer;
-        }
-    }
+    
     &-slider{
         position: relative;
         &__controls{

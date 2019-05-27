@@ -15,6 +15,10 @@
     padding-left: 0px;
     padding-right: 0px; }
 
+.input-group-text {
+  color: white !important;
+  background-color: #00a5b2 !important; }
+
 .thead-primary {
   background-color: #00a5b2;
   color: white; }
@@ -7046,6 +7050,7 @@ a.text-dark:hover, a.text-dark:focus {
   margin: 0px;
   box-sizing: border-box; }
 
+<<<<<<< HEAD
 html {
   font-size: 62.5%;
   height: 100%; }
@@ -7054,6 +7059,8 @@ body {
   font-size: 1.6rem;
   height: 100%; }
 
+=======
+>>>>>>> 6173462a0f2b30fd1d038516a010af437980f439
 @keyframes cube_up {
   0% {
     transform: scale(1) rotateX(0deg); }
@@ -7095,7 +7102,7 @@ body {
     transform: scale(1) rotateY(180deg); } }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer; }
 
 ul {
@@ -7147,6 +7154,9 @@ ul {
   .flipY--left:hover {
     transform: rotateY(-45deg); }
 
+.m--top--md {
+  margin-top: 5.5rem; }
+
 .p--lg {
   padding: 2rem; }
 
@@ -7189,6 +7199,23 @@ ul {
     .nav-bar .search-box .fa-search:hover {
       color: #00a5b2;
       cursor: pointer; }
+
+.header {
+  height: 20rem;
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10rem; }
+  .header__title {
+    font-size: 3rem;
+    color: #00a5b2;
+    font-weight: 600; }
+  .header__path {
+    font-size: 1.2rem; }
+  .header .fas {
+    font-size: 4rem; }
 
 .section {
   margin-top: 5rem;
@@ -7774,6 +7801,7 @@ ul {
     cursor: pointer;
     color: white; }
 
+<<<<<<< HEAD
 .bg-img {
   background-image: url("../images/log-in-cover-2.jpg");
   height: 100%;
@@ -7798,12 +7826,19 @@ ul {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   /* Black background with opacity */ }
+=======
+.listing {
+  width: 90%;
+  margin: auto; }
+  .listing__filters__title {
+    font-size: 2rem;
+    color: #00a5b2; }
+  .listing__filters__categories .list-group-item:hover {
+    cursor: pointer; }
+>>>>>>> 6173462a0f2b30fd1d038516a010af437980f439
 
 .shop h1, .shop h2 {
   color: #00a5b2; }
-
-.shop-categories .list-group-item:hover {
-  cursor: pointer; }
 
 .shop-slider {
   position: relative; }
@@ -7850,3 +7885,19 @@ ul {
 .shop .fas,
 .shop .far {
   cursor: pointer; }
+
+.cover {
+  height: 200px;
+  background-size: cover;
+  position: relative; }
+
+.shop-photo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 45%;
+  left: 4%; }
+
+.no-gutters {
+  padding-left: 0px;
+  padding-right: 0px; }
