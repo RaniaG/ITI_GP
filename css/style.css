@@ -7050,7 +7050,6 @@ a.text-dark:hover, a.text-dark:focus {
   margin: 0px;
   box-sizing: border-box; }
 
-<<<<<<< HEAD
 html {
   font-size: 62.5%;
   height: 100%; }
@@ -7059,8 +7058,6 @@ body {
   font-size: 1.6rem;
   height: 100%; }
 
-=======
->>>>>>> 6173462a0f2b30fd1d038516a010af437980f439
 @keyframes cube_up {
   0% {
     transform: scale(1) rotateX(0deg); }
@@ -7801,7 +7798,6 @@ ul {
     cursor: pointer;
     color: white; }
 
-<<<<<<< HEAD
 .bg-img {
   background-image: url("../images/log-in-cover-2.jpg");
   height: 100%;
@@ -7811,7 +7807,8 @@ ul {
 
 .center-div {
   position: absolute;
-  top: 100px; }
+  top: 100px;
+  color: #666666; }
 
 .overlay {
   position: fixed;
@@ -7826,7 +7823,11 @@ ul {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   /* Black background with opacity */ }
-=======
+
+.bg-grey {
+  background-color: #ededed;
+  color: #666666; }
+
 .listing {
   width: 90%;
   margin: auto; }
@@ -7835,7 +7836,6 @@ ul {
     color: #00a5b2; }
   .listing__filters__categories .list-group-item:hover {
     cursor: pointer; }
->>>>>>> 6173462a0f2b30fd1d038516a010af437980f439
 
 .shop h1, .shop h2 {
   color: #00a5b2; }
