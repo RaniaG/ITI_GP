@@ -729,6 +729,41 @@ img {
         .drop-downs-container .drop-down-list .list-container .list .sub-list-item:hover {
           color: #666666; }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap; }
+  .gallery__item {
+    height: auto;
+    width: 25%;
+    background-color: #00a5b2;
+    overflow: hidden; }
+    .gallery__item > img {
+      width: 100%;
+      height: auto;
+      transition: all 1.5s ease-in-out; }
+    .gallery__item :hover {
+      -ms-transform: scale(2, 3);
+      /* IE 9 */
+      -webkit-transform: scale(2, 3);
+      /* Safari */
+      transform: scale(1.15); }
+    .gallery__item__overlay {
+      height: 100%;
+      width: 100%;
+      display: none;
+      transition: .5s ease;
+      background-color: #939393; }
+  .gallery :hover .gallery__item__overlay {
+    display: block; }
+
+@media screen and (max-width: 992px) {
+  .gallery__item {
+    width: 50%; } }
+
+@media screen and (max-width: 600px) {
+  .gallery__item {
+    width: 100%; } }
+
 .collectionCard {
   position: relative;
   display: flex;
