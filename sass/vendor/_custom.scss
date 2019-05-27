@@ -1,0 +1,29 @@
+$primary:#00a5b2;
+$font-family-base:$font-1;
+
+
+
+
+
+
+.no-gutters {
+    padding-left: 0px;
+    padding-right: 0px;
+    & [class^=".col"] {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.input-group-text{
+    color:white !important;
+    background-color:$primary !important;
+}
+
+
+.thead-primary{
+    background-color: $primary;
+    color:white;
+}
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';

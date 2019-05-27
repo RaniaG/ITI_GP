@@ -7,34 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-    <style>
-        .fas,
-        .far {
-            cursor: pointer;
-        }
-        
-        .img-label {
-            color: white;
-            position: absolute;
-            left: 0%;
-            padding: 6px;
-            border-radius: 0% 20%;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <div class="header">
+        <div class="header__title">
+            Products
+        </div>
+        <div class="header__path">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="container-fluid mt-5 mb-5">
 
-        <div class="row">
-            <div class="col-2">
-                <h4>Filters</h4>
+        <div class="row listing">
+            <div class="col-md-2 listing__filters">
                 <div class='mt-5'>
-                    <h5>Categories</h5>
-                    <ul class="list-group list-group-flush">
+                    <div class='listing__filters__title'>Categories</div>
+                    <ul class="list-group list-group-flush listing__filters__categories">
                         <li class="list-group-item">Shoes</li>
                         <li class="list-group-item active">Bags</li>
                         <li class="list-group-item">Scarf</li>
@@ -44,12 +40,12 @@
                 </div>
                 <div class='mt-5'>
                     <label for="customRange3">
-                                <h5>Price</h5>
-                            </label>
+                        <div class='listing__filters__title'>Price</div>
+                    </label>
                     <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
                 </div>
                 <div class='mt-5'>
-                    <h5>Sellers</h5>
+                    <div class='listing__filters__title'>Sellers</div>
                     <div class="d-flex justify-content-center flex-column">
                         <div class="form-group form-check">
                             <input type="checkbox" class="form-check-input" id="">
@@ -65,89 +61,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-5">
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="">
-                        <label class="form-check-label" for="">
-                            <div>
-                                <span class="fa fa-star checked fa-xs"></span>
-                                <span class="fa fa-star checked fa-xs"></span>
-                                <span class="fa fa-star checked fa-xs"></span>
-                                <span class="fa fa-star fa-xs"></span>
-                                <span class="fa fa-star fa-xs"></span>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="">
-                        <label class="form-check-label" for="">
-                                <div>
-                                    <span class="fa fa-star checked fa-xs"></span>
-                                    <span class="fa fa-star checked fa-xs"></span>
-                                    <span class="fa fa-star checked fa-xs"></span>
-                                    <span class="fa fa-star fa-xs"></span>
-                                    <span class="fa fa-star fa-xs"></span>
-                                </div>
-                            </label>
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="">
-                        <label class="form-check-label" for="">
-                                    <div>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                    </div>
-                                </label>
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="">
-                        <label class="form-check-label" for="">
-                                        <div>
-                                            <span class="fa fa-star checked fa-xs"></span>
-                                            <span class="fa fa-star checked fa-xs"></span>
-                                            <span class="fa fa-star checked fa-xs"></span>
-                                            <span class="fa fa-star fa-xs"></span>
-                                            <span class="fa fa-star fa-xs"></span>
-                                        </div>
-                                    </label>
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="">
-                        <label class="form-check-label" for="">
-                                            <div>
-                                                <span class="fa fa-star checked fa-xs"></span>
-                                                <span class="fa fa-star checked fa-xs"></span>
-                                                <span class="fa fa-star checked fa-xs"></span>
-                                                <span class="fa fa-star fa-xs"></span>
-                                                <span class="fa fa-star fa-xs"></span>
-                                            </div>
-                                        </label>
-                    </div>
-
+                <div class='mt-5'>
+                    <div class='listing__filters__title'>Rating</div>
+                    <div class='rating rating--static'>5</div>
+                    <br>
+                    <div class='rating rating--static'>4</div>
+                    <br>
+                    <div class='rating rating--static'>3</div>
+                    <br>
+                    <div class='rating rating--static'>2</div>
+                    <br>
+                    <div class='rating rating--static'>1 </div>
 
                 </div>
             </div>
-            <div class="col-10">
+            <div class="col-md-10">
                 <div class="row justify-content-between">
                     <div class="col-3">
                         <p>Showing results of "query"</p>
-                        <div>
-                            <span class="badge badge-primary">
-                                        filter 1 <i class="fas fa-minus-circle fa-md"></i>
-                                    </span>
-                            <span class="badge badge-primary">
-                                        filter 2 <i class="fas fa-minus-circle fa-md"></i>
-                                    </span>
-                        </div>
                     </div>
-                    <div class="col-3">
+
+                    <div class="col-4 d-flex flex-row justify-content-end align-items-stretch">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="" placeholder="Search">
+                        </div>
                         <div class="dropdown">
-                            <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sort by
-                                    </button>
+                            <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sort by
+                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">Price high to low</a>
                                 <a class="dropdown-item" href="#">Price low to high</a>
@@ -157,186 +99,207 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3 mt-5">
-                        <div class="card">
-                            <div class="d-flex justify-content-end" style="position:relative; ">
-                                <div style="position:absolute">
-                                    <i class="far fa-edit fa-2x"></i>
-                                    <i class="far fa-trash-alt fa-2x"></i>
-                                </div>
-                                <div class="img-label bg-primary">
-                                    Featured
-                                </div>
+                    <div class="col-12">
+                        <div>
+                            <span class="badge badge-primary">
+                                filter 1 <i class="fas fa-minus-circle fa-md"></i>
+                            </span>
+                            <span class="badge badge-primary">
+                                filter 2 <i class="fas fa-minus-circle fa-md"></i>
+                            </span>
+                        </div>
+                    </div>
 
-                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+                        <div class="productcard productcard--vertical ">
+                            <div class="productcard__controls">
+                                <button class='btn btn-primary'><i class="fas fa-pen"></i></button>
+                                <button class='btn btn-primary'><i class="fas fa-minus"></i></button>
                             </div>
-                            <div class="card-body">
-
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Card Title</h5>
-                                    <div>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                    </div>
+                            <div class='productcard__images'>
+                                <img src="./images/image_11-1-300x300.jpg"
+                                    class=' productcard__img productcard__img--front'>
+                                <img src="./images/image_52-300x300.jpg"
+                                    class='productcard__img productcard__img--back'>
+                            </div>
+                            <div class="productcard__title">Product Title</div>
+                            <div class="productcard__body">
+                                <div class="productcard__prices">
+                                    <div class="price price--new price--euro">2.00</div>
+                                    <div class="price price--old price--euro">3.00</div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h5>$20</h5>
-                                    <div>
-                                        <a href=""><i class="fas fa-search"></i></a>
-                                        <a href=""><i class="fas fa-cart-plus"></i></a>
-                                    </div>
+                                <div class="rating rating--static">1.2</div>
+                            </div>
+                            <div class="productcard__buttons">
+                                <div class="productcard__btn">
+                                    <i class="fas fa-shopping-basket fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Cart</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-heart fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Wishlist</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-retweet fa-sm"></i>
+                                    <div class="productcard__btn__title">Compare</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-search fa-sm"></i>
+                                    <div class="productcard__btn__title">View</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 mt-5">
-                        <div class="card">
-                            <div class="d-flex justify-content-end" style="position:relative; ">
-                                <div style="position:absolute">
-                                    <i class="far fa-edit fa-2x"></i>
-                                    <i class="far fa-trash-alt fa-2x"></i>
-                                </div>
-                                <div class="img-label bg-primary">
-                                    Sale
-                                </div>
-                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                    <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+                        <div class="productcard productcard--vertical ">
+                            <div class="productcard__controls">
+                                <button class='btn btn-primary'><i class="fas fa-pen"></i></button>
+                                <button class='btn btn-primary'><i class="fas fa-minus"></i></button>
                             </div>
-                            <div class="card-body">
-
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Card Title</h5>
-                                    <div>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <h5>$20</h5>
-                                    <div>
-                                        <a href=""><i class="fas fa-search"></i></a>
-                                        <a href=""><i class="fas fa-cart-plus"></i></a>
-                                    </div>
-                                </div>
+                            <div class='productcard__images'>
+                                <img src="./images/image_11-1-300x300.jpg"
+                                    class=' productcard__img productcard__img--front'>
+                                <img src="./images/image_52-300x300.jpg"
+                                    class='productcard__img productcard__img--back'>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-3 mt-5">
-                        <div class="card">
-                            <div class="d-flex justify-content-end" style="position:relative; ">
-                                <div style="position:absolute">
-                                    <i class="far fa-edit fa-2x"></i>
-                                    <i class="far fa-trash-alt fa-2x"></i>
+                            <div class="productcard__title">Product Title</div>
+                            <div class="productcard__body">
+                                <div class="productcard__prices">
+                                    <div class="price price--new price--euro">2.00</div>
+                                    <div class="price price--old price--euro">3.00</div>
                                 </div>
-                                <div class="img-label bg-primary">
-                                    Sale
-                                </div>
-                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                                <div class="rating rating--static">3.6</div>
                             </div>
-                            <div class="card-body">
-
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Card Title</h5>
-                                    <div>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                    </div>
+                            <div class="productcard__buttons">
+                                <div class="productcard__btn">
+                                    <i class="fas fa-shopping-basket fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Cart</div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h5>$20</h5>
-                                    <div>
-                                        <a href=""><i class="fas fa-search"></i></a>
-                                        <a href=""><i class="fas fa-cart-plus"></i></a>
-                                    </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-heart fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Wishlist</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-retweet fa-sm"></i>
+                                    <div class="productcard__btn__title">Compare</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-search fa-sm"></i>
+                                    <div class="productcard__btn__title">View</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 mt-5">
-                        <div class="card">
-                            <div class="d-flex justify-content-end" style="position:relative; ">
-                                <div style="position:absolute">
-                                    <i class="far fa-edit fa-2x"></i>
-                                    <i class="far fa-trash-alt fa-2x"></i>
-                                </div>
-                                <div class="img-label bg-primary">
-                                    Sale
-                                </div>
-                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
+                    <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+                        <div class="productcard productcard--vertical ">
+                            <div class='productcard__images'>
+                                <img src="./images/image_11-1-300x300.jpg"
+                                    class=' productcard__img productcard__img--front'>
+                                <img src="./images/image_52-300x300.jpg"
+                                    class='productcard__img productcard__img--back'>
                             </div>
-                            <div class="card-body">
-
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Card Title</h5>
-                                    <div>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                    </div>
+                            <div class="productcard__title">Product Title</div>
+                            <div class="productcard__body">
+                                <div class="productcard__prices">
+                                    <div class="price price--new price--euro">2.00</div>
+                                    <div class="price price--old price--euro">3.00</div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h5>$20</h5>
-                                    <div>
-                                        <a href=""><i class="fas fa-search"></i></a>
-                                        <a href=""><i class="fas fa-cart-plus"></i></a>
-                                    </div>
-                                </div>
+                                <div class="rating rating--static">4.5</div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-3 mt-5">
-                        <div class="card">
-                            <div class="d-flex justify-content-end" style="position:relative; ">
-                                <div style="position:absolute">
-                                    <i class="far fa-edit fa-2x"></i>
-                                    <i class="far fa-trash-alt fa-2x"></i>
+                            <div class="productcard__buttons">
+                                <div class="productcard__btn">
+                                    <i class="fas fa-shopping-basket fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Cart</div>
                                 </div>
-                                <div class="img-label bg-primary">
-                                    Sale
+                                <div class="productcard__btn">
+                                    <i class="fas fa-heart fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Wishlist</div>
                                 </div>
-                                <img src="images/image_52-300x300.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-title">Card Title</h5>
-                                    <div>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star checked fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                        <span class="fa fa-star fa-xs"></span>
-                                    </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-retweet fa-sm"></i>
+                                    <div class="productcard__btn__title">Compare</div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <h5>$20</h5>
-                                    <div>
-                                        <a href=""><i class="fas fa-search"></i></a>
-                                        <a href=""><i class="fas fa-cart-plus"></i></a>
-                                    </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-search fa-sm"></i>
+                                    <div class="productcard__btn__title">View</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 mt-5">
-                        <div class="card">
-                            <img src="images/plus-icon.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Add New Card</h5>
+                    <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+                        <div class="productcard productcard--vertical ">
+                            <div class='productcard__images'>
+                                <img src="./images/image_11-1-300x300.jpg"
+                                    class=' productcard__img productcard__img--front'>
+                                <img src="./images/image_52-300x300.jpg"
+                                    class='productcard__img productcard__img--back'>
+                            </div>
+                            <div class="productcard__title">Product Title</div>
+                            <div class="productcard__body">
+                                <div class="productcard__prices">
+                                    <div class="price price--new price--euro">2.00</div>
+                                    <div class="price price--old price--euro">3.00</div>
+                                </div>
+                                <div class="rating rating--static">2.6</div>
+                            </div>
+                            <div class="productcard__buttons">
+                                <div class="productcard__btn">
+                                    <i class="fas fa-shopping-basket fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Cart</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-heart fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Wishlist</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-retweet fa-sm"></i>
+                                    <div class="productcard__btn__title">Compare</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-search fa-sm"></i>
+                                    <div class="productcard__btn__title">View</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
+                    <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+                        <div class="productcard productcard--vertical ">
+                            <div class='productcard__images'>
+                                <img src="./images/image_11-1-300x300.jpg"
+                                    class=' productcard__img productcard__img--front'>
+                                <img src="./images/image_52-300x300.jpg"
+                                    class='productcard__img productcard__img--back'>
+                            </div>
+                            <div class="productcard__title">Product Title</div>
+                            <div class="productcard__body">
+                                <div class="productcard__prices">
+                                    <div class="price price--new price--euro">2.00</div>
+                                    <div class="price price--old price--euro">3.00</div>
+                                </div>
+                                <div class="rating rating--static">5</div>
+                            </div>
+                            <div class="productcard__buttons">
+                                <div class="productcard__btn">
+                                    <i class="fas fa-shopping-basket fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Cart</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-heart fa-sm"></i>
+                                    <div class="productcard__btn__title">Add to Wishlist</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-retweet fa-sm"></i>
+                                    <div class="productcard__btn__title">Compare</div>
+                                </div>
+                                <div class="productcard__btn">
+                                    <i class="fas fa-search fa-sm"></i>
+                                    <div class="productcard__btn__title">View</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="row mt-5">
@@ -356,8 +319,7 @@
         </div>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/rating.js"></script>
+
 
 </html>

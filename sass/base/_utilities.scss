@@ -63,7 +63,9 @@ text-align: center;
         }
     }
 }
-   
+.m--top--md{
+    margin-top: 5.5rem;
+} 
 .p--lg{
     padding:2rem;
 }
@@ -84,4 +86,11 @@ text-align: center;
 }
 .color--primary{
     color:$color-primary;
+}
+
+
+.u-title{
+    color:$primary;
+    font-size: 3rem;
+    font-weight: 600;
 }
