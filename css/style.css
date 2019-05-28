@@ -7840,7 +7840,7 @@ ul {
 .img-zoom {
   transition: .5s ease-in-out; }
   .img-zoom:hover {
-    transform: scale(1.5); }
+    transform: scale(1.1); }
 
 .bg-grey {
   background-color: #ededed;
