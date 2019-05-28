@@ -7849,39 +7849,43 @@ ul {
 .shop h1, .shop h2 {
   color: #00a5b2; }
 
-.shop-slider {
+.shop__slider {
   position: relative; }
-  .shop-slider__controls {
+  .shop__slider__controls {
     display: flex;
     position: absolute;
     width: 100%;
     justify-content: space-between;
     top: 50%;
     transform: translateY(-50%); }
-  .shop-slider__btn {
+  .shop__slider__btn {
     color: #00a5b2;
     font-size: 2rem; }
-    .shop-slider__btn:hover {
+    .shop__slider__btn:hover {
       cursor: pointer; }
 
-.shop-cover {
-  height: 200px;
-  background-size: contain;
-  background-repeat: round; }
+.shop__cover {
+  height: 20rem;
+  overflow: hidden; }
+  .shop__cover img {
+    width: 100%; }
 
-.shop-photo {
-  width: 200px;
-  height: 200px;
+.shop__photo {
+  width: 10rem;
+  height: 10rem;
   background-size: contain;
   background-repeat: round;
   z-index: 1021;
-  position: absolute;
-  top: -50%;
-  left: 8%;
   border-radius: 50%;
   border: 1px solid black; }
+  @media (min-width: 768px) {
+    .shop__photo {
+      position: absolute;
+      left: 8%;
+      width: 20rem;
+      height: 20rem; } }
 
-.shop-user-photo {
+.shop__user-photo {
   width: 50px;
   height: 50px;
   background-size: contain;
