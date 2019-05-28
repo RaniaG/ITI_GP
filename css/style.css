@@ -7837,6 +7837,15 @@ ul {
   .listing__filters__categories .list-group-item:hover {
     cursor: pointer; }
 
+.img-zoom {
+  transition: .5s ease-in-out; }
+  .img-zoom:hover {
+    transform: scale(1.5); }
+
+.bg-grey {
+  background-color: #ededed;
+  color: #666666; }
+
 .shop h1, .shop h2 {
   color: #00a5b2; }
 

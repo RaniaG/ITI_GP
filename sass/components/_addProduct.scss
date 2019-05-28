@@ -1,0 +1,10 @@
+.img-zoom{
+transition: .5s ease-in-out;
+    &:hover{
+        transform: scale(1.5);
+    }
+}
+.bg-grey{
+    background-color: $color-grey-1;
+    color: $secondary-color;
+}
