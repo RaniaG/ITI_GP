@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -9,10 +8,6 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
     <link rel="stylesheet" href="css/style.css">
     <title>profile</title>
 </head>
@@ -20,194 +15,141 @@
     .cover {
         height: 200px;
         background-size: cover;
-
     }
 
     .user-photo {
-        width: 200px;
-        height: 200px;
+        width: 15rem;
+    }
+
+    .user-profile-cover {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .profile--content {
+        margin-top: 13rem;
+    }
+
+    .user-profile-pic {
         position: absolute;
-        top: -50%;
+        top: 10%;
         left: 8%;
-    }
-
-
-
-    .no-gutters {
-        padding-left: 0px;
-        padding-right: 0px;
-
-    }
-
-    .no-gutters [class^=".col"] {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    .checked {
-        color: orange;
     }
 </style>
 
-
 <body>
-    <div class="container-fluid no-gutters">
-        <div class="row no-gutters">
-            <div class="col-12">
-                <div class="cover" style="background-image:url('images/img.png')">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid no-gutters">
-        <div class="row no-gutters justify-content-center" style="position: relative">
-            <div class="user-photo">
-                <div class="userCard text--center" style="width: 20rem;">
-                    <div class="userCard__thumbnail" style="background-image: url('images/Woman.jpg'); "></div>
-                    <!-- must be h3 due to css -->
-                    <h3>Bassant Fahmy</h3>
-                    <h5 class="text-info">It is easy if you try</h5>
-                    <p>
-                        <a">View shop</a>
-
-                    </p>
-
-                    <!-- <div class="userCard__socialIconsBox">
-                        <div class="userCard__socialIcon"><i class="fab fa-facebook-f"></i></div>
-                        <div class="userCard__socialIcon"><i class="fab fa-twitter"></i></div>
-                        <div class="userCard__socialIcon"><i class="fab fa-linkedin-in"></i></div>
-                    </div> -->
-                </div>
-            </div>
-            <div class="col-6">
-
-                <div class="d-flex justify-content-between align-items-center pb-2 pt-2">
-                    <p><B>Member Since:</B> Dec,2013</p>
-
-                    <div>
-                        <div><span>200</span> Followers</div>
-                        <div><span>100</span> Following</div>
-                    </div>
-                    <div>
-                        <div>Rating</div>
-                        <div><span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span></div>
+    <div class="profile">
+        <div class="container-fluid no-gutters user-profile-cover">
+            <div class="row no-gutters">
+                <div class="col-12">
+                    <div class="cover" style="background-image:url('images/img.png')">
                     </div>
                 </div>
-
-
-
-                <div class="d-flex justify-content-between align-items-center pb-2">
-                    <a href="EditProfile.html" class="btn btn btn-info">
-                        <h2>Edit Profile</h2>
-                    </a>
-
-                    <button class="btn btn btn-info">
-                        <h2>UnFollow</h2>
-                    </button>
-                </div>
-                <div class=" d-flex justify-content-between align-items-center">
-                    <img src="images/badges.png" height="100px"></div>
             </div>
+        </div>
+        <!-- profile pic -->
+        <div class="row container">
+            <div class="user-profile-pic">
+                <div class="user-photo">
+                    <div class="userCard text--center">
+                        <div class="userCard__thumbnail" style="background-image: url('images/Woman.jpg'); "></div>
+                        <!-- must be h3 due to css -->
+                        <h3>Bassant Fahmy</h3>
+                        <h5 class="text-info">It is easy if you try</h5>
+                        <p>
+                            <a>View shop</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ml-auto mt-2"><button class="btn btn-primary">Edit Profile</button></div>
+        </div>
+
+        <!-- myorders -->
+        <div class="container">
+            <div class="profile--content">
+
+                <div class="container">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                                role="tab" aria-controls="nav-home" aria-selected="true">My-orders</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">Favorite Shops</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">Favorite Items</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">...
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            ...</div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            ...</div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-hover">
+                                <thead class='thead-primary'>
+                                    <tr>
+                                        <th>Order-code</th>
+                                        <th>Status</th>
+                                        <th>More Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            67292
+                                        </td>
+                                        <td>
+                                            lorem ipsum
+                                        </td>
+                                        <td>
+                                            Go To Link
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>25373</p>
+                                        </td>
+                                        <td>
+                                            lorem ipsum
+                                        </td>
+                                        <td>
+                                            <p> Go To Link</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="table-secondary">
+                                        <td></td>
+                                        <td></td>
+                                        <td>lorem ipsum</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="d-flex justify-content-end">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-primary">Previous</button>
+                                    <button type="button" class="btn btn-primary">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
 
 
 
-    </div>
-
-
-
-    <div class="container pt-5 text--center">
-        <h2 class="text-center pb-5">My Courses</h2>
-        <div class="row">
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="images/course1.jpg" height="150px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="images/course2.jpg" height="150px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="images/course3.jpg" height="150px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="images/course4.jpg" height="150px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-
-
-
-
-        </div>
-    </div>
-
-    <div class="container pt-5 text--center">
-        <h2 class="text-center pb-5">Enrolled Courses</h2>
-        <div class="row">
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="images/course5.jpg" height="150px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="images/course2.jpg" height="150px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="images/course3.jpg" height="150px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-            <div class="card" style="width: 25rem;">
-                <img class="card-img-top" src="images/course4.jpg" height="150px" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                </div>
-            </div>
-
-
-
-
-        </div>
-    </div>
-
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aA ZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
 
 </body>
 

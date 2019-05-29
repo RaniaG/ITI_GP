@@ -7057,12 +7057,7 @@ a.text-dark:hover, a.text-dark:focus {
   margin: 0px;
   box-sizing: border-box; }
 
-html {
-  font-size: 62.5%;
-  height: 100%; }
-
 body {
-  font-size: 1.6rem;
   height: 100%; }
 
 @keyframes cube_up {
@@ -7900,14 +7895,6 @@ ul {
   .listing__filters__categories .list-group-item:hover {
     cursor: pointer; }
 
-.footer {
-  position: relative;
-  color: white;
-  background-color: #00a5b2;
-  border-top-left-radius: 50% 20%;
-  border-top-right-radius: 50% 20%; }
-  .footer__logo {
-    height: 15rem; }
 .img-zoom {
   transition: .5s ease-in-out; }
   .img-zoom:hover {
@@ -7916,6 +7903,15 @@ ul {
 .bg-grey {
   background-color: #ededed;
   color: #666666; }
+
+.footer {
+  position: relative;
+  color: white;
+  background-color: #00a5b2;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%; }
+  .footer__logo {
+    height: 15rem; }
 
 .shop h1, .shop h2 {
   color: #00a5b2; }
