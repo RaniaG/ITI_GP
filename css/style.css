@@ -8028,3 +8028,22 @@ ul {
     margin-top: 1rem; }
     .product-details__text__controls button, .product-details__text__controls i {
       font-size: 1.5rem; }
+
+.profile__cover {
+  height: 200px;
+  background-size: cover; }
+
+.profile__userphoto {
+  width: 15rem; }
+
+.profile--content {
+  margin-top: 13rem; }
+
+.profile__cover__container {
+  overflow: hidden;
+  position: relative; }
+
+.profile__pic {
+  position: absolute;
+  top: 10%;
+  left: 8%; }

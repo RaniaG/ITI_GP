@@ -11,46 +11,21 @@
     <link rel="stylesheet" href="css/style.css">
     <title>profile</title>
 </head>
-<style>
-    .cover {
-        height: 200px;
-        background-size: cover;
-    }
-
-    .user-photo {
-        width: 15rem;
-    }
-
-    .user-profile-cover {
-        overflow: hidden;
-        position: relative;
-    }
-
-    .profile--content {
-        margin-top: 13rem;
-    }
-
-    .user-profile-pic {
-        position: absolute;
-        top: 10%;
-        left: 8%;
-    }
-</style>
 
 <body>
     <div class="profile">
-        <div class="container-fluid no-gutters user-profile-cover">
+        <div class="container-fluid no-gutters profile__cover__container">
             <div class="row no-gutters">
                 <div class="col-12">
-                    <div class="cover" style="background-image:url('images/img.png')">
+                    <div class="profile__cover" style="background-image:url('images/img.png')">
                     </div>
                 </div>
             </div>
         </div>
         <!-- profile pic -->
         <div class="row container">
-            <div class="user-profile-pic">
-                <div class="user-photo">
+            <div class="profile__pic">
+                <div class="profile__userphoto">
                     <div class="userCard text--center">
                         <div class="userCard__thumbnail" style="background-image: url('images/Woman.jpg'); "></div>
                         <!-- must be h3 due to css -->
@@ -62,13 +37,11 @@
                     </div>
                 </div>
             </div>
-            <div class="ml-auto mt-2"><button class="btn btn-primary">Edit Profile</button></div>
+            <div class="ml-auto mt-3"><button class="btn btn-primary">Edit Profile</button></div>
         </div>
-
         <!-- myorders -->
         <div class="container">
             <div class="profile--content">
-
                 <div class="container">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -142,15 +115,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
-
-
-
-
 </body>
 
 </html>
