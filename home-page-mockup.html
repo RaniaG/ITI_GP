@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <style type="text/css">
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border: none
+        }
+
+        .fas,
+        .far {
+            cursor: pointer;
+        }
+
+        .img-label {
+            color: white;
+            position: absolute;
+            left: 0%;
+            padding: 6px;
+            border-radius: 0% 20%;
+        }
+
+        @media screen and (max-width: 700px) and (min-width:300px) {
+            .search-input {
+                display: none;
+            }
+
+            .search-icon {
+                border: none;
+            }
+
+            :hover>.search-input {
+                display: inline-block;
+                width: 10px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="container-fluid my-2">
+        <!-- upper header -->
+        <div class="row">
+            <div class="col-md-8 col-6">
+                <a class="navbar-brand align-self-center" href="#">
+                    <img src="images/logo-2.png" width="120px" alt="">
+                </a>
+            </div>
+            <div class="col">
+                <div class="row align-items-center justify-content-around">
+                    <form class="form-inline my-3">
+                        <div class="input-group mb-3">
+                            <input type="Search" class="search-input form-control form-control-lg"
+                                placeholder="Search......" aria-label="Search" aria-describedby="button-search"
+                                style="width:250px; height: 40px; font-size: medium; border-color: #00A5B2; border-right: none">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary search-icon" type="submit" id="button-search"
+                                    style="width:40px; border-left:none; border-color: #00A5B2;  color:#00A5B2"><i
+                                        class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" style="color: #00A5B2;">
+                            <i class="fas fa-user-alt"></i>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="#">Wishlist</a>
+                            <a class="dropdown-item" href="#">Profile</a>
+                        </div>
+                    </div>
+                    <i class="fas fa-shopping-cart" style="color: #00A5B2;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="row  justify-content-center">
+            <div class="col-auto">
+                <div class="drop-downs-container">
+                    <div class="drop-down-list">
+                        <h3 class="list-title">Title</h3>
+                        <div class="list-container list-container--visibility">
+                            <ul class="list">
+                                <li><a class="list-item" href="#">Home 1</a></li>
+                                <li><a class="list-item" href="#">Home 2</a></li>
+                                <li><a class="list-item" href="#">Home 3</a></li>
+                                <li><a class="list-item" href="#">Home 4</a></li>
+                                <li><a class="list-item" href="#">Home 5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="drop-down-list">
+                        <h3 class="list-title">Title</h3>
+                        <div class="list-container list-container--visibility">
+                            <ul class="list">
+                                <li><a class="list-item" href="#">Home 1</a></li>
+                                <li><a class="list-item" href="#">Home 2</a></li>
+                                <li><a class="list-item" href="#">Home 3</a></li>
+                                <li><a class="list-item" href="#">Home 4</a></li>
+                                <li><a class="list-item" href="#">Home 5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="drop-down-list">
+                        <h3 class="list-title">Title2</h3>
+                        <div class="list-container list-container--visibility">
+                            <ul class="list">
+                                <li><a class="list-item" href="#">Home 1</a></li>
+                                <li><a class="list-item" href="#">Home 2</a></li>
+                                <li><a class="list-item" href="#">Home 3</a></li>
+                                <li><a class="list-item" href="#">Home 4</a></li>
+                                <li><a class="list-item" href="#">Home 5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="drop-down-list">
+                        <h3 class="list-title">Title3</h3>
+                        <div class="list-container list-container--visibility">
+                            <ul class="list">
+                                <li><a class="list-item" href="#">Home 1</a></li>
+                                <li><a class="list-item" href="#">Home 2</a></li>
+                                <li><a class="list-item" href="#">Home 3</a></li>
+                                <li><a class="list-item" href="#">Home 4</a></li>
+                                <li><a class="list-item" href="#">Home 5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="drop-down-list">
+                        <h3 class="list-title">Title4</h3>
+                        <div class="list-container list-container--visibility">
+                            <ul class="list">
+                                <li><a class="list-item" href="#">Home 1</a><i class="fas fa-angle-right"></i>
+                                    <div class="list-container sub-list">
+                                        <ul class="list ">
+                                            <li><a class="sub-list-item" href="#">example</a></li>
+                                            <li><a class="sub-list-item" href="#">example</a></li>
+                                            <li><a class="sub-list-item" href="#">example</a></li>
+                                            <li><a class="sub-list-item" href="#">example</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li><a class="list-item" href="#">Home 2</a><i class="fas fa-angle-right"></i>
+                                    <div class="list-container sub-list">
+                                        <ul class="list ">
+                                            <li><a class="sub-list-item" href="#">example</a></li>
+                                            <li><a class="sub-list-item" href="#">example</a></li>
+                                            <li><a class="sub-list-item" href="#">example</a></li>
+                                            <li><a class="sub-list-item" href="#">example</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a class="list-item" href="#">Home 3</a></li>
+                                <li><a class="list-item" href="#">Home 4</a></li>
+                                <li><a class="list-item" href="#">Home 5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="drop-down-list">
+                        <h3 class="list-title">Title5</h3>
+                        <div class="list-container list-container--visibility">
+                            <ul class="list">
+                                <li><a class="list-item" href="#">Home 1</a></li>
+                                <li><a class="list-item" href="#">Home 2</a></li>
+                                <li><a class="list-item" href="#">Home 3</a></li>
+                                <li><a class="list-item" href="#">Home 4</a></li>
+                                <li><a class="list-item" href="#">Home 5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-page -->
+    <div class="container-fluid my-5">
+        <!-- First section: slider with services, &Banners -->
+        <div class="row">
+            <div class="col">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="images/slide4.jpg" alt="Products">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1 style="color: #00A5B2;">Buy the best handemade products</h1>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="images/slide5.jpg" alt="Tutorial">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1 style="color: #00A5B2;">Create your Own Shop</h1>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="images/slide1.jpg" alt="Community">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1 style="color: #00A5B2;">Learn how to master the craft you Love</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5 justify-content-between">
+            <div class="col-md-6">
+                <div style="background-image: url('images/banner1.jpg'); 
+                height:14rem;  background-repeat: no-repeat; background-size: cover; overflow: hidden;">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="background-image: url('images/banner1.jpg'); 
+                    height:14rem; background-repeat: no-repeat; background-size: cover; overflow: hidden;">
+                </div>
+            </div>
+        </div>
+        <!-- Second section: Main Products -->
+        <div class="row my-5 justify-content-center">
+            <div class="col-auto">
+                <h1 class="text-center mt-5" style="color:#00A5B2">Featured Collection</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="gallery">
+                    <div class="gallery__item">
+                        <div class="gallery__item__text">
+                            <h3>Featured Items</h3>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/Product3.jpg" class="card-img-top" alt="...">
+                        <div class="gallery__item__overlay">
+                            <a><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/Product3.jpg" class="card-img-top" alt="...">
+                        <div class="gallery__item__overlay">
+                            <a><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/Product3.jpg" class="card-img-top" alt="...">
+                        <div class="gallery__item__overlay">
+                            <a><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/Product3.jpg" class="card-img-top" alt="...">
+                        <div class="gallery__item__overlay">
+                            <a><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/Product3.jpg" class="card-img-top" alt="...">
+                        <div class="gallery__item__overlay">
+                            <a><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="images/Product3.jpg" class="card-img-top" alt="...">
+                        <div class="gallery__item__overlay">
+                            <a><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Section: Main Tutorials -->
+
+        <!-- Fourth Section: Products Listing -->
+        <div class="row my-5 justify-content-center">
+            <div class="col-auto">
+                <h1 class="text-center mt-5" style="color:#00A5B2">New Products</h1>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="d-flex justify-content-end" style="position:relative; ">
+                        <div style="position:absolute">
+                            <i class="far fa-edit fa-2x"></i>
+                            <i class="far fa-trash-alt fa-2x"></i>
+                        </div>
+                        <div class="img-label bg-primary">
+                            Featured
+                        </div>
+
+                        <img src="images/Product.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title">Card Title</h5>
+                            <div>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star fa-xs"></span>
+                                <span class="fa fa-star fa-xs"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h5>$20</h5>
+                            <div>
+                                <a href=""><i class="fas fa-search"></i></a>
+                                <a href=""><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="d-flex justify-content-end" style="position:relative; ">
+                        <div style="position:absolute">
+                            <i class="far fa-edit fa-2x"></i>
+                            <i class="far fa-trash-alt fa-2x"></i>
+                        </div>
+                        <div class="img-label bg-primary">
+                            Featured
+                        </div>
+
+                        <img src="images/Product2.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title">Card Title</h5>
+                            <div>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star fa-xs"></span>
+                                <span class="fa fa-star fa-xs"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h5>$20</h5>
+                            <div>
+                                <a href=""><i class="fas fa-search"></i></a>
+                                <a href=""><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="d-flex justify-content-end" style="position:relative; ">
+                        <div style="position:absolute">
+                            <i class="far fa-edit fa-2x"></i>
+                            <i class="far fa-trash-alt fa-2x"></i>
+                        </div>
+                        <div class="img-label bg-primary">
+                            Featured
+                        </div>
+
+                        <img src="images/Product2.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title">Card Title</h5>
+                            <div>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star fa-xs"></span>
+                                <span class="fa fa-star fa-xs"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h5>$20</h5>
+                            <div>
+                                <a href=""><i class="fas fa-search"></i></a>
+                                <a href=""><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="d-flex justify-content-end" style="position:relative; ">
+                        <div style="position:absolute">
+                            <i class="far fa-edit fa-2x"></i>
+                            <i class="far fa-trash-alt fa-2x"></i>
+                        </div>
+                        <div class="img-label bg-primary">
+                            Featured
+                        </div>
+
+                        <img src="images/Product.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between">
+                            <h5 class="card-title">Card Title</h5>
+                            <div>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star checked fa-xs"></span>
+                                <span class="fa fa-star fa-xs"></span>
+                                <span class="fa fa-star fa-xs"></span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h5>$20</h5>
+                            <div>
+                                <a href=""><i class="fas fa-search"></i></a>
+                                <a href=""><i class="fas fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fifth Section: Tutorial Listing -->
+
+        <!-- Sixth section: about us flyer  -->
+
+    </div>
+    <!-- footer -->
+    <footer class="footer container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <img class="footer__logo" src='images/logo1.png'>
+            </div>
+        </div>
+        <div class="mh-100 row justify-content-center">
+            <div class="col-md-4 text-center">
+                <ul class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent borderless">PRIVACY
+                        POLICY</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent borderless">TERMS
+                        & CONDITIONS</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent borderless">ABOUT</a>
+                </ul>
+            </div>
+            <div class="col-md-4 align-items-center text-center">
+                <div class="mb-5 d-flex justify-content-around">
+                    <a><i class="fab fa-facebook-f"></i></a>
+                    <a><i class="fab fa-twitter"></i></a>
+                    <a><i class="fab fa-pinterest-p"></i></a>
+                    <a><i class="fab fa-instagram"></i></a>
+                </div>
+                <h2>WEEKLY NEWSLETTER</h2>
+                <ul class="list-group mt-3 mb-5">
+                    <li class="list-group-item bg-transparent">name@email.com</li>
+                    <button type="button"
+                        class="list-group-item list-group-item-action bg-transparent">Subscribe</button>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+                <ul class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent borderless">SHIPPING
+                        INFO</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent borderless">RETURNS /
+                        EXCHANGES</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent borderless">CONTACT</a>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                &copy; 2019 ITI - UI development track
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

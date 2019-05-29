@@ -1,0 +1,14 @@
+.footer {
+    position: relative;
+    // height: 60vh;
+    color:white;
+    background-color: $primary;
+    border-top-left-radius: 50% 20%;
+    border-top-right-radius: 50% 20%;
+
+    &__logo{
+        height:15rem;   
+    }
+    
+}
+

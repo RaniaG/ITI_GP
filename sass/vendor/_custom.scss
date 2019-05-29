@@ -1,10 +1,5 @@
 $primary:#00a5b2;
 $font-family-base:$font-1;
-// $breadcrumb-divider: quote(">");
-// $breadcrumb-bg:$primary;
-
-
-
 
 .no-gutters {
     padding-left: 0px;
@@ -15,12 +10,26 @@ $font-family-base:$font-1;
     }
 }
 
+.input-group-text{
+    color:white !important;
+    background-color:$primary !important;
+}
+
 
 .thead-primary{
     background-color: $primary;
     color:white;
 }
 
+
+
+.list-group-item.borderless{
+    border: none; 
+    color: inherit
+} 
+.list-group-item.list-group-item-action{
+    color:inherit;
+}
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
