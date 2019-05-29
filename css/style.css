@@ -7917,6 +7917,12 @@ ul {
   background-color: #ededed;
   color: #666666; }
 
+.product-details-images__main-img {
+  width: 100%;
+  overflow: hidden; }
+  .product-details-images__main-img img {
+    width: 100%; }
+
 .shop h1, .shop h2 {
   color: #00a5b2; }
 
