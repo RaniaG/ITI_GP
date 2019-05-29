@@ -21,4 +21,12 @@ $font-family-base:$font-1;
     color:white;
 }
 
+.list-group-item.borderless{
+    border: none; 
+    color: inherit
+} 
+.list-group-item.list-group-item-action{
+    color:inherit;
+}
+
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
