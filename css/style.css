@@ -7052,6 +7052,18 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .card-columns {
+    column-count: 2; } }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .card-columns {
+    column-count: 3; } }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .card-columns {
+    column-count: 4; } }
+
 * {
   padding: 0px;
   margin: 0px;
@@ -7908,6 +7920,15 @@ ul {
 .bg-grey {
   background-color: #ededed;
   color: #666666; }
+
+.footer {
+  position: relative;
+  color: white;
+  background-color: #00a5b2;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%; }
+  .footer__logo {
+    height: 15rem; }
 
 .footer {
   position: relative;
