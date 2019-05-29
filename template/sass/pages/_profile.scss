@@ -1,0 +1,26 @@
+.profile {
+    &__cover {
+        height: 200px;
+        background-size: cover;
+    }
+
+    &__userphoto {
+        width: 15rem;
+    }
+
+    &--content {
+        margin-top: 13rem;
+    }
+
+    &__cover__container {
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__pic {
+        position: absolute;
+        top: 10%;
+        left: 8%;
+    }
+
+}
