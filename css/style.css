@@ -7900,14 +7900,6 @@ ul {
   .listing__filters__categories .list-group-item:hover {
     cursor: pointer; }
 
-.footer {
-  position: relative;
-  color: white;
-  background-color: #00a5b2;
-  border-top-left-radius: 50% 20%;
-  border-top-right-radius: 50% 20%; }
-  .footer__logo {
-    height: 15rem; }
 .img-zoom {
   transition: .5s ease-in-out; }
   .img-zoom:hover {
@@ -7917,11 +7909,23 @@ ul {
   background-color: #ededed;
   color: #666666; }
 
-.product-details-images__main-img {
-  width: 100%;
-  overflow: hidden; }
-  .product-details-images__main-img img {
-    width: 100%; }
+.footer {
+  position: relative;
+  color: white;
+  background-color: #00a5b2;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%; }
+  .footer__logo {
+    height: 15rem; }
+
+.footer {
+  position: relative;
+  color: white;
+  background-color: #00a5b2;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%; }
+  .footer__logo {
+    height: 15rem; }
 
 .shop h1, .shop h2 {
   color: #00a5b2; }
@@ -7991,3 +7995,38 @@ ul {
 .no-gutters {
   padding-left: 0px;
   padding-right: 0px; }
+
+.product-details__images__main-img {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 1rem; }
+  .product-details__images__main-img img {
+    width: 100%; }
+    .product-details__images__main-img img:hover {
+      cursor: zoom-in; }
+
+.product-details__images__img {
+  overflow: hidden;
+  height: 9rem;
+  width: 9rem;
+  background-size: contain;
+  background-repeat: round; }
+  .product-details__images__img:hover {
+    cursor: pointer; }
+
+.product-details__text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column; }
+  .product-details__text__title {
+    color: #00a5b2; }
+  .product-details__text__rating {
+    display: flex;
+    flex-direction: row; }
+  .product-details__text__customization label {
+    color: #6c757d; }
+  .product-details__text__controls {
+    margin-top: 1rem; }
+    .product-details__text__controls button, .product-details__text__controls i {
+      font-size: 1.5rem; }

@@ -29,3 +29,9 @@
       background-size: $size;
       background-repeat: $repeat;
   }
+  @mixin flexbox($direction:row,$justify-content:center,$align-items:center){
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $direction;
+  }
