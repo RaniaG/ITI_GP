@@ -7930,15 +7930,6 @@ ul {
   .footer__logo {
     height: 15rem; }
 
-.footer {
-  position: relative;
-  color: white;
-  background-color: #00a5b2;
-  border-top-left-radius: 50% 20%;
-  border-top-right-radius: 50% 20%; }
-  .footer__logo {
-    height: 15rem; }
-
 .shop h1, .shop h2 {
   color: #00a5b2; }
 
