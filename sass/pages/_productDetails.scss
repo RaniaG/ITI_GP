@@ -1,0 +1,46 @@
+.product-details{
+
+    &__images{
+        &__main-img{
+            width:100%;
+            overflow: hidden;
+            img{
+                width:100%;
+                &:hover{
+                    cursor: zoom-in;
+                }
+            }
+            margin-bottom:1rem;
+        }
+        &__img{
+            overflow: hidden;
+            height: 9rem;
+            width:9rem;
+            @include background;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    &__text{
+        @include flexbox(column,space-between,flex-start);
+        &__title{
+            color:$primary;
+        }
+        &__rating{
+            display: flex;
+            flex-direction: row;
+        }
+        &__customization{
+            label{
+                color:$secondary;
+            }
+        }
+        &__controls{
+            margin-top:1rem;
+            button, i{
+                font-size: 1.5rem;            
+            }
+        }
+    }
+}

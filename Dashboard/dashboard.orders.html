@@ -1,101 +1,95 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<style>
-    .sidebar1 {
-        background: #F17153;
-        /* For browsers that do not support gradients */
-        background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
-        /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);
-        /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(#F17153, #F58D63, #f1ab53);
-        /* For Firefox 3.6 to 15 */
-        background: linear-gradient(#F17153, #F58D63, #f1ab53);
-        /* Standard syntax */
-        padding: 0px;
-        min-height: 100%;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    .logo {
-        max-height: 130px;
-    }
-
-    .logo>img {
-        margin-top: 30px;
-        padding: 3px;
-        border: 3px solid white;
-        border-radius: 100%;
-    }
-
-    .list {
-        color: #fff;
-        list-style: none;
-        padding-left: 0px;
-    }
-
-    .list::first-line {
-        color: rgba(255, 255, 255, 0.5);
-    }
-
-    .list>li,
-    h5 {
-        padding: 5px 0px 5px 40px;
-    }
-
-    .list>li:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-left: 5px solid white;
-        color: white;
-        font-weight: bolder;
-        padding-left: 35px;
-    }
-
-    .main-content {
-        text-align: center;
-    }
-</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link href="https:/fonts.googleapis.com/css?family=Titillium+Web:600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./MyStyle.css">
+    <script src="./jQuery.js"></script>
+    <script src="../node_modules/bootstrap/js/dist/"></script>
+</head>
 
 <body>
-
-    <div class="container-fluid">
+    <div class="container-fluid bg-light" style="max-height: 100vh;min-height: 100%">
         <div class="row">
-            <div class="col-md-2 col-sm-4 sidebar1">
-                <div class="logo">
-                    <img src="http://lorempixel.com/output/people-q-g-64-64-1.jpg" class="img-responsive center-block"
-                        alt="Logo">
+            <!-- <div class="bg-dark" id="side-nav">
+                <ul class="navbar-nav bg-dark navbar-dark">
+                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.home.html"
+                            target="_blank">Dashboard</a></li>
+                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.inventory.html"
+                            target="_blank">Inventory</a></li>
+                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.orders.html" target="_blank">Orders</a>
+                    </li>
+                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.payments.html"
+                            target="_blank">Payments</a></li>
+                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.performance.html"
+                            target="_blank">Performance</a></li>
+                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.sales.html" target="_blank">Sales</a>
+                    </li>
+                </ul>
+            </div> -->
+            <div class="col">
+                <!-- header -->
+                <div class="row bg-primary">
+                    <div class="col px-2 py-2">
+                        <a href="#" class="text-light"><span><i class="fas fa-user-alt"></i>Profile</span></a>
+                        <span class="align-middle text-light"><i class="fas fa-chevron-right"></i></span>
+                        <a href="#" class="text-light"><span class="align-middle">Dashboard</span></a>
+                        <span class="align-middle text-light"><i class="fas fa-chevron-right"></i></span>
+                        <span class="text-muted align-middle">Orders</span>
+                    </div>
                 </div>
-                <br>
-                <div class="left-navigation">
-                    <ul class="list">
-                        <h5><strong>WHEREABOUTS</strong></h5>
-                        <li>Home</li>
-                        <li>Office</li>
-                        <li>School</li>
-                        <li>Gym</li>
-                        <li>Art Class</li>
-                        <li>Hike Club</li>
-                    </ul>
+                <!-- content -->
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                    aria-controls="home" aria-selected="true">Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                    aria-controls="profile" aria-selected="false">Return requests</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel">
+                                <!-- order list -->
+                                <div class="container-fluid">
+                                    <div class="row bg-primary text-light">
+                                        <div class="col-8">
+                                            <h3><span class="font-weight-bold">Orders</span>List</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
 
-                    <br>
+                                    </div>
 
-                    <ul class="list">
-                        <h5><strong>HOBBIES</strong></h5>
-                        <li>Hiking</li>
-                        <li>Rafting</li>
-                        <li>Badminton</li>
-                        <li>Tennis</li>
-                        <li>Sketching</li>
-                        <li>Horse Riding</li>
-                    </ul>
+                                </div>
+                                <!-- /order list -->
+
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel"></div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            <div class="col-md-10 col-sm-8 main-content">
-                <!--Main content code to be written here -->
-                <h1>FEEDBACK APPRECIATED! :)</h1>
-                <h3>P.S.: For side navbar with dropdown menu, you may refer this snippet:
-                    http://bootsnipp.com/user/snippets/kWPoW</h3>
             </div>
         </div>
+    </div>
+    <!-- <script>
+        $("#toggle-menu-btn").click(function () {
+            $("#side-nav").toggle("nav-collapse");
+        });
+    </script> -->
 </body>
+
+</html>
