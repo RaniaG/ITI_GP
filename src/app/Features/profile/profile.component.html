@@ -1,0 +1,130 @@
+<div class="profile">
+    <div class="container-fluid no-gutters profile__cover__container">
+        <div class="row no-gutters">
+            <div class="col-12">
+                <div class="profile__cover" style="background-image:url('assets/images/img.png')">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- profile pic -->
+    <div class="row container">
+        <div class="profile__pic">
+            <div class="profile__userphoto">
+                <div class="userCard text--center">
+                    <div class="userCard__thumbnail" style="background-image: url('assets/images/woman.jpg'); ">
+                    </div>
+                    <!-- must be h3 due to css -->
+                    <h3>Bassant Fahmy</h3>
+                    <h5 class="text-info">It is easy if you try</h5>
+                    <p>
+                        <a>View shop</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="ml-auto mt-3"><button class="btn btn-primary">Edit Profile</button></div>
+    </div>
+    <!-- myorders -->
+    <div class="container profile--content">
+        <ngb-tabset #t="ngbTabset">
+            <ngb-tab id="tab-selectbyid1" title="My Orders">
+                <ng-template ngbTabContent>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-hover">
+                                <thead class='thead-primary'>
+                                    <tr>
+                                        <th>Order-code</th>
+                                        <th>Status</th>
+                                        <th>More Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            67292
+                                        </td>
+                                        <td>
+                                            lorem ipsum
+                                        </td>
+                                        <td>
+                                            Go To Link
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p>25373</p>
+                                        </td>
+                                        <td>
+                                            lorem ipsum
+                                        </td>
+                                        <td>
+                                            <p> Go To Link</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="table-secondary">
+                                        <td></td>
+                                        <td></td>
+                                        <td>lorem ipsum</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="d-flex justify-content-end">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-primary">Previous</button>
+                                    <button type="button" class="btn btn-primary">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab id="tab-selectbyid2">
+                <ng-template ngbTabTitle><b>Favorite</b> Items</ng-template>
+                <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin
+                    coffee
+                    squid.
+                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
+                        loko
+                        farm-to-table
+                        craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+                        ullamco ad vinyl
+                        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+                        helvetica
+                        VHS salvia
+                        yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
+                        sustainable jean
+                        shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown,
+                        tumblr
+                        butcher vero
+                        sint qui sapiente accusamus tattooed echo park.</p>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab id="tab-selectbyid3">
+                <ng-template ngbTabTitle><b>Favorite</b> Shops</ng-template>
+                <ng-template ngbTabContent>Locavore, accusamus mcsweeney's marfa nulla single-origin
+                    coffee
+                    squid.
+                    <p> Nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+                        helvetica
+                        farm-to-table
+                        craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+                        ullamco ad vinyl
+                        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+                        helvetica
+                        VHS salvia
+                        yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
+                        sustainable jean
+                        shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown,
+                        tumblr
+                        butcher vero
+                        sint qui sapiente accusamus tattooed echo park.</p>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
