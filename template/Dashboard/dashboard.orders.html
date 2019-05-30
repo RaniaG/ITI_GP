@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
     <link href="https:/fonts.googleapis.com/css?family=Titillium+Web:600,700" rel="stylesheet">
+    <link href="https:/fonts.googleapis.com/css?family=Titillium+Web:600,700" rel="stylesheet" link
+        href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet'
+        type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"> -->
@@ -20,31 +23,16 @@
 <body>
     <div class="container-fluid bg-light" style="max-height: 100vh;min-height: 100%">
         <div class="row">
-            <!-- <div class="bg-dark" id="side-nav">
-                <ul class="navbar-nav bg-dark navbar-dark">
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.home.html"
-                            target="_blank">Dashboard</a></li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.inventory.html"
-                            target="_blank">Inventory</a></li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.orders.html" target="_blank">Orders</a>
-                    </li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.payments.html"
-                            target="_blank">Payments</a></li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.performance.html"
-                            target="_blank">Performance</a></li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.sales.html" target="_blank">Sales</a>
-                    </li>
-                </ul>
-            </div> -->
             <div class="col">
                 <!-- header -->
                 <div class="row bg-primary">
-                    <div class="col px-2 py-2">
-                        <a href="#" class="text-light"><span><i class="fas fa-user-alt"></i>Profile</span></a>
-                        <span class="align-middle text-light"><i class="fas fa-chevron-right"></i></span>
-                        <a href="#" class="text-light"><span class="align-middle">Dashboard</span></a>
-                        <span class="align-middle text-light"><i class="fas fa-chevron-right"></i></span>
-                        <span class="text-muted align-middle">Orders</span>
+                    <div class="col">
+                        <ul class="custom-breadcrumb" aria-label="breadcrumb">
+                            <li class="custom-breadcrumb-item"><a href="#">Profile</a></li>
+                            <li class="custom-breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="custom-breadcrumb-item"><a href="#">Dashboard</a></li>
+                            <li class="custom-breadcrumb-item active">Orders</li>
+                        </ul>
                     </div>
                 </div>
                 <!-- content -->
