@@ -27,6 +27,7 @@
     color: $color-primary;
     &+.list-container--visibility{
         visibility: visible;
+        z-index: 2;
         opacity: 1;
         top: 2.5rem;
     }
