@@ -94,3 +94,17 @@ text-align: center;
     font-size: 3rem;
     font-weight: 600;
 }
+
+
+.nav-bordered
+{
+    >.nav-item{
+    box-sizing: border-box;
+    border-bottom: 3px solid transparent;
+    }
+    >.nav-item:hover,.active{
+border-bottom:3px solid $primary;
+color:$secondary;
+// transition: all 0.2s ease-in;
+    }
+}
