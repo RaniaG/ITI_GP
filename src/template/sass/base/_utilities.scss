@@ -94,3 +94,16 @@ text-align: center;
     font-size: 3rem;
     font-weight: 600;
 }
+
+.do{
+    color: $color-grey-4;
+}
+.done{
+    color: $color-green;
+}
+.doing{
+    color: $color-gold;
+}
+.fail{
+    color: $color-red;
+}

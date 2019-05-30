@@ -7194,6 +7194,18 @@ ul {
   font-size: 3rem;
   font-weight: 600; }
 
+.do {
+  color: #7B7B7B; }
+
+.done {
+  color: green; }
+
+.doing {
+  color: #ffd055; }
+
+.fail {
+  color: #d74704; }
+
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -7299,7 +7311,7 @@ ul {
     height: 100%;
     opacity: 0; }
   .itemcard__img {
-    background-image: url("../images/miniverse_m.jpg");
+    background-image: url("assets/images/miniverse_m.jpg");
     height: 150px; }
     .itemcard__img:hover .itemcard__overlay {
       opacity: 1; }
@@ -7508,13 +7520,13 @@ ul {
     width: 27rem;
     height: 52.4rem; }
   .scalecard__img1 {
-    background-image: url("../images/img1.jpg"); }
+    background-image: url("assets/images/img1.jpg"); }
   .scalecard__img2 {
-    background-image: url("../images/img2.jpg"); }
+    background-image: url("assets/images/img2.jpg"); }
   .scalecard__img3 {
-    background-image: url("../images/img3.jpg"); }
+    background-image: url("assets/images/img3.jpg"); }
   .scalecard__img4 {
-    background-image: url("../images/img4.jpg"); }
+    background-image: url("assets/images/img4.jpg"); }
 
 .adsBanner {
   overflow: hidden;
@@ -7659,7 +7671,7 @@ ul {
   .infocard__desc {
     color: #7B7B7B; }
   .infocard__img {
-    background-image: url("../images/imgt.jpg");
+    background-image: url("assets/images/imgt.jpg");
     height: 26.7rem; }
   .infocard__overlay {
     width: 100%;
@@ -7722,6 +7734,7 @@ ul {
         color: #00a5b2; }
         .drop-downs-container .drop-down-list .list-title:hover + .list-container--visibility {
           visibility: visible;
+          z-index: 2;
           opacity: 1;
           top: 2.5rem; }
     .drop-downs-container .drop-down-list .list-container {
@@ -7831,13 +7844,13 @@ ul {
   overflow: hidden;
   width: 23.5rem;
   height: 30rem;
-  background-image: url("../images/9-1-805x1024-front.jpg");
+  background-image: url("assets/images/9-1-805x1024-front.jpg");
   background-origin: border-box;
   background-repeat: no-repeat;
   background-size: contain;
   transition: all 0.3s ease-in-out; }
   .collectionCard:hover {
-    background-image: url("../images/9-2-805x1024-back.jpg"); }
+    background-image: url("assets/images/9-2-805x1024-back.jpg"); }
     .collectionCard:hover .collectionCard__gradient {
       display: block; }
   .collectionCard__transbox {
@@ -8075,3 +8088,38 @@ ul {
   position: absolute;
   top: 10%;
   left: 8%; }
+
+.orderTrack {
+  background-color: #00a5b2;
+  font-family: Lora, Helvetica, Arial, sans-serif; }
+  .orderTrack__process {
+    color: white; }
+    .orderTrack__process__Bar {
+      background-color: white;
+      height: 0.7rem; }
+      .orderTrack__process__Bar__items {
+        top: -0.5rem; }
+        .orderTrack__process__Bar__items i {
+          font-size: 1.7rem;
+          color: #b0b0b0; }
+    .orderTrack__process__name span {
+      font-size: 1.3rem; }
+  .orderTrack__info {
+    color: white;
+    font-family: "Heebo", Arial, sans-serif; }
+    .orderTrack__info__code i {
+      font-size: 5rem; }
+    .orderTrack__info__img {
+      width: 100%;
+      height: 13rem; }
+  .orderTrack__details .card {
+    border: 0.2rem solid white; }
+    .orderTrack__details .card-header {
+      color: black;
+      background-color: #ededed; }
+    .orderTrack__details .card-body {
+      font-size: 1.3rem; }
+      .orderTrack__details .card-body:hover {
+        box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.2), 0.1rem 0 0 0.1rem rgba(0, 0, 0, 0.19); }
+  .orderTrack__details__item {
+    font-size: 1.7rem; }
