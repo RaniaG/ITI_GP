@@ -1,0 +1,47 @@
+/*-------------------------scalecard----------------------------*/
+
+.scalecard {
+    position: relative;
+    overflow: hidden;
+    &__img {
+        position: absolute;
+        transition: 0.5s;
+        background-size: cover;
+        background-position: center;
+    }
+    &:hover .scalecard__img {
+        transform: scale(1.1);
+    }
+    &1 {
+        width: $bigcard--width;
+        height: $bigcard--height;
+    }
+    &2 {
+        width: $smallcard--width;
+        height: $smallcard--height;
+    }
+    &3 {
+        width: $smallcard--width;
+        height: $mediumcard--height;
+    }
+    &4 {
+        width: $smallcard--width;
+        height: $bigcard--height;
+    }
+    &__img1 {
+        background-image: url("assets/images/img1.jpg");
+        @extend .scalecard1;
+    }
+    &__img2 {
+        background-image: url("assets/images/img2.jpg");
+        @extend .scalecard2;
+    }
+    &__img3 {
+        background-image: url("assets/images/img3.jpg");
+        @extend .scalecard3;
+    }
+    &__img4 {
+        background-image: url("assets/images/img4.jpg");
+        @extend .scalecard4;
+    }
+}

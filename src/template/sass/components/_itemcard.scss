@@ -1,0 +1,80 @@
+.itemcard {
+    width: $smallcard--width;
+    border: 1px solid #888;
+    align-content: center;
+    padding: 0.5rem;
+    font-family: 'Titillium Web', sans-serif;
+    &__overlay {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        height: 100%;
+        opacity: 0;
+    }
+    &__img {
+        background-image: url("assets/images/miniverse_m.jpg");
+        height: 150px;
+        &:hover .itemcard__overlay {
+            opacity: 1;
+            .itemcard__icon__circle {
+                opacity: 1;
+            }
+        }
+    }
+    &__icon__circle {
+        background-color: $color-primary;
+        border-radius: 50%;
+        color: white;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-items: center;
+        opacity: 0;
+        transition-delay: 0.2s;
+    }
+    
+    .itemcard__icon__circle2 {
+        background-color: $color-primary;
+        opacity: 0;
+        transition-delay: 0.5s;
+    }
+    &__icon {
+        margin: auto;
+    }
+    &__header {
+        color: #2b373a;
+        font-weight: 700;
+        &__small {
+            font-size: 0.75em;
+        }
+    }
+    &__description {
+        font-weight: 600;
+        font-size: 0.75em;
+        color: #888;
+        margin-bottom: 1rem;
+    }
+    &__category {
+        color: $color-primary;
+        font-weight: 700;
+        font-size: 0.75em;
+    }
+    &__price {
+        text-align: right;
+    }
+    &__lineseparator {
+        background-color: #ebebeb;
+        height: 1px;
+        border: none;
+    }
+    &__footer {
+        margin-top: 0.6rem;
+        margin-bottom: 0.4rem;
+        &__img {
+            border-radius: 50%;
+            width: 2.6rem;
+            height: 2.6rem;
+            margin-right: 0.2rem;
+        }
+        align-items: center;
+    }
+}
