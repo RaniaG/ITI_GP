@@ -9,14 +9,14 @@
     // width:$smallcard--width;
     width:($mediumcard--height)-6.5rem;
     height:$mediumcard--height;
-    background-image: url("../images/9-1-805x1024-front.jpg");
+    background-image: url("assets/images/9-1-805x1024-front.jpg");
     background-origin: border-box;
     background-repeat: no-repeat;
     background-size: contain;
     transition: all 0.3s ease-in-out;
     &:hover
     {
-    background-image: url("../images/9-2-805x1024-back.jpg");
+    background-image: url("assets/images/9-2-805x1024-back.jpg");
     .collectionCard__gradient
     {
         display: block;
