@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ShopModule } from './Features/shop/shop.module';
 import { ProfileModule } from './Features/profile/profile.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
