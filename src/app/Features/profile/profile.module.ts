@@ -3,12 +3,19 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ProfileComponent, EditProfileComponent],
   imports: [
     CommonModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forChild([
+      { path: 'profile', component: ProfileComponent },
+      { path: 'editprofile', component: EditProfileComponent },
+
+
+    ])
   ],
   exports: [
     ProfileComponent,
