@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbModule, NgbRating } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
@@ -10,7 +10,8 @@ import { RatingComponent } from './rating/rating.component';
     NgbModule
   ],
   exports: [
-    RatingComponent
+    RatingComponent,
+    NgbModule
   ]
 })
 export class SharedModule { }

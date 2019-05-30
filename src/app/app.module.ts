@@ -5,6 +5,9 @@ import { CoreModule } from './Core/core.module';
 import { AppComponent } from './app.component';
 import { ShopModule } from './Features/shop/shop.module';
 import { ProductModule } from './Features/product/product.module';
+import { ProfileModule } from './Features/profile/profile.module';
+import { RoutingModule } from './routing.module';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { ProductModule } from './Features/product/product.module';
     BrowserModule,
     ShopModule,
     CoreModule,
-    ProductModule
+    ProductModule,
+    ProfileModule,
+    RoutingModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
