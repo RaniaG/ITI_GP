@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link href="https:/fonts.googleapis.com/css?family=Titillium+Web:600,700" rel="stylesheet" link
+        href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet'
+        type='text/css'>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./MyStyle.css">
+    <script src="./jQuery.js"></script>
+    <script src="../node_modules/bootstrap/js/dist/"></script>
+</head>
+
+<body>
+    <div class="container-fluid bg-light" style="max-height: 100vh;min-height: 100%">
+        <div class="row">
+            <div class="col">
+                <!-- header -->
+                <div class="row bg-primary">
+                    <div class="col ">
+                        <ol class="custom-breadcrumb" aria-label="breadcrumb">
+                            <li class="custom-breadcrumb-item"><a>Dashboard</a></li>
+                            <li class="custom-breadcrumb-item"><a>Orders</a></li>
+                            <li class="custom-breadcrumb-item"><a>dash</a></li>
+                            <li class="custom-breadcrumb-item active">#12548</li>
+                        </ol>
+
+                    </div>
+                </div>
+                <!-- content -->
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                    aria-controls="home" aria-selected="true">Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                    aria-controls="profile" aria-selected="false">Return requests</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel">
+                                <!-- order list -->
+                                <div class="container-fluid">
+                                    <div class="row bg-primary text-light">
+                                        <div class="col-8">
+                                            <h3><span class="font-weight-bold">Orders</span>List</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+
+                                    </div>
+
+                                </div>
+                                <!-- /order list -->
+
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        $("#toggle-menu-btn").click(function () {
+            $("#side-nav").toggle("nav-collapse");
+        });
+    </script> -->
+</body>
+
+</html>

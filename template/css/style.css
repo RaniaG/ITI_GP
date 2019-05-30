@@ -7673,6 +7673,34 @@ ul {
     opacity: 1;
     height: 100%; }
 
+.custom-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  list-style: none;
+  margin: 0 !important; }
+
+.custom-breadcrumb-item {
+  padding-left: 0.5rem;
+  color: white;
+  text-decoration: none; }
+  .custom-breadcrumb-item + .custom-breadcrumb-item {
+    padding-left: 0.5rem; }
+    .custom-breadcrumb-item + .custom-breadcrumb-item::before {
+      display: inline-block;
+      font-family: "Font Awesome 5 Free";
+      font-style: normal;
+      font-weight: normal;
+      padding-right: 0.5rem;
+      color: white;
+      content: "/"; }
+  .custom-breadcrumb-item > a {
+    color: inherit; }
+  .custom-breadcrumb-item:hover {
+    color: #ced4da; }
+  .custom-breadcrumb-item.active {
+    color: #ced4da; }
+
 .drop-downs-container {
   display: flex;
   flex-direction: row; }
