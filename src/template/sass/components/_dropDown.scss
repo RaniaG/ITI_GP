@@ -4,7 +4,7 @@
     flex-direction: row;
 .drop-down-list
 {
-   
+    z-index: 2;
     &:hover{
         .list-container--visibility{
             visibility: visible;
@@ -22,6 +22,7 @@
     border-right: .1rem solid #88888841;;
     padding: .5rem;
     transition: ease-in .4s;
+
     
     &:hover{
     color: $color-primary;

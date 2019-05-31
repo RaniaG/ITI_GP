@@ -10,7 +10,8 @@ import { RatingComponent } from './rating/rating.component';
     NgbModule
   ],
   exports: [
-    RatingComponent
+    RatingComponent,
+    NgbModule
   ]
 })
 export class SharedModule { }
