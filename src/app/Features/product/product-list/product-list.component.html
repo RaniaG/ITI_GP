@@ -37,15 +37,15 @@
       </div>
       <div class='mt-5'>
         <div class='listing__filters__title'>Rating</div>
-        <div class='rating rating--static'>5</div>
+        <app-rating [rate]="5" [readonly]="true" (rateChange)="rate=$event"></app-rating>
         <br>
-        <div class='rating rating--static'>4</div>
+        <app-rating [rate]="4" [readonly]="true" (rateChange)="rate=$event"></app-rating>
         <br>
-        <div class='rating rating--static'>3</div>
+        <app-rating [rate]="3" [readonly]="true" (rateChange)="rate=$event"></app-rating>
         <br>
-        <div class='rating rating--static'>2</div>
+        <app-rating [rate]="2" [readonly]="true" (rateChange)="rate=$event"></app-rating>
         <br>
-        <div class='rating rating--static'>1 </div>
+        <app-rating [rate]="1" [readonly]="true" (rateChange)="rate=$event"></app-rating>
 
       </div>
     </div>
