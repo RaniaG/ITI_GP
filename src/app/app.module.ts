@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ShopModule } from './Features/shop/shop.module';
 import { ProductModule } from './Features/product/product.module';
 import { ProfileModule } from './Features/profile/profile.module';
+import { CartModule } from './Features/cart/cart.module';
 import { RoutingModule } from './routing.module';
 
 
@@ -19,8 +20,8 @@ import { RoutingModule } from './routing.module';
     CoreModule,
     ProductModule,
     ProfileModule,
-    RoutingModule
-
+    CartModule,
+    RoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
