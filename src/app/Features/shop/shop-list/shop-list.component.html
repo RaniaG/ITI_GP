@@ -1,0 +1,123 @@
+<div class="container-fluid mt-5 mb-5">
+
+  <div class="row listing">
+    <div class="col-md-2 listing__filters">
+      <div class='mt-5'>
+        <div class='listing__filters__title'>Categories</div>
+        <ul class="list-group list-group-flush listing__filters__categories">
+          <li class="list-group-item">Shoes</li>
+          <li class="list-group-item active">Bags</li>
+          <li class="list-group-item">Scarf</li>
+          <li class="list-group-item">Carpet</li>
+          <li class="list-group-item">Accessories</li>
+        </ul>
+      </div>
+      <div class='mt-5'>
+        <label for="customRange3">
+          <div class='listing__filters__title'>Price</div>
+        </label>
+        <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
+      </div>
+      <div class='mt-5'>
+        <div class='listing__filters__title'>Sellers</div>
+        <div class="d-flex justify-content-center flex-column">
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="">
+            <label class="form-check-label" for="">Crochet shop</label>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="">
+            <label class="form-check-label" for="">Glass shop</label>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="">
+            <label class="form-check-label" for="">Embroidery shop</label>
+          </div>
+        </div>
+      </div>
+      <div class='mt-5'>
+        <div class='listing__filters__title'>Rating</div>
+        <app-rating [rate]="5" [readonly]="true"></app-rating>
+        <br>
+        <app-rating [rate]="4" [readonly]="true"></app-rating>
+        <br>
+        <app-rating [rate]="3" [readonly]="true"></app-rating>
+        <br>
+        <app-rating [rate]="2" [readonly]="true"></app-rating>
+        <br>
+        <app-rating [rate]="1" [readonly]="true"></app-rating>
+
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="row justify-content-between">
+        <div class="col-3">
+          <p>Showing results of "query"</p>
+        </div>
+
+        <div class="col-4 d-flex flex-row justify-content-end align-items-stretch">
+          <div class="form-group">
+            <input type="text" class="form-control" id="" placeholder="Search">
+          </div>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle border" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Sort by
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Price high to low</a>
+              <a class="dropdown-item" href="#">Price low to high</a>
+              <a class="dropdown-item" href="#">Highest rated</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div>
+            <span class="badge badge-primary">
+              filter 1 <i class="fas fa-minus-circle fa-md"></i>
+            </span>
+            <span class="badge badge-primary">
+              filter 2 <i class="fas fa-minus-circle fa-md"></i>
+            </span>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+          <app-shop-card></app-shop-card>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+          <app-shop-card></app-shop-card>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+          <app-shop-card></app-shop-card>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+          <app-shop-card></app-shop-card>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+          <app-shop-card></app-shop-card>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 mt-5">
+          <app-shop-card></app-shop-card>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12 d-flex justify-content-end">
+          <nav aria-label="Page navigation example ">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

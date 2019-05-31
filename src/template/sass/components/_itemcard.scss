@@ -1,9 +1,8 @@
 .itemcard {
-    width: $smallcard--width;
     border: 1px solid #888;
     align-content: center;
     padding: 0.5rem;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: $font-1;
     &__overlay {
         width: 100%;
         background-color: rgba(0, 0, 0, 0.7);
@@ -21,7 +20,7 @@
         }
     }
     &__icon__circle {
-        background-color: $color-primary;
+        background-color: $primary;
         border-radius: 50%;
         color: white;
         width: 40px;
@@ -29,13 +28,14 @@
         display: flex;
         justify-items: center;
         opacity: 0;
-        transition-delay: 0.2s;
+        // transition-delay: 0.2s;
+        margin: auto;
     }
     
     .itemcard__icon__circle2 {
-        background-color: $color-primary;
+        background-color: $primary;
         opacity: 0;
-        transition-delay: 0.5s;
+        // transition-delay: 0.5s;
     }
     &__icon {
         margin: auto;
@@ -43,8 +43,10 @@
     &__header {
         color: #2b373a;
         font-weight: 700;
+        margin-top: 1rem;
         &__small {
             font-size: 0.75em;
+            text-align: center;
         }
     }
     &__description {
@@ -74,6 +76,7 @@
             width: 2.6rem;
             height: 2.6rem;
             margin-right: 0.2rem;
+            margin-left:1rem;
         }
         align-items: center;
     }
