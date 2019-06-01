@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule, NgbRating } from '@ng-bootstrap/ng-bootstrap';
 import { RatingComponent } from './rating/rating.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
-  declarations: [RatingComponent],
+  declarations: [RatingComponent, PaginationComponent],
   imports: [
     CommonModule,
     NgbModule

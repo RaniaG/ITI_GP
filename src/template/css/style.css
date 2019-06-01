@@ -8071,7 +8071,7 @@ ul {
   background-size: cover; }
 
 .profile__userphoto {
-  width: 15rem; }
+  width: 14.5rem; }
 
 .profile--content {
   margin-top: 13rem; }
@@ -8082,5 +8082,5 @@ ul {
 
 .profile__pic {
   position: absolute;
-  top: 10%;
+  top: 19%;
   left: 8%; }
