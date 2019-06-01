@@ -15,7 +15,16 @@ export class ShopDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onRateChange(val) {
-    this.rate = val;
+  scrollTo(id: string) {
+    // console.log(window.pageYOffset);
+    // switch (id) {
+    //   case 'overview':
+    //     window.scrollTo();
+
+    //     break;
+
+    //   default:
+    //     break;
+    // }
   }
 }

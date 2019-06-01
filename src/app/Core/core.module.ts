@@ -6,11 +6,18 @@ import { NavbarComponent } from './header/navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [FooterComponent, HeaderComponent, NavbarComponent, LoginComponent, SignupComponent, HomeComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([
+      { path: 'home', component: HomeComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'signup', component: SignupComponent },
+
+    ])
   ],
    exports: [
     FooterComponent,
@@ -18,7 +25,8 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+
   ]
 })
 export class CoreModule { }

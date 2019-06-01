@@ -1,4 +1,5 @@
 .productcard {
+    // width: 25rem;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -10,11 +11,11 @@
         position: absolute;
         display: flex;
         justify-content: flex-end;
-        z-index: 5;
+        z-index: 1;
         width:100%;
         button{
             margin: 0.5rem;
-            box-shadow: 0.1rem 0.1rem grey;
+            // box-shadow: 0.1rem 0.1rem grey;
         }
     }
     &__img {
@@ -29,11 +30,11 @@
             position: absolute;
             transition-duration: 0.3s;
             filter: opacity(0%);
-            transform: scale(2);
+            transform: scale(1.3);
             &:hover {
                 visibility: visible;
                 filter: opacity(100%);
-                transform: scale(1);
+                transform: scale(0.3);
             }
         }
     }
@@ -46,6 +47,8 @@
         font-family: $font-1;
         font-weight: 400;
         font-size: 1.8rem;
+        margin-top: 0.5rem;
+        font-style: italic;
     }
     &--horizontal {
         flex-flow: row;
@@ -107,30 +110,30 @@
                 visibility: visible;
             }
         }
-        &__title{
-            visibility: hidden;
-            background: $primary;
-            position: absolute;
-            border-radius: 1rem;
-            padding: 0.5rem;
-            text-align: center;
-            bottom:150%;
-            color: white;
-            font-size: 1rem;
-            z-index: 3;
-            &:before {
-                content: "";
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                top: 100%;
-                width: 0;
-                height: 0;
-                border-left: 0.5rem solid transparent;
-                border-top: 1rem solid $color-primary;
-                border-right: 0.5rem solid transparent;
-            }
-        }
+        // &__title{
+        //     visibility: hidden;
+        //     background: $primary;
+        //     position: absolute;
+        //     border-radius: 1rem;
+        //     padding: 0.5rem;
+        //     text-align: center;
+        //     bottom:150%;
+        //     color: white;
+        //     font-size: 1rem;
+        //     z-index: 3;
+        //     &:before {
+        //         content: "";
+        //         position: absolute;
+        //         left: 50%;
+        //         transform: translateX(-50%);
+        //         top: 100%;
+        //         width: 0;
+        //         height: 0;
+        //         border-left: 0.5rem solid transparent;
+        //         border-top: 1rem solid $color-primary;
+        //         border-right: 0.5rem solid transparent;
+        //     }
+        // }
     }
     &:hover {
         .productcard__img--back {

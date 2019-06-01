@@ -26,7 +26,7 @@
       <div class="col-md-6">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
           <div>
-            <h1>Shop name</h1>
+            <h2>Shop name</h2>
             <div class="d-flex flex-row justify-content-between">
               <div><span>12</span> Followers</div>
               <span>|</span>
@@ -38,7 +38,7 @@
           <div>
             <div>
 
-              <app-rating [rate]="rate" [readonly]="false" (rateChange)="rate=$event"></app-rating>
+              <app-rating [rate]="rate" [readonly]="true" (rateChange)="rate=$event"></app-rating>
               <span>(300)</span>
             </div>
           </div>
@@ -58,11 +58,11 @@
     <div class="row">
       <div class="col-12">
         <ul class="nav justify-content-center bg-secondary p-3" style="filter:opacity(50%);">
-          <li class="nav-item">
-            <a class="nav-link  text-light " href="#">Overview</a>
+          <li class="nav-item" (click)="scrollTo('overview')">
+            <a class="nav-link  text-light ">Overview</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link  text-light " href="#">Products</a>
+          <li class=" nav-item" (click)="scrollTo('products')">
+            <a class="nav-link  text-light " href="#products">Products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link  text-light " href="#">Edit shop</a>
@@ -75,7 +75,8 @@
     </div>
   </div>
   <!--Overview -->
-  <div class="container  section">
+
+  <div class="container  section " id="overview">
     <div class="row ">
       <div class="col-12 mt-5">
         <h2 class='text-center'>About</h2>
@@ -102,7 +103,7 @@
 
     <div class="row justify-content-center no-gutters">
       <div class="col-8 shop__slider">
-        <h2 class="text-center">Recent Products</h2>
+        <h2 class="text-center ">Recent Products</h2>
         <div class='shop__slider__controls'>
           <div class='shop__slider__btn'> <i class="fas fa-chevron-left"></i> </div>
           <div class='shop__slider__btn'> <i class="fas fa-chevron-right"></i> </div>
@@ -221,6 +222,8 @@
   </div>
   <hr>
   <!--listing-->
+  <div id='products'>
+    product listing here
+  </div>
 
-  product listing here
 </div>

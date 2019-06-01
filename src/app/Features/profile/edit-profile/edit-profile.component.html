@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="col-lg-4 col-sm-12">
+    <h1 class="text--center text-primary">Edit Profile</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-sm-12">
+      <div class="userCard m-auto text--center" style="width: 17rem;">
+        <div class="userCard__thumbnail mb-3" style="background-image: url('assets/images/woman.jpg'); ">
+        </div>
+        <button class="btn btn-secondary d-block m-auto my-4">Upload Image</button>
+        <span class="my-4 color--primary"> <i class="fas fa-trash-alt"></i> Remove Image</span>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit(editProfileForm)">
+        <div class="form-group">
+          <label for="exampleInputfn">First name</label>
+          <input type="text" class="form-control" formControlName="firstname">
+        </div>
+
+        <span *ngIf="!editProfileForm.get('firstname').valid">
+          <span *ngIf="editProfileForm.get('firstname').errors['required'] && editProfileForm.get('firstname').touched"
+            class="error__msg">first name is
+            required and it </span>
+          <span *ngIf="!editProfileForm.get('firstname').valid && editProfileForm.get('firstname').touched"
+            class="error__msg">should contains at least three letters and maximum 20 letters and numbers are invalid!
+          </span>
+        </span>
+
+        <div class="form-group">
+          <label for="exampleInputln">Last name</label>
+          <input type="text" class="form-control" formControlName="lastname">
+        </div>
+        <span *ngIf="!editProfileForm.get('lastname').valid">
+          <span *ngIf="editProfileForm.get('lastname').errors['required'] && editProfileForm.get('lastname').touched"
+            class="error__msg">last name is
+            required and it </span>
+          <span *ngIf="!editProfileForm.get('lastname').valid && editProfileForm.get('lastname').touched"
+            class="error__msg">should contains at least three letters and maximum 20 letters and numbers are invalid!
+          </span>
+        </span>
+
+        <div class="form-group">
+          <label for="exampleInputun">Username</label>
+          <input type="text" class="form-control" formControlName="username">
+        </div>
+        <span *ngIf="!editProfileForm.get('username').valid">
+          <span *ngIf="editProfileForm.get('username').errors['required'] && editProfileForm.get('username').touched"
+            class="error__msg">username is
+            required and it </span>
+          <span *ngIf="!editProfileForm.get('username').valid && editProfileForm.get('username').touched"
+            class="error__msg">should contains at least three letters and maximum 20 letters and numbers are invalid!
+          </span>
+        </span>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+            aria-describedby="emailHelp">
+          <span *ngIf="!editProfileForm.get('email').valid">
+            <span *ngIf="editProfileForm.get('email').errors['required'] && editProfileForm.get('email').touched"
+              class="error__msg">email is
+              required ! </span>
+            <span *ngIf="!editProfileForm.get('email').valid && editProfileForm.get('email').touched"
+              class="error__msg">email is
+              invalid !</span>
+          </span>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+            else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputbio">Bio</label>
+          <input type="text" class="form-control">
+        </div>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-legend col-sm-2" style="font-size: 1.6rem;">Gender</legend>
+            <div class="col-sm-10 row">
+              <div class="form-check mr-5">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                    checked>
+                  Female
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                  Male
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Change Password</label>
+          <input  class="form-control" type="password" id="exampleInputPassword1" formControlName="changePassword">
+          <small id="passwordHelp" class="form-text text-muted">Leave blank if you'd like to keep your
+            current password.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword2">Confirm Password</label>
+          <input class="form-control" type="password" id="exampleInputPassword2" formControlName="confirmPassword">
+        </div>
+        <button type="submit" class="btn btn-primary mr-2">Save</button>
+        <button type="button" class="btn btn-secondary">Cansel</button>
+      </form>
+    </div>
+  </div>
+</div>

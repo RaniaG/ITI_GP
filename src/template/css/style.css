@@ -7194,6 +7194,18 @@ ul {
   font-size: 3rem;
   font-weight: 600; }
 
+.do {
+  color: #7B7B7B; }
+
+.done {
+  color: green; }
+
+.doing {
+  color: #ffd055; }
+
+.fail {
+  color: #d74704; }
+
 .nav-bordered > .nav-item {
   box-sizing: border-box;
   border-bottom: 3px solid transparent; }
@@ -7296,11 +7308,10 @@ ul {
       cursor: pointer; }
 
 .itemcard {
-  width: 27rem;
   border: 1px solid #888;
   align-content: center;
   padding: 0.5rem;
-  font-family: 'Titillium Web', sans-serif; }
+  font-family: "Heebo", Arial, sans-serif; }
   .itemcard__overlay {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -7322,18 +7333,19 @@ ul {
     display: flex;
     justify-items: center;
     opacity: 0;
-    transition-delay: 0.2s; }
+    margin: auto; }
   .itemcard .itemcard__icon__circle2 {
     background-color: #00a5b2;
-    opacity: 0;
-    transition-delay: 0.5s; }
+    opacity: 0; }
   .itemcard__icon {
     margin: auto; }
   .itemcard__header {
     color: #2b373a;
-    font-weight: 700; }
+    font-weight: 700;
+    margin-top: 1rem; }
     .itemcard__header__small {
-      font-size: 0.75em; }
+      font-size: 0.75em;
+      text-align: center; }
   .itemcard__description {
     font-weight: 600;
     font-size: 0.75em;
@@ -7357,7 +7369,8 @@ ul {
       border-radius: 50%;
       width: 2.6rem;
       height: 2.6rem;
-      margin-right: 0.2rem; }
+      margin-right: 0.2rem;
+      margin-left: 1rem; }
 
 .cube {
   height: 40vw;
@@ -7713,6 +7726,7 @@ ul {
   display: flex;
   flex-direction: row; }
   .drop-downs-container .drop-down-list {
+    z-index: 2;
     position: relative; }
     .drop-downs-container .drop-down-list:hover .list-container--visibility {
       visibility: visible;
@@ -7730,7 +7744,6 @@ ul {
         color: #00a5b2; }
         .drop-downs-container .drop-down-list .list-title:hover + .list-container--visibility {
           visibility: visible;
-          z-index: 2;
           opacity: 1;
           top: 2.5rem; }
     .drop-downs-container .drop-down-list .list-container {
@@ -7962,7 +7975,7 @@ ul {
   .footer__logo {
     height: 15rem; }
 
-.shop h1, .shop h2 {
+.shop h1, .shop h2, .shop h3 {
   color: #00a5b2; }
 
 .shop__slider {
@@ -7981,14 +7994,15 @@ ul {
       cursor: pointer; }
 
 .shop__cover {
-  height: 20rem;
+  height: 15rem;
   overflow: hidden; }
   .shop__cover img {
     width: 100%; }
 
 .shop__photo {
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
+  margin: auto;
   background-size: contain;
   background-repeat: round;
   z-index: 1021;
@@ -7998,8 +8012,14 @@ ul {
     .shop__photo {
       position: absolute;
       left: 8%;
-      width: 20rem;
-      height: 20rem; } }
+      width: 10rem;
+      height: 10rem; } }
+  @media (min-width: 992px) {
+    .shop__photo {
+      position: absolute;
+      left: 8%;
+      width: 15rem;
+      height: 15rem; } }
 
 .shop__user-photo {
   width: 50px;
@@ -8084,3 +8104,38 @@ ul {
   position: absolute;
   top: 19%;
   left: 8%; }
+
+.orderTrack {
+  background-color: #00a5b2;
+  font-family: Lora, Helvetica, Arial, sans-serif; }
+  .orderTrack__process {
+    color: white; }
+    .orderTrack__process__Bar {
+      background-color: white;
+      height: 0.7rem; }
+      .orderTrack__process__Bar__items {
+        top: -0.5rem; }
+        .orderTrack__process__Bar__items i {
+          font-size: 1.7rem;
+          color: #b0b0b0; }
+    .orderTrack__process__name span {
+      font-size: 1.3rem; }
+  .orderTrack__info {
+    color: white;
+    font-family: "Heebo", Arial, sans-serif; }
+    .orderTrack__info__code i {
+      font-size: 5rem; }
+    .orderTrack__info__img {
+      width: 100%;
+      height: 13rem; }
+  .orderTrack__details .card {
+    border: 0.2rem solid white; }
+    .orderTrack__details .card-header {
+      color: black;
+      background-color: #ededed; }
+    .orderTrack__details .card-body {
+      font-size: 1.3rem; }
+      .orderTrack__details .card-body:hover {
+        box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.2), 0.1rem 0 0 0.1rem rgba(0, 0, 0, 0.19); }
+  .orderTrack__details__item {
+    font-size: 1.7rem; }

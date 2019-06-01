@@ -96,6 +96,19 @@ text-align: center;
 }
 
 
+.do{
+    color: $color-grey-4;
+}
+.done{
+    color: $color-green;
+}
+.doing{
+    color: $color-gold;
+}
+.fail{
+    color: $color-red;
+}
+
 .nav-bordered
 {
     >.nav-item{
@@ -108,3 +121,4 @@ color:$secondary;
 // transition: all 0.2s ease-in;
     }
 }
+
