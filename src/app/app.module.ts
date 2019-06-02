@@ -9,6 +9,8 @@ import { ProfileModule } from './Features/profile/profile.module';
 import { CartModule } from './Features/cart/cart.module';
 import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
+import { ProductService } from './_service/product-service';
+import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { RoutingModule } from './routing.module';
     DashboardModule,
     RoutingModule,
   ],
-  providers: [],
+  providers: [
+    ProductService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

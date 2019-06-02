@@ -2,21 +2,30 @@
 
 <div class="productcard productcard--vertical ">
   <div class="productcard__controls">
-    <button class='btn btn-primary'><i class="fas fa-pen"></i></button>
-    <button class='btn btn-primary'><i class="fas fa-minus"></i></button>
+    <button class='btn btn-primary'>
+      <a [routerLink]="['/products' , 'edit' , product.id]">
+        <i class="fas fa-pen "></i>
+      </a>
+    </button>
+    <!-- data-toggle="modal" data-target="#exampleModal" -->
+    <button class='btn btn-primary'>
+      <a [routerLink]="['/products' , 'delete' , product.id]">
+        <i class="fas fa-minus"></i>
+      </a>
+    </button>
   </div>
   <div class='productcard__images'>
-    <img src="assets/images/image_11-1-300x300.jpg" class='productcard__img productcard__img--front'>
-    <img src="assets/images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
+    <img src="{{product.images[0]}}" class='productcard__img productcard__img--front'>
+    <img src="{{product.images[1]}}" class='productcard__img productcard__img--back'>
   </div>
-  <div class="productcard__title">Product Title</div>
-  <div class="productcard__body">
+  <div class="productcard__title text-center">{{product.name}}</div>
+  <div class="productcard__body m-auto">
     <div class="productcard__prices">
-      <div class="price price--new price--euro">2.00</div>
-      <div class="price price--old price--euro">3.00</div>
+      <div class="price price--new price--euro mr-3">{{product.price}}</div>
+      <div class="price price--old price--euro">{{finalPrice()}}</div>
     </div>
   </div>
-  <app-rating [rate]="3" [readonly]="false" (rateChange)="rate=$event"></app-rating>
+  <app-rating class="text-center" [rate]="3" [readonly]="false" (rateChange)="rate=$event"></app-rating>
   <div class="productcard__buttons">
     <div class="productcard__btn">
       <i class="fas fa-shopping-basket fa-sm"></i>
@@ -31,7 +40,9 @@
       <!-- <div class="productcard__btn__title">Compare</div> -->
     </div>
     <div class="productcard__btn">
-      <i class="fas fa-search fa-sm"></i>
+      <a [routerLink]="['/products' , 'details' , product.id]">
+        <i class="fas fa-search fa-sm"></i>
+      </a>
       <!-- <div class="productcard__btn__title">View</div> -->
     </div>
   </div>
