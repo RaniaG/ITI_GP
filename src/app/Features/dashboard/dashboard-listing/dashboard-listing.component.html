@@ -1,22 +1,6 @@
 <div class="container-fluid bg-light">
   <div class="row">
-    <!-- side nav -->
-    <!-- <div class="bg-dark" id="side-nav">
-                <ul class="navbar-nav bg-dark navbar-dark">
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.home.html"
-                            target="_blank">Dashboard</a></li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.inventory.html"
-                            target="_blank">Inventory</a></li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.orders.html" target="_blank">Orders</a>
-                    </li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.payments.html"
-                            target="_blank">Payments</a></li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.performance.html"
-                            target="_blank">Performance</a></li>
-                    <li class="navbar-nav"><a class="nav-link" href="./dashboard.sales.html" target="_blank">Sales</a>
-                    </li>
-                </ul>
-            </div> -->
+
     <div class="col">
       <!-- header -->
       <div class="row bg-primary">
@@ -30,83 +14,31 @@
       <!-- content -->
       <div class="row no-gutters text-light">
         <!-- info badges -->
-        <!-- followers statistics -->
-        <!-- <div class="col-lg-3 col-md-6 px-2 py-2">
-                            <div class="card bg-primary">
-                                <div class="row align-items-center no-gutters px-2 py-2">
-                                    <div class="col-xs-4">
-                                        <img src="../../assets/images/png-dashboard/017-group.png" alt="followers"
-                                            style="width:70%; height:auto;" />
-                                    </div>
-                                    <div class="col-xs-8 text-center">
-                                        <p>500</p>
-                                        <span>Followers</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
         <!-- visits statistics -->
         <div class="col-lg-3 col-md-6 px-2 py-2">
-          <div class="card bg-warning">
-            <div class="row align-items-center no-gutters px-2 py-2">
-              <div class="col-xs-4">
-                <img src="../../assets/images/png-dashboard/015-search.png" alt="visits"
-                  style="width:70%; height:auto;" />
-              </div>
-              <div class="col-xs-8 text-center">
-                <p>1000</p>
-                <span>Visits</span>
-              </div>
-            </div>
-          </div>
+          <app-summary-card [imageUrl]="visitsImage" [bg-color]="'bg-warning'" [label]="'Visits'" [value]="visitsValue">
+          </app-summary-card>
         </div>
         <!-- inventory statistics -->
         <div class="col-lg-3 col-md-6 px-2 py-2">
-          <div class="card bg-dark">
-            <div class="row align-items-center no-gutters px-2 py-2">
-              <div class="col-xs-4">
-                <img src="../../assets/images/png-dashboard/008-cart.png" alt="inventory"
-                  style="width:70%; height:auto;" />
-              </div>
-              <div class="col-xs-8 text-center">
-                <p>150</p>
-                <span>Sold Products</span>
-              </div>
-            </div>
-          </div>
+          <app-summary-card [imageUrl]="productsImage" [bg-color]="'bg-dark'" [label]="'Sold Products'"
+            [value]="productsValue">
+          </app-summary-card>
         </div>
         <!-- orders info -->
         <div class="col-lg-3 col-md-6 px-2 py-2">
-          <div class="card bg-primary">
-            <div class=" row align-items-center no-gutters px-2 py-2">
-              <div class="col-xs-4">
-                <img src="../../assets/images/png-dashboard/002-order-1.png" alt="orders"
-                  style="width:70%; height:auto;" />
-              </div>
-              <div class="col-xs-8 text-center">
-                <p>30</p>
-                <span>Orders</span>
-              </div>
-            </div>
-          </div>
+          <app-summary-card [imageUrl]="ordersImage" [bg-color]="'bg-info'" [label]="'Orders'" [value]="ordersValue">
+          </app-summary-card>
         </div>
         <!-- sales info -->
         <div class="col-lg-3 col-md-6 px-2 py-2">
-          <div class="card bg-success">
-            <div class="row align-items-center no-gutters px-2 py-2">
-              <div class="col-xs-4">
-                <img class="card-img" src="../../assets/images/png-dashboard/005-profit.png" alt="revenu"
-                  style="width:70%; height:auto;" />
-              </div>
-              <div class="col-xs-8 text-center">
-                <p>$ 360</p>
-                <span>Revenu</span>
-              </div>
-            </div>
-          </div>
+          <app-summary-card [imageUrl]="revenuImage" [bg-color]="'bg-success'" [label]="'Revenu'"
+            [value]="'$'+revenuValue">
+          </app-summary-card>
         </div>
       </div>
+      <!-- /info badges -->
+
       <!-- summary cards -->
       <div class="row no-gutters">
         <div class="col">
@@ -442,5 +374,3 @@
     </div>
   </div>
 </div>
-<!-- <app-order-details></app-order-details> -->
-<!-- <app-order-listing></app-order-listing> -->
