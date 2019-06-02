@@ -12,6 +12,7 @@ import { PaginationComponent } from './pagination/pagination.component';
   ],
   exports: [
     RatingComponent,
+    PaginationComponent,
     NgbModule
   ]
 })

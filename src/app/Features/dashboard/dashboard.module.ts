@@ -8,11 +8,25 @@ import { SalesChartComponent } from './sales-chart/sales-chart.component';
 import { DetailsComponent } from './order/details/details.component';
 import { ListingComponent } from './order/listing/listing.component';
 import { VisitsSummaryComponent } from './visits-summary/visits-summary.component';
+import { DashboardListingComponent } from './dashboard-listing/dashboard-listing.component';
 
 @NgModule({
-  declarations: [SummaryCardComponent, SalesSummaryComponent, InventoryCardComponent, OrdersSummaryComponent, SalesChartComponent, DetailsComponent, ListingComponent, VisitsSummaryComponent],
+  declarations: [
+    SummaryCardComponent,
+    SalesSummaryComponent,
+    InventoryCardComponent,
+    OrdersSummaryComponent,
+    SalesChartComponent,
+    DetailsComponent,
+    ListingComponent,
+    VisitsSummaryComponent,
+    DashboardListingComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    DashboardListingComponent
   ]
+
 })
 export class DashboardModule { }

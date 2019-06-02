@@ -7,6 +7,7 @@ import { ShopModule } from './Features/shop/shop.module';
 import { ProductModule } from './Features/product/product.module';
 import { ProfileModule } from './Features/profile/profile.module';
 import { CartModule } from './Features/cart/cart.module';
+import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
 
 
@@ -21,6 +22,7 @@ import { RoutingModule } from './routing.module';
     ProductModule,
     ProfileModule,
     CartModule,
+    DashboardModule,
     RoutingModule,
   ],
   providers: [],

@@ -1,3 +1,142 @@
-<p>
-  details works!
-</p>
+<div class="container-fluid bg-light p-3">
+  <div class="row">
+    <div class="col">
+
+      <!-- header -->
+      <div class="row no-gutters bg-primary border-bottom">
+        <div class="col ">
+          <ul class="custom-breadcrumb">
+            <li class="custom-breadcrumb-item"><a>Profile</a></li>
+            <li class="custom-breadcrumb-item"><a>Dashboard</a></li>
+            <li class="custom-breadcrumb-item"><a>Orders</a></li>
+            <li class="custom-breadcrumb-item active">Order Details</li>
+          </ul>
+        </div>
+      </div>
+      <!-- /header -->
+
+      <!-- content -->
+      <div class="row no-gutters bg-light">
+        <div class="col-12">
+          <!-- order heading -->
+          <div class="bg-white mb-3">
+            <h4 class="text-secondary p-2">Order Details: <span class="text-primary mb-2">#12547</span>
+            </h4>
+            <!-- page nav-->
+            <ul class="nav nav-bordered mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#order-details">Details</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#order-invoice">Invoice</a>
+              </li>
+            </ul>
+            <!-- /page nav -->
+          </div>
+          <!-- /order heading -->
+
+          <!-- order details -->
+          <div class="row no-gutters p-2 mb-3 bg-white" id="order-details">
+            <div class="col-sm-12 mb-2 p-2">
+              <h6 class="text-uppercase text-secondary">status</h6>
+              <h3 class="text-success text-uppercase">Delivered</h3>
+            </div>
+            <div class="col-sm-4 border-right p-2">
+              <h6 class="text-uppercase text-secondary">ORDER DETAILS</h6>
+              <ul>
+                <li>ID: #12547</li>
+                <li>Date: Jun 26, 2013</li>
+              </ul>
+            </div>
+            <div class="col-sm-4 border-right p-2">
+              <h6 class="text-uppercase text-secondary">Shipping Address</h6>
+              <ul>
+                <li>Address 1</li>
+                <li>City/town</li>
+                <li>Postcode/zip code</li>
+                <li>State/region/province</li>
+                <li>Country</li>
+              </ul>
+            </div>
+
+            <div class="col-sm-4 p-2">
+              <h6 class="text-uppercase text-secondary">DELIVERY & PAYMENT</h6>
+              <ul>
+                <li>DELIVERY: Door to Door</li>
+                <li>PAYMENT: cash</li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- /order details -->
+
+          <!-- order invoice -->
+          <div class="row no-gutters p-2 mb-3 bg-white" id="order-invoice">
+            <div class="col-sm-6 p-2">
+              <h6 class="text-uppercase text-secondary">ORDER invoice</h6>
+              <ul>
+                <li class="ng-binding"><strong class="inline-block w-sm mb-5">Subtotal:</strong>
+                  $865.21</li>
+                <li class="ng-binding"><strong class="inline-block w-sm mb-5">Discount:</strong>
+                  $88.21</li>
+                <li class="ng-binding"><strong class="inline-block w-sm mb-5">Shipping
+                    Fees:</strong>
+                  $25.00</li>
+                <li><strong class="inline-block w-sm">Total Due:</strong>
+                  <h3 class="inline-block text-success">$890.21</h3>
+                </li>
+              </ul>
+            </div>
+            <div class="col-12">
+              <div class="table-responsive-md">
+                <table class="table table-hover text-center">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Product Name</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Discount %</th>
+                      <th>Discount Amount</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="#">0000156</a></td>
+                      <td>nicklace</td>
+                      <td>3</td>
+                      <td class="ng-binding">$1.56</td>
+                      <td>5%</td>
+                      <td class="ng-binding">0.23</td>
+                      <td class="ng-binding">$4.45</td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">0496116</a></td>
+                      <td>bracelet</td>
+                      <td>5</td>
+                      <td class="ng-binding">$2.29</td>
+                      <td>8%</td>
+                      <td class="ng-binding">0.92</td>
+                      <td class="ng-binding">$10.53</td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">9611159</a></td>
+                      <td>handbag</td>
+                      <td>1</td>
+                      <td class="ng-binding">$0.99</td>
+                      <td>20%</td>
+                      <td class="ng-binding">0.20</td>
+                      <td class="ng-binding">$0.79</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- /order invoice -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
