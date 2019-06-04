@@ -9,6 +9,7 @@ import { ProfileModule } from './Features/profile/profile.module';
 import { CartModule } from './Features/cart/cart.module';
 import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
+import { ShopService } from './Features/shop/shop.service';
 
 
 @NgModule({
@@ -19,13 +20,15 @@ import { RoutingModule } from './routing.module';
     BrowserModule,
     ShopModule,
     CoreModule,
-    ProductModule,
+    // ProductModule,
     ProfileModule,
     CartModule,
     DashboardModule,
-    RoutingModule,
+    RoutingModule
   ],
-  providers: [],
+  providers: [
+    ShopService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
