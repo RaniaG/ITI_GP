@@ -16,26 +16,31 @@ export class EditProfileComponent implements OnInit {
       'lastname': new FormControl('Mohamed', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
       'username': new FormControl('bassant fahmy', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
       'email': new FormControl('bassantfahmy@gmail.com', [Validators.required, Validators.email]),
-      'changePassword': new FormControl('12345678'),
-      'confirmPassword': new FormControl('12345678')
-      // 'confirmPassword': new FormControl('12345678', this.MustMatch('changePassword', 'confirmPassword'))
+      'changePassword': new FormControl(''),
+      // 'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword'))
+      confirmPassword:new FormControl()
     });
   }
+ 
+  // MustMatch(control1: string, control2: string): ValidatorFn {
+  //   return (control: AbstractControl): ValidationErrors | null => {
+  //     let result: ValidationErrors;
+  //     if (control.get(control1).value !== control.get(control2).value) {
+  //       result = { compare: true };
+  //     }
+  //     else {
+  //       result = null;
+  //     }
+  //     return result;
+  //   }
+  // }
+
   onSubmit(editProfileForm) {
     console.log(editProfileForm);
   }
-  MustMatch(control1: string, control2: string): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      let result: ValidationErrors;
-      if (control.get(control1).value !== control.get(control2).value) {
-        result = { compare: true };
-      }
-      else {
-        result = null;
-      }
-      return result;
-    }
-  }
+
+
+
   // MustMatch=(control1: string, control2: string): ValidatorFn =>{
   //   return (control: AbstractControl): ValidationErrors | null => {
   //     let result: ValidationErrors;
