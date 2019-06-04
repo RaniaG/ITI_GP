@@ -1,3 +1,4 @@
+import { Category } from './category';
 
 
 
@@ -6,8 +7,9 @@ export class Product {
     name? :string;
     price? :number;
     discount? :number;
+    quantity? :number;
     images?: string[];
-    // category? :Category;
+    category? :Category;
     fKCategory? :number;
     rate?: number;
 }

@@ -9,8 +9,9 @@ import { ProfileModule } from './Features/profile/profile.module';
 import { CartModule } from './Features/cart/cart.module';
 import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
-import { ProductService } from './_service/product-service';
 import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { CategoryService } from './_service/category.service';
+import { ProductService } from './_service/product.service';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   ],
   providers: [
     ProductService,
+    CategoryService,
   ],
   bootstrap: [AppComponent]
 })

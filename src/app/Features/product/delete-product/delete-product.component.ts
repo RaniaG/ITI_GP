@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-delete-product',
@@ -12,4 +13,6 @@ export class DeleteProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  
 }
+
