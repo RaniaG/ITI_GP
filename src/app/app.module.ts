@@ -10,6 +10,7 @@ import { CartModule } from './Features/cart/cart.module';
 import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
 import { ShopService } from './Features/shop/shop.service';
+import { ProductService } from './_service/product-service';
 
 
 @NgModule({
@@ -20,14 +21,15 @@ import { ShopService } from './Features/shop/shop.service';
     BrowserModule,
     ShopModule,
     CoreModule,
-    // ProductModule,
+    ProductModule,
     ProfileModule,
     CartModule,
     DashboardModule,
     RoutingModule
   ],
   providers: [
-    ShopService
+    ShopService,
+    ProductService,
   ],
   bootstrap: [AppComponent]
 })
