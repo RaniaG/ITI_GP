@@ -1,0 +1,15 @@
+<div class="header">
+  <div class="header__title">
+    {{title}}
+  </div>
+  <div class="header__path">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" *ngFor="let item of path;let i =index">
+          <a href="#" *ngIf="i<path.length-1; else nonLink">{{item}}</a>
+          <ng-template #nonLink>{{item}}</ng-template>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
