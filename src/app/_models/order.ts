@@ -1,10 +1,10 @@
-import { Product } from './product';
+import { OrderedProduct } from './orderedProduct';
 
-interface Order {
+export class Order {
     id: string;//guid
     status: number;
     date: Date;
-    shippingAddress: number;
+    shippingAddress: string;
     deliveryMethod: number;
     paymenMethod: string;
     invoice: {
@@ -12,5 +12,5 @@ interface Order {
         discount?: number,
         shippingFees?: number
     }
-    productList: Product[];
+    productList: OrderedProduct[];
 }   

@@ -4,6 +4,7 @@ import { CartTableComponent } from './cart-table/cart-table.component';
 import { ShippingInformationComponent } from './shipping-information/shipping-information.component';
 import { FeesAndPaymentMethodsComponent } from './fees-and-payment-methods/fees-and-payment-methods.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component'
+import { SharedModule } from 'src/app/Shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component'
     FeesAndPaymentMethodsComponent,
     OrderSummaryComponent
   ],
-  imports: [CommonModule],
+  imports: [CommonModule,
+    SharedModule],
   exports: [
     CartTableComponent,
     ShippingInformationComponent,

@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingComponent } from './rating/rating.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { QuantityPickerComponent } from './quantity-picker/quantity-picker.component';
 
 @NgModule({
-  declarations: [RatingComponent, PaginationComponent],
+  declarations: [RatingComponent, PaginationComponent, QuantityPickerComponent],
   imports: [
     CommonModule,
     NgbModule
@@ -13,7 +14,8 @@ import { PaginationComponent } from './pagination/pagination.component';
   exports: [
     RatingComponent,
     PaginationComponent,
-    NgbModule
+    NgbModule,
+    QuantityPickerComponent
   ]
 })
 export class SharedModule { }

@@ -10,7 +10,9 @@ import { CartModule } from './Features/cart/cart.module';
 import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
 import { ProductService } from './_service/product-service';
-import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { OrderedProductsService } from './_service/ordered-products-service';
+import { OrderService } from './_service/order-service';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   ],
   providers: [
     ProductService,
+    OrderService,
+    OrderedProductsService
   ],
   bootstrap: [AppComponent]
 })
