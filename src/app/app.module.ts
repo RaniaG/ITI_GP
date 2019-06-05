@@ -15,6 +15,7 @@ import { CategoryService } from './_service/category.service';
 import { ProductService } from './_service/product.service';
 import { ShopService } from './Features/shop/shop.service';
 import { ReviewService } from './_service/review.service';
+import { UserService } from './_service/user.service';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ReviewService } from './_service/review.service';
     ProductService,
     CategoryService,
     ReviewService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
