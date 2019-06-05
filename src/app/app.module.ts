@@ -9,15 +9,19 @@ import { ProfileModule } from './Features/profile/profile.module';
 import { CartModule } from './Features/cart/cart.module';
 import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
-import { ProductService } from './_service/product-service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { OrderedProductsService } from './_service/ordered-products-service';
 import { OrderService } from './_service/order-service';
+import { CategoryService } from './_service/category.service';
+import { ProductService } from './_service/product.service';
+import { ShopService } from './Features/shop/shop.service';
+import { ReviewService } from './_service/review.service';
+import { UserService } from './_service/user.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -27,13 +31,17 @@ import { OrderService } from './_service/order-service';
     ProfileModule,
     CartModule,
     DashboardModule,
-    RoutingModule,
+    RoutingModule
   ],
   providers: [
+    ShopService,
     ProductService,
     OrderService,
-    OrderedProductsService
+    OrderedProductsService,
+    CategoryService,
+    ReviewService,
+    UserService
   ],
-  bootstrap: [AppComponent]
+  bootstrap : [AppComponent]
 })
 export class AppModule { }

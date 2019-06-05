@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/_models/product';
-import { ProductService } from 'src/app/_service/product-service';
+import { ProductService } from 'src/app/_service/product.service';
+
 
 @Component({
   selector: 'app-product-list',

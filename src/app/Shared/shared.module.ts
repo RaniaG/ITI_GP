@@ -4,9 +4,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RatingComponent } from './rating/rating.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { QuantityPickerComponent } from './quantity-picker/quantity-picker.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
+
 
 @NgModule({
-  declarations: [RatingComponent, PaginationComponent, QuantityPickerComponent],
+  declarations: [RatingComponent, PaginationComponent, PageHeaderComponent, QuantityPickerComponent],
   imports: [
     CommonModule,
     NgbModule
@@ -15,7 +17,8 @@ import { QuantityPickerComponent } from './quantity-picker/quantity-picker.compo
     RatingComponent,
     PaginationComponent,
     NgbModule,
-    QuantityPickerComponent
+    QuantityPickerComponent,
+    PageHeaderComponent
   ]
 })
 export class SharedModule { }
