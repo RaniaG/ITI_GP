@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inventory-card.component.scss']
 })
 export class InventoryCardComponent implements OnInit {
+  inventorySlotsMaxLimit: number;
+  usedSlots: number;
+  usagePercentage: number;
+  premiumStorage: Boolean;
 
-  constructor() { }
+  // to include service later
+  constructor() {
+    this.inventorySlotsMaxLimit = 100;
+    this.usedSlots = 25;
+    this.premiumStorage = false;
+  }
 
   ngOnInit() {
+    this.usagePercentage = (this.usedSlots / this.inventorySlotsMaxLimit) * 100;
   }
 
 }
