@@ -11,6 +11,16 @@ import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
 
 
+import { CategoryService } from './_service/category.service';
+import { ProductService } from './_service/product.service';
+import { ShopService } from './Features/shop/shop.service';
+import { ReviewService } from './_service/review.service';
+import { UserService } from './_service/user.service';
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import { AuthService } from './_auth/auth.service';
+import { AuthGuard } from './_auth/auth.guard';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +33,18 @@ import { RoutingModule } from './routing.module';
     ProfileModule,
     CartModule,
     DashboardModule,
-    RoutingModule,
+    RoutingModule
   ],
-  providers: [],
+  providers: [
+    ShopService,
+    ProductService,
+    CategoryService,
+    ReviewService,
+    UserService,
+    CanDeactivateGuard,
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

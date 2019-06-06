@@ -1,109 +1,105 @@
-<div class="container">
-  <h1>Create Shop</h1>
-  <div class="progress">
-    <div class="progress-bar bg-danger" role="progressbar" style="width: 33.3%" aria-valuenow="15" aria-valuemin="0"
-      aria-valuemax="100"><a href="#AddShopInfo" class="text-white">Shop Information</a></div>
-    <div class="progress-bar bg-info " role="progressbar" style="width: 33.3%" aria-valuenow="20" aria-valuemin="0"
-      aria-valuemax="100"><a href="#addPhoto" class="text-white">add shop photo</a></div>
-    <div class="progress-bar bg-success " role="progressbar" style="width: 33.3%" aria-valuenow="20" aria-valuemin="0"
-      aria-valuemax="100"><a href="#addAddress" class="text-white">Address</a>
-    </div>
-  </div>
-  <form>
-    <div class="form-group pt-4" id="AddShopInfo">
-      <label class="sr-only" for="inlineFormInputGroup">ShopName</label>
-      <div class="input-group mb-2">
+<app-page-header [title]="'Create Shop'" [path]="['Home','Create Shop']"></app-page-header>
 
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="shopname">
+<div class="container pt-5">
+  <form [formGroup]="shopForm" (ngSubmit)="finish()" (change)="saved=false">
+    <div class="form-group pt-4" id="">
+      <h3 class='text-primary mb-3'>Shop Name</h3>
+      <div class='text-danger' *ngIf="shopForm.get('name').hasError('required')&&shopForm.get('name').dirty">* Shop name
+        is required</div>
+      <div class='text-danger' *ngIf="shopForm.get('name').hasError('pattern')&&shopForm.get('name').dirty">* Shop name
+        must have only letters, numbers, underscore(_), and dash(-) </div>
+
+      <div class="input-group mb-2 ">
+        <input formControlName="name" #nameControl type="text" class="form-control"
+          [ngClass]="{'is-invalid': (shopForm.get('name').invalid&&shopForm.get('name').dirty)||!validName}"
+          placeholder="choose a unique shop name. example: RaniaCraftz_12">
         <div class="input-group-prepend">
-          <div class="input-group-text">Check Availabilty</div>
+          <button class=" input-group-text" [disabled]="!(shopForm.get('name').valid&&shopForm.get('name').dirty)"
+            (click)="checkAvailability()">Check
+            Availabilty</button>
         </div>
       </div>
     </div>
-    <div class="form-row pt-3">
+    <div class="form-row pt-3 mt-5">
+      <div class="col-12">
+
+        <h3 class='text-primary mb-3'>Shop Information</h3>
+      </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">About</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <label>About *</label>
+          <textarea formControlName="about" class="form-control"
+            [ngClass]="{'is-invalid': shopForm.get('about').invalid&&shopForm.get('about').dirty}" rows="3"></textarea>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Policies and Returns</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <label>Policies and Returns</label>
+          <textarea formControlName="policies" class="form-control" rows="3"></textarea>
         </div>
       </div>
     </div>
-    <div class="form-row" id="addPhoto">
-      <div class="col-md-6 mb-5">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="customFile">
-          <label class="custom-file-label" for="customFile">Choose coverPhoto</label>
-        </div>
-        <div class="custom-file mt-5">
-          <input type="file" class="custom-file-input" id="customFile">
-          <label class="custom-file-label" for="customFile">Choose ShopPhoto</label>
+
+
+    <div formGroupName="address">
+      <div class="form-group pt-3 mt-5">
+        <h3 class='text-primary mb-3'>Shop Address</h3>
+        <label for="">Street *</label>
+        <div class="input-group mb-2">
+          <input
+            [ngClass]="{'is-invalid': shopForm.get('address').get('street').invalid&&shopForm.get('address').get('street').dirty}"
+            formControlName="street" type="text" class="form-control" placeholder="">
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="container-fluid no-gutters">
-          <div class="row no-gutters">
-            <div class="col-12">
-              <div class="cover" style="background-color: skyblue;position: relative;">
-                <img src="assets/images/plus-icon.png" style="position: absolute;width: 30px;">
-              </div>
-              <div class="shop-photo" style="background-color: blanchedalmond;border-radius: 50%; ">
-                <img src="assets/images/plus-icon.png" style="position: absolute;width: 30px;top: 93px;left: 84px;">
-              </div>
-            </div>
+      <div class="form-row pt-3">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">Country *</label>
+            <select formControlName="country" class="form-control" id="">
+              <option value='1'>Egypt</option>
+              <option value='2'>US</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">City *</label>
+            <select formControlName="city" class="form-control" id="">
+              <option value='1'>Cairo</option>
+              <option value='2'>Alex</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-row pt-3">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">District*</label>
+            <select formControlName="district" class="form-control" id="">
+              <option value='1'>October</option>
+              <option value='2'>Haram</option>
+              <option value='3'>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="">Postal Code</label>
+            <span class='text-danger'
+              *ngIf="shopForm.get('address').get('postalcode').invalid && shopForm.get('address').get('postalcode').dirty">
+              * only numberic values allowed</span>
+            <input
+              [ngClass]="{'is-invalid':shopForm.get('address').get('postalcode').invalid && shopForm.get('address').get('postalcode').dirty}"
+              formControlName="postalcode" type="text" class="form-control" id="">
           </div>
         </div>
       </div>
     </div>
-
-    <div class="form-group pt-3 m--top--md" id="addAddress">
-      <div class="input-group mb-2">
-        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter Full Address">
+    <div class="form-row justify-content-end">
+      <div>
+        <button class="btn btn-light mr-3" (click)="cancel()">cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="shopForm.invalid">finish</button>
       </div>
     </div>
-    <div class="form-row pt-3">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Shop country *</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Egypt</option>
-            <option>US</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">City*</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Cairo</option>
-            <option>Alex</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="form-row pt-3">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">District*</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>October</option>
-            <option>Haram</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="">Postal Code</label>
-          <input type="text" class="form-control" id="">
-        </div>
-      </div>
-    </div>
-    <button type="button" class="mr-auto btn btn-primary">finish</button>
-    <button class="mr-auto btn btn-secondary">cancel</button>
   </form>
 </div>
