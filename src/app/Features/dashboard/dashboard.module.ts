@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RoutingModule } from '../../routing.module';
 import { SharedModule } from '../../Shared/shared.module';
 
 import { SummaryCardComponent } from './summary-card/summary-card.component';
@@ -26,7 +26,7 @@ import { DashboardListingComponent } from './dashboard-listing/dashboard-listing
     DashboardListingComponent],
   imports: [
     CommonModule,
-    RouterModule,
+    RoutingModule,
     SharedModule,
   ],
   exports: [

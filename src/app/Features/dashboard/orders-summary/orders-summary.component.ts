@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders-summary.component.scss']
 })
 export class OrdersSummaryComponent implements OnInit {
-  ordersSummary: orderSummary[];
-  //to inject service later
+  ordersSummary;
+  //to inject order service later
   constructor() {
   }
 

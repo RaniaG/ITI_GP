@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesSummaryComponent implements OnInit {
   salesSummary;
-  // to inject service later
+  // to inject order service later
   constructor() { }
 
   ngOnInit() {

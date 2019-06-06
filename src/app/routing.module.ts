@@ -2,11 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 
+import { DashboardListingComponent } from './Features/dashboard/dashboard-listing/dashboard-listing.component';
+import { OrderListingComponent } from './Features/dashboard/order/listing/listing.component';
+import { OrderDetailsComponent } from './Features/dashboard/order/details/details.component';
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     RouterModule.forRoot([
+      // { path: '', component: DashboardListingComponent },
+      { path: 'dashboard', component: DashboardListingComponent },
+      { path: 'orders', component: OrderListingComponent },
+      { path: 'orders/:id/details', component: OrderDetailsComponent },
+
 
     ]),
 
