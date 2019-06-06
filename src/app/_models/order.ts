@@ -2,9 +2,15 @@ import { Product } from './product';
 
 interface Order {
     id: string;//guid
-    status: number;
+    status: string;
     date: Date;
-    shippingAddress: number;
+    shippingAddress: {
+        street: string
+        city: string,
+        country: string,
+        district?: string,
+        postalcode?: number,
+    };
     deliveryMethod: number;
     paymenMethod: string;
     invoice: {
