@@ -18,7 +18,7 @@ export class ShopService {
   getAll() {
     return this.data;
   }
-  getById() {
+  getById(id: number) {
 
   }
   validateShopName(name: string): boolean {

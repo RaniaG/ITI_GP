@@ -7,9 +7,13 @@ import { User } from '../_models/user';
 })
 export class AuthService {
 
-  token: string;
+  token: string = null;
+  currentUser: User
   constructor(private router: Router) {
     this.token = " sdsfsdf";
+    this.currentUser = {
+      id: 1,
+    }
   }
 
   login(email: string, password: string) {
