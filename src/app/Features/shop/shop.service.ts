@@ -24,4 +24,10 @@ export class ShopService {
   validateShopName(name: string): boolean {
     return true;
   }
+  changeShopCover(photo) {
+    //get id of logged in user shop
+  }
+  changeShopPhoto(photo) {
+    //get id of logged in user shop
+  }
 }
