@@ -18,10 +18,16 @@ export class ShopService {
   getAll() {
     return this.data;
   }
-  getById() {
+  getById(id: number) {
 
   }
   validateShopName(name: string): boolean {
     return true;
+  }
+  changeShopCover(photo) {
+    //get id of logged in user shop
+  }
+  changeShopPhoto(photo) {
+    //get id of logged in user shop
   }
 }

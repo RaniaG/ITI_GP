@@ -1,3 +1,26 @@
-<p>
-  inventory-card works!
-</p>
+<div class="card">
+  <div class="card-header text-center bg-primary">
+    <h4 class="card-title mb-0 font-weight-bold text-light">Inventory</h4>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      Inventory slots used
+    </h5>
+    <p>
+      <ngb-progressbar [showValue]="true" type="info" [max]="inventorySlotsMaxLimit" [value]="usagePercentage"
+        [height]="'25px'" [striped]="true">
+      </ngb-progressbar>
+    </p>
+
+
+    <!-- regular bootstrap
+      <div class="progress my-2" style="height: 25px">
+      <div class="progress-bar progress-bar-striped bg-primary " role="progressbar" style="width: 25%;"
+        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      </div>
+      25%
+    </div> -->
+
+    <a *ngIf="!premiumStorage" [routerLink]="" class="btn btn-primary card-link">Upgrade to premium</a>
+  </div>
+</div>
