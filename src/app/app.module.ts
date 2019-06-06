@@ -17,6 +17,8 @@ import { ShopService } from './Features/shop/shop.service';
 import { ReviewService } from './_service/review.service';
 import { UserService } from './_service/user.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import { AuthService } from './_auth/auth.service';
+import { AuthGuard } from './_auth/auth.guard';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
     CategoryService,
     ReviewService,
     UserService,
-    CanDeactivateGuard
+    CanDeactivateGuard,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
