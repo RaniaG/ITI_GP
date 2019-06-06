@@ -13,15 +13,12 @@ import { OrderDetailsComponent } from './Features/dashboard/order/details/detail
   imports: [
     CommonModule,
     RouterModule.forRoot([
-<<<<<<< HEAD
       // { path: '', component: DashboardListingComponent },
       { path: 'dashboard', component: DashboardListingComponent },
       { path: 'orders', component: OrderListingComponent },
       { path: 'orders/:id/details', component: OrderDetailsComponent },
 
 
-=======
->>>>>>> 7d003ef83f6c77764619ea892c5511c0c6506cf8
     ]),
 
   ],
