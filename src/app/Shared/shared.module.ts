@@ -5,13 +5,16 @@ import { RatingComponent } from './rating/rating.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { ConfirmComponent } from './confirm/confirm.component';
+import { ImgCropperComponent } from './img-cropper/img-cropper.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  declarations: [RatingComponent, PaginationComponent, PageHeaderComponent, ConfirmComponent],
+  declarations: [RatingComponent, PaginationComponent, PageHeaderComponent, ConfirmComponent, ImgCropperComponent, ModalComponent],
   imports: [
     CommonModule,
-    NgbModule
-
+    NgbModule,
+    ImageCropperModule
   ],
   entryComponents: [ConfirmComponent],
   exports: [
@@ -19,7 +22,9 @@ import { ConfirmComponent } from './confirm/confirm.component';
     PaginationComponent,
     NgbModule,
     PageHeaderComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    ImgCropperComponent,
+    ModalComponent
   ]
 })
 export class SharedModule { }

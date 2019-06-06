@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopService } from '../shop.service';
+
 
 @Component({
   selector: 'app-shop-details',
@@ -8,23 +10,29 @@ import { Component, OnInit } from '@angular/core';
 export class ShopDetailsComponent implements OnInit {
 
   rate: number
-  constructor() {
+  showPhotoUploadModal: boolean = false;
+  showCoverUploadModal: boolean = false;
+
+  coverPhoto = null;
+  constructor(private shopService: ShopService) {
     this.rate = 3.6;
   }
 
   ngOnInit() {
   }
 
-  scrollTo(id: string) {
-    // console.log(window.pageYOffset);
-    // switch (id) {
-    //   case 'overview':
-    //     window.scrollTo();
 
-    //     break;
-
-    //   default:
-    //     break;
-    // }
+  handleCoverPhoto(action: string) {
+    this.showCoverUploadModal = false;
+    switch (action) {
+      case 'Save':
+        this.shopService.changeShopCover(this.coverPhoto);
+        break;
+      case 'Close':
+      case 'Cancel':
+      default:
+        this.coverPhoto = null;
+        break;
+    }
   }
 }
