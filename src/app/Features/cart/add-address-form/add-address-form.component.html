@@ -1,0 +1,65 @@
+<div class="btn btn-primary" (click)="showAddAddressModal=true">+</div>
+<app-modal title="Add new address" [actions]="['Save','Cancel']" (clicked)="handleAddAddress($event)"
+  *ngIf="showAddAddressModal">
+  <form [formGroup]="addAddressData" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="">Full name</label>
+      <input type="text" class="form-control" formControlName="fullName">
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="">Phone number</label>
+          <input type="tel" class="form-control" formControlName="phoneNumber">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="email" class="form-control" formControlName="email">
+        </div>
+      </div>
+    </div>
+    <div class="border rounded p-3">
+      <div class="form-group">
+        <label for="">Full address</label>
+        <input type="text" class="form-control" formControlName="fullAddress">
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <label for="">Country</label>
+          <select class="form-control" formControlName="country" (change)="onChangeCountry($event.target.value)">
+            <option value="">Select country...</option>
+            <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">City/State</label>
+            <select class="form-control" formControlName="city" (change)="onChangeCity($event.target.value)">
+              <option value="">Select city/state...</option>
+              <option *ngFor=" let city of cities" [value]="city.id">{{city.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">District/City</label>
+            <select class="form-control" formControlName="district">
+              <option value="">Select District/City...</option>
+              <option *ngFor="let district of districts" [value]="district.id">{{district.name}}</option>
+
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">Postal Code</label>
+            <input type="text" class="form-control" id="" formControlName="postalCode">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</app-modal>

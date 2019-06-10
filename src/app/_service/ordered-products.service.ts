@@ -1,5 +1,5 @@
 import { Product } from '../_models/product';
-import { ProductService } from './product-service'
+import { ProductService } from './product.service'
 import { OrderedProduct } from '../_models/orderedProduct'
 
 

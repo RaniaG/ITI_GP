@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderedProductsService } from 'src/app/_service/ordered-products-service';
 import { OrderedProduct } from 'src/app/_models/orderedProduct';
-import { OrderService } from 'src/app/_service/order-service';
+import { OrderService } from 'src/app/_service/order.service';
 import { Order } from 'src/app/_models/order';
-import { ProductService } from 'src/app/_service/product-service';
 
 @Component({
   selector: 'app-cart-table',

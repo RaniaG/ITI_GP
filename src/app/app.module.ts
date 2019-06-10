@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CoreModule } from './Core/core.module';
 
 import { AppComponent } from './app.component';
@@ -10,8 +11,8 @@ import { CartModule } from './Features/cart/cart.module';
 import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { OrderedProductsService } from './_service/ordered-products-service';
-import { OrderService } from './_service/order-service';
+import { OrderedProductsService } from './_service/ordered-products.service';
+import { OrderService } from './_service/order.service';
 import { CategoryService } from './_service/category.service';
 import { ProductService } from './_service/product.service';
 import { ShopService } from './Features/shop/shop.service';
@@ -20,6 +21,7 @@ import { UserService } from './_service/user.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { AuthService } from './_auth/auth.service';
 import { AuthGuard } from './_auth/auth.guard';
+import { CountryCityService } from './_service/country-city.service';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { AuthGuard } from './_auth/auth.guard';
     ProfileModule,
     CartModule,
     DashboardModule,
-    RoutingModule
+    RoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     ShopService,
@@ -46,8 +50,9 @@ import { AuthGuard } from './_auth/auth.guard';
     UserService,
     CanDeactivateGuard,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    CountryCityService
   ],
-  bootstrap : [AppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,8 +2,8 @@ import { Product } from '../_models/product';
 import { OrderedProduct } from '../_models/orderedProduct'
 import { Order } from '../_models/order';
 
-import { ProductService } from './product-service'
-import { OrderedProductsService } from './ordered-products-service';
+import { ProductService } from './product.service'
+import { OrderedProductsService } from './ordered-products.service';
 
 
 export class OrderService {
@@ -25,7 +25,16 @@ export class OrderService {
                 id: "orderId",
                 status: 1,
                 date: new Date(),
-                shippingAddress: '',
+                // shipmentData: {
+                //     fullName: "Hamada UI",
+                //     phone: "22222222",
+                //     email: "hamada@iti.com",
+                //     address: 'iti address',
+                //     country: 'Egypt',
+                //     city: 'cairo',
+                //     district: '6th october',
+                //     postalCode: '11111'
+                // },
                 deliveryMethod: 1,
                 paymenMethod: '',
                 invoice: {
@@ -34,6 +43,10 @@ export class OrderService {
                 productList: this.productOrders,
             }
 
+    }
+
+    getorder(): Order {
+        return this.orders;
     }
 
     deletePrdouct(id: number) {
@@ -49,15 +62,13 @@ export class OrderService {
     //     return this.orders.find(order => order.id === id);
     // }
 
-    // addOrder(id: string, order: Order) {
-    //     order.id = id;
-    //     this.orders.push(order);
-    // }
+    addProduct(product: Product) {
+        this.productService.addProduct(product);
+    }
 
-    // updateOrder(order: Order) {
-    //     const index = this.orders.findIndex(e => e.id === order.id);
-    //     this.orders[index] = order;
-    // }
+    updateOrder(order: Order) {
+        this.orders = order;
+    }
 
     // deleteOrder(id: string) {
     //     const index = this.orders.findIndex(orders => orders.id === id);
