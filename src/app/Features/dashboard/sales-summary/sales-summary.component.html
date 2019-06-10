@@ -1,3 +1,24 @@
-<p>
-  sales-summary works!
-</p>
+<div class="card text-center">
+  <div class="card-body ">
+    <h4 class="card-title text-primary"><strong>Sales</strong> Summary</h4>
+
+    <div class=" table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Ordered products sales</th>
+            <th scope="col">Units</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let summary of salesSummary" class="text-capitalize">
+            <th scope="row">{{summary.period}}</th>
+            <td>{{summary.orderedProductsSales}}$</td>
+            <td>{{summary.numberOfUnits}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

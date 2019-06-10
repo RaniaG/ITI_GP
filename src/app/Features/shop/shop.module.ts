@@ -5,12 +5,33 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { ShopCardComponent } from './shop-card/shop-card.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { AddEditShopComponent } from './add-edit-shop/add-edit-shop.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { CanDeactivateGuard } from 'src/app/can-deactivate-guard.service';
+import { AuthGuard } from 'src/app/_auth/auth.guard';
+import { AddEditGuardService } from './add-edit-shop/add-edit-guard.service';
 
+
+const routes: Routes = [
+  {
+    path: 'shop', children: [
+      { path: '', component: ShopListComponent },
+      { path: 'add', component: AddEditShopComponent, canActivate: [AuthGuard, AddEditGuardService], canDeactivate: [CanDeactivateGuard] },
+      { path: 'edit/:id', component: AddEditShopComponent, canDeactivate: [CanDeactivateGuard] },
+      { path: ':id', component: ShopDetailsComponent }
+    ]
+  }
+]
 @NgModule({
   declarations: [ShopDetailsComponent, ShopCardComponent, ShopListComponent, AddEditShopComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    RouterModule.forChild(routes)
+  ],
+  providers: [
+    AddEditGuardService
   ],
   exports: [
     ShopDetailsComponent,

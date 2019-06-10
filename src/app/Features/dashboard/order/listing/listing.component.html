@@ -4,9 +4,13 @@
       <!-- header -->
       <div class="row bg-primary">
         <div class="col">
-          <ul class="custom-breadcrumb" aria-label="breadcrumb">
-            <li class="custom-breadcrumb-item"><a href="#">Profile</a></li>
-            <li class="custom-breadcrumb-item"><a href="#">Dashboard</a></li>
+          <ul class="custom-breadcrumb">
+            <li class="custom-breadcrumb-item">
+              <a [routerLink]="[ '/' ]">Shop</a>
+            </li>
+            <li class="custom-breadcrumb-item">
+              <a [routerLink]="[ '/dashboard' ]">Dashboard</a>
+            </li>
             <li class="custom-breadcrumb-item active">Orders</li>
           </ul>
         </div>
