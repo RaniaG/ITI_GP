@@ -11,6 +11,7 @@ import { DashboardModule } from './Features/dashboard/dashboard.module';
 import { RoutingModule } from './routing.module';
 import { ProductService } from './_service/product-service';
 import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     ShopModule,
     CoreModule,
     ProductModule,

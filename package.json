@@ -51,5 +51,13 @@
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaniaG/ITI_GP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RaniaG/ITI_GP/issues"
+  },
+  "homepage": "https://github.com/RaniaG/ITI_GP#readme"
 }
