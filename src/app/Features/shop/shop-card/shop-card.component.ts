@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Shop } from 'src/app/_models/shop';
+import { ShopService } from '../shop.service';
+import { UserService } from 'src/app/_service/user.service';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-shop-card',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() shop: Shop;
+  user: User;
+  constructor(private shopService: ShopService, private userService: UserService) { }
 
   ngOnInit() {
+    this.user = this.userService.getById(this.shop.userId);
   }
 
+  follow() {
+    this.shopService.followShop(this.shop.id);
+  }
 }

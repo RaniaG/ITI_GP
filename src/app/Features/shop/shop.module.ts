@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CanDeactivateGuard } from 'src/app/can-deactivate-guard.service';
 import { AuthGuard } from 'src/app/_auth/auth.guard';
 import { AddEditGuardService } from './add-edit-shop/add-edit-guard.service';
+import { ProductModule } from '../product/product.module';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ProductModule
   ],
   providers: [
     AddEditGuardService
