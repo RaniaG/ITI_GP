@@ -6,24 +6,7 @@
         color:$primary;
     }
     
-    &__slider{
-        position: relative;
-        &__controls{
-            display: flex;
-            position: absolute;
-            width: 100%;
-            justify-content: space-between;
-            top:50%;
-            transform: translateY(-50%);
-        }
-        &__btn{
-            color:$primary;
-            font-size: 2rem;
-            &:hover{
-                cursor: pointer;
-            }
-        }
-    }
+
     &__cover{
         img{
             width: 100%;
