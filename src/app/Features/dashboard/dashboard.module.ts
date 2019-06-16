@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoutingModule } from '../../routing.module';
 import { SharedModule } from '../../Shared/shared.module';
+// import { ChartsModule } from 'ng2-charts';
+import { ChartsModule, WavesModule } from 'angular-bootstrap-md'
+
 
 import { SummaryCardComponent } from './summary-card/summary-card.component';
 import { SalesSummaryComponent } from './sales-summary/sales-summary.component';
@@ -28,6 +31,10 @@ import { DashboardListingComponent } from './dashboard-listing/dashboard-listing
     CommonModule,
     RoutingModule,
     SharedModule,
+    // ChartsModule,
+    ChartsModule,
+    WavesModule
+
   ],
   exports: [
     DashboardListingComponent,
