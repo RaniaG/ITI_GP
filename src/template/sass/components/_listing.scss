@@ -11,5 +11,12 @@
                 cursor: pointer;
             }
         }
+        &__rating{
+            &__item:hover{
+                span{
+                    cursor:pointer;
+                }
+            }
+        }
     }
 }

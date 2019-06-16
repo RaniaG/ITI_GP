@@ -2,8 +2,5 @@
   <div class="card-header bg-primary">
     <h4 class="card-title text-white mb-0"><strong>Total</strong> Revenu</h4>
   </div>
-  <div style="display: block">
-    <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors"
-      [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-    </canvas>
-  </div>
+  <p-chart type="line" [data]="data"></p-chart>
+</div>

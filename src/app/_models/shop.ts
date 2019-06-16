@@ -1,6 +1,6 @@
 export interface Shop {
     id?: number,
-    userId?: number
+    userId: number
     name: string,
     photo?: string,
     cover?: string,
@@ -12,6 +12,7 @@ export interface Shop {
         district?: string,
         postalcode?: number,
     },
+    rating?: number,
     about?: string,
     policies?: string,
 }

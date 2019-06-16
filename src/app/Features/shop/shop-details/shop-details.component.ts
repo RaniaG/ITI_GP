@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopService } from '../shop.service';
+import { Shop } from 'src/app/_models/shop';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/_models/product';
 
 
 @Component({
@@ -9,16 +12,21 @@ import { ShopService } from '../shop.service';
 })
 export class ShopDetailsComponent implements OnInit {
 
-  rate: number
   showPhotoUploadModal: boolean = false;
   showCoverUploadModal: boolean = false;
 
   coverPhoto = null;
-  constructor(private shopService: ShopService) {
-    this.rate = 3.6;
+  shopPhoto = null;
+  shop: Shop;
+  relatedProducts: Product[];
+  constructor(private shopService: ShopService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    const id = this.route.snapshot.params['id']
+    this.shop = this.shopService.getById(id);
+    this.relatedProducts = this.shopService.getRelatedProducts();
+    //get shop's products from product service
   }
 
 
@@ -32,6 +40,19 @@ export class ShopDetailsComponent implements OnInit {
       case 'Cancel':
       default:
         this.coverPhoto = null;
+        break;
+    }
+  }
+  handleShopPhoto(action: string) {
+    this.showPhotoUploadModal = false;
+    switch (action) {
+      case 'Save':
+        this.shopService.changeShopPhoto(this.shopPhoto);
+        break;
+      case 'Close':
+      case 'Cancel':
+      default:
+        this.shopPhoto = null;
         break;
     }
   }

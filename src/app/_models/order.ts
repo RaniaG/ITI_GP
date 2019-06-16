@@ -1,22 +1,26 @@
-import { Product } from './product';
+import { OrderedProduct } from './orderedProduct';
 
-interface Order {
+export class Order {
     id: string;//guid
-    status: string;
+    status: number;
     date: Date;
-    shippingAddress: {
-        street: string
-        city: string,
-        country: string,
-        district?: string,
-        postalcode?: number,
+    // shippingAddress: string;
+    shipmentData?: {
+        fullName: string;
+        phone: string;
+        email: string;
+        address: string;
+        country: string;
+        city: string;
+        district: string;
+        postalCode: string;
     };
     deliveryMethod: number;
     paymenMethod: string;
     invoice: {
         subtotal: number,
-        discount?: number,
-        shippingFees?: number
+        totalDiscount?: number,
+        totalShippingFees?: number
     }
-    productList: Product[];
+    productList: OrderedProduct[];
 }   

@@ -1,26 +1,28 @@
 <div class="itemcard">
   <div class="itemcard__img">
     <div class="itemcard__overlay d-flex justify--content--evenly align--items--center">
-      <div><a class="itemcard__icon__circle">
+      <div><a class="itemcard__icon__circle" [routerLink]="['/shop',shop.id]">
           <i class="fas fa-arrow-right  itemcard__icon" width="17px" height="17px"></i></a>
         <p class="itemcard__header__small white">Go To Shop</p>
       </div>
-      <div><a class="itemcard__icon__circle itemcard__icon__circle2"><i class="far fa-star itemcard__icon" width="17px"
-            height="17px"></i></a>
+      <div><a class="itemcard__icon__circle itemcard__icon__circle2" (click)="follow()"><i
+            class="far fa-star itemcard__icon" width="17px" height="17px"></i></a>
         <p class="itemcard__header__small white">Follow Shop</p>
       </div>
     </div>
   </div>
-  <a href="#">
-    <p class="itemcard__header">Miniverse - Shop Title</p>
+  <a [routerLink]="['/shop',shop.id]">
+    <p class="itemcard__header">{{shop.name}}</p>
   </a>
-  <p class="itemcard__description">Shop About ...</p>
+  <p class="itemcard__description">{{shop.about}}</p>
   <hr class="itemcard__lineseparator">
   <div class="itemcard__footer">
-    <div class="row align--items--center">
+
+    <div class="d-flex flex-row align-items-center">
       <img src="assets/images/avatar_09.jpg" alt="avatar" class="itemcard__footer__img">
-      <p class="itemcard__header__small">Odin_Design</p>
+      <div class="itemcard__header__small">{{user.username}}</div>
     </div>
+
   </div>
 
 
