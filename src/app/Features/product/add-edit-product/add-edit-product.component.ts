@@ -24,13 +24,13 @@ export class AddEditProductComponent implements OnInit {
      { this.categories = this.categoryService.getAll(); }
 
     this.addProductForm = new FormGroup({
-      // productImages :new FormArray([
-      //   new FormControl('assets/images/image_11-1-300x300.jpg'),
-      //   new FormControl('assets/images/image_11-1-300x300.jpg'),
-      //   new FormControl(),
-      //   new FormControl(),
-      //   new FormControl(),
-      // ]),
+      'productImages' :new FormArray([
+        new FormControl(),
+        new FormControl(),
+        new FormControl(),
+        new FormControl(),
+        new FormControl(),
+      ]),
       'productName' :new FormControl(),
       'productDescription' :new FormControl(),
       'productQuantity' :new FormControl(),

@@ -6,11 +6,33 @@ export class ProductService {
     products: Product[];
     constructor(){
         this.products = [
-            {id: 1 , name: 'Product 1' , price: 10 , discount: 2 , images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg']},
-            {id: 2 , name: 'Product 2' , price: 40 , discount: 2.5 , images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg']},
-            {id: 3 , name: 'Product 3' , price: 50 , discount: 3 , images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg']},
-            {id: 4 , name: 'Product 4' , price: 20 , discount: 2 , images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg']},
-            {id: 5 , name: 'Product 5' , price: 30 , discount: 2.5 , images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg']},
+            {   id: "1" , 
+                name: 'Product 1' , 
+                price: 10 , discount: 2 , quantity: 3,
+                images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg'] , 
+                description:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+                terms:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quo incidunt quidem rerum mollitia in",
+                category: { id: "1" , name: "Clothes"}
+            
+            },
+            {   id: "2" , 
+                name: 'Product 2' , 
+                price: 40 , discount: 2.5 , quantity: 2,
+                images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg'],
+                description:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+                terms:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quo incidunt quidem rerum mollitia in",
+                category: { id: "2" , name: "Accessories"}
+            },
+            {   id: "3" , 
+                name: 'Product 3' , 
+                price: 50 , discount: 3 , quantity: 5,
+                images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg'],
+                description:"Some quick example text to build on the card title and make up the bulk of the card's content.",
+                terms:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quo incidunt quidem rerum mollitia in",
+                category: { id: "3" , name: "Decor"}
+            }
+            // {id: "4" , name: 'Product 4' , price: 20 , discount: 2 , images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg']},
+            // {id: "5" , name: 'Product 5' , price: 30 , discount: 2.5 , images:['assets/images/image_11-1-300x300.jpg','assets/images/image_52-300x300.jpg']},
         ]
     }
 
@@ -18,12 +40,12 @@ export class ProductService {
         return this.products;
     }
 
-    getById(id :number) :Product{
+    getById(id :String) :Product{
         return this.products.find(p => p.id === id);
     } 
 
     addProduct(p :Product){
-        p.id = this.products.length + 1;
+        p.id =(String)(this.products.length + 1);
         this.products.push(p);
     }
 
@@ -32,7 +54,7 @@ export class ProductService {
         this.products[i] = p;
     }
 
-    deleteProduct(id :number){
+    deleteProduct(id :String){
         const i = this.products.findIndex( e => e.id === id);
         this.products.splice(i , 1);
     }

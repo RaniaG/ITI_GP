@@ -8,14 +8,22 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddAddressFormComponent } from '../Features/cart/add-address-form/add-address-form.component';
+
 @NgModule({
   declarations: [FooterComponent, HeaderComponent, NavbarComponent, LoginComponent, SignupComponent, HomeComponent],
   imports: [
     CommonModule,
+    NgbModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignupComponent },
+      { path: 'signUp', component: SignupComponent },
+      {path:'address', component: AddAddressFormComponent}
+    
 
     ])
   ],

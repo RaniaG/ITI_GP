@@ -1,27 +1,29 @@
 <div class="container-fluid bg-img  ">
-  <div class="row justify-content-center overlay  m-0 p-0">
-       <div class="card col-lg-5 col-sm-12  mb-3 m-0 p-0 center-div">
-               <!-- <img src="./images/log-in-cover-2.jpg"  class="card-img-top" alt="..."> -->
-               <div class="card-body mt-0 ">
-                 <form>
-                       <div class="form-group p-0 m-0">
-                         <label for="exampleInputEmail1">Email address</label>
-                         <input type="email" class="form-control form-control-lg mb-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                       </div>
-                       <div class="form-group">
-                         <label for="exampleInputPassword2">Password</label>
-                         <input type="password" class="form-control form-control-lg " id="exampleInputPassword2" placeholder="Password">
-                       </div>
-                   <div class="row justify-content-around">
-                      
-                       <div class="col"><a href="#" class="card-link">Forgot Password?</a>
-                           <a href="#" class="card-link">Sign Up!</a></div>
-                           <div class="col-4"><a href="#" class="btn btn-primary btn-lg btn-block">Log in</a></div>
-                   </div>        
-                     </form>
-               </div>
-             </div>
-       </div>
-       
+  <div class="row justify-content-center  m-0 p-0">
+    <div class="card col-lg-5 col-sm-12 p-0 center-div">
+      <!-- <img src="./images/log-in-cover-2.jpg"  class="card-img-top" alt="..."> -->
+      <div class="card-body mt-0 ">
+        <form [formGroup]="logInForm">
+          <div class="form-group p-0 m-0">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control form-control-lg mb-4" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Enter email">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Password</label>
+            <input type="password" class="form-control form-control-lg " id="exampleInputPassword2"
+              placeholder="Password">
+          </div>
+          <div class="row justify-content-around">
+
+            <div class="col"><a href="#" class="card-link">Forgot Password?</a>
+              <a routerLink="/signUp" class="card-link">Sign Up!</a></div>
+            <div class="col-4"><a href="#" class="btn btn-primary btn-lg btn-block">Log in</a></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ReviewService } from 'src/app/_service/review.service';
 import { Review } from 'src/app/_models/review';
 import { Product } from 'src/app/_models/product';
@@ -13,12 +14,15 @@ export class ProductDetailComponent implements OnInit {
 
   @Input('Product') product :Product;
   reviews :Review[];
-  constructor(private productService :ProductService, private reviewService :ReviewService) { 
-
-    this.product = this.productService.getById(3); 
+  constructor(private route: ActivatedRoute, private productService :ProductService, private reviewService :ReviewService) { 
   }
 
   ngOnInit() {
+    const id = this.route.snapshot.params['id'];
+    console.log(id);
+    this.product = this.productService.getById(id); 
+    console.log(this.product);
+
     if(!this.reviews)
     { this.reviews = this.reviewService.getAll(); }
   }

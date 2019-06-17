@@ -42,7 +42,7 @@
                       <div class="container">
                         <div class="row d-flex justify-content-center">
                           <div class="col-10 m-3 ">
-                            <!-- <form> 
+                            <!-- <form>
                               <h6>Quantity</h6>
                               <select class="custom-select">
                                   <option selected>1</option>
@@ -59,7 +59,7 @@
                                   <label class="form-check-label" for="exampleCheck1">Agree Terms and Conditions </label>
                               </div>
                                 <button type="submit" class="btn bg-primary w-100 my-2">Submit</button>
-                            </form> -->
+                            </form>  -->
                           </div>
                       </div>
                   </div>
@@ -78,8 +78,7 @@
               </h6>
               <span class="card-text"> ${{product.price}} </span>
               <span class="card-text"> ${{finalPrice()}} </span>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text">{{product.description}}</p>
               <ul>
                   <li>Size medium</li>
                   <li>Fits wrists up to 6.25</li>
@@ -88,25 +87,25 @@
 
               <p>Available {{product.quantity}} Pieces</p>
 
-              <p>Product Customization options:
+              <!-- Customization options -->
+              <!-- <p>Product Customization options:
                 <ul>
                     <li>Length</li>
                     <li>Height</li>
                     <li>Colors</li>
-                </ul>
+                </ul> -->
               
            
               <h6>Category:
-                  <a href="#" class="card-link">Another link</a>
+                  <a href="#" class="card-link">{{product.category.name}}</a>
               </h6>
-              <h6>Tag:
+              <!-- <h6>Tag:
                   <a href="#" class="card-link">Another link</a>
-              </h6>
+              </h6> -->
               <div>
                   <h5 class="card-title">Terms and Conditions</h5>
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi quo incidunt quidem rerum, 
-                      mollitia in, cum eos amet nobis corporis minus blanditiis atque asperiores dolorum veniam harum id nulla autem!</p>
-              </div>
+                  <p> {{product.terms}} </p>
+                  </div>
           </div>
       </div>
     </div>
