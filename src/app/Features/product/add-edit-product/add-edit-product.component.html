@@ -5,20 +5,24 @@
   <form [formGroup] = "addProductForm" (ngSubmit) = "onSubmit()"> 
     <div class="row justify-content-center">
       <!-- Error while images binding  -->
-      <!-- <div class="form-group col-lg-3 col-sm-12">
+      <div class="form-group col-lg-3 col-sm-12">
           <table>  
               <thead>
                 <th colspan="4">
-                  <img src="assets/images/add-product.png" alt="add-product" class="img-thumbnail">
+                  <a>
+                    <img src="assets/images/add-product.png" alt="add-product" class="img-thumbnail">
+                  </a>
                 </th>
               </thead>
               <tbody formArrayName="productImages">
-                <td *ngFor="let omg of productImages.controls" class="pt-3 pr-1 ">
-                  <img src="assets/images/add-product.png" alt="add-product" class="img-thumbnail img-zoom">
+                <td  class="pt-3 pr-1 ">
+                  <a >
+                    <img src="assets/images/add-product.png" alt="add-product" class="img-thumbnail img-zoom">
+                  </a>
                 </td>
               </tbody>
             </table>
-      </div> -->
+      </div>
       <div class="col-lg-5 col-sm-12 card p-5">
         <div class="form-group">
           <label for="exampleFormControlInput1">Product Name</label>
@@ -114,3 +118,8 @@
     </div>
   </div>
 </div>
+
+<!-- <app-modal title="Upload Photo" [actions]="['Save','Cancel']" (clicked)="handleCoverPhoto($event)"
+  *ngIf="showCoverUploadModal">
+  <app-img-cropper (onCrop)="handler($event)"></app-img-cropper>
+</app-modal> -->
