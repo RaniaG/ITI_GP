@@ -3,6 +3,7 @@ import { Category } from './category';
 
 
 export class Product {
+
     id? :string;
     name? :string;
     price? :number;
@@ -14,4 +15,8 @@ export class Product {
     category? :Category;
     fKCategory? :number;
     rate?: number;
+    details?: {
+        color?: string;
+        size?: string;
+    }
 }

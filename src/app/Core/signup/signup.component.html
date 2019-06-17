@@ -1,104 +1,93 @@
 <div class="container-fluid bg-grey p-5">
   <div class="row justify-content-center p-10 ">
-    <div class="card m-0 p-4  col-lg-6 col-sm-12">
+    <form [formGroup]="signUpForm" class="card m-0 p-4  col-lg-6 col-sm-12" (ngSubmit)="onSubmit()" >
       <div class="text-center text-primary">
         <h1 class="card-title">Sign up!</h1>
       </div>
       <div class="card-body row justify-content-center ">
-        <!-- <div class="col-5 m-5">
-                <img src="images/add-photo-icon.png" alt="..." class="img-thumbnail">
-            </div> -->
-
         <div class="col-12">
           <h2>Personal Information</h2>
         </div>
 
         <div class="form-group col-12">
-
-          <!-- <label for="exampleInputEmail1">Name</label> -->
-          <input type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="Name">
+          <input type="text" class="form-control form-control-lg"  placeholder="First Name" formControlName="txtFN">
         </div>
         <div class="form-group col-12">
-          <!-- <label for="exampleInputEmail1">Username</label> -->
-          <input type="text" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="Username">
+          <input type="text" class="form-control form-control-lg"  placeholder="Last Name" formControlName="txtLN">
+        </div>
+        <div class="form-group col-12">
+          <input type="text" class="form-control form-control-lg" a placeholder="Username" formControlName="txtUN">
         </div>
         <div class="col">
           <h3>Gender</h3>
           <div class="form-check m-3">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-              checked>
+            <input class="form-check-input" type="radio"  id="exampleRadios1" formControlName="gender" value="Male"
+              >
             <label class="form-check-label" for="exampleRadios1">
               Male
             </label>
           </div>
           <div class="form-check m-3">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <input class="form-check-input" type="radio"  id="exampleRadios2" formControlName="gender" value="Female">
             <label class="form-check-label" for="exampleRadios2">
               Female
             </label>
           </div>
         </div>
         <div class="form-group col-12">
-
-          <!-- <label for="exampleInputEmail1">Username</label> -->
-          <input type="text" class="form-control form-control-lg" aria-describedby="emailHelp"
-            placeholder="Phone Number">
+          <input type="number" class="form-control form-control-lg" placeholder="Phone Number" formControlName="phoneNumber">
         </div>
 
         <div class="form-group col-12">
-          <!-- <label for="exampleInputEmail1">Email </label> -->
-          <input type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="Email">
+
+          <input type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="Email" formControlName="email">
         </div>
         <div class="form-group col-12">
-          <!-- <label for="exampleInputPassword1">Password</label> -->
-          <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+        
+          <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" formControlName="password">
         </div>
         <div class="form-group col-12">
-          <!-- <label for="exampleInputPassword3">Confirm Password</label> -->
+          
           <input type="password" class="form-control form-control-lg" id="exampleInputPassword3"
-            placeholder="Confirm Password">
+            placeholder="Confirm Password" formControlName="confirmPW">
         </div>
         <div class="col-12">
           <h2>Address Details</h2>
         </div>
         <div class="col-6">
-          <select class="form-control form-control-lg">
-            <option>Country</option>
-            <option>Default Option</option>
-            <option>Default Option</option>
-            <option>Default Option</option>
+          <select  class="form-control form-control-lg" formControlName="country" (change)="countryChange($event.target.value)" >
+            <option [value]="null">Country</option>
+            <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
+      
           </select>
         </div>
         <div class="col-6">
-          <select class="form-control form-control-lg">
-            <option>City</option>
-            <option>Default Option</option>
-            <option>Default Option</option>
-            <option>Default Option</option>
-            <option>Default Option</option>
+          <select class="form-control form-control-lg" formControlName="city">
+            <option [value]="null">City</option>
+            <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
           </select>
         </div>
         <div class="col-12 m-3">
           <div class="form-row">
             <div class="form-group col-md-6">
-              <!-- <label for="inputCity">City</label> -->
-              <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="Street">
+            
+              <input type="text" class="form-control form-control-lg"  placeholder="Street" formControlName="txtStreet">
             </div>
             <div class="form-group col-md-3">
-              <!-- <label for="inputState">State</label> -->
-              <input type="text" class="form-control form-control-lg" id="inputCity" placeholder="Building">
+            
+              <input type="text" class="form-control form-control-lg"  placeholder="Building" formControlName="txtBuilding">
             </div>
             <div class="form-group col-md-3">
-              <!-- <label for="inputZip">Zip</label> -->
-              <input type="text" class="form-control form-control-lg" id="inputZip" placeholder="Apartment">
+            
+              <input type="text" class="form-control form-control-lg"  placeholder="Apartment" formControlName="txtApartment">
             </div>
           </div>
         </div>
-        <a href="#" class="col-5 btn btn-primary btn-lg btn-block m-3">Submit</a>
+        <button type="submit" class="col-5 btn btn-primary btn-lg btn-block m-3" >Submit</button>
       </div>
       <div class=" text-muted text-center">
-        already registered? <a href="#" class="card-link">Log In</a>
+        already registered? <a routerLink="/login" class="card-link">Log In</a>
       </div>
-    </div>
+    </form>
   </div>
 </div>
