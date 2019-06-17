@@ -12,10 +12,10 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 
 @NgModule({
   declarations: [
-    ProductCardComponent, 
-    ProductListComponent, 
-    RelatedProductsComponent, 
-    AddEditProductComponent, 
+    ProductCardComponent,
+    ProductListComponent,
+    RelatedProductsComponent,
+    AddEditProductComponent,
     DeleteProductComponent,
     ProductDetailComponent
   ],
@@ -24,11 +24,12 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: 'products' , component: ProductListComponent},
-      { path: 'products/add', component: AddEditProductComponent},
-      { path: 'products/edit/:id' , component: AddEditProductComponent},
-      { path: 'products/delete/:id' , component: DeleteProductComponent},
-      { path: 'products/details/:id' , component: ProductDetailComponent},
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/:id', component: ProductDetailComponent },
+      { path: 'products/add', component: AddEditProductComponent },
+      { path: 'products/edit/:id', component: AddEditProductComponent },
+      { path: 'products/delete/:id', component: DeleteProductComponent },
+      { path: 'products/details/:id', component: ProductDetailComponent },
     ])
   ],
   exports: [

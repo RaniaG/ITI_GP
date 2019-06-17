@@ -83,9 +83,9 @@ export class ShopService {
 
   getRelatedProducts(): Product[] {
     return [
-      { id: 1, name: 'bag', price: 500, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] },
-      { id: 2, name: 'bag2', price: 500, discount: 200, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] },
-      { id: 3, name: 'bag3', price: 500, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] }
+      { id: "1", name: 'bag', price: 500, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] },
+      { id: "2", name: 'bag2', price: 500, discount: 200, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] },
+      { id: "3", name: 'bag3', price: 500, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] }
 
     ]
   }
