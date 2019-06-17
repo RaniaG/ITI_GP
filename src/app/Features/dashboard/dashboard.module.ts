@@ -17,6 +17,8 @@ import { OrderDetailsComponent } from './order/details/details.component';
 import { OrderListingComponent } from './order/listing/listing.component';
 import { VisitsSummaryComponent } from './visits-summary/visits-summary.component';
 import { DashboardListingComponent } from './dashboard-listing/dashboard-listing.component';
+import { SellerService } from 'src/app/_service/Seller.service';
+import { ShopService } from '../shop/shop.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { DashboardListingComponent } from './dashboard-listing/dashboard-listing
     DashboardListingComponent,
     OrderDetailsComponent,
     OrderListingComponent,
-  ]
+  ],
+  providers: [SellerService, ShopService]
 
 })
 export class DashboardModule { }

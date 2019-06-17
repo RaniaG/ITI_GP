@@ -1,8 +1,10 @@
 import { OrderedProduct } from './orderedProduct';
 
 export class Order {
-    id: string;//guid
-    status: number;
+    packageId: string;//seller order id
+    id?: string;//guid // buyer order id
+    shopId: string;
+    status: string;
     date: Date;
     // shippingAddress: string;
     shipmentData?: {

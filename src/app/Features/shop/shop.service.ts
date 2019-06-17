@@ -101,4 +101,14 @@ export class ShopService {
   followShop(id: number) {
     //verify user is logged in
   }
+
+  isShopPremium(): boolean {
+    return false;
+  }
+  getInventoryLimit(): number {
+    return 100;
+  }
+  getInventoryUsedSlots(): number {
+    return 25;
+  }
 }

@@ -67,7 +67,7 @@
               <table class="table table-hover text-center table-white">
                 <thead>
                   <tr>
-                    <th scope="col">Oreder ID</th>
+                    <th scope="col">Order ID</th>
                     <th scope="col">Date</th>
                     <th scope="col">Status</th>
                     <th scope="col">Ship To</th>
@@ -78,59 +78,19 @@
                 <tbody>
 
                   <tr *ngFor="let order of orders">
-                    <td>#14584</td>
-                    <td>Jun 26, 2013</td>
-                    <td><span class="badge badge-success">Delivered</span>
-                    <td>173 Donec Ave Sandwich</td>
-                    <td>$318.00</td>
-                    <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>
+                    <td>#{{order.packageId}}</td>
+                    <td>{{order.date}}</td>
+                    <td><span [ngClass]="[ 'badge','text-capitalize', {'badge-success':order.status==='delivered' , 'badge-warning'
+                        :order.status==='shipped' , 'badge-info' :order.status==='pending' }]">{{order.status}}</span>
+                    <td class="text-truncate">
+                      {{order.shipmentData.address}},{{order.shipmentData.city}},{{order.shipmentData.country}}</td>
+                    <td>{{order.totalDue}}$</td>
+                    <td class="text-light"><a [routerLink]="" class="btn btn-sm btn-primary"><i
+                          class="fa fa-search"></i>
                         View</a>
                     </td>
                   </tr>
 
-                  <tr>
-                    <td>#14584</td>
-                    <td>Jun 26, 2013</td>
-                    <td><span class="badge badge-warning">Shipped</span>
-                    <td>173 Donec Ave Sandwich</td>
-                    <td>$318.00</td>
-                    <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>
-                        View</a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>#14584</td>
-                    <td>Jun 26, 2013</td>
-                    <td><span class="badge badge-info">Pending</span>
-                    <td>173 Donec Ave Sandwich</td>
-                    <td>$318.00</td>
-                    <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>
-                        View</a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>#14584</td>
-                    <td>Jun 26, 2013</td>
-                    <td><span class="badge badge-success">Delivered</span>
-                    <td>173 Donec Ave Sandwich</td>
-                    <td>$318.00</td>
-                    <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>
-                        View</a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>#14584</td>
-                    <td>Jun 26, 2013</td>
-                    <td><span class="badge badge-warning">Shipped</span>
-                    <td>173 Donec Ave Sandwich</td>
-                    <td>$318.00</td>
-                    <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>
-                        View</a>
-                    </td>
-                  </tr>
                 </tbody>
 
               </table>

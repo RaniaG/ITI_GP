@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/app/_models/order';
+import { SellerService } from 'src/app/_service/Seller.service';
+import { OrderBrief } from 'src/app/_models/orderBrief';
 
 @Component({
   selector: 'app-order-listing',
@@ -11,11 +12,13 @@ export class OrderListingComponent implements OnInit {
   totalElements: number;
   pageNumber: number;
   elementsFound: number;
-  orders: Order[];
-
-  constructor() { }
+  orders: OrderBrief[];
+  statusFilter: string;
+  searchKey: string;
+  constructor(sellerService: SellerService) { }
 
   ngOnInit() {
+
   }
 
 }
