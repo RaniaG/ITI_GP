@@ -18,19 +18,15 @@ export class AddEditProductComponent implements OnInit {
   categories :Category[];
   addProductForm :FormGroup;
 
+  showProductUploadModal :boolean = false;
+  productPhoto = null;
   constructor(private productService :ProductService ,private categoryService :CategoryService , private router :Router) { 
 
     if(!this.categories)
      { this.categories = this.categoryService.getAll(); }
 
     this.addProductForm = new FormGroup({
-      'productImages' :new FormArray([
-        new FormControl(),
-        new FormControl(),
-        new FormControl(),
-        new FormControl(),
-        new FormControl(),
-      ]),
+      'productImages' :new FormArray([]),
       'productName' :new FormControl(),
       'productDescription' :new FormControl(),
       'productQuantity' :new FormControl(),
@@ -48,8 +44,28 @@ export class AddEditProductComponent implements OnInit {
   onSubmit(){
     this.product = this.addProductForm.value as Product;
     this.productService.addProduct(this.product);
-    console.log(this.addProductForm.value);
-    console.log(this.product);
+    // console.log(this.addProductForm.value);
+    // console.log(this.product);
     this.router.navigate(['/products'])
+  }
+
+  handleProductPhoto(action: string){
+    this.showProductUploadModal = false;
+    switch (action) {
+      case 'OK':
+        const p = this.addProductForm.get('productImages');
+        if(this.productPhoto)
+        (p as FormArray).push(this.productPhoto);
+        break;
+      case 'Close':
+      case 'Cancel':
+      default:
+        this.productPhoto = null;
+        break;
+    }
+
+  }
+  SaveProductPhoto(action: string){
+
   }
 }

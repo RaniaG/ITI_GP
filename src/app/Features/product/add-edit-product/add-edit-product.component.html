@@ -10,17 +10,19 @@
               <thead>
                 <th colspan="4">
                   <a>
-                    <img src="assets/images/add-product.png" alt="add-product" class="img-thumbnail">
+                    <img src="assets/images/addPhoto.png" alt="add-product" class="img-thumbnail">
                   </a>
                 </th>
               </thead>
-              <tbody formArrayName="productImages">
+              <div (click)="showProductUploadModal=true"><i class="fas fa-camera"></i></div>
+        
+              <!-- <tbody formArrayName="productImages">
                 <td  class="pt-3 pr-1 ">
                   <a >
                     <img src="assets/images/add-product.png" alt="add-product" class="img-thumbnail img-zoom">
                   </a>
                 </td>
-              </tbody>
+              </tbody> -->
             </table>
       </div>
       <div class="col-lg-5 col-sm-12 card p-5">
@@ -119,7 +121,7 @@
   </div>
 </div>
 
-<!-- <app-modal title="Upload Photo" [actions]="['Save','Cancel']" (clicked)="handleCoverPhoto($event)"
-  *ngIf="showCoverUploadModal">
-  <app-img-cropper (onCrop)="handler($event)"></app-img-cropper>
-</app-modal> -->
+<app-modal title="Upload Photo" [actions]="['OK','Cancel']" (clicked)="handleProductPhoto($event)"
+  *ngIf="showProductUploadModal">
+  <app-img-cropper (onCrop)="productPhoto=$event"></app-img-cropper>
+</app-modal>
