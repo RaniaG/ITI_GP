@@ -20,28 +20,28 @@ export class OrderService {
         this.products = this.productService.getAll();
         this.productOrders = this.orderedProductService.getAll();
 
-        this.orders =
-            {
-                id: "orderId",
-                status: 1,
-                date: new Date(),
-                // shipmentData: {
-                //     fullName: "Hamada UI",
-                //     phone: "22222222",
-                //     email: "hamada@iti.com",
-                //     address: 'iti address',
-                //     country: 'Egypt',
-                //     city: 'cairo',
-                //     district: '6th october',
-                //     postalCode: '11111'
-                // },
-                deliveryMethod: 1,
-                paymenMethod: '',
-                invoice: {
-                    subtotal: 0
-                },
-                productList: this.productOrders,
-            }
+        // this.orders =
+        //     {
+        //         id: "orderId",
+        //         status: "delivered",
+        //         date: new Date(),
+        //         // shipmentData: {
+        //         //     fullName: "Hamada UI",
+        //         //     phone: "22222222",
+        //         //     email: "hamada@iti.com",
+        //         //     address: 'iti address',
+        //         //     country: 'Egypt',
+        //         //     city: 'cairo',
+        //         //     district: '6th october',
+        //         //     postalCode: '11111'
+        //         // },
+        //         deliveryMethod: 1,
+        //         paymenMethod: '',
+        //         invoice: {
+        //             subtotal: 0
+        //         },
+        //         productList: this.productOrders,
+        //     }
 
     }
 

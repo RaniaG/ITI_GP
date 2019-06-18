@@ -9,17 +9,18 @@ import { OrderListingComponent } from './Features/dashboard/order/listing/listin
 import { OrderDetailsComponent } from './Features/dashboard/order/details/details.component';
 import { SignupComponent } from './Core/signup/signup.component';
 import { LoginComponent } from './Core/login/login.component';
+import { HomeComponent } from './Core/home/home.component';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     RouterModule.forRoot([
-      // { path: '', component: DashboardListingComponent },
+      { path: '', component: HomeComponent },
       { path: 'dashboard', component: DashboardListingComponent },
       { path: 'orders', component: OrderListingComponent },
       { path: 'orders/:id/details', component: OrderDetailsComponent },
- 
+
     ]),
 
   ],

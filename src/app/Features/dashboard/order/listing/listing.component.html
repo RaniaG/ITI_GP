@@ -18,185 +18,124 @@
       <!-- /header -->
 
       <!-- content -->
-      <div class="row no-gutters">
-        <div class="col-12">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                aria-selected="true">Orders</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                aria-selected="false">Return requests</a>
-            </li>
-          </ul>
-
-
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel">
-              <!-- orders list -->
-              <div class="container-fluid">
-                <!-- list header -->
-                <div class="row bg-primary text-light p-2">
-                  <div class="col-sm-7">
-                    <h3 class="align-middle mb-0"><span class="font-weight-bold">Orders</span>List
-                    </h3>
-                  </div>
-                  <div class="col-sm-5">
-                    <form class=" form-inline align-items-center justify-content-end">
-                      <label for="orderStatus">Order Status
-                      </label>
-                      <select id="orderStatus" class="mx-2 px-2 border-2 form-control form-control-sm ">
-                        <option selected value="">All orders</option>
-                        <option value="">Pedning</option>
-                        <option value="">Shipped</option>
-                        <option value="">Delivered</option>
-                      </select>
-                    </form>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6 bg-white p-2">
-                    <form action="" class="form-inline align-items-center justify-content-start">
-                      <label for="searchOrders" class="px-2">Search</label>
-                      <input name="" id="searchOrders" class="form-control form-control-sm">
-                    </form>
-                  </div>
-                  <div class="col-sm-6 bg-white p-2">
-                    <form action="" class="form-inline align-items-center justify-content-end">
-                      <label class="px-2"> Show
-                        <select name="" value="" class="mx-2 px-2 border-2 form-control form-control-sm">
-                          <option selected value="">10</option>
-                          <option value="">50</option>
-                          <option value="">100</option>
-                        </select>
-                        Orders </label>
-                    </form>
-                  </div>
-                </div>
-                <!-- /list header -->
-
-                <!-- list body -->
-                <div class="row">
-                  <div class="col bg-white">
-                    <div class="table-responsive-sm">
-                      <table class="table table-hover text-center table-white">
-                        <thead>
-                          <tr>
-                            <th scope="col">Oreder ID</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Ship To</th>
-                            <th scope="col">Charge</th>
-                            <th scope="col"></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>#14584</td>
-                            <td>Jun 26, 2013</td>
-                            <td><span class="badge badge-success">Delivered</span>
-                            <td>173 Donec Ave Sandwich</td>
-                            <td>$318.00</td>
-                            <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i
-                                  class="fa fa-search"></i> View</a>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>#14584</td>
-                            <td>Jun 26, 2013</td>
-                            <td><span class="badge badge-warning">Shipped</span>
-                            <td>173 Donec Ave Sandwich</td>
-                            <td>$318.00</td>
-                            <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i
-                                  class="fa fa-search"></i> View</a>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>#14584</td>
-                            <td>Jun 26, 2013</td>
-                            <td><span class="badge badge-info">Pending</span>
-                            <td>173 Donec Ave Sandwich</td>
-                            <td>$318.00</td>
-                            <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i
-                                  class="fa fa-search"></i> View</a>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>#14584</td>
-                            <td>Jun 26, 2013</td>
-                            <td><span class="badge badge-success">Delivered</span>
-                            <td>173 Donec Ave Sandwich</td>
-                            <td>$318.00</td>
-                            <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i
-                                  class="fa fa-search"></i> View</a>
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td>#14584</td>
-                            <td>Jun 26, 2013</td>
-                            <td><span class="badge badge-warning">Shipped</span>
-                            <td>173 Donec Ave Sandwich</td>
-                            <td>$318.00</td>
-                            <td class="text-light"><a href="" class="btn btn-sm btn-primary"><i
-                                  class="fa fa-search"></i> View</a>
-                            </td>
-                          </tr>
-                        </tbody>
-
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <!-- /list body -->
-
-                <!-- list footer -->
-                <div class="row bg-white">
-                  <div class="col-sm-6">
-                    <div class="d-flex justify-content-center align-items-center">
-                      <p class="align-middle m-0">50 results found</p>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="d-flex justify-content-center align-items-center">
-                      <!-- pagination -->
-                      <nav aria-label="Page-navigation">
-                        <ul class="pagination pagination-sm">
-                          <li class="page-item">
-                            <a class="page-link disabled" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                            </a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item active"><a class="page-link" href="#">3</a>
-                          <li class="page-item"><a class="page-link" href="#">4</a>
-                          <li class="page-item"><a class="page-link" href="#">5</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
-                      <!-- /pagination -->
-                    </div>
-                  </div>
-                </div>
-                <!-- /list footer -->
-              </div>
-            </div>
-
+      <!-- orders list -->
+      <div class="container-fluid mt-3">
+        <!-- list header -->
+        <div class="row bg-primary text-light p-2">
+          <div class="col-sm-7">
+            <h3 class="align-middle mb-0"><span class="font-weight-bold">Orders</span>List
+            </h3>
+          </div>
+          <div class="col-sm-5">
+            <form class=" form-inline align-items-center justify-content-end">
+              <label for="orderStatus">Order Status
+              </label>
+              <select id="orderStatus" class="mx-2 px-2 border-2 form-control form-control-sm ">
+                <option selected value="">All orders</option>
+                <option value="">Pedning</option>
+                <option value="">Shipped</option>
+                <option value="">Delivered</option>
+              </select>
+            </form>
           </div>
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel"></div>
-      </div>
-    </div>
+        <div class="row">
+          <div class="col-sm-6 bg-white p-2">
+            <form action="" class="form-inline align-items-center justify-content-start">
+              <label for="searchOrders" class="px-2">Search</label>
+              <input name="" id="searchOrders" class="form-control form-control-sm">
+            </form>
+          </div>
+          <div class="col-sm-6 bg-white p-2">
+            <form action="" class="form-inline align-items-center justify-content-end">
+              <label class="px-2"> Show
+                <select name="" value="" class="mx-2 px-2 border-2 form-control form-control-sm">
+                  <option selected value="">10</option>
+                  <option value="">50</option>
+                  <option value="">100</option>
+                </select>
+                Orders </label>
+            </form>
+          </div>
+        </div>
+        <!-- /list header -->
 
+        <!-- list body -->
+        <div class="row">
+          <div class="col bg-white">
+            <div class="table-responsive-sm">
+              <table class="table table-hover text-center table-white">
+                <thead>
+                  <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Ship To</th>
+                    <th scope="col">Charge</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let order of orders">
+                    <td>#{{order.packageId}}</td>
+                    <td>{{order.date}}</td>
+                    <td><span [ngClass]="[ 'badge','text-capitalize', {'badge-success':order.status==='delivered' , 'badge-warning'
+                        :order.status==='shipped' , 'badge-info' :order.status==='pending' }]">{{order.status}}</span>
+                    <td class="text-truncate">
+                      {{order.shipmentData.address}},{{order.shipmentData.city}},{{order.shipmentData.country}}</td>
+                    <td>{{order.totalDue}}$</td>
+                    <td class="text-light"><a [routerLink]="" class="btn btn-sm btn-primary"><i
+                          class="fa fa-search"></i>
+                        View</a>
+                    </td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- /list body -->
+
+        <!-- list footer -->
+        <div class="row bg-white">
+          <div class="col-sm-6">
+            <div class="d-flex justify-content-center align-items-center">
+              <p class="align-middle m-0">50 results found</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="d-flex justify-content-center align-items-center">
+              <!-- pagination -->
+              <nav aria-label="Page-navigation">
+                <ul class="pagination pagination-sm">
+                  <li class="page-item">
+                    <a class="page-link disabled" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item active"><a class="page-link" href="#">3</a>
+                  <li class="page-item"><a class="page-link" href="#">4</a>
+                  <li class="page-item"><a class="page-link" href="#">5</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- /pagination -->
+            </div>
+          </div>
+        </div>
+        <!-- /list footer -->
+      </div>
+
+    </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SellerService } from 'src/app/_service/Seller.service';
 
 @Component({
   selector: 'app-visits-summary',
@@ -8,20 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class VisitsSummaryComponent implements OnInit {
 
   // shopTotalVisits:number;
-  shopVisits;
+  shopVisits: { region: string, numberOfVisits: number }[];
   //to inject service later
-  constructor() { }
+  constructor(private sellerService: SellerService) {
+
+  }
 
   ngOnInit() {
     // this.shopTotalVisits = 500;
-    this.shopVisits = [
-      { region: "america", numberOfVisits: 28 },
-      { region: "canada", numberOfVisits: 8 },
-      { region: "north africa", numberOfVisits: 24 },
-      { region: "asia", numberOfVisits: 16 },
-      { region: "europe", numberOfVisits: 12 },
-      { region: "others", numberOfVisits: 2 },
-    ]
+    this.shopVisits = this.sellerService.getShopVisitsDetails();
   }
 
 }

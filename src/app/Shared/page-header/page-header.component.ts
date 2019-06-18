@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PageHeaderComponent implements OnInit {
 
-  @Input() title: string
-  @Input() path: string[]
+  @Input() title: string;
+  @Input() paths: { name: string, url: string }[];
   constructor() { }
 
   ngOnInit() {
