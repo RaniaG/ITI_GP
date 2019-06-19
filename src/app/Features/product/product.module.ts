@@ -25,7 +25,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', component: ProductDetailComponent },
+      // { path: 'products/:id', component: ProductDetailComponent },
       { path: 'products/add', component: AddEditProductComponent },
       { path: 'products/edit/:id', component: AddEditProductComponent },
       { path: 'products/delete/:id', component: DeleteProductComponent },

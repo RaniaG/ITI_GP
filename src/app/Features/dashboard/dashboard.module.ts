@@ -5,7 +5,7 @@ import { SharedModule } from '../../Shared/shared.module';
 // import { ChartsModule } from 'ng2-charts';
 // import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
 import { ChartModule } from 'primeng/chart';
-
+ 
 
 
 import { SummaryCardComponent } from './summary-card/summary-card.component';
@@ -22,7 +22,7 @@ import { ShopService } from '../shop/shop.service';
 
 @NgModule({
   declarations: [
-    SummaryCardComponent,
+    SummaryCardComponent,   
     SalesSummaryComponent,
     InventoryCardComponent,
     OrdersSummaryComponent,

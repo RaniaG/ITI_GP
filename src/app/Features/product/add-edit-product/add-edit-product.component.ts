@@ -26,6 +26,7 @@ export class AddEditProductComponent implements OnInit {
      { this.categories = this.categoryService.getAll(); }
 
     this.addProductForm = new FormGroup({
+      'productMainImage' :new FormControl(),
       'productImages' :new FormArray([]),
       'productName' :new FormControl(),
       'productDescription' :new FormControl(),
@@ -38,14 +39,11 @@ export class AddEditProductComponent implements OnInit {
   }
 
   ngOnInit() {
-   
   }
 
   onSubmit(){
     this.product = this.addProductForm.value as Product;
     this.productService.addProduct(this.product);
-    // console.log(this.addProductForm.value);
-    // console.log(this.product);
     this.router.navigate(['/products'])
   }
 
@@ -53,14 +51,19 @@ export class AddEditProductComponent implements OnInit {
     this.showProductUploadModal = false;
     switch (action) {
       case 'OK':
-        const p = this.addProductForm.get('productImages');
-        if(this.productPhoto)
-        (p as FormArray).push(this.productPhoto);
+        // if(this.addProductForm.get('productMainImage') == null)
+        //   this.addProductForm.get('productMainImage') as FormControl = this.productPhoto;
+        const p = this.addProductForm.get('productImages') as FormArray;
+        if(this.productPhoto != null)
+        { 
+          if(p.length < 5)
+            p.push(new FormControl(this.productPhoto));
+        }
         break;
       case 'Close':
       case 'Cancel':
       default:
-        this.productPhoto = null;
+        // this.productPhoto = null;
         break;
     }
 

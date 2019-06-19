@@ -3,8 +3,8 @@ export interface OrderSummary {
     ordersCount: number
 }
 
-export interface SalesSummary {
-    period: string,
-    orderedProductsSales: number,
-    numberOfUnits: number
+export class SalesSummary {
+    period: string;
+    orderedProductsSales: number;
+    numberOfUnits: number;
 }
