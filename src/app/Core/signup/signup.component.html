@@ -11,12 +11,35 @@
 
         <div class="form-group col-12">
           <input type="text" class="form-control form-control-lg"  placeholder="First Name" formControlName="txtFN">
+          <span *ngIf="!signUpForm.get('txtFN').valid">
+            <span *ngIf="signUpForm.get('txtFN').errors['required'] && signUpForm.get('txtFN').touched"
+              class="error__msg">first name is required </span>
+            <span *ngIf="signUpForm.get('txtFN').touched && !signUpForm.get('txtFN').errors['required']"
+              class="error__msg">Invalid first name!
+            </span>
+          </span>
         </div>
+        
         <div class="form-group col-12">
           <input type="text" class="form-control form-control-lg"  placeholder="Last Name" formControlName="txtLN">
+         <span *ngIf="!signUpForm.get('txtLN').valid" >
+           <span *ngIf="signUpForm.get('txtLN').errors['required'] && signUpForm.get('txtLN').touched"
+               class="error__msg">last name is required </span>
+             <span *ngIf="signUpForm.get('txtLN').touched && !signUpForm.get('txtLN').errors['required']"
+               class="error__msg">Invalid last name!
+             </span>
+         </span>
         </div>
         <div class="form-group col-12">
           <input type="text" class="form-control form-control-lg" a placeholder="Username" formControlName="txtUN">
+          <span *ngIf="!signUpForm.get('txtUN').valid" >
+              <span *ngIf="signUpForm.get('txtUN').errors['required'] && signUpForm.get('txtUN').touched"
+                  class="error__msg">last name is required </span>
+                <span *ngIf="signUpForm.get('txtUN').touched && !signUpForm.get('txtUN').errors['required']"
+                  class="error__msg">Invalid last name!
+                </span>
+            </span>
+       
         </div>
         <div class="col">
           <h3>Gender</h3>
@@ -36,20 +59,38 @@
         </div>
         <div class="form-group col-12">
           <input type="number" class="form-control form-control-lg" placeholder="Phone Number" formControlName="phoneNumber">
+          <span *ngIf="signUpForm.get('phoneNumber').errors && signUpForm.get('phoneNumber').touched"
+          class="error__msg">Phone number is required </span>
         </div>
 
         <div class="form-group col-12">
 
           <input type="email" class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="Email" formControlName="email">
+        
+          <span *ngIf="!signUpForm.get('email').valid" >
+              <span *ngIf="signUpForm.get('email').errors['required'] && signUpForm.get('email').touched"
+                  class="error__msg">E-mail is required </span>
+                <span *ngIf="signUpForm.get('email').touched && !signUpForm.get('email').errors['required']"
+                  class="error__msg">Invalid E-mail!
+                </span>
+            </span>
         </div>
         <div class="form-group col-12">
         
           <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+        <span class="error__msg" *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').errors && signUpForm.get('password').touched">
+          Invalid password!
+          Password must be at least 8 characters long, includes uppercase letter, lowercase letter, special character and a numeric digit.
+        </span>
+        
         </div>
         <div class="form-group col-12">
           
           <input type="password" class="form-control form-control-lg" id="exampleInputPassword3"
             placeholder="Confirm Password" formControlName="confirmPW">
+            <span class="error__msg" *ngIf="!signUpForm.get('confirmPW').valid && signUpForm.get('confirmPW').errors && signUpForm.get('confirmPW').touched">
+                Password and confirmed password do not match!
+              </span>
         </div>
         <div class="col-12">
           <h2>Address Details</h2>

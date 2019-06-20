@@ -5,14 +5,32 @@
   <div class="row">
     <div class="col-lg-4 col-sm-12">
       <div class="userCard m-auto text--center" style="width: 17rem;">
-        <div class="userCard__thumbnail mb-3" style="background-image: url('assets/images/woman.jpg'); ">
+        <!-- <div [style.background]="'url(assets/images/' + imagePath.value + ')'" class="userCard__thumbnail mb-3"> -->
+        <div [style.background]="'url( '+ imgURL +' )'" class="userCard__thumbnail mb-3" #profileimg>
         </div>
+        <!-- <div [style.background]="'url( '+ file.value +' )'" class="userCard__thumbnail mb-3">
+        </div> -->
         <button class="btn btn-secondary d-block m-auto my-4">Upload Image</button>
         <span class="my-4 color--primary"> <i class="fas fa-trash-alt"></i> Remove Image</span>
       </div>
     </div>
     <div class="col-lg-8">
       <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit(editProfileForm)">
+
+        <!-----------------------------------image test----------------------------->
+        <input #file type="file" accept='image/*' (change)="preview(file.files)"/>
+
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+
+        <p *ngIf="imgURL" >hi : {{imgURL}}</p>
+
+        <!-- <div [style.background]="'url( /' + imgURL + ' )'" class="userCard__thumbnail mb-3" *ngIf="imgURL">
+        </div> -->
+
+        <!------------------------------------------------------------------------>
+
+
+
         <div class="form-group">
           <label for="exampleInputfn">First name</label>
           <input type="text" class="form-control" formControlName="firstname">
@@ -93,7 +111,7 @@
         </fieldset>
         <div class="form-group">
           <label for="exampleInputPassword1">Change Password</label>
-          <input  class="form-control" type="password" id="exampleInputPassword1" formControlName="changePassword">
+          <input class="form-control" type="password" id="exampleInputPassword1" formControlName="changePassword">
           <small id="passwordHelp" class="form-text text-muted">Leave blank if you'd like to keep your
             current password.</small>
         </div>
@@ -101,6 +119,38 @@
           <label for="exampleInputPassword2">Confirm Password</label>
           <input class="form-control" type="password" id="exampleInputPassword2" formControlName="confirmPassword">
         </div>
+      <div>
+        <h5>Address Details</h5>
+      </div>
+      <div class="col-6">
+        <select  class="form-control form-control" formControlName="country" (change)="countryChange($event.target.value)" >
+          <option [value]="null">Country</option>
+          <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
+    
+        </select>
+      </div>
+      <div class="col-6">
+        <select class="form-control form-control" formControlName="city">
+          <option [value]="null">City</option>
+          <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+        </select>
+      </div>
+      <div class="col-12 m-3">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+          
+            <input type="text" class="form-control form-control"  placeholder="Street" formControlName="street">
+          </div>
+          <div class="form-group col-md-3">
+          
+            <input type="text" class="form-control form-control"  placeholder="Building" formControlName="building">
+          </div>
+          <div class="form-group col-md-3">
+          
+            <input type="text" class="form-control form-control"  placeholder="Apartment" formControlName="apartment">
+          </div>
+        </div>
+      </div>
         <button type="submit" class="btn btn-primary mr-2">Save</button>
         <button type="button" class="btn btn-secondary">Cansel</button>
       </form>

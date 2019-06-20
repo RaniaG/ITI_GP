@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { Product } from 'src/app/_models/product';
 import { ProductService } from 'src/app/_service/product.service';
 import { CategoryService } from 'src/app/_service/category.service';
 import { Category } from 'src/app/_models/category';
-import { Router } from "@angular/router";
-
+import { Router, ActivatedRoute } from "@angular/router";
+import { validators } from "../../../_utilities/validators";
 
 @Component({
   selector: 'app-add-edit-product',
@@ -17,42 +17,61 @@ export class AddEditProductComponent implements OnInit {
   product :Product;
   categories :Category[];
   addProductForm :FormGroup;
-
   showProductUploadModal :boolean = false;
   productPhoto = null;
-  constructor(private productService :ProductService ,private categoryService :CategoryService , private router :Router) { 
+  productOnSale = new FormControl('notSale');
 
+  editMode: boolean = false;
+
+  constructor(private productService :ProductService ,private categoryService :CategoryService , private router :Router, private route: ActivatedRoute) { 
     if(!this.categories)
      { this.categories = this.categoryService.getAll(); }
-
-    this.addProductForm = new FormGroup({
-      'productMainImage' :new FormControl(),
-      'productImages' :new FormArray([]),
-      'productName' :new FormControl(),
-      'productDescription' :new FormControl(),
-      'productQuantity' :new FormControl(),
-      'productPrice' :new FormControl(),
-      'productDiscount' :new FormControl(),
-      'productCategory' :new FormControl()
-    });
-   
   }
 
   ngOnInit() {
+  
+    const id = this.route.snapshot.params['id'];
+    if(id)
+    {
+      this.editMode = true;
+      this.product = this.productService.getById(id);
+    }
+    this.addProductForm = new FormGroup({
+      'productImages' :new FormArray([],Validators.required),
+      'productName' :new FormControl(this.editMode ? this.product.name :'',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+(?:[_-][A-Za-z]+)*$/)]),
+      'productDescription' :new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
+      'productQuantity' :new FormControl(this.editMode ? this.product.quantity : '',[Validators.required, Validators.min(1), Validators.max(20)]),
+      'productPrice' :new FormControl(this.editMode ? this.product.price : '',[Validators.required, validators.number]),
+      'productDiscount' :new FormControl({value:"", disabled: true},[Validators.required, validators.number]),
+      'productCategory' :new FormControl('',Validators.required),
+    });
+
+    this.productOnSale.valueChanges.subscribe((value) => {
+      if(value == 'sale')
+      this.addProductForm.get('productDiscount').enable();
+      else
+      {
+        this.addProductForm.get('productDiscount').disable();
+        this.addProductForm.get('productDiscount').setValue('');
+      }
+    })
   }
 
   onSubmit(){
-    this.product = this.addProductForm.value as Product;
-    this.productService.addProduct(this.product);
-    this.router.navigate(['/products'])
+    if(this.addProductForm.valid)
+    {
+      this.product = this.addProductForm.value as Product;
+      this.productService.addProduct(this.product);
+      this.addProductForm.reset();
+    }
+    console.log(this.product);
+    // this.router.navigate(['/products'])
   }
 
   handleProductPhoto(action: string){
     this.showProductUploadModal = false;
     switch (action) {
       case 'OK':
-        // if(this.addProductForm.get('productMainImage') == null)
-        //   this.addProductForm.get('productMainImage') as FormControl = this.productPhoto;
         const p = this.addProductForm.get('productImages') as FormArray;
         if(this.productPhoto != null)
         { 
@@ -66,9 +85,8 @@ export class AddEditProductComponent implements OnInit {
         // this.productPhoto = null;
         break;
     }
-
   }
-  SaveProductPhoto(action: string){
 
-  }
+ 
 }
+
