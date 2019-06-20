@@ -1,5 +1,5 @@
 .itemcard {
-    border: 1px solid #888;
+    border: 0.05rem solid rgba(128, 128, 128, 0.514);
     align-content: center;
     padding: 0.5rem;
     font-family: $font-1;
@@ -54,6 +54,9 @@
         font-size: 0.75em;
         color: #888;
         margin-bottom: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     &__category {
         color: $color-primary;
@@ -76,7 +79,7 @@
             width: 2.6rem;
             height: 2.6rem;
             margin-right: 0.2rem;
-            margin-left:1rem;
+            // margin-left:1rem;
         }
         align-items: center;
     }

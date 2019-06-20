@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SellerService } from 'src/app/_service/Seller.service';
 
 @Component({
   selector: 'app-sales-summary',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesSummaryComponent implements OnInit {
 
-  constructor() { }
+  salesSummary: { period: string, orderedProductsSales: number, numberOfUnits: number }[];
+  // to inject order service later
+  constructor(private sellerService: SellerService) { }
 
   ngOnInit() {
+    this.salesSummary = this.sellerService.getSalesOverPeriods();
   }
 
 }

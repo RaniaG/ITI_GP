@@ -14,8 +14,9 @@
         }
         &__img{
             overflow: hidden;
-            height: 9rem;
-            width:9rem;
+            height: 5rem;
+            width:5rem;
+             
             @include background;
             &:hover{
                 cursor: pointer;
@@ -23,7 +24,7 @@
         }
     }
     &__text{
-        @include flexbox(column,space-between,flex-start);
+        @include flexbox(column,space-around,flex-start);
         &__title{
             color:$primary;
         }
@@ -32,6 +33,7 @@
             flex-direction: row;
         }
         &__customization{
+            margin-right: 0.5rem;
             label{
                 color:$secondary;
             }
@@ -39,8 +41,11 @@
         &__controls{
             margin-top:1rem;
             button, i{
-                font-size: 1.5rem;            
+                font-size: 1rem;            
             }
         }
+    }
+    .progress{
+        height: 3rem;
     }
 }

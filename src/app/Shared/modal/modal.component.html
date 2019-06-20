@@ -1,0 +1,17 @@
+<div class="modal-container">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{title||'No Title'}}</h4>
+      <button type="button" class="close" (click)="emitAction('Close')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn " [ngClass]="{'btn-primary':i===0,'btn-secondary':i>0}"
+        *ngFor="let action of actions; let i=index" (click)="emitAction(action)">{{action}}</button>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopService } from '../shop.service';
+import { Shop } from 'src/app/_models/shop';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/_models/product';
+
 
 @Component({
   selector: 'app-shop-details',
@@ -7,24 +12,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopDetailsComponent implements OnInit {
 
-  rate: number
-  constructor() {
-    this.rate = 3.6;
+  showPhotoUploadModal: boolean = false;
+  showCoverUploadModal: boolean = false;
+
+  coverPhoto = null;
+  shopPhoto = null;
+  shop: Shop;
+  relatedProducts: Product[];
+  constructor(private shopService: ShopService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    const id = this.route.snapshot.params['id']
+    this.shop = this.shopService.getById(id);
+    this.relatedProducts = this.shopService.getRelatedProducts();
+    //get shop's products from product service
   }
 
-  scrollTo(id: string) {
-    // console.log(window.pageYOffset);
-    // switch (id) {
-    //   case 'overview':
-    //     window.scrollTo();
 
-    //     break;
-
-    //   default:
-    //     break;
-    // }
+  handleCoverPhoto(action: string) {
+    this.showCoverUploadModal = false;
+    switch (action) {
+      case 'Save':
+        this.shopService.changeShopCover(this.coverPhoto);
+        break;
+      case 'Close':
+      case 'Cancel':
+      default:
+        this.coverPhoto = null;
+        break;
+    }
+  }
+  handleShopPhoto(action: string) {
+    this.showPhotoUploadModal = false;
+    switch (action) {
+      case 'Save':
+        this.shopService.changeShopPhoto(this.shopPhoto);
+        break;
+      case 'Close':
+      case 'Cancel':
+      default:
+        this.shopPhoto = null;
+        break;
+    }
   }
 }

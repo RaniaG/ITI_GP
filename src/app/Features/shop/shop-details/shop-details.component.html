@@ -1,17 +1,18 @@
 <div class="shop">
   <!--cover-->
   <div class="container-fluid no-gutters">
-    <div class="row no-gutters">
+    <div class="row no-gutters no-gutters">
       <div class="col-md-12">
         <div class="shop__cover d-flex justify-content-end">
           <img src="assets/images/vendor-bg.jpg" alt="" srcset="">
+          <div class="shop__cover__img-btn" (click)="showCoverUploadModal=true"><i class="fas fa-camera"></i></div>
         </div>
       </div>
     </div>
   </div>
   <!--shop header-->
   <div class="container-fluid no-gutters">
-    <div class="row justify-content-end">
+    <div class="row justify-content-end no-gutters">
       <div class="col-md-3">
         <span class="badge badge-secondary" style="cursor:pointer">Report</span>
       </div>
@@ -19,14 +20,15 @@
     </div>
     <div class="row no-gutters justify-content-center " style="position: relative">
       <div class="col-md-3">
-        <div class="shop__photo d-flex justify-content-center align-items-center"
-          style="background-image: url('assets/images/shop-default.png')">
+        <div class="shop__photo " style="background-image: url('assets/images/shop-default.png')">
+          <div class="shop__photo__img-btn" (click)="showPhotoUploadModal=true"><i class="fas fa-camera"></i></div>
         </div>
+
       </div>
       <div class="col-md-6">
         <div class="d-flex flex-wrap justify-content-between align-items-center">
           <div>
-            <h2>Shop name</h2>
+            <h2>{{shop.name}}</h2>
             <div class="d-flex flex-row justify-content-between">
               <div><span>12</span> Followers</div>
               <span>|</span>
@@ -38,7 +40,7 @@
           <div>
             <div>
 
-              <app-rating [rate]="rate" [readonly]="true" (rateChange)="rate=$event"></app-rating>
+              <app-rating [rate]="shop.rating" [readonly]="true" (rateChange)="rate=$event"></app-rating>
               <span>(300)</span>
             </div>
           </div>
@@ -55,20 +57,20 @@
   </div>
   <!--shop nav bar-->
   <div class="container-fluid no-gutters sticky-top">
-    <div class="row">
+    <div class="row no-gutters">
       <div class="col-12">
         <ul class="nav justify-content-center bg-secondary p-3" style="filter:opacity(50%);">
-          <li class="nav-item" (click)="scrollTo('overview')">
+          <li class="nav-item">
             <a class="nav-link  text-light ">Overview</a>
           </li>
-          <li class=" nav-item" (click)="scrollTo('products')">
+          <li class=" nav-item">
             <a class="nav-link  text-light " href="#products">Products</a>
           </li>
           <li class="nav-item">
             <a class="nav-link  text-light " href="#">Edit shop</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  text-light " href="#">Dashboard</a>
+            <a class="nav-link  text-light " [routerLink]="['dashboard']">Dashboard</a>
           </li>
         </ul>
       </div>
@@ -78,23 +80,13 @@
 
   <div class="container  section " id="overview">
     <div class="row ">
-      <div class="col-12 mt-5">
+      <div class="col-12">
         <h2 class='text-center'>About</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem,
-          alias
-          dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis,
-          cumque
-          repellendus nisi explicabo nesciunt
-          modi sint.</p>
+        <p>{{shop.about}}</p>
       </div>
       <div class="col-12 mt-5">
         <h2 class='text-center'>Policies and Returns</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem,
-          alias
-          dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis,
-          cumque
-          repellendus nisi explicabo nesciunt
-          modi sint.</p>
+        <p>{{shop.policies}}</p>
       </div>
     </div>
   </div>
@@ -102,119 +94,11 @@
   <div class="container-fluid no-gutters section">
 
     <div class="row justify-content-center no-gutters">
-      <div class="col-8 shop__slider">
+      <div class="col-8">
         <h2 class="text-center ">Recent Products</h2>
-        <div class='shop__slider__controls'>
-          <div class='shop__slider__btn'> <i class="fas fa-chevron-left"></i> </div>
-          <div class='shop__slider__btn'> <i class="fas fa-chevron-right"></i> </div>
-
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-3">
-            <div class="productcard productcard--vertical ">
-              <div class="productcard__controls">
-                <button class='btn btn-primary'><i class="fas fa-pen"></i></button>
-                <button class='btn btn-primary'><i class="fas fa-minus"></i></button>
-              </div>
-              <div class='productcard__images'>
-                <img src="assets/images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
-                <img src="assets/images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
-              </div>
-              <div class="productcard__title">Product Title</div>
-              <div class="productcard__body">
-                <div class="productcard__prices">
-                  <div class="price price--new price--euro">2.00</div>
-                  <div class="price price--old price--euro">3.00</div>
-                </div>
-                <div class="rating rating--static">1.2</div>
-              </div>
-              <div class="productcard__buttons">
-                <div class="productcard__btn">
-                  <i class="fas fa-shopping-basket fa-sm"></i>
-                  <div class="productcard__btn__title">Add to Cart</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-heart fa-sm"></i>
-                  <div class="productcard__btn__title">Add to Wishlist</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-retweet fa-sm"></i>
-                  <div class="productcard__btn__title">Compare</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-search fa-sm"></i>
-                  <div class="productcard__btn__title">View</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-3 ">
-            <div class="productcard productcard--vertical ">
-              <div class='productcard__images'>
-                <img src="assets/images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
-                <img src="assets/images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
-              </div>
-              <div class="productcard__title">Product Title</div>
-              <div class="productcard__body">
-                <div class="productcard__prices">
-                  <div class="price price--new price--euro">2.00</div>
-                  <div class="price price--old price--euro">3.00</div>
-                </div>
-                <div class="rating rating--static">3.6</div>
-              </div>
-              <div class="productcard__buttons">
-                <div class="productcard__btn">
-                  <i class="fas fa-shopping-basket fa-sm"></i>
-                  <div class="productcard__btn__title">Add to Cart</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-heart fa-sm"></i>
-                  <div class="productcard__btn__title">Add to Wishlist</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-retweet fa-sm"></i>
-                  <div class="productcard__btn__title">Compare</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-search fa-sm"></i>
-                  <div class="productcard__btn__title">View</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-3 ">
-            <div class="productcard productcard--vertical ">
-              <div class='productcard__images'>
-                <img src="assets/images/image_11-1-300x300.jpg" class=' productcard__img productcard__img--front'>
-                <img src="assets/images/image_52-300x300.jpg" class='productcard__img productcard__img--back'>
-              </div>
-              <div class="productcard__title">Product Title</div>
-              <div class="productcard__body">
-                <div class="productcard__prices">
-                  <div class="price price--new price--euro">2.00</div>
-                  <div class="price price--old price--euro">3.00</div>
-                </div>
-                <div class="rating rating--static">3.6</div>
-              </div>
-              <div class="productcard__buttons">
-                <div class="productcard__btn">
-                  <i class="fas fa-shopping-basket fa-sm"></i>
-                  <div class="productcard__btn__title">Add to Cart</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-heart fa-sm"></i>
-                  <div class="productcard__btn__title">Add to Wishlist</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-retweet fa-sm"></i>
-                  <div class="productcard__btn__title">Compare</div>
-                </div>
-                <div class="productcard__btn">
-                  <i class="fas fa-search fa-sm"></i>
-                  <div class="productcard__btn__title">View</div>
-                </div>
-              </div>
-            </div>
+        <div class="row justify-content-between">
+          <div class="col-md-6 col-lg-4" *ngFor="let item of relatedProducts">
+            <app-product-card [Product]="item"></app-product-card>
           </div>
         </div>
       </div>
@@ -223,7 +107,16 @@
   <hr>
   <!--listing-->
   <div id='products'>
-    product listing here
+    <app-product-list></app-product-list>
   </div>
 
+  <app-modal title="Upload Cover Photo" [actions]="['Save','Cancel']" (clicked)="handleCoverPhoto($event)"
+    *ngIf="showCoverUploadModal">
+    <app-img-cropper (onCrop)="coverPhoto=$event"></app-img-cropper>
+  </app-modal>
+
+  <app-modal title="Upload Shop Photo" [actions]="['Save','Cancel']" (clicked)="handleShopPhoto($event)"
+    *ngIf="showPhotoUploadModal">
+    <app-img-cropper (onCrop)="shopPhoto=$event"></app-img-cropper>
+  </app-modal>
 </div>

@@ -16,5 +16,6 @@ export class User {
         street?: string,
         building?: string,
         Apartment?: number,
-    }
+    };
+    shopId?: number;
 }

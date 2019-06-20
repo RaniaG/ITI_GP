@@ -12,59 +12,28 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let product of orderedProducts">
             <td>
               <div class="d-flex align-items-start">
-                <img src="assets/images/img1.jpg" alt="" width="100px">
-                <a href="" class="ml-3">Product Name lorem</a>
+                <img src="{{product.product.images[0]}}" alt="" width="100px">
+                <a href="" class="ml-3">{{product.product.name}}</a>
               </div>
             </td>
             <td>
               <div class="d-flex flex-column">
-                <span>Size: L</span>
-                <span>Color: red</span>
+                <span *ngFor="let property of product.details | keyvalue">
+                  {{property.key}}: {{property.value}}
+                </span>
               </div>
             </td>
             <td>
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-light"><i class="fas fa-angle-left"></i></button>
-                <button type="button" class="btn btn-light">2</button>
-                <button type="button" class="btn btn-light"><i class="fas fa-angle-right"></i></button>
-              </div>
+              <app-quantity-picker [(quantity)]="product.quantity"></app-quantity-picker>
             </td>
             <td>
-              $20
+              ${{product.price}}
             </td>
             <td>
-              <button class='btn btn-primary'><i class="fas fa-minus"></i></button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="d-flex align-items-start">
-                <img src="assets/images/img1.jpg" alt="" width="100px">
-                <a href="" class="ml-3">Product Name lorem</a>
-              </div>
-            </td>
-            <td>
-              <div class="d-flex flex-column">
-                <span>Size: L</span>
-                <span>Color: red</span>
-              </div>
-            </td>
-            <td>
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-light"><i class="fas fa-angle-left"></i></button>
-                <button type="button" class="btn btn-light">2</button>
-                <button type="button" class="btn btn-light"><i class="fas fa-angle-right"></i></button>
-              </div>
-            </td>
-            <td>
-              $20
-            </td>
-            <td>
-              <button class='btn btn-primary'><i class="fas fa-minus"></i></button>
+              <button class='btn btn-primary' (click)="removeProduct(product.id)"><i class="fas fa-minus"></i></button>
             </td>
           </tr>
         </tbody>
@@ -73,17 +42,12 @@
             <td></td>
             <td></td>
             <td><strong>Total</strong></td>
-            <td>$20</td>
+            <td>{{order.invoice.subtotal}}</td>
             <td></td>
           </tr>
         </tfoot>
       </table>
-      <div class="d-flex justify-content-end">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">Previous</button>
-          <button type="button" class="btn btn-primary">Next</button>
-        </div>
-      </div>
+      <app-pagination></app-pagination>
     </div>
   </div>
 </div>

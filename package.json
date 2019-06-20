@@ -20,8 +20,14 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@ng-bootstrap/ng-bootstrap": "^4.2.0",
+    "angular-bootstrap-md": "^7.5.4",
     "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
     "core-js": "^2.5.4",
+    "ng2-charts": "^2.3.0",
+    "ngx-image-cropper": "^1.3.10",
+    "primeicons": "^1.0.0",
+    "primeng": "^8.0.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
@@ -51,5 +57,13 @@
   "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaniaG/ITI_GP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RaniaG/ITI_GP/issues"
+  },
+  "homepage": "https://github.com/RaniaG/ITI_GP#readme"
 }
