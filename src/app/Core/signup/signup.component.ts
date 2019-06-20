@@ -5,6 +5,7 @@ import { Country, City } from 'src/app/_models/country-city';
 import { UserService } from 'src/app/_service/user.service';
 import { from } from 'rxjs';
 import { User } from 'src/app/_models/user';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
   cities : City[];
   user : User;
 
-  constructor(private countryCityService: CountryCityService,private userService : UserService) { 
+  constructor(private countryCityService: CountryCityService,private userService : UserService,private router: Router) { 
 
 
   }
@@ -31,7 +32,7 @@ export class SignupComponent implements OnInit {
       txtUN : new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
       phoneNumber: new FormControl('',[Validators.required]),
       email :new FormControl('',[Validators.required, Validators.email]),
-      password : new FormControl('',[Validators.required,Validators.pattern('^(?=.*\d).{4,8}$')]),
+      password : new FormControl('',[Validators.required]),
       confirmPW : new FormControl('',[Validators.required]),
       txtStreet : new FormControl(),
       txtBuilding: new FormControl(),
@@ -60,6 +61,7 @@ export class SignupComponent implements OnInit {
          if(this.signUpForm.valid){
                this.user = this.signUpForm.value;
                this.userService.add(this.user);
+               this.router.navigate(['/home'])
          }
   }
 

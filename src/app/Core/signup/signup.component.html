@@ -88,6 +88,9 @@
           
           <input type="password" class="form-control form-control-lg" id="exampleInputPassword3"
             placeholder="Confirm Password" formControlName="confirmPW">
+            <span class="error__msg" *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').errors && signUpForm.get('password').touched">
+                Password and confirmed password do not match!
+              </span>
         </div>
         <div class="col-12">
           <h2>Address Details</h2>

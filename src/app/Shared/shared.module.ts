@@ -9,6 +9,7 @@ import { ConfirmComponent } from './confirm/confirm.component';
 import { ImgCropperComponent } from './img-cropper/img-cropper.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ModalComponent } from './modal/modal.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ModalComponent } from './modal/modal.component';
   imports: [
     CommonModule,
     NgbModule,
-    ImageCropperModule
+    ImageCropperModule,
+    RouterModule
   ],
   entryComponents: [ConfirmComponent],
   exports: [

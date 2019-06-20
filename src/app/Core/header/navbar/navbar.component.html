@@ -1,3 +1,12 @@
+
+<nav class="navbar navbar-dark bg-primary row">
+  <div class="col">
+    <a class="text-white float-right pl-2" routerLink="/login">Log in </a>
+    <a class="text-white pr-2 float-right border-right" routerLink="/signUp">sign up</a>
+  </div>
+</nav>
+
+
 <div class="nav-bar">
   <div class="logo-container">
     <img class="logo" src="assets/images/logo-2.png" alt="logo">
@@ -5,9 +14,9 @@
 
   <div class="drop-downs-container">
     <div class="drop-down-list"><a routerLink="/home">
-        <h3 class="list-title">Home</h3>
+        <h5 class="list-title">Home</h5>
       </a>
-      <div class="list-container list-container--visibility">
+      <!-- <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li><a class="list-item" routerLink="/home">Home</a></li>
 
@@ -16,22 +25,23 @@
           <li><a class="list-item" href="#">Home 4</a></li>
           <li><a class="list-item" href="#">Home 5</a></li>
         </ul>
-      </div>
+      </div> -->
     </div>
+
     <div class="drop-down-list">
-      <h3 class="list-title">Shops</h3>
+      <h5 class="list-title">Shops</h5>
       <div class="list-container list-container--visibility">
         <ul class="nav-list">
-          <li><a class="list-item" href="#">Home 1</a></li>
-          <li><a class="list-item" href="#">Home 2</a></li>
-          <li><a class="list-item" href="#">Home 3</a></li>
-          <li><a class="list-item" href="#">Home 4</a></li>
-          <li><a class="list-item" href="#">Home 5</a></li>
+          <li><a class="list-item" href="#">Accesories</a></li>
+          <li><a class="list-item" href="#">Crafts</a></li>
+          <li><a class="list-item" href="#">Decor</a></li>
+          <li><a class="list-item" href="#">Clothes</a></li>
+          <li><a class="list-item" href="#">Bags</a></li>
         </ul>
       </div>
     </div>
     <div class="drop-down-list">
-      <h3 class="list-title">Products</h3>
+      <h5 class="list-title">Products</h5>
       <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li><a class="list-item" href="#">Home 1</a></li>
@@ -44,20 +54,20 @@
     </div>
     <div class="drop-down-list">
         <a routerLink="/profile">
-      <h3 class="list-title">Profile</h3>
+      <h5 class="list-title">Profile</h5>
       </a>
       <div class="list-container list-container--visibility">
         <ul class="nav-list">
-          <li><a class="list-item" routerLink="/editprofile">Edit Profile</a></li>
-          <li><a class="list-item" href="#">Home 2</a></li>
-          <li><a class="list-item" href="#">Home 3</a></li>
+          <li><a class="list-item" routerLink="/profile">View</a></li>
+          <li><a class="list-item" routerLink="/editprofile">Edit</a></li>
+          <!-- <li><a class="list-item" href="#">Home 3</a></li>
           <li><a class="list-item" href="#">Home 4</a></li>
-          <li><a class="list-item" href="#">Home 5</a></li>
+          <li><a class="list-item" href="#">Home 5</a></li> -->
         </ul>
       </div>
     </div>
     <div class="drop-down-list">
-      <h3 class="list-title">Title4</h3>
+      <h5 class="list-title">Title4</h5>
       <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li>
@@ -93,7 +103,7 @@
       </div>
     </div>
     <div class="drop-down-list">
-      <h3 class="list-title">Title5</h3>
+      <h5 class="list-title">Title5</h5>
       <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li><a class="list-item" href="#">Home 1</a></li>
@@ -106,7 +116,7 @@
     </div>
   </div>
   <div class="search-box mr-5">
-    <input class="search p-4" type="text" placeholder="Search">
+    <input class="search pl-2" type="text" placeholder="Search">
     <i class="fas fa-search"></i>
   </div>
 </div>
