@@ -8,7 +8,7 @@ export class UserService {
   data: User[];
   constructor() {
     this.data = [
-      { id: 1, firstname: 'Bassant', lastname: 'mohamed', username: 'Bassant Fahmy', bio: 'ahora o nunca.',photo:'woman.jpg', password: '123456', email: 'bassantfahmy@gmail.com' },
+      { id: 1, firstname: 'Bassant', lastname: 'mohamed', username: 'Bassant Fahmy', bio: 'ahora o nunca.',photo:'assets/images/woman.jpg', password: '123456', email: 'bassantfahmy@gmail.com' },
       { id: 2, firstname: 'Ahmed', lastname: 'mohamed', username: 'Ahmed Fahmy', password: '123456', email: 'ahmedfahmy@gmail.com' },
     ]
   }

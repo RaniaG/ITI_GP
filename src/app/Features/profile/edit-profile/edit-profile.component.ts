@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
-import { UserService } from 'src/app/_service/user.service'; 
+import { UserService } from 'src/app/_service/user.service';
 import { CountryCityService } from 'src/app/_service/country-city.service';
 import { Country, City } from 'src/app/_models/country-city';
 @Component({
@@ -10,15 +10,18 @@ import { Country, City } from 'src/app/_models/country-city';
 })
 export class EditProfileComponent implements OnInit {
 
-  @ViewChild('profileimg')profileimg:ElementRef;
-  constructor(private user: UserService,private countryCityService: CountryCityService) { }
+
+  constructor(private user: UserService, private countryCityService: CountryCityService) { }
   editProfileForm: FormGroup;
   validator: ValidatorFn;
-  countries :Country[]; 
-  cities : City[];
+  countries: Country[];
+  cities: City[];
 
   public imagePath;
-  imgURL: any;
+  //imgURL: any="assets/images/woman.jpg";
+
+  imgURL: any=this.user.getById(1).photo;
+
   public message: string;
   currentInput;
   onFileSelected(event) {
@@ -27,19 +30,17 @@ export class EditProfileComponent implements OnInit {
   preview(files) {
     if (files.length === 0)
       return;
-
     var mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.message = "Only images are supported.";
       return;
     }
-
-
     var reader = new FileReader();
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       this.imgURL = reader.result;
+     
     }
   }
   ngOnInit() {
@@ -50,20 +51,17 @@ export class EditProfileComponent implements OnInit {
       'email': new FormControl(this.user.getById(1).email, [Validators.required, Validators.email]),
       'bio': new FormControl(this.user.getById(1).bio),
       'photo': new FormControl(this.user.getById(1).photo),
-      'changePassword': new FormControl(),
+      'changePassword': new FormControl('',[Validators.required,Validators.pattern('^(?=.*\d).{4,8}$')]),
       'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword')),
-      // confirmPassword: new FormControl()
-      'country':new FormControl(),
-      'city':new FormControl(),
-       'street' : new FormControl(),
-       'building': new FormControl(),
-       'apartment' : new FormControl(),
+      'country': new FormControl(),
+      'city': new FormControl(),
+      'street': new FormControl(),
+      'building': new FormControl(),
+      'apartment': new FormControl(),
     });
-
     this.countries = this.countryCityService.getAllCountries();
+
   }
-
-
   onSubmit(editProfileForm) {
     console.log(editProfileForm);
   }
@@ -72,7 +70,6 @@ export class EditProfileComponent implements OnInit {
       let result: ValidationErrors;
       if (control.parent) {
         let form = control.parent;
-        // console.log(control.parent);
         if (form.get(control1).value !== form.get(control2).value) {
           result = { compare: true };
         }
@@ -83,26 +80,10 @@ export class EditProfileComponent implements OnInit {
       return result;
     }
   }
-
-  countryChange(countryId : number){
-    this.cities=null;
-    if(countryId){
+  countryChange(countryId: number) {
+    this.cities = null;
+    if (countryId) {
       this.cities = this.countryCityService.getCitiesByCountryId(countryId);
     }
-
   }
-
-  // MustMatch=(control1: string, control2: string): ValidatorFn =>{
-  //   return (control: AbstractControl): ValidationErrors | null => {
-  //     let result: ValidationErrors;
-  //     if (control.get(control1).value !== control.get(control2).value) {
-  //       result = { compare: true };
-  //     }
-  //     else {
-  //       result = null;
-  //     }
-  //     return result;
-  //   }
-  // }
-
 }
