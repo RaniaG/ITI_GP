@@ -38,6 +38,7 @@ const routes: Routes = [
   exports: [
     ShopDetailsComponent,
     ShopListComponent,
+    ShopCardComponent,
     AddEditShopComponent
   ]
 })

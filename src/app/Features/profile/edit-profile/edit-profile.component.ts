@@ -16,12 +16,8 @@ export class EditProfileComponent implements OnInit {
   validator: ValidatorFn;
   countries: Country[];
   cities: City[];
-
   public imagePath;
-  //imgURL: any="assets/images/woman.jpg";
-
-  imgURL: any=this.user.getById(1).photo;
-
+  imgURL: any = this.user.getById(1).photo;
   public message: string;
   currentInput;
   onFileSelected(event) {
@@ -40,7 +36,7 @@ export class EditProfileComponent implements OnInit {
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
       this.imgURL = reader.result;
-     
+
     }
   }
   ngOnInit() {
@@ -51,7 +47,7 @@ export class EditProfileComponent implements OnInit {
       'email': new FormControl(this.user.getById(1).email, [Validators.required, Validators.email]),
       'bio': new FormControl(this.user.getById(1).bio),
       'photo': new FormControl(this.user.getById(1).photo),
-      'changePassword': new FormControl('',[Validators.required,Validators.pattern('^(?=.*\d).{4,8}$')]),
+      'changePassword': new FormControl('', [Validators.required, Validators.pattern('^(?=.*\d).{4,8}$')]),
       'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword')),
       'country': new FormControl(),
       'city': new FormControl(),
