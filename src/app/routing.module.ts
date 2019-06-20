@@ -16,7 +16,7 @@ import { HomeComponent } from './Core/home/home.component';
   imports: [
     CommonModule,
     RouterModule.forRoot([
-    ]),
+    ], { anchorScrolling: 'enabled' }),
 
   ],
   exports: [

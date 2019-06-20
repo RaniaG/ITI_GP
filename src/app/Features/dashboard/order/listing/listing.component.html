@@ -91,7 +91,7 @@
                       <a [routerLink]="['/shop',shopId,'order',order.packageId,'details']"
                         class="mb-1 btn btn-sm btn-primary"><i class="fa fa-search"></i>
                         View</a>
-                      <a (click)="onOrderReadyToShip(order.packageId)" class=" btn btn-sm btn-primary">Ready to Ship</a>
+                      <!-- <a (click)="onOrderReadyToShip(order.packageId)" class=" btn btn-sm btn-primary">Ready to Ship</a> -->
                     </td>
                   </tr>
 
@@ -107,11 +107,12 @@
         <div class="row bg-white">
           <div class="col-sm-6">
             <div class="d-flex justify-content-center align-items-center">
-              <p class="align-middle m-0">{{pageNumber*elementsPerPage}}-{{orders.length}}</p>
+              <p class="align-middle m-0">{{orders.length+(pageNumber-1)*elementsPerPage}} out of {{totalElements}}
+                results found</p>
             </div>
           </div>
           <!-- pagination -->
-          <app-pagination (PageChanged)="onPageChanged($event)" class="col-sm-6" [totalPages]="numberOfpages"
+          <app-pagination (pageChanged)="onPageChanged($event)" class="col-sm-6" [totalPages]="numberOfpages"
             [currentPage]="pageNumber"></app-pagination>
           <!-- /pagination -->
         </div>

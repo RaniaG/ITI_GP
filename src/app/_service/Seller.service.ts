@@ -219,11 +219,32 @@ export class SellerService {
         return this.ordersBriefs;
     }
 
-    getPackageById(shopId: string, ): Order {
+    getPackageById(shopId: string, packageId: number): Order {
+        let order: Order;
+        if (packageId === 12547) {
+            order = {
+                id: "12547",
+                date: new Date(),
+                status: "pedning",
+                deliveryMethod: "door to door",
+                paymentMethod: "cash on delivery",
+                invoice: {
+                    subtotal: 25.00,
+                    totalDiscount: 5,
+                    totalShippingFees: 10,
+                },
+                packageId: "jngtrhut",
+            }
+        }
+        return order;
+    }
+
+
+    updatePackageStatus(shopId, packageId, newStatus): Order {
         let order: Order = {
             id: "12547",
             date: new Date(),
-            status: "delivered",
+            status: newStatus,
             deliveryMethod: "door to door",
             paymentMethod: "cash on delivery",
             invoice: {
@@ -232,12 +253,8 @@ export class SellerService {
                 totalShippingFees: 10,
             },
             packageId: "jngtrhut",
-
-
-
         }
         return order;
     }
-
 
 }
