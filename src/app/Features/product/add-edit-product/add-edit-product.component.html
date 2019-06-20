@@ -3,25 +3,25 @@
     <h1 class="text-primary">Add a new product !</h1>
   </div>
   <form [formGroup] = "addProductForm" (ngSubmit) = "onSubmit()"> 
-    <div class="row justify-content-center">
-      <!-- Error while images binding  -->
-      <div class="form-group col-lg-3 col-sm-12">
-          <table>  
-              <thead>
-                <th colspan="4">
-                  <a>
-                    <img src="assets/images/add-product.png" alt="add-product" class="img-thumbnail">
-                  </a>
-                </th>
-              </thead>
-              <tbody formArrayName="productImages">
-                <td  class="pt-3 pr-1 ">
-                  <a >
-                    <img src="assets/images/add-product.png" alt="add-product" class="img-thumbnail img-zoom">
-                  </a>
-                </td>
-              </tbody>
-            </table>
+    <div class="row justify-content-center ">
+      <div class="col-lg-3 col-sm-12 ">
+        <!-- Main Photo -->
+        <div class="row no-gutters">
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-primary btn-lg btn-block mb-2"(click)="showProductUploadModal=true">
+                Add Product Photo
+              </button>
+            <img [src]="!addProductForm.get('productImages').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('productImages').value[0]" alt="add-product" class="productPhoto img-thumbnail">
+          </div>
+        </div>
+        <!-- Product Photos -->
+        <div class="row no-gutters d-flex flex-nowrap justify-content-start">
+          <ng-container *ngFor="let p of addProductForm.get('productImages').value; let i = index ; ">
+            <div [ngClass]="{'d-none':i == 0}">
+              <img [src]="p" alt="add-product" class="img-zoom col mt-2 productPhotos">
+            </div>
+          </ng-container> 
+        </div>
       </div>
       <div class="col-lg-5 col-sm-12 card p-5">
         <div class="form-group">
@@ -45,6 +45,7 @@
             <!-- <span class="input-group-text">0.00</span> -->
           </div>
         </div>
+        <!-- Sale / Not Sale -->
         <div class="form-group mt-5 row justify-content-around align-items-center pl-5">
           <div class="col">
             <div class="row ">
@@ -86,7 +87,7 @@
   </form>
 </div>
 
-<!-- modal not working yet -->
+<!-- Custmization modal not working yet -->
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -119,7 +120,7 @@
   </div>
 </div>
 
-<!-- <app-modal title="Upload Photo" [actions]="['Save','Cancel']" (clicked)="handleCoverPhoto($event)"
-  *ngIf="showCoverUploadModal">
-  <app-img-cropper (onCrop)="handler($event)"></app-img-cropper>
-</app-modal> -->
+<app-modal title="Upload Photo" [actions]="['OK','Cancel']" (clicked)="handleProductPhoto($event)"
+  *ngIf="showProductUploadModal">
+  <app-img-cropper (onCrop)="productPhoto=$event"></app-img-cropper>
+</app-modal>

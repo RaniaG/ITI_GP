@@ -8055,8 +8055,8 @@ ul {
 
 .product-details__images__img {
   overflow: hidden;
-  height: 9rem;
-  width: 9rem;
+  height: 5rem;
+  width: 5rem;
   background-size: contain;
   background-repeat: round; }
   .product-details__images__img:hover {
@@ -8064,7 +8064,7 @@ ul {
 
 .product-details__text {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   flex-direction: column; }
   .product-details__text__title {
@@ -8072,12 +8072,14 @@ ul {
   .product-details__text__rating {
     display: flex;
     flex-direction: row; }
-  .product-details__text__customization label {
-    color: #6c757d; }
+  .product-details__text__customization {
+    margin-right: 0.5rem; }
+    .product-details__text__customization label {
+      color: #6c757d; }
   .product-details__text__controls {
     margin-top: 1rem; }
     .product-details__text__controls button, .product-details__text__controls i {
-      font-size: 1.5rem; }
+      font-size: 1rem; }
 
 .product-details .progress {
   height: 3rem; }

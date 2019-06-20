@@ -1,4 +1,5 @@
-<app-page-header [title]="'Create Shop'" [path]="['Home','Create Shop']"></app-page-header>
+<app-page-header [title]="'Create Shop'" [paths]="[{name:'Home',url:'/'},{name:'Create Shop',url:''}]">
+</app-page-header>
 
 <div class="container pt-5">
   <form [formGroup]="shopForm" (ngSubmit)="finish()" (change)="saved=false">
