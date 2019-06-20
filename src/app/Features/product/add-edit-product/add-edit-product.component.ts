@@ -20,26 +20,30 @@ export class AddEditProductComponent implements OnInit {
   showProductUploadModal :boolean = false;
   productPhoto = null;
   productOnSale = new FormControl('notSale');
+
+  editMode: boolean = false;
+
   constructor(private productService :ProductService ,private categoryService :CategoryService , private router :Router, private route: ActivatedRoute) { 
     if(!this.categories)
      { this.categories = this.categoryService.getAll(); }
   }
 
   ngOnInit() {
-    
-    // const id = this.route.snapshot.params['id'];
-
+  
+    const id = +this.route.snapshot.params['id'];
+    if(id)
+    {
+      this.editMode = true;
+      this.product = this.productService.getById(id);
+    }
     this.addProductForm = new FormGroup({
-
       'productImages' :new FormArray([],Validators.required),
-      'productName' :new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+(?:[_-][A-Za-z]+)*$/)]),
+      'productName' :new FormControl(this.editMode ? this.product.name :'',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+(?:[_-][A-Za-z]+)*$/)]),
       'productDescription' :new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
-      'productQuantity' :new FormControl('',[Validators.required, Validators.min(1), Validators.max(20)]),
-      'productPrice' :new FormControl('',[Validators.required, validators.number]),
+      'productQuantity' :new FormControl(this.editMode ? this.product.quantity : '',[Validators.required, Validators.min(1), Validators.max(20)]),
+      'productPrice' :new FormControl(this.editMode ? this.product.price : '',[Validators.required, validators.number]),
       'productDiscount' :new FormControl({value:"", disabled: true},[Validators.required, validators.number]),
       'productCategory' :new FormControl('',Validators.required),
-
-   
     });
 
     this.productOnSale.valueChanges.subscribe((value) => {
@@ -58,6 +62,7 @@ export class AddEditProductComponent implements OnInit {
     {
       this.product = this.addProductForm.value as Product;
       this.productService.addProduct(this.product);
+      this.addProductForm.reset();
     }
     console.log(this.product);
     // this.router.navigate(['/products'])
