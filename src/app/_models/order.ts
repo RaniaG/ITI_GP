@@ -1,9 +1,9 @@
 import { OrderedProduct } from './orderedProduct';
 
 export class Order {
-    packageId: string;//seller order id
+    packageId?: string;//seller order id
     id?: string;//guid // buyer order id
-    shopId: string;
+    shopId?: string;
     status: string;
     date: Date;
     // shippingAddress: string;
@@ -17,12 +17,12 @@ export class Order {
         district: string;
         postalCode: string;
     };
-    deliveryMethod: number;
-    paymenMethod: string;
-    invoice: {
+    deliveryMethod: string;
+    paymentMethod: string;
+    invoice?: {
         subtotal: number,
         totalDiscount?: number,
         totalShippingFees?: number
     }
-    productList: OrderedProduct[];
+    productList?: OrderedProduct[];
 }   

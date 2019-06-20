@@ -86,7 +86,7 @@
                         :order.status=='shipped' , 'badge-info' :order.status=='pending' }">{{order.status}}</span>
                     <td class="text-truncate">
                       {{order.shipmentData.address}},{{order.shipmentData.city}},{{order.shipmentData.country}}</td>
-                    <td>{{order.totalDue}}$</td>
+                    <td>{{order.totalDue|currency}}</td>
                     <td class="text-light d-flex flex-column">
                       <a [routerLink]="['/shop',shopId,'order',order.packageId,'details']"
                         class="mb-1 btn btn-sm btn-primary"><i class="fa fa-search"></i>

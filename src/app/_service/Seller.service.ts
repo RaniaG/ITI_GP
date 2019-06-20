@@ -4,22 +4,20 @@ import { Product } from '../_models/product';
 import { Order } from '../_models/order';
 import { OrderedProductsService } from './ordered-products.service';
 import { OrderBrief } from '../_models/orderBrief';
-import { OrderSummary, SalesSummary } from '../_models/custom-datatypes';
+import { OrderSummary, SalesSummary } from '../_models/DataTransfereObjects';
 import { DatePipe } from '@angular/common';
 
-@Injectable()
 export class SellerService {
     // productService: ProductService;
-    orderedProductService: OrderedProductsService;
-    products: Product[];
-    orders: Order[];
+    // orderedProductService: OrderedProductsService;
+    // products: Product[];
     ordersBriefs: OrderBrief[];
     visitsCount: number;
     soldProductsCount: number;
     ordersCount: number;
     totalRevenuValue: number;
 
-    constructor(productService: ProductService) {
+    constructor() {
         this.ordersBriefs = [
             {
                 packageId: "14584",
@@ -220,8 +218,25 @@ export class SellerService {
     getAllOrdersBriefs(): OrderBrief[] {
         return this.ordersBriefs;
     }
-    getOrderDetailsById(packageId: string): Order {
-        return this.orders[0];
+
+    getPackageById(shopId: string, ): Order {
+        let order: Order = {
+            id: "12547",
+            date: new Date(),
+            status: "delivered",
+            deliveryMethod: "door to door",
+            paymentMethod: "cash on delivery",
+            invoice: {
+                subtotal: 25.00,
+                totalDiscount: 5,
+                totalShippingFees: 10,
+            },
+            packageId: "jngtrhut",
+
+
+
+        }
+        return order;
     }
 
 
