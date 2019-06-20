@@ -25,10 +25,12 @@
             <!-- page nav-->
             <ul class="nav nav-bordered mb-2">
               <li class="nav-item">
-                <a class="nav-link" href="#order-details">Details</a>
+                <a class="nav-link" [routerLink]="['/shop',shopId,'order',orderId,'details']"
+                  fragment="order-details">Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#order-invoice">Invoice</a>
+                <a class="nav-link" [routerLink]="['/shop',shopId,'order',orderId,'details']"
+                  fragment="order-invoice">Invoice</a>
               </li>
             </ul>
             <!-- /page nav -->
@@ -62,8 +64,8 @@
             <div class="col-sm-4 p-2">
               <h6 class="text-uppercase text-secondary">DELIVERY & PAYMENT</h6>
               <ul>
-                <li>DELIVERY: Cash on delivery</li>
-                <li>PAYMENT: cash</li>
+                <li>DELIVERY: {{order.deliveryMethod}}</li>
+                <li>PAYMENT: {{order.paymentMethod}}</li>
               </ul>
             </div>
 
@@ -87,6 +89,12 @@
                 </li>
               </ul>
             </div>
+            <div class="col-sm-3 offset-2 text-white d-flex flex-column justify-content-center">
+              <a [ngClass]="{'disabled': shipped,'btn btn-primary my-1':true}" (click)="onOrderReadyToShip()">Ready To
+                Ship <i *ngIf="shipped" class="fas fa-check-circle bg-white rounded-circle text-success"></i></a>
+              <a [ngClass]="{'disabled': delivered,'btn btn-primary my-1':true}" (click)="onOrderDelivered()">Is
+                Deliverd <i *ngIf="delivered" class="fas fa-check-circle rounded-circle bg-white text-success"></i></a>
+            </div>
             <div class="col-12">
               <div class="table-responsive-md">
                 <table class="table table-hover text-center">
@@ -106,10 +114,10 @@
                       <td><a href="#">0000156</a></td>
                       <td>nicklace</td>
                       <td>3</td>
-                      <td class="ng-binding">$1.56</td>
+                      <td>$1.56</td>
                       <td>5%</td>
-                      <td class="ng-binding">0.23</td>
-                      <td class="ng-binding">$4.45</td>
+                      <td>0.23</td>
+                      <td>$4.45</td>
                     </tr>
                     <tr>
                       <td><a href="#">0496116</a></td>

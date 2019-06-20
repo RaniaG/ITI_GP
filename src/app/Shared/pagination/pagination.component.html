@@ -1,15 +1,15 @@
 <div class="d-flex justify-content-center align-items-center">
   <nav aria-label="Page-navigation">
     <ul class="pagination pagination-sm">
-      <li class="page-item" (click)="onPreviousPage()">
-        <a [ngClass]="{'page-link':true, 'disabled':!prevPage}" aria-label="Previous">
+      <li class="page-item" [ngClass]="{'disabled': currentPage == 1}" (click)="onPreviousPage()">
+        <a [ngClass]="{'page-link':true}" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
       <li class="page-item active"><a class="page-link">{{currentPage}}</a>
       </li>
-      <li class="page-item" (click)="onNextPage()">
-        <a [ngClass]="{'page-link':true, 'disabled':!nextPage}" aria-label="Next">
+      <li class="page-item" [ngClass]="{'disabled': currentPage == numberOfPages}" (click)="onNextPage()">
+        <a [ngClass]="{'page-link':true}" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>
