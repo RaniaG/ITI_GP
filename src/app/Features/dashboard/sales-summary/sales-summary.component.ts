@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SellerService } from 'src/app/_service/Seller.service';
 
 @Component({
   selector: 'app-sales-summary',
@@ -6,17 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sales-summary.component.scss']
 })
 export class SalesSummaryComponent implements OnInit {
-  salesSummary;
+
+  salesSummary: { period: string, orderedProductsSales: number, numberOfUnits: number }[];
   // to inject order service later
-  constructor() { }
+  constructor(private sellerService: SellerService) { }
 
   ngOnInit() {
-    this.salesSummary = [
-      { period: "today", orderedProductsSales: 750, numberOfUnits: 4 },
-      { period: "15 days", orderedProductsSales: 750, numberOfUnits: 4 },
-      { period: "1 month", orderedProductsSales: 750, numberOfUnits: 4 },
-      { period: "3 months", orderedProductsSales: 750, numberOfUnits: 4 },
-    ]
+    this.salesSummary = this.sellerService.getSalesOverPeriods();
   }
 
 }
