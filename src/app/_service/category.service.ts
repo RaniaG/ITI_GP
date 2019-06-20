@@ -6,11 +6,11 @@ export class CategoryService {
     categories: Category[];
     constructor(){
         this.categories = [
-            {id: "1" , name: 'Category 1' },
-            {id: "2" , name: 'Category 2' },
-            {id: "3" , name: 'Category 3' },
-            {id: "4" , name: 'Category 4' },
-            {id: "5" , name: 'Category 5' },
+            {id: 1 , name: 'Category 1' },
+            {id: 2 , name: 'Category 2' },
+            {id: 3 , name: 'Category 3' },
+            {id: 4 , name: 'Category 4' },
+            {id: 5 , name: 'Category 5' },
         ]
     }
 
@@ -18,12 +18,12 @@ export class CategoryService {
         return this.categories;
     }
 
-    getById(id :string) :Category{
+    getById(id :number) :Category{
         return this.categories.find(c => c.id === id);
     } 
 
     addCategory(c :Category){
-        c.id = (String)(this.categories.length + 1);
+        c.id = this.categories.length + 1;
         this.categories.push(c);
     }
 
@@ -32,7 +32,7 @@ export class CategoryService {
         this.categories[i] = c;
     }
 
-    deleteCategory(id :string){
+    deleteCategory(id :number){
         const i = this.categories.findIndex( e => e.id === id);
         this.categories.splice(i , 1);
     }

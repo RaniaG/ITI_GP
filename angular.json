@@ -29,9 +29,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "./node_modules/chart.js/dist/Chart.js"
-            ],
+            "scripts": [],
             "es5BrowserSupport": true
           },
           "configurations": {

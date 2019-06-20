@@ -5,9 +5,9 @@
   <div class="header__path">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item" *ngFor="let item of paths;let i =index">
-          <a [routerLink]="[item.url]" *ngIf="i<paths.length-1; else nonLink">{{item.name}}</a>
-          <ng-template #nonLink>{{item.name}}</ng-template>
+        <li class="breadcrumb-item" *ngFor="let item of path;let i =index">
+          <a href="#" *ngIf="i<path.length-1; else nonLink">{{item}}</a>
+          <ng-template #nonLink>{{item}}</ng-template>
         </li>
       </ol>
     </nav>

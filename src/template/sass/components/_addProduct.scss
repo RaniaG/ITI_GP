@@ -1,5 +1,5 @@
 .img-zoom{
-    transition: .5s ease-in-out;
+transition: .5s ease-in-out;
     &:hover{
         transform: scale(1.1);
     }
@@ -11,14 +11,6 @@
 
 .title {
     font-size:2rem;
-}
-
-.productPhoto {
-    height: 20rem;
-}
-.productPhotos
-{
-    width: 8rem;
-    max-width: 120%;
-    padding-left: 0.5rem;
+    // padding:3rem;
+    
 }
