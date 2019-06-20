@@ -23,9 +23,9 @@
         padding-top: 100%;
         border-radius: 50%;
        // background-color: aqua;
-        background-size: cover;
-        background-position: center;
-        background-clip: border-box;
+        background-size: cover !important;
+        background-position: center !important;
+        background-clip: border-box !important;
         box-shadow: none;
     }
     &__socialIconsBox

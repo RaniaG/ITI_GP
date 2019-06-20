@@ -17,8 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule.forChild([
       { path: 'profile', component: ProfileComponent },
       { path: 'editprofile', component: EditProfileComponent },
-
-
     ])
   ],
   exports: [
