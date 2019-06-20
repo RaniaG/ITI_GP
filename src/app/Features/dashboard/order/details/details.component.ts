@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
@@ -10,6 +11,7 @@ export class OrderDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

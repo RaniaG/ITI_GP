@@ -15,11 +15,6 @@ import { LoginComponent } from './Core/login/login.component';
   imports: [
     CommonModule,
     RouterModule.forRoot([
-      { path: '', component: DashboardListingComponent },
-      { path: 'dashboard', component: DashboardListingComponent },
-      { path: 'orders', component: OrderListingComponent },
-      { path: 'orders/:id/details', component: OrderDetailsComponent },
- 
     ]),
 
   ],

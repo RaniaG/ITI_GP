@@ -19,11 +19,15 @@ export class DashboardListingComponent implements OnInit {
   ordersValue: number;
   revenuValue: number;
 
+  shopId: string;
+
   constructor(private sellerService: SellerService) {
     this.visitsImage = `${assetsPath}/015-search.png`;
     this.productsImage = `${assetsPath}/008-cart.png`;
     this.ordersImage = `${assetsPath}/002-order-1.png`;
     this.revenuImage = `${assetsPath}/005-profit.png`;
+
+    this.shopId = "123";
   }
 
   ngOnInit() {

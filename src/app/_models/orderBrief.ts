@@ -11,9 +11,8 @@ export interface OrderBrief {
         address: string;
         country: string;
         city: string;
-        district: string;
-        postalCode: string;
+        district?: string;
+        postalCode?: string;
     };
     totalDue: number;
-    productList: OrderedProduct[];
 }

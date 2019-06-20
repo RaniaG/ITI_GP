@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RoutingModule } from '../../routing.module';
+import { RouterModule, Routes } from '@angular/router';
+
 import { SharedModule } from '../../Shared/shared.module';
 // import { ChartsModule } from 'ng2-charts';
 // import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
@@ -19,6 +20,17 @@ import { VisitsSummaryComponent } from './visits-summary/visits-summary.componen
 import { DashboardListingComponent } from './dashboard-listing/dashboard-listing.component';
 import { SellerService } from 'src/app/_service/Seller.service';
 import { ShopService } from '../shop/shop.service';
+import { FormsModule } from '@angular/forms';
+
+const Routes: Routes = [
+  {
+    path: 'shop/:id', children: [
+      { path: 'dashboard', component: DashboardListingComponent },
+      { path: 'orders', component: OrderListingComponent },
+      { path: 'order/:id/details', component: OrderDetailsComponent }
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
@@ -33,9 +45,10 @@ import { ShopService } from '../shop/shop.service';
     DashboardListingComponent],
   imports: [
     CommonModule,
-    RoutingModule,
+    RouterModule.forChild(Routes),
     SharedModule,
     ChartModule,
+    FormsModule
     // ChartsModule,
     // WavesModule
 

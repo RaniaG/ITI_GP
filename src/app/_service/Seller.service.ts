@@ -5,6 +5,7 @@ import { Order } from '../_models/order';
 import { OrderedProductsService } from './ordered-products.service';
 import { OrderBrief } from '../_models/orderBrief';
 import { OrderSummary, SalesSummary } from '../_models/custom-datatypes';
+import { DatePipe } from '@angular/common';
 
 @Injectable()
 export class SellerService {
@@ -20,9 +21,128 @@ export class SellerService {
 
     constructor(productService: ProductService) {
         this.ordersBriefs = [
-
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "delivered",
+                totalDue: 158
+            },
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "shipped",
+                totalDue: 158
+            },
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "pending",
+                totalDue: 158
+            },
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "pending",
+                totalDue: 158
+            },
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "pending",
+                totalDue: 158
+            },
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "pending",
+                totalDue: 158
+            },
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "pending",
+                totalDue: 158
+            },
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "pending",
+                totalDue: 158
+            },
+            {
+                packageId: "14584",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "pending",
+                totalDue: 158
+            },
+            {
+                packageId: "898919",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "pending",
+                totalDue: 158
+            },
+            {
+                packageId: "6198981",
+                date: new Date(),
+                shipmentData: {
+                    address: "12 nozha st.",
+                    city: "nasr city",
+                    country: "egypt",
+                },
+                status: "shipped",
+                totalDue: 158
+            }
         ];
-
     }
     getShopVisitsCount(): number {
         this.visitsCount = 1000;
@@ -91,9 +211,10 @@ export class SellerService {
     getOrderStatusOptions(): string[] {
         return ["pending", "delivered", "shipped"];
     }
-    getOrdersByStatus(status: string): OrderBrief[] {
-        this.ordersBriefs = [];
-        return this.ordersBriefs;
+
+    getOrdersBriefsByFilterOptions(status: string, searchKey: string, numberOfDataToFetch: number, pageNumber: number): OrderBrief[] {
+        let stateIndex = (numberOfDataToFetch * pageNumber) - 1;
+        return this.ordersBriefs.filter(order => order.status.includes(status));
     }
 
     getAllOrdersBriefs(): OrderBrief[] {
@@ -104,47 +225,4 @@ export class SellerService {
     }
 
 
-    //     <tr>
-    //     <td>#14584 < /td>
-    //         < td > Jun 26, 2013 < /td>
-    //             < td > <span class="badge badge-warning" > Shipped < /span>
-    //                 < td > 173 Donec Ave Sandwich < /td>
-    //                     < td > $318.00 < /td>
-    //                         < td class="text-light" > <a href="" class="btn btn-sm btn-primary" > <i class="fa fa-search" > </i>
-    // View < /a>
-    //     < /td>
-    //     < /tr>
-
-    //     < tr >
-    //     <td>#14584 < /td>
-    //         < td > Jun 26, 2013 < /td>
-    //             < td > <span class="badge badge-info" > Pending < /span>
-    //                 < td > 173 Donec Ave Sandwich < /td>
-    //                     < td > $318.00 < /td>
-    //                         < td class="text-light" > <a href="" class="btn btn-sm btn-primary" > <i class="fa fa-search" > </i>
-    // View < /a>
-    //     < /td>
-    //     < /tr>
-
-    //     < tr >
-    //     <td>#14584 < /td>
-    //         < td > Jun 26, 2013 < /td>
-    //             < td > <span class="badge badge-success" > Delivered < /span>
-    //                 < td > 173 Donec Ave Sandwich < /td>
-    //                     < td > $318.00 < /td>
-    //                         < td class="text-light" > <a href="" class="btn btn-sm btn-primary" > <i class="fa fa-search" > </i>
-    // View < /a>
-    //     < /td>
-    //     < /tr>
-
-    //     < tr >
-    //     <td>#14584 < /td>
-    //         < td > Jun 26, 2013 < /td>
-    //             < td > <span class="badge badge-warning" > Shipped < /span>
-    //                 < td > 173 Donec Ave Sandwich < /td>
-    //                     < td > $318.00 < /td>
-    //                         < td class="text-light" > <a href="" class="btn btn-sm btn-primary" > <i class="fa fa-search" > </i>
-    // View < /a>
-    //     < /td>
-    //     < /tr>
 }
