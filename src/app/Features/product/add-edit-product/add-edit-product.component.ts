@@ -30,7 +30,7 @@ export class AddEditProductComponent implements OnInit {
 
   ngOnInit() {
   
-    const id = +this.route.snapshot.params['id'];
+    const id = this.route.snapshot.params['id'];
     if(id)
     {
       this.editMode = true;
@@ -86,5 +86,7 @@ export class AddEditProductComponent implements OnInit {
         break;
     }
   }
+
+ 
 }
 

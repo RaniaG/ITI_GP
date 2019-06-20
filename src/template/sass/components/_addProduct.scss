@@ -1,5 +1,5 @@
 .img-zoom{
-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
     &:hover{
         transform: scale(1.1);
     }
@@ -32,5 +32,4 @@ transition: .5s ease-in-out;
 .discount {
     width: 10rem;
     margin-left: -7rem;
-
 }
