@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
-import { UserService } from 'src/app/_service/user.service';
+import { UserService } from 'src/app/_service/user.service'; 
+import { CountryCityService } from 'src/app/_service/country-city.service';
+import { Country, City } from 'src/app/_models/country-city';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -9,9 +11,11 @@ import { UserService } from 'src/app/_service/user.service';
 export class EditProfileComponent implements OnInit {
 
   @ViewChild('profileimg')profileimg:ElementRef;
-  constructor(private user: UserService) { }
+  constructor(private user: UserService,private countryCityService: CountryCityService) { }
   editProfileForm: FormGroup;
   validator: ValidatorFn;
+  countries :Country[]; 
+  cities : City[];
 
   public imagePath;
   imgURL: any;
@@ -46,10 +50,17 @@ export class EditProfileComponent implements OnInit {
       'email': new FormControl(this.user.getById(1).email, [Validators.required, Validators.email]),
       'bio': new FormControl(this.user.getById(1).bio),
       'photo': new FormControl(this.user.getById(1).photo),
-      'changePassword': new FormControl(''),
-      'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword'))
+      'changePassword': new FormControl(),
+      'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword')),
       // confirmPassword: new FormControl()
+      'country':new FormControl(),
+      'city':new FormControl(),
+       'street' : new FormControl(),
+       'building': new FormControl(),
+       'apartment' : new FormControl(),
     });
+
+    this.countries = this.countryCityService.getAllCountries();
   }
 
 
@@ -73,7 +84,13 @@ export class EditProfileComponent implements OnInit {
     }
   }
 
+  countryChange(countryId : number){
+    this.cities=null;
+    if(countryId){
+      this.cities = this.countryCityService.getCitiesByCountryId(countryId);
+    }
 
+  }
 
   // MustMatch=(control1: string, control2: string): ValidatorFn =>{
   //   return (control: AbstractControl): ValidationErrors | null => {

@@ -119,6 +119,38 @@
           <label for="exampleInputPassword2">Confirm Password</label>
           <input class="form-control" type="password" id="exampleInputPassword2" formControlName="confirmPassword">
         </div>
+      <div>
+        <h5>Address Details</h5>
+      </div>
+      <div class="col-6">
+        <select  class="form-control form-control" formControlName="country" (change)="countryChange($event.target.value)" >
+          <option [value]="null">Country</option>
+          <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
+    
+        </select>
+      </div>
+      <div class="col-6">
+        <select class="form-control form-control" formControlName="city">
+          <option [value]="null">City</option>
+          <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+        </select>
+      </div>
+      <div class="col-12 m-3">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+          
+            <input type="text" class="form-control form-control"  placeholder="Street" formControlName="street">
+          </div>
+          <div class="form-group col-md-3">
+          
+            <input type="text" class="form-control form-control"  placeholder="Building" formControlName="building">
+          </div>
+          <div class="form-group col-md-3">
+          
+            <input type="text" class="form-control form-control"  placeholder="Apartment" formControlName="apartment">
+          </div>
+        </div>
+      </div>
         <button type="submit" class="btn btn-primary mr-2">Save</button>
         <button type="button" class="btn btn-secondary">Cansel</button>
       </form>

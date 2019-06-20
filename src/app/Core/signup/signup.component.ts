@@ -32,8 +32,8 @@ export class SignupComponent implements OnInit {
       txtUN : new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
       phoneNumber: new FormControl('',[Validators.required]),
       email :new FormControl('',[Validators.required, Validators.email]),
-      password : new FormControl('',[Validators.required]),
-      confirmPW : new FormControl('',[Validators.required]),
+      password : new FormControl('',[Validators.required,Validators.pattern('^(?=.*\d).{4,8}$')]),
+      confirmPW :  new FormControl('', this.MustMatch('password', 'confirmPW')),
       txtStreet : new FormControl(),
       txtBuilding: new FormControl(),
       txtApartment : new FormControl(),
@@ -63,6 +63,23 @@ export class SignupComponent implements OnInit {
                this.userService.add(this.user);
                this.router.navigate(['/home'])
          }
+  }
+
+  MustMatch(control1: string, control2: string): ValidatorFn {
+    return (control: FormGroup): ValidationErrors | null => {
+      let result: ValidationErrors;
+      if (control.parent) {
+        let form = control.parent;
+        // console.log(control.parent);
+        if (form.get(control1).value !== form.get(control2).value) {
+          result = { compare: true };
+        }
+        else {
+          result = null;
+        }
+      }
+      return result;
+    }
   }
 
 }
