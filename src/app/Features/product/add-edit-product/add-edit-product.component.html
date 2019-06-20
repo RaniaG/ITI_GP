@@ -67,6 +67,7 @@
             </div>
           </div>
         </div>
+
         <!-- Product Price Validation -->
         <span *ngIf="!addProductForm.get('productPrice').valid">
             <span *ngIf="addProductForm.get('productPrice').errors && addProductForm.get('productPrice').touched"
@@ -123,7 +124,7 @@
   </form>
 </div>
 
-<!-- Custmization modal not working yet -->
+<!-- modal not working yet -->
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -155,8 +156,3 @@
     </div>
   </div>
 </div>
-
-<app-modal title="Upload Photo" [actions]="['OK','Cancel']" (clicked)="handleProductPhoto($event)"
-  *ngIf="showProductUploadModal">
-  <app-img-cropper (onCrop)="productPhoto=$event"></app-img-cropper>
-</app-modal>

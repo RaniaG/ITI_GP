@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SellerService } from 'src/app/_service/Seller.service';
 
 const assetsPath = '../../../../assets/images/png-dashboard';
 
@@ -19,18 +18,19 @@ export class DashboardListingComponent implements OnInit {
   ordersValue: number;
   revenuValue: number;
 
-  constructor(private sellerService: SellerService) {
+  constructor() {
     this.visitsImage = `${assetsPath}/015-search.png`;
     this.productsImage = `${assetsPath}/008-cart.png`;
     this.ordersImage = `${assetsPath}/002-order-1.png`;
     this.revenuImage = `${assetsPath}/005-profit.png`;
+
+    this.visitsValue = 1000;
+    this.productsValue = 1000;
+    this.ordersValue = 1000;
+    this.revenuValue = 1000;
   }
 
   ngOnInit() {
-    this.visitsValue = this.sellerService.getShopVisitsCount();
-    this.productsValue = this.sellerService.getSoldProductCount();
-    this.ordersValue = this.sellerService.getDoneOredersCount();
-    this.revenuValue = this.sellerService.getTotalRevenu();
   }
 
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SellerService } from 'src/app/_service/Seller.service';
 
 @Component({
   selector: 'app-sales-chart',
@@ -8,15 +7,9 @@ import { SellerService } from 'src/app/_service/Seller.service';
 })
 export class SalesChartComponent implements OnInit {
 
-  data: any;
-  datasets: any;
-  constructor(private sellerService: SellerService) {
-  }
+  constructor() { }
+
   ngOnInit() {
-    this.datasets = this.sellerService.getSalesChartDatasets();
-    this.data = {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Oct', 'Nov', 'Des'],
-      datasets: this.datasets
-    }
   }
+
 }

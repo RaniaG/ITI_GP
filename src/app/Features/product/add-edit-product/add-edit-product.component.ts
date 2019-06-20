@@ -21,7 +21,6 @@ export class AddEditProductComponent implements OnInit {
   productPhoto = null;
   productOnSale = new FormControl('notSale');
   constructor(private productService :ProductService ,private categoryService :CategoryService , private router :Router, private route: ActivatedRoute) { 
-
     if(!this.categories)
      { this.categories = this.categoryService.getAll(); }
   }
@@ -31,6 +30,7 @@ export class AddEditProductComponent implements OnInit {
     // const id = this.route.snapshot.params['id'];
 
     this.addProductForm = new FormGroup({
+
       'productImages' :new FormArray([],Validators.required),
       'productName' :new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+(?:[_-][A-Za-z]+)*$/)]),
       'productDescription' :new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
@@ -38,6 +38,8 @@ export class AddEditProductComponent implements OnInit {
       'productPrice' :new FormControl('',[Validators.required, validators.number]),
       'productDiscount' :new FormControl({value:"", disabled: true},[Validators.required, validators.number]),
       'productCategory' :new FormControl('',Validators.required),
+
+   
     });
 
     this.productOnSale.valueChanges.subscribe((value) => {

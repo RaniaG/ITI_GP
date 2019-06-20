@@ -33,7 +33,7 @@
         <!-- sales -->
         <div class="col-lg-3 col-md-6 px-2 py-2">
           <app-summary-card [imageUrl]="revenuImage" [bg-color]="'bg-success'" [label]="'Revenu'"
-            [value]="revenuValue+'$'">
+            [value]="'$'+revenuValue">
           </app-summary-card>
         </div>
       </div>
@@ -49,10 +49,10 @@
             <app-orders-summary></app-orders-summary>
             <!-- shop visits statistics -->
             <app-visits-summary></app-visits-summary>
-            <!-- sales charts -->
-            <app-sales-chart></app-sales-chart>
             <!-- sales summary -->
             <app-sales-summary></app-sales-summary>
+            <!-- sales charts -->
+            <app-sales-chart></app-sales-chart>
           </div>
         </div>
       </div>

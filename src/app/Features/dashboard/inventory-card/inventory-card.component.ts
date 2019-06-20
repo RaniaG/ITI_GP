@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopService } from '../../shop/shop.service';
 
 @Component({
   selector: 'app-inventory-card',
@@ -13,13 +12,13 @@ export class InventoryCardComponent implements OnInit {
   premiumStorage: Boolean;
 
   // to include service later
-  constructor(private shopService: ShopService) {
+  constructor() {
+    this.inventorySlotsMaxLimit = 100;
+    this.usedSlots = 25;
+    this.premiumStorage = false;
   }
 
   ngOnInit() {
-    this.premiumStorage = this.shopService.isShopPremium();
-    this.inventorySlotsMaxLimit = this.shopService.getInventoryLimit();
-    this.usedSlots = this.shopService.getInventoryUsedSlots();
     this.usagePercentage = (this.usedSlots / this.inventorySlotsMaxLimit) * 100;
   }
 
