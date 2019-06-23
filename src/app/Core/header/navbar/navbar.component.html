@@ -1,13 +1,34 @@
 
 <nav class="navbar navbar-dark bg-primary row">
-  <div class="col">
+  
+  <div class="collapse-nav col float-left">
+    <p>
+      <button type="button" class="btn btn-outline-secondary" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      <i class="fas fa-bars"></i>
+          </button>
+        </p>
+        <div id="collapseExample" [ngbCollapse]="isCollapsed">
+          <div class="card">
+            <div class="card-body">
+                <a routerLink="/home"><h5 class="list-title">Home</h5></a>
+                <a routerLink="/home"><h5 class="list-title">Shops</h5></a>
+                <a routerLink="/home"><h5 class="list-title">Products</h5></a>
+                <a routerLink="/profile"><h5 class="list-title" routerLink="/profile"> View Profile</h5></a>
+                <a routerLink="/editprofile"><h5 class="list-title" routerLink="/editprofile">Edit Profile</h5></a>
+              </div>
+          </div>
+        </div>
+  </div>
+  
+  <div class="col sign-in">
     <a class="text-white float-right pl-2" routerLink="/login">Log in </a>
     <a class="text-white pr-2 float-right border-right" routerLink="/signUp">sign up</a>
   </div>
 </nav>
 
 
-<div class="nav-bar">
+<nav class="nav-bar">
   <div class="logo-container">
     <img class="logo" src="assets/images/logo-2.png" alt="logo">
   </div>
@@ -66,7 +87,7 @@
         </ul>
       </div>
     </div>
-    <div class="drop-down-list">
+    <!-- <div class="drop-down-list">
       <h5 class="list-title">Title4</h5>
       <div class="list-container list-container--visibility">
         <ul class="nav-list">
@@ -113,10 +134,14 @@
           <li><a class="list-item" href="#">Home 5</a></li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </div>
+  
   <div class="search-box mr-5">
-    <input class="search pl-2" type="text" placeholder="Search">
-    <i class="fas fa-search"></i>
-  </div>
-</div>
+    
+      <input placeholder="Search" id="typeahead-basic" type="text" class="align-self-end form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
+      <!-- <i class="fas fa-search"></i> -->
+    
+    </div>
+
+</nav>
