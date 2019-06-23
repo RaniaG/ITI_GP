@@ -1,0 +1,23 @@
+@media (max-width: 600px){
+    .nav-bar{
+        visibility: hidden;;
+    }
+    .collapse-nav{
+        display: block;
+    }
+}
+@media (min-width: 600px){
+    .collapse-nav{
+        display: none;
+    }
+    .nav-bar{
+        visibility: visible;
+        display: flex;
+
+    }
+}
+.list-title{
+    outline: none;
+}
+
+

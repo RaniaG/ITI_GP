@@ -8,9 +8,11 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddAddressFormComponent } from '../Features/cart/add-address-form/add-address-form.component';
+
+
 
 @NgModule({
   declarations: [FooterComponent, HeaderComponent, NavbarComponent, LoginComponent, SignupComponent, HomeComponent],
@@ -18,6 +20,7 @@ import { AddAddressFormComponent } from '../Features/cart/add-address-form/add-a
     CommonModule,
     NgbModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild([
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
