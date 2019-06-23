@@ -1,16 +1,14 @@
-import { Injectable } from "@angular/core";
-import { ProductService } from './product.service';
-import { Product } from '../_models/product';
+
 import { Order } from '../_models/order';
-import { OrderedProductsService } from './ordered-products.service';
 import { OrderBrief } from '../_models/orderBrief';
 import { OrderSummary, SalesSummary } from '../_models/DataTransfereObjects';
-import { DatePipe } from '@angular/common';
+import { promise } from 'protractor';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+
+const serverName = "http://localhost:50589";
+const TOKEN = "";
 
 export class SellerService {
-    // productService: ProductService;
-    // orderedProductService: OrderedProductsService;
-    // products: Product[];
     ordersBriefs: OrderBrief[];
     visitsCount: number;
     soldProductsCount: number;
@@ -142,6 +140,7 @@ export class SellerService {
             }
         ];
     }
+    //dashboard info cards
     getShopVisitsCount(): number {
         this.visitsCount = 1000;
         return this.visitsCount;
@@ -158,7 +157,42 @@ export class SellerService {
         this.ordersCount = 1000;
         return this.ordersCount;
     }
-
+    //-----------------------------------------
+    // dashboard summary cards
+    getShopSubscription(shopId: string): string {
+        let output: any;
+        fetch(`${serverName}/rpc/shops/getsubscriptiontype/${shopId}`,
+            {
+                method: "GET",
+                mode: "cors",
+                headers: new Headers({
+                    'content-type': 'application/json',
+                    authentication: `bearer ${TOKEN}`
+                })
+            }).then(response => {
+                output = "uhuu";
+            }).catch(error => {
+                output = "404";
+            });
+        return output;
+    }
+    getShopUsedSlots(shopId: string): number {
+        let output: any;
+        fetch(`${serverName}/rpc/shops/getsubscriptiontype/${shopId}`,
+            {
+                method: "GET",
+                mode: "cors",
+                headers: new Headers({
+                    'content-type': 'application/json',
+                    authentication: `bearer ${TOKEN}`
+                })
+            }).then(response => {
+                output = "uhuu";
+            }).catch(error => {
+                output = "404";
+            });
+        return output;
+    }
     getOrdersSummary(): OrderSummary[] {
         return [
             { statusName: "pending", ordersCount: 10 },
@@ -168,7 +202,6 @@ export class SellerService {
             // { statusName: "return request", ordersCount: 1 },
         ]
     }
-
     getShopVisitsDetails(): { region: string, numberOfVisits: number }[] {
         return [
             { region: "america", numberOfVisits: 28 }, // these are percentages
@@ -205,9 +238,13 @@ export class SellerService {
             }
         ]
     }
-
+    //------------------------------------------
+    //seller order listing
     getOrderStatusOptions(): string[] {
         return ["pending", "delivered", "shipped"];
+    }
+    getOrdersBriefsByFilterOptionsCount(status: string, searchKey: string, numberOfDataToFetch: number, pageNumber: number): number {
+        return 100;
     }
 
     getOrdersBriefsByFilterOptions(status: string, searchKey: string, numberOfDataToFetch: number, pageNumber: number): OrderBrief[] {
@@ -218,14 +255,15 @@ export class SellerService {
     getAllOrdersBriefs(): OrderBrief[] {
         return this.ordersBriefs;
     }
-
+    //---------------------------------------
+    //seller order details
     getPackageById(shopId: string, packageId: number): Order {
         let order: Order;
         if (packageId === 12547) {
             order = {
                 id: "12547",
                 date: new Date(),
-                status: "pedning",
+                status: "pending",
                 deliveryMethod: "door to door",
                 paymentMethod: "cash on delivery",
                 invoice: {

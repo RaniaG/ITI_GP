@@ -39,7 +39,7 @@ export class PaginationComponent implements OnInit {
     }
   }
   onNextPage() {
-    console.log("prev");
+    // console.log("prev");
     if (this.currentPage < this.numberOfPages) {
       this.pageChanged.emit(this.currentPage++);
     }
