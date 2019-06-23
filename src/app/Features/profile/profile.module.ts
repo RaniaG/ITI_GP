@@ -6,14 +6,19 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ShopModule } from '../shop/shop.module';
+import { ProductModule } from '../product/product.module';
+
+
 
 @NgModule({
   declarations: [ProfileComponent, EditProfileComponent],
   imports: [
     CommonModule,
     NgbModule,
+    ShopModule,
     ReactiveFormsModule,
-    
+    ProductModule,
     RouterModule.forChild([
       { path: 'profile', component: ProfileComponent },
       { path: 'editprofile', component: EditProfileComponent },

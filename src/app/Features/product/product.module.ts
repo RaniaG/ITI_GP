@@ -7,7 +7,6 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { RelatedProductsComponent } from './related-products/related-products.component';
 import { AddEditProductComponent } from './add-edit-product/add-edit-product.component';
 import { RouterModule } from '@angular/router';
-import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductListComponent,
     RelatedProductsComponent,
     AddEditProductComponent,
-    DeleteProductComponent,
     ProductDetailComponent
   ],
   imports: [
@@ -25,10 +23,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
-      // { path: 'products/:id', component: ProductDetailComponent },
       { path: 'products/add', component: AddEditProductComponent },
       { path: 'products/edit/:id', component: AddEditProductComponent },
-      { path: 'products/delete/:id', component: DeleteProductComponent },
       { path: 'products/details/:id', component: ProductDetailComponent },
     ])
   ],
@@ -37,7 +33,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductListComponent,
     RelatedProductsComponent,
     AddEditProductComponent,
-    DeleteProductComponent,
     ProductDetailComponent
   ]
 })

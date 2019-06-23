@@ -1,17 +1,23 @@
 <div class="container-fluid bg-grey">
   <div class="row justify-content-center title p-5" >
-    <h1 class="text-primary">Add a new product !</h1>
+    <!-- <div class="col-sm-12 "> -->
+      <h1 class="text-primary">Add a new product !</h1>
+    <!-- </div> -->
   </div>
   <form [formGroup] = "addProductForm" (ngSubmit) = "onSubmit()"> 
     <div class="row justify-content-center ">
-      <div class="col-lg-3 col-sm-12 ">
+      <div class="col-lg-3 col-sm-12">
         <!-- Main Photo -->
         <div class="row no-gutters">
           <div class="col-sm-12">
-            <button type="button" class="btn btn-primary btn-lg btn-block mb-2"(click)="showProductUploadModal=true">
+            <button type="button" class="btn btn-primary btn-block mb-2"(click)="showProductUploadModal=true">
                 Add Product Photo
               </button>
-            <img [src]="!addProductForm.get('productImages').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('productImages').value[0]" alt="add-product" class="productPhoto img-thumbnail">
+            <div class="productPhoto img-thumbnail" 
+              [ngStyle]="{background: 'url(' + !addProductForm.get('productImages').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('productImages').value[0] + ')', backgroundSize: 'contain' }">
+            </div>
+            <!-- <img [src]="!addProductForm.get('productImages').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('productImages').value[0]" 
+              alt="add-product" class="productPhoto btn-block img-thumbnail"> -->
           </div>
         </div>
         <!-- Product Photos -->
@@ -79,11 +85,11 @@
         <div class="form-group mt-2 row justify-content-around align-items-center pl-3">
           <div class="col">
             <div class="row ">
-              <div class="form-check col">
+              <div class="form-check col ">
                 <input class="form-check-input" type="radio" value="sale" [formControl]="productOnSale" >
                 <label class="form-check-label" for=sale>On Sale</label>
               </div>
-              <div class="form-check col sale">
+              <div class="form-check col  sale">
                 <input class="form-check-input" type="radio" value="notSale" [formControl]="productOnSale" > 
                 <label class="form-check-label" for="notSale">Not on Sale</label>
               </div>
@@ -91,7 +97,7 @@
           </div>
 
           <!-- Product Discount -->
-          <div class="form-group col-2">
+          <div class="form-group col-2 ">
             <input formControlName="productDiscount" type="text" class="form-control form-control-lg mt-2 discount" id="exampleFormControlInput1"
               placeholder="Discount">
           </div>
@@ -106,8 +112,9 @@
         <div class="form-group">
           <label for="exampleFormControlSelect1">Category</label>
           <select formControlName="productCategory" name="productCategory" class="form-control form-control-lg" id="exampleFormControlSelect1">
-            <option *ngFor="let c of categories" value="c.id">{{c.name}}</option>
+            <option *ngFor="let c of categories"  value="c.id">{{c.name}}</option>
           </select>
+          <!-- [ngValue]="c.id" -->
         </div>
         <!-- Product Category Validation -->
         <span *ngIf="!addProductForm.get('productCategory').valid">
@@ -117,12 +124,15 @@
         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
           Customizations
         </button> -->
-        <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Submit
-        </button>
+        <button *ngIf="!editMode" type="submit" class="btn btn-primary btn-lg btn-block mt-5">Submit</button>
+        <button *ngIf="editMode" type="submit" class="btn btn-primary btn-lg btn-block mt-5">Edit</button>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Cancel</button>
+
       </div>
     </div>
   </form>
-</div>
+
 
 <!-- Custmization modal not working yet -->
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog">

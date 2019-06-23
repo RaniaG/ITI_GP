@@ -30,21 +30,26 @@ export class AddEditProductComponent implements OnInit {
 
   ngOnInit() {
   
-    const id = this.route.snapshot.params['id'];
+    const id = +this.route.snapshot.params['id'];
     if(id)
     {
       this.editMode = true;
       this.product = this.productService.getById(id);
     }
     this.addProductForm = new FormGroup({
-      'productImages' :new FormArray([],Validators.required),
+      // this.editMode ? this.product.images :
+      'productImages' :new FormArray([] ,Validators.required),
       'productName' :new FormControl(this.editMode ? this.product.name :'',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+(?:[_-][A-Za-z]+)*$/)]),
-      'productDescription' :new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
+      'productDescription' :new FormControl(this.editMode ? this.product.description :'',[Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
       'productQuantity' :new FormControl(this.editMode ? this.product.quantity : '',[Validators.required, Validators.min(1), Validators.max(20)]),
       'productPrice' :new FormControl(this.editMode ? this.product.price : '',[Validators.required, validators.number]),
-      'productDiscount' :new FormControl({value:"", disabled: true},[Validators.required, validators.number]),
-      'productCategory' :new FormControl('',Validators.required),
+      'productDiscount' :new FormControl({value:this.editMode ? this.product.discount :'', disabled: true},[Validators.required, validators.number]),
+      'productCategory' :new FormControl(this.editMode ? this.product.category.name:'',Validators.required),
     });
+
+    // console.log(this.product.category.name)
+    if(this.editMode && this.product.discount)
+      this.productOnSale.setValue('sale');
 
     this.productOnSale.valueChanges.subscribe((value) => {
       if(value == 'sale')
@@ -61,10 +66,14 @@ export class AddEditProductComponent implements OnInit {
     if(this.addProductForm.valid)
     {
       this.product = this.addProductForm.value as Product;
-      this.productService.addProduct(this.product);
+      if(!this.editMode)
+        this.productService.addProduct(this.product);
+      else
+        this.productService.updateProduct(this.product);
+ 
       this.addProductForm.reset();
     }
-    console.log(this.product);
+    // console.log(this.product);
     // this.router.navigate(['/products'])
   }
 
@@ -86,7 +95,5 @@ export class AddEditProductComponent implements OnInit {
         break;
     }
   }
-
- 
 }
 

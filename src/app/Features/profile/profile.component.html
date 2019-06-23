@@ -12,25 +12,23 @@
         <div class="profile__pic">
             <div class="profile__userphoto">
                 <div class="userCard text--center">
-                    <div class="userCard__thumbnail" style="background-image: url('assets/images/woman.jpg'); ">
+                    <div class="userCard__thumbnail" [ngStyle]="{background: 'url(' + imgURL + ')'}">
                     </div>
-                    <!-- must be h3 due to css -->
-                    <h3>Bassant Fahmy</h3>
-                    <h5 class="text-info">It is easy if you try</h5>
+                    <h3>{{username}}</h3>
+                    <h5 class="text-info">{{bio}}</h5>
                     <p>
                         <a>View shop</a>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="ml-auto mt-3"><button class="btn btn-primary">Edit Profile</button></div>
+        <div class="ml-auto mt-3"><a class="btn btn-primary" routerLink="/editprofile">Edit Profile</a></div>
     </div>
     <!-- myorders -->
     <div class="container profile--content">
         <ngb-tabset #t="ngbTabset">
             <ngb-tab id="tab-selectbyid1" title="My Orders">
                 <ng-template ngbTabContent>
-
                     <div class="row">
                         <div class="col-12">
                             <table class="table table-hover">
@@ -86,45 +84,24 @@
             </ngb-tab>
             <ngb-tab id="tab-selectbyid2">
                 <ng-template ngbTabTitle><b>Favorite</b> Items</ng-template>
-                <ng-template ngbTabContent>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin
-                    coffee
-                    squid.
-                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four
-                        loko
-                        farm-to-table
-                        craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-                        ullamco ad vinyl
-                        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                        helvetica
-                        VHS salvia
-                        yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-                        sustainable jean
-                        shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown,
-                        tumblr
-                        butcher vero
-                        sint qui sapiente accusamus tattooed echo park.</p>
+                <ng-template ngbTabContent>
+                    <div class="row ml-5">
+                        <div *ngFor="let p of products" class="col-md-4 col-lg-3 col-sm-6 mt-5">
+                            <app-product-card [Product]="p"></app-product-card>
+                        </div>
+                    </div>
                 </ng-template>
             </ngb-tab>
             <ngb-tab id="tab-selectbyid3">
-                <ng-template ngbTabTitle><b>Favorite</b> Shops</ng-template>
-                <ng-template ngbTabContent>Locavore, accusamus mcsweeney's marfa nulla single-origin
-                    coffee
-                    squid.
-                    <p> Nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                        helvetica
-                        farm-to-table
-                        craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-                        ullamco ad vinyl
-                        cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                        helvetica
-                        VHS salvia
-                        yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-                        sustainable jean
-                        shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown,
-                        tumblr
-                        butcher vero
-                        sint qui sapiente accusamus tattooed echo park.</p>
+                <ng-template ngbTabTitle><b>Folllowed</b> Shops</ng-template>
+                <ng-template ngbTabContent>
+                    <div class="row">
+                        <div class="col-md-4 col-lg-3 col-sm-6 mt-5" *ngFor="let item of shops">
+                            <app-shop-card [shop]="item"></app-shop-card>
+                        </div>
+                    </div>
                 </ng-template>
             </ngb-tab>
         </ngb-tabset>
     </div>
+</div>

@@ -1,13 +1,36 @@
 
-<nav class="navbar navbar-dark bg-primary row">
-  <div class="col">
+<nav class="navbar navbar-dark bg-primary sub-nav">
+  
+  <div class="collapse-nav col float-left">
+    <p>
+      <button type="button" class="btn btn-outline-secondary" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      <i class="fas fa-bars"></i>
+          </button>
+        </p>
+        <div id="collapseExample" [ngbCollapse]="isCollapsed">
+          <div class="card">
+            <div class="card-body">
+                <a routerLink="/home"><h5 class="list-title">Home</h5></a>
+                <a routerLink="/shop"><h5 class="list-title">Shops</h5></a>
+                <a routerLink="/products"><h5 class="list-title">Products</h5></a>
+                <div *ngIf="false">
+                  <a routerLink="/profile"><h5 class="list-title" routerLink="/profile"> View Profile</h5></a>
+                  <a routerLink="/editprofile"><h5 class="list-title" routerLink="/editprofile">Edit Profile</h5></a>
+                </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  
+  <div class="col sign-in">
     <a class="text-white float-right pl-2" routerLink="/login">Log in </a>
     <a class="text-white pr-2 float-right border-right" routerLink="/signUp">sign up</a>
   </div>
 </nav>
 
 
-<div class="nav-bar">
+<nav class="nav-bar">
   <div class="logo-container">
     <img class="logo" src="assets/images/logo-2.png" alt="logo">
   </div>
@@ -29,30 +52,27 @@
     </div>
 
     <div class="drop-down-list">
-      <h5 class="list-title">Shops</h5>
-      <div class="list-container list-container--visibility">
+      <a routerLink="/shop"><h5 class="list-title">Shops</h5></a>
+      <!-- <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li><a class="list-item" href="#">Accesories</a></li>
-          <li><a class="list-item" href="#">Crafts</a></li>
-          <li><a class="list-item" href="#">Decor</a></li>
-          <li><a class="list-item" href="#">Clothes</a></li>
-          <li><a class="list-item" href="#">Bags</a></li>
+        
         </ul>
-      </div>
+      </div> -->
     </div>
+
     <div class="drop-down-list">
-      <h5 class="list-title">Products</h5>
-      <div class="list-container list-container--visibility">
+      <a routerLink="/products"><h5 class="list-title">Products</h5></a>
+      <!-- <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li><a class="list-item" href="#">Home 1</a></li>
-          <li><a class="list-item" href="#">Home 2</a></li>
-          <li><a class="list-item" href="#">Home 3</a></li>
-          <li><a class="list-item" href="#">Home 4</a></li>
-          <li><a class="list-item" href="#">Home 5</a></li>
         </ul>
-      </div>
+      </div> -->
     </div>
-    <div class="drop-down-list">
+
+
+    <!--Profile link-->
+    <div *ngIf="false" class="drop-down-list">
         <a routerLink="/profile">
       <h5 class="list-title">Profile</h5>
       </a>
@@ -60,49 +80,49 @@
         <ul class="nav-list">
           <li><a class="list-item" routerLink="/profile">View</a></li>
           <li><a class="list-item" routerLink="/editprofile">Edit</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="drop-down-list">
+      <h5 class="list-title">Available Categories</h5>
+      <div class="list-container list-container--visibility">
+        <ul class="nav-list">
+          <li *ngFor="let category of categories" class="list-item ">
+
+            <a class="list-item" >{{category.name}}
+              <!-- <i class="fas fa-angle-right ml-3 mt-2"></i> -->
+            </a>
+            <!-- <div class="list-container sub-list">
+              <ul class="nav-list ">
+                <li><a class="sub-list-item" href="#">example</a></li>
+                <li><a class="sub-list-item" href="#">example</a></li>
+                <li><a class="sub-list-item" href="#">example</a></li>
+                <li><a class="sub-list-item" href="#">example</a></li>
+              </ul>
+            </div> -->
+          </li>
+
+          <!-- <li><a class="list-item" href="#">Home 2<i class="fas fa-angle-right ml-3 mt-2"></i></a> -->
+            <!-- <div class="list-container sub-list">
+              <ul class="nav-list ">
+                <li><a class="sub-list-item" href="#">example</a></li>
+                <li><a class="sub-list-item" href="#">example</a></li>
+                <li><a class="sub-list-item" href="#">example</a></li>
+                <li><a class="sub-list-item" href="#">example</a></li>
+              </ul>
+            </div> -->
+          <!-- </li> -->
           <!-- <li><a class="list-item" href="#">Home 3</a></li>
           <li><a class="list-item" href="#">Home 4</a></li>
           <li><a class="list-item" href="#">Home 5</a></li> -->
         </ul>
       </div>
     </div>
-    <div class="drop-down-list">
-      <h5 class="list-title">Title4</h5>
-      <div class="list-container list-container--visibility">
-        <ul class="nav-list">
-          <li>
-
-            <a class="list-item " href="#">Home 1
-              <i class="fas fa-angle-right ml-3 mt-2"></i>
-            </a>
 
 
-            <div class="list-container sub-list">
-              <ul class="nav-list ">
-                <li><a class="sub-list-item" href="#">example</a></li>
-                <li><a class="sub-list-item" href="#">example</a></li>
-                <li><a class="sub-list-item" href="#">example</a></li>
-                <li><a class="sub-list-item" href="#">example</a></li>
-              </ul>
-            </div>
-          </li>
-          <li><a class="list-item" href="#">Home 2<i class="fas fa-angle-right ml-3 mt-2"></i></a>
-            <div class="list-container sub-list">
-              <ul class="nav-list ">
-                <li><a class="sub-list-item" href="#">example</a></li>
-                <li><a class="sub-list-item" href="#">example</a></li>
-                <li><a class="sub-list-item" href="#">example</a></li>
-                <li><a class="sub-list-item" href="#">example</a></li>
-              </ul>
-            </div>
-          </li>
-          <li><a class="list-item" href="#">Home 3</a></li>
-          <li><a class="list-item" href="#">Home 4</a></li>
-          <li><a class="list-item" href="#">Home 5</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="drop-down-list">
+    <!-- <div class="drop-down-list">
       <h5 class="list-title">Title5</h5>
       <div class="list-container list-container--visibility">
         <ul class="nav-list">
@@ -113,10 +133,16 @@
           <li><a class="list-item" href="#">Home 5</a></li>
         </ul>
       </div>
-    </div>
+    </div> -->
+
+
   </div>
+  
   <div class="search-box mr-5">
-    <input class="search pl-2" type="text" placeholder="Search">
-    <i class="fas fa-search"></i>
-  </div>
-</div>
+    
+      <input placeholder="Search" id="typeahead-basic" type="text" class="align-self-end form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
+      <!-- <i class="fas fa-search"></i> -->
+    
+    </div>
+
+</nav>

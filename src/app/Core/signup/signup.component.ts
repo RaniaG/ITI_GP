@@ -62,6 +62,7 @@ export class SignupComponent implements OnInit {
                this.user = this.signUpForm.value;
                this.userService.add(this.user);
                this.router.navigate(['/home'])
+
          }
   }
 
