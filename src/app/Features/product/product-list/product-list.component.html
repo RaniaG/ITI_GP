@@ -91,12 +91,16 @@
       <!-- Product Listing -->
       <div class="row ml-5">
         <div *ngFor="let p of products"  class="col-lg-4 col-md-6 mt-5">
-          <app-product-card [Product]="p"></app-product-card>
-        </div>
+          <app-product-card [Product]="p" (DeleteModal)="openModal($event)"></app-product-card>
+        </div> 
       </div>
       <!-- Paging -->
       <app-pagination></app-pagination>
     </div>
   </div>
-</div>
+</div> 
 
+<app-modal title="Delete Product" [actions]="['OK','Cancel']" (clicked)="deleteProduct($event)"
+  *ngIf="ShowDeleteProductModal">
+  <h3>Are you sure you want to delete this product ?</h3>
+</app-modal>
