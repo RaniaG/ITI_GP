@@ -4,6 +4,8 @@ import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { ProductService } from 'src/app/_service/product.service';
 import { Product } from 'src/app/_models/product';
 import { forEach } from '@angular/router/src/utils/collection';
+import { CategoryService } from 'src/app/_service/category.service';
+import { Category } from 'src/app/_models/category';
 
 
 
@@ -16,6 +18,7 @@ export class NavbarComponent implements OnInit {
 
   public isCollapsed = true;
   products : Product[];
+  categories: Category[];
   productsNames :string[];
   public model: any;
 
@@ -28,7 +31,7 @@ export class NavbarComponent implements OnInit {
     )
 
 
-  constructor(private productService : ProductService) { 
+  constructor(private productService : ProductService,private categoryService : CategoryService) { 
 
   }
 
@@ -38,6 +41,8 @@ export class NavbarComponent implements OnInit {
      this.products.forEach((product,i) => {
      this.productsNames[i]=product.name;
    });
+
+   this.categories = this.categoryService.getAll();
   }
 
 }

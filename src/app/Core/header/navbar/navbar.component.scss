@@ -1,10 +1,19 @@
 @media (max-width: 600px){
     .nav-bar{
-        visibility: hidden;;
+        visibility: hidden;
+        display: none;
     }
     .collapse-nav{
         display: block;
+        
     }
+    .sub-nav{
+        position: fixed;
+        z-index: 5;
+        top:0;
+        width: 103%;
+    }
+ 
 }
 @media (min-width: 600px){
     .collapse-nav{
@@ -19,5 +28,8 @@
 .list-title{
     outline: none;
 }
+
+
+
 
 
