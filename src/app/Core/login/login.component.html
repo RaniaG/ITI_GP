@@ -28,24 +28,25 @@
 
 </div> -->
 
-<div class="top-7 border col-lg-6 m-auto p-3">
-<form [formGroup]="logInForm">
-    <div class="form-group p-0 m-0">
+<div class="top-7 border col-lg-6 col-md-6 col-sm-12 m-auto p-3">
+<form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+    <div class="form-group p-0 m-0 mb-4">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control form-control-lg mb-4" id="exampleInputEmail1"
+      <input formControlName="email" type="email" class="form-control form-control" 
         aria-describedby="emailHelp" placeholder="Enter email">
-      
+        <span class="error__msg" *ngIf="emailExists">This Email doesn't exist!</span>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword2">Password</label>
-      <input type="password" class="form-control form-control-lg " id="exampleInputPassword2"
+      <input formControlName="password" type="password" class="form-control form-control "
         placeholder="Password">
+        <span class="error__msg" *ngIf="incorrectPassword">Incorrect Password!</span>
     </div>
     <div class="row justify-content-around">
 
       <div class="col"><a href="#" class="card-link">Forgot Password?</a>
         <a routerLink="/signUp" class="card-link">Sign Up!</a></div>
-      <div class="col-4"><a href="#" class="btn btn-primary btn-lg btn-block">Log in</a></div>
+      <div class="col-4"><button type="submit" class="btn btn-primary btn-lg btn-block">Log in</button></div>
     </div>
   </form>
   </div>
