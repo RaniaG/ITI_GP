@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators, AbstractControl } from '@angular/forms';
 import { Product } from 'src/app/_models/product';
 import { ProductService } from 'src/app/_service/product.service';
 import { CategoryService } from 'src/app/_service/category.service';
@@ -22,7 +22,7 @@ export class AddEditProductComponent implements OnInit {
   productOnSale = new FormControl('notSale');
 
   editMode: boolean = false;
-
+  productImages: AbstractControl[] ;
   constructor(private productService :ProductService ,private categoryService :CategoryService , private router :Router, private route: ActivatedRoute) { 
     if(!this.categories)
      { this.categories = this.categoryService.getAll(); }
@@ -35,10 +35,13 @@ export class AddEditProductComponent implements OnInit {
     {
       this.editMode = true;
       this.product = this.productService.getById(id);
+      this.productImages = this.convertArrayElmentsToFormControl(this.product.images)
     }
+
+
     this.addProductForm = new FormGroup({
-      // this.editMode ? this.product.images :
-      'productImages' :new FormArray([] ,Validators.required),
+      // this.editMode ? this.productImages :
+      'productImages' :new FormArray(this.editMode ? this.productImages :[] ,Validators.required),
       'productName' :new FormControl(this.editMode ? this.product.name :'',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+(?:[_-][A-Za-z]+)*$/)]),
       'productDescription' :new FormControl(this.editMode ? this.product.description :'',[Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
       'productQuantity' :new FormControl(this.editMode ? this.product.quantity : '',[Validators.required, Validators.min(1), Validators.max(20)]),
@@ -46,8 +49,7 @@ export class AddEditProductComponent implements OnInit {
       'productDiscount' :new FormControl({value:this.editMode ? this.product.discount :'', disabled: true},[Validators.required, validators.number]),
       'productCategory' :new FormControl(this.editMode ? this.product.category.name:'',Validators.required),
     });
-
-    // console.log(this.product.category.name)
+    
     if(this.editMode && this.product.discount)
       this.productOnSale.setValue('sale');
 
@@ -68,13 +70,13 @@ export class AddEditProductComponent implements OnInit {
       this.product = this.addProductForm.value as Product;
       if(!this.editMode)
         this.productService.addProduct(this.product);
-      else
+        else
         this.productService.updateProduct(this.product);
- 
-      this.addProductForm.reset();
-    }
-    // console.log(this.product);
-    // this.router.navigate(['/products'])
+        
+        this.addProductForm.reset();
+      }
+      console.log(this.product)
+    this.router.navigate(['/products'])
   }
 
   handleProductPhoto(action: string){
@@ -94,6 +96,15 @@ export class AddEditProductComponent implements OnInit {
         // this.productPhoto = null;
         break;
     }
+  }
+
+  convertArrayElmentsToFormControl(imagesArray :string[]) :AbstractControl[] {
+    let imagesFormArray : AbstractControl[] = [];
+    for (let index = 0; index < imagesArray.length; index++) {
+      let element = imagesArray[index];
+      imagesFormArray.push(new FormControl(element));
+    }
+    return imagesFormArray;
   }
 }
 
