@@ -41,13 +41,13 @@ export class AddEditProductComponent implements OnInit {
 
     this.addProductForm = new FormGroup({
       // this.editMode ? this.productImages :
-      'productImages' :new FormArray(this.editMode ? this.productImages :[] ,Validators.required),
-      'productName' :new FormControl(this.editMode ? this.product.name :'',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z]+(?:[_-][A-Za-z]+)*$/)]),
-      'productDescription' :new FormControl(this.editMode ? this.product.description :'',[Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
-      'productQuantity' :new FormControl(this.editMode ? this.product.quantity : '',[Validators.required, Validators.min(1), Validators.max(20)]),
-      'productPrice' :new FormControl(this.editMode ? this.product.price : '',[Validators.required, validators.number]),
-      'productDiscount' :new FormControl({value:this.editMode ? this.product.discount :'', disabled: true},[Validators.required, validators.number]),
-      'productCategory' :new FormControl(this.editMode ? this.product.category.name:'',Validators.required),
+      'images' :new FormArray(this.editMode ? this.productImages :[] ,Validators.required),
+      'name' :new FormControl(this.editMode ? this.product.name :'',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z ]+(?:[_-][A-Za-z ]+)*$/)]),
+      'description' :new FormControl(this.editMode ? this.product.description :'',[Validators.required, Validators.minLength(10)]),
+      'quantity' :new FormControl(this.editMode ? this.product.quantity : '',[Validators.required, Validators.min(1), Validators.max(20)]),
+      'price' :new FormControl(this.editMode ? this.product.price : '',[Validators.required, validators.number]),
+      'discount' :new FormControl({value:this.editMode ? this.product.discount :'', disabled: true},[Validators.required, validators.number]),
+      'category' :new FormControl(this.editMode ? this.product.category.id:'',Validators.required),
     });
     
     if(this.editMode && this.product.discount)
@@ -75,15 +75,15 @@ export class AddEditProductComponent implements OnInit {
         
         this.addProductForm.reset();
       }
-      console.log(this.product)
-    this.router.navigate(['/products'])
+      // console.log(this.product)
+    // this.router.navigate(['/products'])
   }
 
   handleProductPhoto(action: string){
     this.showProductUploadModal = false;
     switch (action) {
       case 'OK':
-        const p = this.addProductForm.get('productImages') as FormArray;
+        const p = this.addProductForm.get('images') as FormArray;
         if(this.productPhoto != null)
         { 
           if(p.length < 5)
