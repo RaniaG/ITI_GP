@@ -23,9 +23,12 @@
         </div>
   </div>
   
-  <div class="col sign-in">
+  <div *ngIf="true" class="col">
     <a class="text-white float-right pl-2" routerLink="/login">Log in </a>
     <a class="text-white pr-2 float-right border-right" routerLink="/signUp">sign up</a>
+  </div>
+  <div *ngIf="false" class="col">
+      <a class="text-white float-right pl-2" >Log out </a>
   </div>
 </nav>
 

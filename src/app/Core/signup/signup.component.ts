@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit {
          if(this.signUpForm.valid){
                this.user = this.signUpForm.value;
                this.userService.add(this.user);
-               this.router.navigate(['/home'])
+               this.router.navigate(['/login'])
 
          }
   }
@@ -71,7 +71,6 @@ export class SignupComponent implements OnInit {
       let result: ValidationErrors;
       if (control.parent) {
         let form = control.parent;
-        // console.log(control.parent);
         if (form.get(control1).value !== form.get(control2).value) {
           result = { compare: true };
         }
