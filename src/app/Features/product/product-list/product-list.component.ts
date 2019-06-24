@@ -18,6 +18,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     if( !this.products)
       this.products = this.productService.getAll();
+
+      console.log(this.products)
   }
 
   openModal(id: number){

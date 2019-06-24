@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Shop } from 'src/app/_models/shop';
 import { Product } from 'src/app/_models/product';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+const serverName = "http://localhost:50589";
+const TOKEN = "";
 
 @Injectable()
 export class ShopService {
@@ -58,7 +62,7 @@ export class ShopService {
       , userId: 1
     }
   ]
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   add(shop: Shop) {
@@ -102,13 +106,45 @@ export class ShopService {
     //verify user is logged in
   }
 
-  isShopPremium(): boolean {
-    return false;
+  // getShopSubscription(shopId: string):any any {
+  //   let output: any;
+  //   fetch(`${serverName}/rpc/shops/GetSubscriptionType/${shopId}`,
+  //     {
+  //       method: "GET",
+  //       mode: "cors",
+  //       headers: new Headers({
+  //         'content-type': 'application/json',
+  //         authentication: `bearer ${TOKEN}`
+  //       })
+  //     }).then(res => {
+  //       output = res.text();
+  //       debugger;
+  //     }).catch(error => {
+  //       output = 404;
+  //     });
+  //   return output;
+  // } 
+  getShopSubscription(shopId: string): Observable<any> {
+    return this.http.get(`${serverName}/rpc/shops/GetSubscriptionType/${shopId}`);
   }
-  getInventoryLimit(): number {
-    return 100;
-  }
-  getInventoryUsedSlots(): number {
-    return 25;
+  // getInventoryInfo(shopId: string): { usedSlots: number, maxSlots: number } {
+  //   let output: any;
+  //   fetch(`${serverName}/rpc/shops/GetShopInventoryInfo/${shopId}`,
+  //     {
+  //       method: "GET",
+  //       mode: "cors",
+  //       headers: new Headers({
+  //         'content-type': 'application/json',
+  //         authentication: `bearer ${TOKEN}`
+  //       })
+  //     }).then(response => {
+  //       output = response;
+  //     }).catch(error => {
+  //       output = 404;
+  //     });
+  //   return output;
+  // }
+  getInventoryInfo(shopId: string): Observable<any> {
+    return this.http.get(`${serverName}/rpc/shops/GetShopInventoryInfo/${shopId}`);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopService } from '../../shop/shop.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-inventory-card',
@@ -7,20 +8,35 @@ import { ShopService } from '../../shop/shop.service';
   styleUrls: ['./inventory-card.component.scss']
 })
 export class InventoryCardComponent implements OnInit {
-  inventorySlotsMaxLimit: number;
-  usedSlots: number;
+  inventoryInfo: { maxSlots: number, usedSlots: number };
   usagePercentage: number;
   premiumStorage: Boolean;
-
+  shopId: string;
   // to include service later
-  constructor(private shopService: ShopService) {
+  constructor(private shopService: ShopService, private activatedRoute: ActivatedRoute) {
+    this.premiumStorage = false;
   }
 
   ngOnInit() {
-    this.premiumStorage = this.shopService.isShopPremium();
-    this.inventorySlotsMaxLimit = this.shopService.getInventoryLimit();
-    this.usedSlots = this.shopService.getInventoryUsedSlots();
-    this.usagePercentage = (this.usedSlots / this.inventorySlotsMaxLimit) * 100;
+    this.activatedRoute.params.subscribe(
+      (params: Params) => {
+        this.shopId = params['id'];
+      }
+    );
+    // we need a resolver before anyth check if shopid (shop) exists
+    this.shopService.getShopSubscription(this.shopId).subscribe(
+      (res) => {
+        this.premiumStorage = (res == "free") ? false : true;
+      }
+    )
+    this.shopService.getInventoryInfo(this.shopId).subscribe(
+      (res) => {
+        this.inventoryInfo = { ...res };
+      }
+
+    );
+
+    this.usagePercentage = (this.inventoryInfo.usedSlots / this.inventoryInfo.maxSlots) * 100;
   }
 
 }

@@ -10,7 +10,7 @@ export class Product {
     discount?: number;
     quantity?: number;
     description?: string;
-    images?: any[];
+    images?: string[];
     terms?: String;
     category?: Category;
     fKCategory?: number;

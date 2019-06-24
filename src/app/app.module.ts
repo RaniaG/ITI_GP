@@ -22,6 +22,8 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { AuthService } from './_auth/auth.service';
 import { AuthGuard } from './_auth/auth.guard';
 import { CountryCityService } from './_service/country-city.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -39,9 +41,11 @@ import { CountryCityService } from './_service/country-city.service';
     DashboardModule,
     RoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
+    HttpClient,
     ShopService,
     ProductService,
     OrderService,
