@@ -30,6 +30,10 @@ export class ShopService {
   getById(id: string) {
     return this.http.get(`${baseurl}/api/Shop/${id}`);
   }
+  getFollowedShops() {
+    return this.http.get(`${baseurl}/api/FollowedShop`);
+  }
+
 
   validateShopName(name: string, id: string = null) {
     if (id)

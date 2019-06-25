@@ -11,24 +11,25 @@
         <div id="collapseExample" [ngbCollapse]="isCollapsed">
           <div class="card">
             <div class="card-body">
-                <a routerLink="/home"><h5 class="list-title">Home</h5></a>
-                <a routerLink="/shop"><h5 class="list-title">Shops</h5></a>
-                <a routerLink="/products"><h5 class="list-title">Products</h5></a>
+                <a routerLink="/home" routerLinkActive="text-primary"><h5 class="list-title">Home</h5></a>
+                <a routerLink="/shop" routerLinkActive="text-primary"><h5 class="list-title">Shops</h5></a>
+                <a routerLink="/products" routerLinkActive="text-primary"><h5 class="list-title">Products</h5></a>
                 <div *ngIf="false">
-                  <a routerLink="/profile"><h5 class="list-title" routerLink="/profile"> View Profile</h5></a>
-                  <a routerLink="/editprofile"><h5 class="list-title" routerLink="/editprofile">Edit Profile</h5></a>
+                  <a routerLink="/profile" routerLinkActive="text-primary"><h5 class="list-title" routerLink="/profile"> View Profile</h5></a>
+                  <a routerLink="/editprofile" routerLinkActive="text-primary"><h5 class="list-title" routerLink="/editprofile">Edit Profile</h5></a>
                 </div>
               </div>
           </div>
         </div>
   </div>
   
-  <div *ngIf="true" class="col">
-    <a class="text-white float-right pl-2" routerLink="/login" (click)="loginClicked=!loginClicked;" [ngClass]="{'text-secondary':loginClicked}">Log in </a>
-    <a class="text-white pr-2 float-right border-right" routerLink="/signUp" (click)="loginClicked=!loginClicked" [ngClass]="{'text-secondary':!loginClicked}" >sign up</a>
-  </div>
   <div *ngIf="false" class="col">
-      <a class="text-white float-right pl-2" >Log out </a>
+    <a class="text-white float-right pl-2" routerLink="/login" routerLinkActive="text-secondary">Log in </a>
+    <a class="text-white pr-2 float-right border-right" routerLink="/signUp" routerLinkActive="text-secondary" >sign up</a>
+  </div>
+  <div *ngIf="true" class="col">
+    <a class="text-white float-right pl-2" routerLink="/home" (click)="logOut()" >Log out </a>
+    <p class="text-white float-right pr-2 border-right">Hello</p>
   </div>
 </nav>
 
@@ -39,9 +40,9 @@
   </div>
 
   <div class="drop-downs-container">
-    <div class="drop-down-list"><a routerLink="/home">
-        <h5 class="list-title">Home</h5>
-      </a>
+    <div class="drop-down-list"><h5><a class="list-title" routerLink="/home" routerLinkActive="text-primary">
+        Home
+      </a></h5>
       <!-- <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li><a class="list-item" routerLink="/home">Home</a></li>
@@ -55,7 +56,7 @@
     </div>
 
     <div class="drop-down-list">
-      <a routerLink="/shop"><h5 class="list-title">Shops</h5></a>
+     <h5><a routerLink="/shop" routerLinkActive="text-primary"class="list-title">Shops</a></h5>
       <!-- <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li><a class="list-item" href="#">Accesories</a></li>
@@ -65,7 +66,7 @@
     </div>
 
     <div class="drop-down-list">
-      <a routerLink="/products"><h5 class="list-title">Products</h5></a>
+     <h5> <a routerLink="/products" routerLinkActive="text-primary" class="list-title">Products</a></h5>
       <!-- <div class="list-container list-container--visibility">
         <ul class="nav-list">
           <li><a class="list-item" href="#">Home 1</a></li>

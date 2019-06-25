@@ -111,14 +111,14 @@
       </div>
     </form>
     <div class="col-8 " *ngIf="loginResult==1">
-      <div class="signup-result">
+      <div class="signup-result pl-4">
         <h2 class="text-primary">Sign up Success</h2>
         <a [routerLink]="['/login']">Login now</a>
       </div>
     </div>
     <div class="col-8" *ngIf="loginResult==2">
-      <div class="signup-result">
-        <h2>sorry for the inconveniece but we were unable to complete the request</h2>
+      <div class="signup-result pl-4">
+        <h2>Sorry for the inconveniece but we were unable to complete the request</h2>
       </div>
 
     </div>
