@@ -21,6 +21,7 @@ export class AuthService {
   constructor(private router: Router, private http: HttpClient) {
     this.token = null;
     this.currentUser = null
+
   }
 
   login(username: string, password: string) {
@@ -37,7 +38,8 @@ export class AuthService {
   }
   logout() {
     //remove token from local storage
-
+    this.token = null;
+    localStorage.removeItem("Token");
   }
   getUser() {
     if (!this.currentUser) {
@@ -48,6 +50,7 @@ export class AuthService {
         console.log(err);
       })
     } else return this.currentUser;
+
   }
   getToken() {
     //retrieve token from local storage
