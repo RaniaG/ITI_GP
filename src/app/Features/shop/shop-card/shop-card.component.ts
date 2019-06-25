@@ -16,7 +16,7 @@ export class ShopCardComponent implements OnInit {
   constructor(private shopService: ShopService, private userService: UserService) { }
 
   ngOnInit() {
-    this.user = this.userService.getById(this.shop.userId);
+    // this.user = this.userService.getById(this.shop.id);
   }
 
   follow() {

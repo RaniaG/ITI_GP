@@ -20,7 +20,7 @@ export class ShopListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.shops = this.shopService.getAll();
+    // this.shops = this.shopService.getAll();
     this.categories = this.categoryService.getAll();
 
   }

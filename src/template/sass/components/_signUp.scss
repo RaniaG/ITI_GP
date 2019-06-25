@@ -1,4 +1,14 @@
-.bg-grey{
-    background-color: $color-grey-1;
+.signup{
+    &-container{
+        background-image: url('assets/images/bg-4.jpg');
+    background-size: contain;
     color: $secondary-color;
+    }
+    &-result{
+        background-color: white;
+        height: 20rem;
+        margin: 4rem;
+        border-radius: 2rem;
+        @include flexbox(column,center,center);
+    }
 }

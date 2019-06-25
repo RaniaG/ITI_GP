@@ -1,134 +1,126 @@
-<div class="container-fluid bg-grey p-5">
-  <div class="row justify-content-center p-10 ">
-    <form [formGroup]="signUpForm" class="card m-0 p-4  col-lg-6 col-sm-12" (ngSubmit)="onSubmit()" >
-      <div class="text-center text-primary">
-        <h2 class="card-title">Sign up!</h2>
-      </div>
+<app-page-header title="Signup" [paths]="[{name:'Home',url:'/'},{name:'Signup',url:''}]"></app-page-header>
+
+<div class="container-fluid signup-container">
+  <div class="row justify-content-center p-10 pt-5  ">
+    <form [formGroup]="signUpForm" class="card m-0 p-4 m-5 col-lg-6 col-sm-12" (ngSubmit)="onSubmit($event)"
+      *ngIf="loginResult==null">
+
       <div class="card-body row justify-content-center ">
         <div class="col-12">
-          <h4>Personal Information</h4>
+          <h4 class='text-primary'>Personal Information</h4>
         </div>
 
-        <div class="form-group col-12">
-          <input type="text" class="form-control form-control"  placeholder="First Name" formControlName="txtFN">
-          <span *ngIf="!signUpForm.get('txtFN').valid">
-            <span *ngIf="signUpForm.get('txtFN').errors['required'] && signUpForm.get('txtFN').touched"
+        <div class="form-group col-6">
+          <input type="text" class="form-control form-control" placeholder="First Name" formControlName="FirstName">
+          <span *ngIf="!signUpForm.get('FirstName').valid">
+            <span *ngIf="signUpForm.get('FirstName').errors['required'] && signUpForm.get('FirstName').dirty"
               class="error__msg">first name is required </span>
-            <span *ngIf="signUpForm.get('txtFN').touched && !signUpForm.get('txtFN').errors['required']"
+            <span *ngIf="signUpForm.get('FirstName').dirty && !signUpForm.get('FirstName').errors['required']"
               class="error__msg">Invalid first name!
             </span>
           </span>
         </div>
-        
-        <div class="form-group col-12">
-          <input type="text" class="form-control form-control"  placeholder="Last Name" formControlName="txtLN">
-         <span *ngIf="!signUpForm.get('txtLN').valid" >
-           <span *ngIf="signUpForm.get('txtLN').errors['required'] && signUpForm.get('txtLN').touched"
-               class="error__msg">last name is required </span>
-             <span *ngIf="signUpForm.get('txtLN').touched && !signUpForm.get('txtLN').errors['required']"
-               class="error__msg">Invalid last name!
-             </span>
-         </span>
+
+        <div class="form-group col-6">
+          <input type="text" class="form-control form-control" placeholder="Last Name" formControlName="LastName">
+          <span *ngIf="!signUpForm.get('LastName').valid">
+            <span *ngIf="signUpForm.get('LastName').errors['required'] && signUpForm.get('LastName').dirty"
+              class="error__msg">last name is required </span>
+            <span *ngIf="signUpForm.get('LastName').dirty && !signUpForm.get('LastName').errors['required']"
+              class="error__msg">Invalid last name!
+            </span>
+          </span>
         </div>
         <div class="form-group col-12">
-          <input type="text" class="form-control form-control" a placeholder="Username" formControlName="txtUN">
-          <span *ngIf="!signUpForm.get('txtUN').valid" >
-              <span *ngIf="signUpForm.get('txtUN').errors['required'] && signUpForm.get('txtUN').touched"
-                  class="error__msg">last name is required </span>
-                <span *ngIf="signUpForm.get('txtUN').touched && !signUpForm.get('txtUN').errors['required']"
-                  class="error__msg">Invalid last name!
-                </span>
+          <input type="text" class="form-control form-control" a placeholder="Username" formControlName="UserName">
+          <span *ngIf="!signUpForm.get('UserName').valid">
+            <span *ngIf="signUpForm.get('UserName').errors['required'] && signUpForm.get('UserName').dirty"
+              class="error__msg">Username is required </span>
+            <span *ngIf="signUpForm.get('UserName').dirty && !signUpForm.get('UserName').errors['required']"
+              class="error__msg">Invalid Username
             </span>
-       
+          </span>
+
+        </div>
+        <div class="form-group col-6">
+
+          <input type="email" class="form-control form-control" aria-describedby="emailHelp" placeholder="Email"
+            formControlName="email">
+
+          <span *ngIf="!signUpForm.get('email').valid">
+            <span *ngIf="signUpForm.get('email').errors['required'] && signUpForm.get('email').dirty"
+              class="error__msg">E-mail is required </span>
+            <span *ngIf="signUpForm.get('email').dirty && !signUpForm.get('email').errors['required']"
+              class="error__msg">Invalid E-mail!
+            </span>
+          </span>
+        </div>
+        <div class="form-group col-6">
+          <input type="number" class="form-control form-control" placeholder="Phone Number"
+            formControlName="phoneNumber">
+          <span *ngIf="signUpForm.get('phoneNumber').errors && signUpForm.get('phoneNumber').dirty"
+            class="error__msg">Phone number is required </span>
         </div>
         <div class="col">
-          <h3>Gender</h3>
-          <div class="form-check m-3">
-            <input class="form-check-input" type="radio"  id="exampleRadios1" formControlName="gender" value="Male"
-              >
-            <label class="form-check-label" for="exampleRadios1">
-              Male
-            </label>
-          </div>
-          <div class="form-check m-3">
-            <input class="form-check-input" type="radio"  id="exampleRadios2" formControlName="gender" value="Female">
-            <label class="form-check-label" for="exampleRadios2">
-              Female
-            </label>
+          <h4 class='text-primary'>Gender</h4>
+          <div class="d-flex flex-row">
+            <div class="form-check m-3">
+              <input class="form-check-input" type="radio" id="exampleRadios1" formControlName="gender" value="Male">
+              <label class="form-check-label" for="exampleRadios1">
+                Male
+              </label>
+            </div>
+            <div class="form-check m-3">
+              <input class="form-check-input" type="radio" id="exampleRadios2" formControlName="gender" value="Female">
+              <label class="form-check-label" for="exampleRadios2">
+                Female
+              </label>
+            </div>
           </div>
         </div>
-        <div class="form-group col-12">
-          <input type="number" class="form-control form-control" placeholder="Phone Number" formControlName="phoneNumber">
-          <span *ngIf="signUpForm.get('phoneNumber').errors && signUpForm.get('phoneNumber').touched"
-          class="error__msg">Phone number is required </span>
-        </div>
+
+
 
         <div class="form-group col-12">
 
-          <input type="email" class="form-control form-control" aria-describedby="emailHelp" placeholder="Email" formControlName="email">
-        
-          <span *ngIf="!signUpForm.get('email').valid" >
-              <span *ngIf="signUpForm.get('email').errors['required'] && signUpForm.get('email').touched"
-                  class="error__msg">E-mail is required </span>
-                <span *ngIf="signUpForm.get('email').touched && !signUpForm.get('email').errors['required']"
-                  class="error__msg">Invalid E-mail!
-                </span>
-            </span>
+          <input type="password" class="form-control form-control" id="exampleInputPassword1" placeholder="Password"
+            formControlName="password">
+          <span class="error__msg"
+            *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').errors && signUpForm.get('password').dirty">
+            Invalid password!
+            Password must be at least 8 characters long, includes uppercase letter, lowercase letter, special character
+            and a numeric digit.
+          </span>
+
         </div>
         <div class="form-group col-12">
-        
-          <input type="password" class="form-control form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
-        <span class="error__msg" *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').errors && signUpForm.get('password').touched">
-          Invalid password!
-          Password must be at least 8 characters long, includes uppercase letter, lowercase letter, special character and a numeric digit.
-        </span>
-        
-        </div>
-        <div class="form-group col-12">
-          
+
           <input type="password" class="form-control form-control" id="exampleInputPassword3"
-            placeholder="Confirm Password" formControlName="confirmPW">
-            <span class="error__msg" *ngIf="!signUpForm.get('confirmPW').valid && signUpForm.get('confirmPW').errors && signUpForm.get('confirmPW').touched">
-                Password and confirmed password do not match!
-              </span>
+            placeholder="Confirm Password" formControlName="confirmPassword">
+          <span class="error__msg"
+            *ngIf="!signUpForm.get('confirmPassword').valid && signUpForm.get('confirmPassword').errors && signUpForm.get('confirmPassword').dirty">
+            Password and confirmed password do not match!
+          </span>
         </div>
-        <div class="col-12">
-          <h4>Address Details</h4>
-        </div>
-        <div class="col-6">
-          <select  class="form-control form-control" formControlName="country" (change)="countryChange($event.target.value)" >
-            <option [value]="null">Country</option>
-            <option *ngFor="let country of countries" [value]="country.id" >{{country.name}}</option>
-      
-          </select>
-        </div>
-        <div class="col-6">
-          <select class="form-control form-control" formControlName="city">
-            <option [value]="null">City</option>
-            <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
-          </select>
-        </div>
-        <div class="col-12 m-3">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-            
-              <input type="text" class="form-control form-control"  placeholder="Street" formControlName="txtStreet">
-            </div>
-            <div class="form-group col-md-3">
-            
-              <input type="text" class="form-control form-control"  placeholder="Building" formControlName="txtBuilding">
-            </div>
-            <div class="form-group col-md-3">
-            
-              <input type="text" class="form-control form-control"  placeholder="Apartment" formControlName="txtApartment">
-            </div>
-          </div>
-        </div>
-        <button type="submit" class="col-5 btn btn-primary btn btn-block m-3" >Submit</button>
+
+        <button type="submit" class="col-5 btn btn-primary btn-lg btn-block m-3"
+          [disabled]="!this.signUpForm.valid">Submit</button>
       </div>
       <div class=" text-muted text-center">
         already registered? <a routerLink="/login" class="card-link">Log In</a>
       </div>
     </form>
+    <div class="col-8 " *ngIf="loginResult==1">
+      <div class="signup-result">
+        <h2 class="text-primary">Sign up Success</h2>
+        <a [routerLink]="['/login']">Login now</a>
+      </div>
+    </div>
+    <div class="col-8" *ngIf="loginResult==2">
+      <div class="signup-result">
+        <h2>sorry for the inconveniece but we were unable to complete the request</h2>
+      </div>
+
+    </div>
   </div>
 </div>

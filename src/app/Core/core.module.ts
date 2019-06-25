@@ -8,9 +8,10 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddAddressFormComponent } from '../Features/cart/add-address-form/add-address-form.component';
+import { SharedModule } from '../Shared/shared.module';
 
 
 
@@ -25,12 +26,13 @@ import { AddAddressFormComponent } from '../Features/cart/add-address-form/add-a
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'signUp', component: SignupComponent },
-      {path:'address', component: AddAddressFormComponent}
-    
+      { path: 'address', component: AddAddressFormComponent }
 
-    ])
+
+    ]),
+    SharedModule
   ],
-   exports: [
+  exports: [
     FooterComponent,
     HeaderComponent,
     NavbarComponent,

@@ -28,25 +28,35 @@
 
 </div> -->
 
-<div class="top-7 border col-lg-6 col-md-6 col-sm-12 m-auto p-3">
-<form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
-    <div class="form-group p-0 m-0 mb-4">
-      <label for="exampleInputEmail1">Email address</label>
-      <input formControlName="email" type="email" class="form-control form-control" 
-        aria-describedby="emailHelp" placeholder="Enter email">
-        <span class="error__msg" *ngIf="emailExists">This Email doesn't exist!</span>
+<app-page-header title="Login" [paths]="[{name:'Home',url:'/'},{name:'Login',url:''}]"></app-page-header>
+<div class="my-5 mx-auto  border col-lg-6  p-3">
+  <form [formGroup]="logInForm" (submit)="onSubmit($event)">
+    <span class="text-danger" *ngIf="showError">* Invalid Username or Password</span>
+    <div class="form-group p-0 m-0">
+      <label for="exampleInputEmail1">Username</label>
+      <input type="text" formControlName="username" class="form-control form-control mb-4"
+        [ngClass]="{'is-invalid':logInForm.get('username').dirty&& logInForm.get('username').invalid}"
+        placeholder="Enter Username">
+
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword2">Password</label>
-      <input formControlName="password" type="password" class="form-control form-control "
+      <label>Password</label>
+      <input type="password" formControlName="password" class="form-control form-control "
+        [ngClass]="{'is-invalid':logInForm.get('password').dirty&& logInForm.get('password').invalid}"
         placeholder="Password">
-        <span class="error__msg" *ngIf="incorrectPassword">Incorrect Password!</span>
+      <span class="error__msg" *ngIf="incorrectPassword">Incorrect Password!</span>
     </div>
     <div class="row justify-content-around">
 
       <div class="col"><a href="#" class="card-link">Forgot Password?</a>
         <a routerLink="/signUp" class="card-link">Sign Up!</a></div>
-      <div class="col-4"><button type="submit" class="btn btn-primary btn-lg btn-block">Log in</button></div>
+
+      <div class="col-4">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="logInForm.invalid">Log
+          in</button>
+      </div>
+
     </div>
   </form>
-  </div>
+</div>
+<app-loading *ngIf="loading"></app-loading>

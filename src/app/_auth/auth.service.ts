@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../_models/user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { baseurl } from '../_utilities/baseUrl';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,18 +13,28 @@ export class AuthService {
 
   token: string = null;
   currentUser: User
-  constructor(private router: Router) {
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/x-www-urlencoded'
+    })
+  };
+  constructor(private router: Router, private http: HttpClient) {
     this.token = " sdsfsdf";
     this.currentUser = {
-      id: 1,
     }
   }
 
-  login(email: string, password: string) {
+  login(username: string, password: string) {
     //save token to local storage
-  }
-  signup(user: User) {
+    let data = "username=" + username + "&password=" + password + "&grant_type=password";
 
+    let obs = this.http.post(`${baseurl}/Token`, data, this.httpOptions);
+    obs.subscribe(res => {
+      debugger;
+      this.token = res['access_token'];
+      localStorage.setItem("Token", this.token);
+    })
+    return obs;
   }
   logout() {
     //remove token from local storage

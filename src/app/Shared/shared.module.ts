@@ -10,10 +10,11 @@ import { ImgCropperComponent } from './img-cropper/img-cropper.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ModalComponent } from './modal/modal.component';
 import { RouterModule } from '@angular/router';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
-  declarations: [RatingComponent, PaginationComponent, PageHeaderComponent, ConfirmComponent, ImgCropperComponent, ModalComponent, QuantityPickerComponent,],
+  declarations: [RatingComponent, PaginationComponent, PageHeaderComponent, ConfirmComponent, ImgCropperComponent, ModalComponent, QuantityPickerComponent, LoadingComponent,],
   imports: [
     CommonModule,
     NgbModule,
@@ -30,7 +31,8 @@ import { RouterModule } from '@angular/router';
     ConfirmComponent,
     ImgCropperComponent,
     ModalComponent,
-    NgbDropdown
+    NgbDropdown,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

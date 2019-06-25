@@ -1,100 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Shop } from 'src/app/_models/shop';
 import { Product } from 'src/app/_models/product';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const serverName = "http://localhost:50589";
+import { baseurl } from '../../_utilities/baseUrl';
 const TOKEN = "";
-
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json;charset=UTF-8',
+    'Authorization': 'my-auth-token'
+  })
+};
 @Injectable()
 export class ShopService {
 
-  data: Shop[] = [
-    {
-      id: 1,
-      name: 'MyShop',
-      rating: 4.5,
-      about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.',
-      policies: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.'
-      , userId: 1
-    },
-    {
-      id: 1,
-      name: 'MyShop',
-      rating: 4.5,
-      about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.',
-      policies: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.'
-      , userId: 1
-    }, {
-      id: 1,
-      name: 'MyShop',
-      rating: 4.5,
-      about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.',
-      policies: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.'
-      , userId: 1
-    }, {
-      id: 1,
-      name: 'MyShop',
-      rating: 4.5,
-      about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.',
-      policies: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.'
-      , userId: 1
-    }, {
-      id: 1,
-      name: 'MyShop',
-      rating: 4.5,
-      about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.',
-      policies: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.'
-      , userId: 1
-    }, {
-      id: 1,
-      name: 'MyShop',
-      rating: 4.5,
-      about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.',
-      policies: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.'
-      , userId: 1
-    }, {
-      id: 1,
-      name: 'MyShop',
-      rating: 4.5,
-      about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.',
-      policies: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.'
-      , userId: 1
-    }
-  ]
+  data: Shop[] = []
   constructor(private http: HttpClient) {
   }
 
   add(shop: Shop) {
-
+    return this.http.post(`${baseurl}/api/Shops`, shop);
   }
-  edit(id: number, shop: Shop) {
-
+  edit(id: string, shop: Shop) {
+    return this.http.put(`${baseurl}/api/Shops`, shop);
   }
-  getAll(): Shop[] {
-    return this.data;
+  getAll(pageNumber: number) {
+    return this.http.get(`${baseurl}/api/Shops/${pageNumber}`);
   }
-  getById(id: number): Shop {
-    return {
-      id: 1,
-      name: 'MyShop',
-      rating: 4.5,
-      about: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.',
-      policies: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis unde esse exercitationem, alias dolorum facere illo architecto quasi delectus necessitatibus, placeat repellendus! Officiis, cumque repellendus nisi explicabo nesciunt modi sint.'
-      , userId: 1
-    }
+  getById(id: string) {
+    return this.http.get(`${baseurl}/api/Shop/${id}`);
   }
 
-  getRelatedProducts(): Product[] {
-    return [
-      { id: 1, name: 'bag', price: 500, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] },
-      { id: 2, name: 'bag2', price: 500, discount: 200, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] },
-      { id: 3, name: 'bag3', price: 500, images: ['https://images-eu.ssl-images-amazon.com/images/I/41HDKfMA1mL._SX395_QL70_.jpg', 'https://cdn1.ebags.com/is/image/im6/340526_1_1?resmode=4&op_usm=1,1,1,&qlt=70,1&hei=1500&wid=1500&align=0,1&res=1500'] }
+  validateShopName(name: string, id: string = null) {
+    if (id)
+      return this.http.post(`${baseurl}/api/Shop/ValidateName/${name}?id=${id}`, {}, httpOptions);
+    else return this.http.post(`${baseurl}/api/Shop/ValidateName/${name}`, {}, httpOptions);
 
-    ]
-  }
-  validateShopName(name: string): boolean {
-    return true;
   }
   changeShopCover(photo: string) {
     //get id of logged in user shop
@@ -102,13 +43,13 @@ export class ShopService {
   changeShopPhoto(photo: string) {
     //get id of logged in user shop
   }
-  followShop(id: number) {
-    //verify user is logged in
+  followShop(id: string) {
+    return this.http.post(`${baseurl}/api/Shop/Follow/${id}`, {});
   }
 
   // getShopSubscription(shopId: string):any any {
   //   let output: any;
-  //   fetch(`${serverName}/rpc/shops/GetSubscriptionType/${shopId}`,
+  //   fetch(`${baseurl}/rpc/shops/GetSubscriptionType/${shopId}`,
   //     {
   //       method: "GET",
   //       mode: "cors",
@@ -125,11 +66,11 @@ export class ShopService {
   //   return output;
   // } 
   getShopSubscription(shopId: string): Observable<any> {
-    return this.http.get(`${serverName}/rpc/shops/GetSubscriptionType/${shopId}`);
+    return this.http.get(`${baseurl}/rpc/shops/GetSubscriptionType/${shopId}`);
   }
   // getInventoryInfo(shopId: string): { usedSlots: number, maxSlots: number } {
   //   let output: any;
-  //   fetch(`${serverName}/rpc/shops/GetShopInventoryInfo/${shopId}`,
+  //   fetch(`${baseurl}/rpc/shops/GetShopInventoryInfo/${shopId}`,
   //     {
   //       method: "GET",
   //       mode: "cors",
@@ -145,6 +86,6 @@ export class ShopService {
   //   return output;
   // }
   getInventoryInfo(shopId: string): Observable<any> {
-    return this.http.get(`${serverName}/rpc/shops/GetShopInventoryInfo/${shopId}`);
+    return this.http.get(`${baseurl}/rpc/shops/GetShopInventoryInfo/${shopId}`);
   }
 }
