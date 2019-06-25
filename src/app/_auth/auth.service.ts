@@ -20,8 +20,8 @@ export class AuthService {
   };
   constructor(private router: Router, private http: HttpClient) {
     this.token = null;
-    this.currentUser = {
-    }
+    this.currentUser = null
+
   }
 
   login(username: string, password: string) {
@@ -38,11 +38,23 @@ export class AuthService {
   }
   logout() {
     //remove token from local storage
-    this.token=null;
+    this.token = null;
     localStorage.removeItem("Token");
+  }
+  getUser() {
+    if (!this.currentUser) {
+      this.http.get(`${baseurl}/api/Account/LoggedInUser`).subscribe(res => {
+        this.currentUser = res;
+      }, err => {
+        // debugger;
+        console.log(err);
+      })
+    } else return this.currentUser;
+
   }
   getToken() {
     //retrieve token from local storage
+    this.token = localStorage.getItem('Token');
   }
   isAuthenticated(): boolean {
     //check if a user is logged in
