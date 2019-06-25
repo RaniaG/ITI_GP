@@ -23,12 +23,13 @@
         </div>
   </div>
   
-  <div *ngIf="!isAuthenticated" class="col">
+  <div *ngIf="false" class="col">
     <a class="text-white float-right pl-2" routerLink="/login" routerLinkActive="text-secondary">Log in </a>
     <a class="text-white pr-2 float-right border-right" routerLink="/signUp" routerLinkActive="text-secondary" >sign up</a>
   </div>
-  <div *ngIf="isAuthenticated" class="col">
-      <a class="text-white float-right pl-2" routerLink="/home" (click)="logOut()" >Log out </a>
+  <div *ngIf="true" class="col">
+    <a class="text-white float-right pl-2" routerLink="/home" (click)="logOut()" >Log out </a>
+    <p class="text-white float-right pr-2 border-right">Hello</p>
   </div>
 </nav>
 
