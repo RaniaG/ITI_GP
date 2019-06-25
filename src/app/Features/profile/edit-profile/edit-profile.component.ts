@@ -17,7 +17,7 @@ export class EditProfileComponent implements OnInit {
   countries: Country[];
   cities: City[];
   public imagePath;
-  imgURL: any = this.user.getById(1).photo;
+  // imgURL: any = this.user.getById(1).photo;
   public message: string;
   currentInput;
   onFileSelected(event) {
@@ -35,26 +35,26 @@ export class EditProfileComponent implements OnInit {
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      this.imgURL = reader.result;
+      // this.imgURL = reader.result;
 
     }
   }
   ngOnInit() {
-    this.editProfileForm = new FormGroup({
-      'firstname': new FormControl(this.user.getById(1).firstname, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
-      'lastname': new FormControl(this.user.getById(1).lastname, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
-      'username': new FormControl(this.user.getById(1).username, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
-      'email': new FormControl(this.user.getById(1).email, [Validators.required, Validators.email]),
-      'bio': new FormControl(this.user.getById(1).bio),
-      'photo': new FormControl(this.user.getById(1).photo),
-      'changePassword': new FormControl('', [Validators.required, Validators.pattern('^(?=.*\d).{4,8}$')]),
-      'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword')),
-      'country': new FormControl(),
-      'city': new FormControl(),
-      'street': new FormControl(),
-      'building': new FormControl(),
-      'apartment': new FormControl(),
-    });
+    // this.editProfileForm = new FormGroup({
+    //   'firstname': new FormControl(this.user.getById(1).firstname, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
+    //   'lastname': new FormControl(this.user.getById(1).lastname, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
+    //   'username': new FormControl(this.user.getById(1).username, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
+    //   'email': new FormControl(this.user.getById(1).email, [Validators.required, Validators.email]),
+    //   'bio': new FormControl(this.user.getById(1).bio),
+    //   'photo': new FormControl(this.user.getById(1).photo),
+    //   'changePassword': new FormControl('', [Validators.required, Validators.pattern('^(?=.*\d).{4,8}$')]),
+    //   'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword')),
+    //   'country': new FormControl(),
+    //   'city': new FormControl(),
+    //   'street': new FormControl(),
+    //   'building': new FormControl(),
+    //   'apartment': new FormControl(),
+    // });
     this.countries = this.countryCityService.getAllCountries();
 
   }

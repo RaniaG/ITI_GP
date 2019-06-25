@@ -1,0 +1,16 @@
+.loading{
+    animation-name: loading;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+.loading-page{
+   
+    position: fixed;
+    top:0px;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.315);
+    width:100%;
+    @include flexbox(row,center,center);
+    
+    z-index: 1000;
+}

@@ -45,21 +45,24 @@ export class AddEditProductComponent implements OnInit {
       'name' :new FormControl(this.editMode ? this.product.name :'',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z ]+(?:[_-][A-Za-z ]+)*$/)]),
       'description' :new FormControl(this.editMode ? this.product.description :'',[Validators.required, Validators.minLength(10)]),
       'quantity' :new FormControl(this.editMode ? this.product.quantity : '',[Validators.required, Validators.min(1), Validators.max(20)]),
-      'price' :new FormControl(this.editMode ? this.product.price : '',[Validators.required, validators.number]),
-      'discount' :new FormControl({value:this.editMode ? this.product.discount :'', disabled: true},[Validators.required, validators.number]),
+      'price' :new FormControl(this.editMode ? this.product.price : '',[Validators.required,Validators.pattern('^[0-9]+$')]),
+      'discount' :new FormControl({value:this.editMode ? this.product.discount :'', disabled: true},[Validators.required,Validators.pattern('^[0-9]+$')]),
       'category' :new FormControl(this.editMode ? this.product.category.id:'',Validators.required),
     });
     
     if(this.editMode && this.product.discount)
+    {
       this.productOnSale.setValue('sale');
+      this.addProductForm.get('discount').enable();
+    }
 
     this.productOnSale.valueChanges.subscribe((value) => {
       if(value == 'sale')
-      this.addProductForm.get('productDiscount').enable();
+        this.addProductForm.get('discount').enable();
       else
       {
-        this.addProductForm.get('productDiscount').disable();
-        this.addProductForm.get('productDiscount').setValue('');
+        this.addProductForm.get('discount').disable();
+        this.addProductForm.get('discount').setValue('');
       }
     })
   }

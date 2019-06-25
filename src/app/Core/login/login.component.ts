@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { User } from 'src/app/_models/user';
-import { UserService } from 'src/app/_service/user.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/_auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,44 +10,33 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  logInForm : FormGroup
-  users : User[];
-  currentUser : User;
-  emailExists : boolean;
-  validPassword: string;
-  incorrectPassword: boolean;
-
-  constructor(private userService : UserService,private router :Router) { }
+  logInForm: FormGroup;
+  showError: boolean = false;
+  loading: boolean = false;
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.logInForm = new FormGroup({
-      email : new FormControl(),
-      password: new FormControl(),
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
     })
-    this.users = this.userService.getAll();
-    
+
+  }
+  onSubmit(e) {
+    e.preventDefault();
+    let user = this.logInForm.getRawValue();
+    this.loading = true;
+    this.authService.login(user.username, user.password).subscribe(res => {
+      // debugger;
+      this.router.navigate(['/profile']);
+
+    }, err => {
+      console.log(err);
+      this.showError = true;
+      this.loading = false;
+    });
   }
 
-  onSubmit(){
-       this.currentUser= this.logInForm.value;
-       this.users.forEach(user=>{
-               if(user.email == this.currentUser.email)
-               {
-                 this.validPassword = user.password;
-                 
-               }
-               else{
-                 this.emailExists=true;
-               }
-               if(this.currentUser.password == this.validPassword)
-               {
-                this.router.navigate(['/home'])
-               }
-               else{
-                 this.incorrectPassword= true;
-               }
-       })
-      
-  }
+
 
 }

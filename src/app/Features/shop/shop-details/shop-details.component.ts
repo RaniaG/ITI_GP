@@ -24,8 +24,8 @@ export class ShopDetailsComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id']
-    this.shop = this.shopService.getById(id);
-    this.relatedProducts = this.shopService.getRelatedProducts();
+    // this.shop = this.shopService.getById(id);
+    // this.relatedProducts = this.shopService.getRelatedProducts();
     //get shop's products from product service
   }
 

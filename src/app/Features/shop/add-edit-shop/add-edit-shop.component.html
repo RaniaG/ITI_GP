@@ -13,11 +13,13 @@
       <div class="input-group mb-2 ">
         <input formControlName="name" #nameControl type="text" class="form-control"
           [ngClass]="{'is-invalid': (shopForm.get('name').invalid&&shopForm.get('name').dirty)||!validName}"
-          placeholder="choose a unique shop name. example: RaniaCraftz_12">
+          placeholder="choose a unique shop name. example: RaniaCraftz_12" (keydown)="clearNameClass()">
         <div class="input-group-prepend">
           <button class=" input-group-text" [disabled]="!(shopForm.get('name').valid&&shopForm.get('name').dirty)"
             (click)="checkAvailability()">Check
             Availabilty</button>
+          <img src="assets/images/reputation.png" class="loading" alt="Loading" height="40px"
+            [ngStyle]="{visibility:checkingAvailability?'visible':'hidden'}">
         </div>
       </div>
     </div>
@@ -35,20 +37,21 @@
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label>Policies and Returns</label>
-          <textarea formControlName="policies" class="form-control" rows="3"></textarea>
+          <label>Policies and Returns *</label>
+          <textarea formControlName="policy" class="form-control"
+            [ngClass]="{'is-invalid': shopForm.get('policy').invalid&&shopForm.get('policy').dirty}"
+            rows="3"></textarea>
         </div>
       </div>
     </div>
 
 
-    <div formGroupName="address">
+    <div>
       <div class="form-group pt-3 mt-5">
         <h3 class='text-primary mb-3'>Shop Address</h3>
         <label for="">Street *</label>
         <div class="input-group mb-2">
-          <input
-            [ngClass]="{'is-invalid': shopForm.get('address').get('street').invalid&&shopForm.get('address').get('street').dirty}"
+          <input [ngClass]="{'is-invalid': shopForm.get('street').invalid&&shopForm.get('street').dirty}"
             formControlName="street" type="text" class="form-control" placeholder="">
         </div>
       </div>
@@ -56,18 +59,18 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="">Country *</label>
-            <select formControlName="country" class="form-control" id="">
-              <option value='1'>Egypt</option>
-              <option value='2'>US</option>
+            <select formControlName="countryId" class="form-control" id="">
+              <option [ngValue]="1">Egypt</option>
+              <option [ngValue]="2">US</option>
             </select>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="">City *</label>
-            <select formControlName="city" class="form-control" id="">
-              <option value='1'>Cairo</option>
-              <option value='2'>Alex</option>
+            <select formControlName="cityId" class="form-control" id="">
+              <option [ngValue]="1">Cairo</option>
+              <option [ngValue]="2">Alex</option>
             </select>
           </div>
         </div>
@@ -76,21 +79,19 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="">District*</label>
-            <select formControlName="district" class="form-control" id="">
-              <option value='1'>October</option>
-              <option value='2'>Haram</option>
-              <option value='3'>Other</option>
+            <select formControlName="districtId" class="form-control" id="">
+              <option [ngValue]="1">October</option>
+              <option [ngValue]="2">Haram</option>
+              <option [ngValue]="3">Other</option>
             </select>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="">Postal Code</label>
-            <span class='text-danger'
-              *ngIf="shopForm.get('address').get('postalcode').invalid && shopForm.get('address').get('postalcode').dirty">
+            <span class='text-danger' *ngIf="shopForm.get('postalcode').invalid && shopForm.get('postalcode').dirty">
               * only numberic values allowed</span>
-            <input
-              [ngClass]="{'is-invalid':shopForm.get('address').get('postalcode').invalid && shopForm.get('address').get('postalcode').dirty}"
+            <input [ngClass]="{'is-invalid':shopForm.get('postalcode').invalid && shopForm.get('postalcode').dirty}"
               formControlName="postalcode" type="text" class="form-control" id="">
           </div>
         </div>
@@ -98,8 +99,8 @@
     </div>
     <div class="form-row justify-content-end">
       <div>
-        <button class="btn btn-light mr-3" (click)="cancel()">cancel</button>
-        <button type="submit" class="btn btn-primary" [disabled]="shopForm.invalid">finish</button>
+        <button class="btn btn-light mr-3" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="shopForm.invalid||!validName">Next</button>
       </div>
     </div>
   </form>

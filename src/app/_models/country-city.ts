@@ -6,11 +6,11 @@ export class Country {
 export class City {
     id: number;
     name: string;
-    FK_Country: number
+    CountryId: number
 }
 
 export class District {
     id: number;
     name: string;
-    FK_City: number
+    CityId: number
 }

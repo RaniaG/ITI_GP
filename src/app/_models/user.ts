@@ -1,5 +1,5 @@
 export class User {
-    id?: number;
+    id?: string;
     firstname?: string;
     lastname?: string;
     username?: string;
@@ -10,12 +10,5 @@ export class User {
     gender?: boolean;
     password?: string;
     phoneNumber?: number;
-    address?: {
-        country?: string
-        city?: string,
-        street?: string,
-        building?: string,
-        Apartment?: number,
-    };
     shopId?: number;
 }

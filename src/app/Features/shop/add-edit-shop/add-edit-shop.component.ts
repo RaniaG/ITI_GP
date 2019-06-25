@@ -21,6 +21,7 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
   validName: boolean;
   edit: boolean = false;
   saved: boolean = true;
+  checkingAvailability: boolean = false;
   @ViewChild('nameControl') name: ElementRef
   constructor(private fb: FormBuilder, private shopService: ShopService,
     private router: Router, private route: ActivatedRoute, private modalService: NgbModal) {
@@ -29,38 +30,67 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
   }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params['id']);
+    var id = this.route.snapshot.params.id;
+    if (id) {
+      this.shopService.getById(id).subscribe((response: Shop) => {
+
+        this.shop = response;
+        console.log(this.shop);
+        this.fillEditForm();
+      }, (error) => {
+        console.log(error);
+      })
+    }
   }
 
   generateReactiveForm() {
-    // this.shopForm = new FormGroup({
-    //   name: new FormControl(),
-    //   about: new FormControl(),
-    //   policies: new FormControl(),
-    //   address: new FormGroup({
-    //     street: new FormControl(),
-    //     country: new FormControl(),
-    //     city: new FormControl(),
-    //     district: new FormControl(),
-    //     postalcode: new FormControl()
-    //   })
-    // });
+
     this.shopForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern(/^[A-Za-z0-9]+(?:[_-][A-Za-z0-9]+)*$/)]],
       about: ['', Validators.required],
-      policies: [''],
-      address: this.fb.group({
-        street: ['', Validators.required,],
-        country: ['1', Validators.required],
-        city: ['1', Validators.required],
-        district: ['1', Validators.required],
-        postalcode: [null, validators.number]
-      })
+      policy: [''],
+
+      street: ['', Validators.required,],
+      countryId: ['1', Validators.required],
+      cityId: ['1', Validators.required],
+      districtId: ['1', Validators.required],
+      postalcode: [null, validators.number]
+
     })
   }
+
+  fillEditForm() {
+    console.log(this.shop.countryId);
+    this.shopForm.patchValue({
+      name: this.shop.name,
+      about: this.shop.about,
+      policy: this.shop.policy,
+      street: this.shop.street,
+      countryId: this.shop.countryId,
+      cityId: this.shop.cityId,
+      districtId: this.shop.districtId,
+      postalcode: this.shop.postalcode
+    });
+    console.log(this.shopForm);
+  }
   checkAvailability() {
-    this.validName = this.shopService.validateShopName(this.shopForm.get('name').value);
-    (this.name.nativeElement as HTMLElement).classList.add('is-valid');
+    debugger;
+    this.checkingAvailability = true;
+    let validationObservable;
+    if (this.shop)
+      validationObservable = this.shopService.validateShopName(this.shopForm.get('name').value, this.shop.id)
+    else
+      validationObservable = this.shopService.validateShopName(this.shopForm.get('name').value)
+    validationObservable.subscribe((Response) => {
+      this.checkingAvailability = false;
+      (this.name.nativeElement as HTMLElement).classList.add("is-valid");
+      this.validName = true;
+    }, (error) => {
+      this.checkingAvailability = false;
+      (this.name.nativeElement as HTMLElement).classList.add("is-invalid");
+      this.validName = false;
+    });
+
   }
   finish() {
     this.shopService.add(this.shopForm.value);
@@ -83,5 +113,9 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
   canDeactivate() {
     return this.saved || this.prompt().result;
   }
-
+  clearNameClass() {
+    (this.name.nativeElement as HTMLElement).classList.remove("is-valid");
+    (this.name.nativeElement as HTMLElement).classList.remove("is-invalid");
+    this.validName = false;
+  }
 }

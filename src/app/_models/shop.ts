@@ -1,18 +1,17 @@
 export interface Shop {
-    id?: number,
-    userId: number
+    id?: string,
     name: string,
     photo?: string,
     cover?: string,
-    currency?: string,
-    address?: {
-        street?: string
-        city?: string,
-        country?: string,
-        district?: string,
-        postalcode?: number,
-    },
+
+    street?: string
+    cityId?: number,
+    countryId?: number,
+    districtId?: number,
+    postalcode?: number,
+
     rating?: number,
     about?: string,
-    policies?: string,
+    policy?: string,
+    subscription?: number
 }

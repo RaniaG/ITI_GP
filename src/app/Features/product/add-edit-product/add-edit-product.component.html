@@ -41,7 +41,7 @@
         </div>
         <!-- Product Name Validation -->
         <span *ngIf="!addProductForm.get('name').valid">
-            <span *ngIf="addProductForm.get('name').errors && addProductForm.get('name').invalid"
+            <span *ngIf="addProductForm.get('name').errors && addProductForm.get('name').invalid && addProductForm.get('name').touched"
               class="error__msg">Name should be 3 letters to 20 letters , No Numbers !</span>
         </span>
         <!-- Product Description -->
@@ -51,7 +51,7 @@
         </div>
         <!-- Product Description Validation -->
         <span *ngIf="!addProductForm.get('description').valid">
-            <span *ngIf="addProductForm.get('description').errors && addProductForm.get('description').invalid"
+            <span *ngIf="addProductForm.get('description').errors && addProductForm.get('description').invalid && addProductForm.get('description').touched"
               class="error__msg">Description should be 10 letters to 50 letters !</span>
         </span>
         <!-- Product Quantity -->
@@ -61,7 +61,7 @@
         </div>
         <!-- Product Quantity Validation -->
         <span *ngIf="!addProductForm.get('quantity').valid">
-            <span *ngIf="addProductForm.get('quantity').errors && addProductForm.get('quantity').invalid"
+            <span *ngIf="addProductForm.get('quantity').errors && addProductForm.get('quantity').invalid && addProductForm.get('quantity').touched"
               class="error__msg">Quantity could be 1 to 20  !</span>
         </span>
 
@@ -79,7 +79,7 @@
 
         <!-- Product Price Validation -->
         <span *ngIf="!addProductForm.get('price').valid">
-            <span *ngIf="addProductForm.get('price').errors && addProductForm.get('price').invalid"
+            <span *ngIf="addProductForm.get('price').errors && addProductForm.get('price').invalid && addProductForm.get('price').touched"
               class="error__msg">Price should be in positive number , No Letters !</span>
         </span>
 
@@ -106,7 +106,7 @@
           </div>
           <!-- Product Discount Validation -->
           <span *ngIf="!addProductForm.get('discount').valid">
-              <span *ngIf="addProductForm.get('discount').errors && addProductForm.get('discount').invalid"
+              <span *ngIf="addProductForm.get('discount').errors && addProductForm.get('discount').invalid && addProductForm.get('discount').touched"
                 class="error__msg">Discount Should be in positive number !</span>
           </span>
         </div> 
@@ -120,7 +120,7 @@
         </div>
         <!-- Product Category Validation -->
         <span *ngIf="!addProductForm.get('category').valid">
-            <span *ngIf="addProductForm.get('category').errors && addProductForm.get('category').invalid"
+            <span *ngIf="addProductForm.get('category').errors && addProductForm.get('category').invalid && addProductForm.get('category').touched"
               class="error__msg">Please Choose Product Category !</span>
         </span>
         <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
