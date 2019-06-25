@@ -4,6 +4,7 @@ import { ShopService } from '../shop/shop.service';
 import { Shop } from 'src/app/_models/shop';
 import { ProductService } from 'src/app/_service/product.service';
 import { Product } from 'src/app/_models/product';
+import { AuthService } from 'src/app/_auth/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,18 +12,28 @@ import { Product } from 'src/app/_models/product';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  username: string;
+  username: any;
   bio: string;
-  shops: Shop[];
+  // shops: Shop[];
+  shops: any;
   products: Product[];
-  // imgURL: any = this.user.getById(1).photo;
+ imgURL: any = "http://www.iconarchive.com/download/i63426/dapino/beauty-consultant/girl-beauty-consultant-showing.ico";
 
-  constructor(private user: UserService, private shopService: ShopService, private productService: ProductService) { }
+  constructor(private user: UserService, private shopService: ShopService, private productService: ProductService, private authService: AuthService) { }
 
   ngOnInit() {
-    // this.username = this.user.getById(1).username;
-    // this.bio = this.user.getById(1).bio;
-    // this.shops = this.shopService.getAll();
+
+    //this.bio = this.authService.currentUser.bio;
+    this.shops = this.shopService.getFollowedShops().subscribe((response: Shop) => {
+      this.shops = response;
+      console.log(this.shops);
+    }, (error) => {
+      console.log(error);
+    })
+  
+
+    this.username=this.authService.currentUser.userName;
+
     this.products = this.productService.getAll();
   }
 

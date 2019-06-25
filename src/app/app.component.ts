@@ -16,11 +16,7 @@ export class AppComponent {
   ngOnInit() {
 
     debugger;
-    this.authService.getToken();
-    if (this.authService.token) {
 
-      this.authService.getUser()
-    }
   }
 
 }

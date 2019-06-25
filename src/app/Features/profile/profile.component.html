@@ -85,20 +85,35 @@
             <ngb-tab id="tab-selectbyid2">
                 <ng-template ngbTabTitle><b>Favorite</b> Items</ng-template>
                 <ng-template ngbTabContent>
-                    <div class="row ml-5">
+                    <!-- <div class="row ml-5">
                         <div *ngFor="let p of products" class="col-md-4 col-lg-3 col-sm-6 mt-5">
                             <app-product-card [Product]="p"></app-product-card>
                         </div>
+                    </div> -->
+                    <div class="row ml-5">
+                        <div *ngIf="shops.length>0; else noshops">
+                            <div class="col-md-4 col-lg-3 col-sm-6 mt-5" *ngFor="let p of products">
+                                <app-product-card [Product]="p"></app-product-card>
+                            </div>
+                        </div>
+                        <ng-template #noshops>
+                            <p>You have chosen any favorite items !</p>
+                        </ng-template>
                     </div>
                 </ng-template>
             </ngb-tab>
             <ngb-tab id="tab-selectbyid3">
                 <ng-template ngbTabTitle><b>Folllowed</b> Shops</ng-template>
                 <ng-template ngbTabContent>
-                    <div class="row">
-                        <div class="col-md-4 col-lg-3 col-sm-6 mt-5" *ngFor="let item of shops">
-                            <app-shop-card [shop]="item"></app-shop-card>
+                    <div class="row ml-5">
+                        <div *ngIf="shops.length>0; else noshops">
+                            <div class="col-md-4 col-lg-3 col-sm-6 mt-5" *ngFor="let item of shops">
+                                <app-shop-card [shop]="item"></app-shop-card>
+                            </div>
                         </div>
+                        <ng-template #noshops>
+                            <p>You have not followed any shops !</p>
+                        </ng-template>
                     </div>
                 </ng-template>
             </ngb-tab>

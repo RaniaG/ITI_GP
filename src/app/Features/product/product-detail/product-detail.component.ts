@@ -20,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   relatedProducts: Product[];
   constructor(private route: ActivatedRoute, private productService: ProductService, private reviewService: ReviewService) {
   }
-
+   
   ngOnInit() {
     // const id = this.route.snapshot.params['id'];
     this.route.params.subscribe((params) => {
