@@ -3,6 +3,7 @@ import { FormGroup, FormArray, FormControl, Validators, ValidatorFn, AbstractCon
 import { UserService } from 'src/app/_service/user.service';
 import { CountryCityService } from 'src/app/_service/country-city.service';
 import { Country, City } from 'src/app/_models/country-city';
+import { AuthService } from 'src/app/_auth/auth.service';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -11,7 +12,7 @@ import { Country, City } from 'src/app/_models/country-city';
 export class EditProfileComponent implements OnInit {
 
 
-  constructor(private user: UserService, private countryCityService: CountryCityService) { }
+  constructor(private authService: AuthService, private countryCityService: CountryCityService) { }
   editProfileForm: FormGroup;
   validator: ValidatorFn;
   countries: Country[];
@@ -40,21 +41,16 @@ export class EditProfileComponent implements OnInit {
     }
   }
   ngOnInit() {
-    // this.editProfileForm = new FormGroup({
-    //   'firstname': new FormControl(this.user.getById(1).firstname, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
-    //   'lastname': new FormControl(this.user.getById(1).lastname, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
-    //   'username': new FormControl(this.user.getById(1).username, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
-    //   'email': new FormControl(this.user.getById(1).email, [Validators.required, Validators.email]),
-    //   'bio': new FormControl(this.user.getById(1).bio),
-    //   'photo': new FormControl(this.user.getById(1).photo),
-    //   'changePassword': new FormControl('', [Validators.required, Validators.pattern('^(?=.*\d).{4,8}$')]),
-    //   'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword')),
-    //   'country': new FormControl(),
-    //   'city': new FormControl(),
-    //   'street': new FormControl(),
-    //   'building': new FormControl(),
-    //   'apartment': new FormControl(),
-    // });
+    this.editProfileForm = new FormGroup({
+      'firstname': new FormControl(this.authService.currentUser.firstName, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
+      'lastname': new FormControl(this.authService.currentUser.lastName, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
+      'username': new FormControl(this.authService.currentUser.userName, [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
+      'email': new FormControl(this.authService.currentUser.email, [Validators.required, Validators.email]),
+      'bio': new FormControl(this.authService.currentUser.bio),
+      'photo': new FormControl(this.authService.currentUser.photo),
+      'changePassword': new FormControl('', [Validators.required, Validators.pattern('^(?=.*\d).{4,8}$')]),
+      'confirmPassword': new FormControl('', this.MustMatch('changePassword', 'confirmPassword')),
+    });
     this.countries = this.countryCityService.getAllCountries();
 
   }

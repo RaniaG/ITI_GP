@@ -1,8 +1,8 @@
 export class User {
     id?: string;
-    firstname?: string;
-    lastname?: string;
-    username?: string;
+    firstName?: string;
+    lastName?: string;
+    userName?: string;
     photo?: string;
     cover?: string;
     email?: string;

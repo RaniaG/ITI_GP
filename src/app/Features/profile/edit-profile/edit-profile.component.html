@@ -60,8 +60,6 @@
               class="error__msg">email is
               invalid !</span>
           </span>
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-            else.</small>
         </div>
         <div class="form-group">
           <label for="exampleInputbio">Bio</label>
@@ -107,35 +105,6 @@
           *ngIf="!editProfileForm.get('confirmPassword').valid && editProfileForm.get('confirmPassword').errors && editProfileForm.get('confirmPassword').touched">
           Password and confirmed password do not match!
         </span>
-        <div>
-          <h5>Address Details</h5>
-        </div>
-        <div class="form-group">
-          <select class="form-control form-control" formControlName="country"
-            (change)="countryChange($event.target.value)">
-            <option [value]="null">Country</option>
-            <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <select class="form-control form-control" formControlName="city">
-            <option [value]="null">City</option>
-            <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control form-control" placeholder="Street" formControlName="street">
-            </div>
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control form-control" placeholder="Building" formControlName="building">
-            </div>
-            <div class="form-group col-md-3">
-              <input type="text" class="form-control form-control" placeholder="Apartment" formControlName="apartment">
-            </div>
-          </div>
-        </div>
         <button type="submit" class="btn btn-primary mr-2">Save</button>
         <button type="button" class="btn btn-secondary">Cansel</button>
       </form>

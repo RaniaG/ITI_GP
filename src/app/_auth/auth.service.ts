@@ -31,6 +31,7 @@ export class AuthService {
     let obs = this.http.post(`${baseurl}/Token`, data, this.httpOptions);
     obs.subscribe(res => {
       debugger;
+      this.currentUser = res;
       this.token = res['access_token'];
       localStorage.setItem("Token", this.token);
     })
@@ -43,10 +44,11 @@ export class AuthService {
   }
   getUser() {
     if (!this.currentUser) {
+      debugger;
       this.http.get(`${baseurl}/api/Account/LoggedInUser`).subscribe(res => {
         this.currentUser = res;
       }, err => {
-        // debugger;
+         debugger;
         console.log(err);
       })
     } else return this.currentUser;
