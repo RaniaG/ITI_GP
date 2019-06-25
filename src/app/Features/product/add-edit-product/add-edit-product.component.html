@@ -37,7 +37,7 @@
         <!-- Product Name -->
         <div class="form-group">
           <label for="exampleFormControlInput1">Product Name</label>
-          <input formControlName="name" type="text" class="form-control form-control-lg" >
+          <input formControlName="name" type="text" class="form-control form-control" >
         </div>
         <!-- Product Name Validation -->
         <span *ngIf="!addProductForm.get('name').valid">
@@ -47,7 +47,7 @@
         <!-- Product Description -->
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Description</label>
-          <textarea formControlName="description" name="description" class="form-control form-control-lg" rows="3"></textarea>
+          <textarea formControlName="description" name="description" class="form-control form-control" rows="3"></textarea>
         </div>
         <!-- Product Description Validation -->
         <span *ngIf="!addProductForm.get('description').valid">
@@ -57,7 +57,7 @@
         <!-- Product Quantity -->
         <div class="form-group">
           <label for="exampleFormControlInput1">Quantity</label>
-          <input formControlName="quantity" name="quantity" type="number" min="1" max="20" class="form-control form-control-lg" >
+          <input formControlName="quantity" name="quantity" type="number" min="1" max="20" class="form-control form-control" >
         </div>
         <!-- Product Quantity Validation -->
         <span *ngIf="!addProductForm.get('quantity').valid">
@@ -68,8 +68,8 @@
         <!-- Product Price -->
         <div class="form-group">
           <label>Price</label>
-          <div class="input-group input-group-lg">
-            <input formControlName="price" type="text" class="form-control form-control-lg"
+          <div class="input-group input-group">
+            <input formControlName="price" type="text" class="form-control"
               aria-label="Dollar amount (with dot and two decimal places)">
             <div class="input-group-append">
               <span class="input-group-text">$</span>
@@ -101,7 +101,7 @@
 
           <!-- Product Discount -->
           <div class="form-group col-2 ">
-            <input formControlName="discount" type="text" class="form-control form-control-lg mt-2 discount" id="exampleFormControlInput1"
+            <input formControlName="discount" type="text" class="form-control form-control mt-2 discount" id="exampleFormControlInput1"
               placeholder="Discount">
           </div>
           <!-- Product Discount Validation -->
@@ -114,7 +114,7 @@
         <!-- Product Category -->
         <div class="form-group">
           <label for="exampleFormControlSelect1">Category</label>
-          <select formControlName="category" name="category" class="form-control form-control-lg" id="exampleFormControlSelect1">
+          <select formControlName="category" name="category" class="form-control form-control" id="exampleFormControlSelect1">
             <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
           </select>
         </div>

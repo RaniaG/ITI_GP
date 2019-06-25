@@ -20,7 +20,10 @@ export class NavbarComponent implements OnInit {
   products : Product[];
   categories: Category[];
   productsNames :string[];
+  loginClicked : boolean;
+  signupClicked : boolean;
   public model: any;
+
 
   search = (text$: Observable<string>) =>
     text$.pipe(
@@ -43,6 +46,8 @@ export class NavbarComponent implements OnInit {
    });
 
    this.categories = this.categoryService.getAll();
+   this.loginClicked=false;
+   this.signupClicked=false;
   }
 
 }
