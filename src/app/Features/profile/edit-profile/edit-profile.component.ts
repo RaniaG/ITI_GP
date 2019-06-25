@@ -18,7 +18,7 @@ export class EditProfileComponent implements OnInit {
   countries: Country[];
   cities: City[];
   public imagePath;
-  // imgURL: any = this.user.getById(1).photo;
+  imgURL: any = this.authService.currentUser.photo;
   public message: string;
   currentInput;
   onFileSelected(event) {
@@ -36,7 +36,7 @@ export class EditProfileComponent implements OnInit {
     this.imagePath = files;
     reader.readAsDataURL(files[0]);
     reader.onload = (_event) => {
-      // this.imgURL = reader.result;
+    this.imgURL = reader.result;
 
     }
   }

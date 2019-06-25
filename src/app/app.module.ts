@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CoreModule } from './Core/core.module';
 
@@ -25,7 +25,14 @@ import { CountryCityService } from './_service/country-city.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { JwtInterceptor } from './_utilities/interceptor';
+import { AppInitService } from './_service/app-init.service';
+import { Observable } from 'rxjs';
 
+function initializeApp(appInitService: AppInitService) {
+  return (): Promise<any> => {
+    return appInitService.Init();
+  }
+}
 
 @NgModule({
   declarations: [
@@ -58,7 +65,9 @@ import { JwtInterceptor } from './_utilities/interceptor';
     AuthService,
     AuthGuard,
     CountryCityService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    AppInitService,
+    { provide: APP_INITIALIZER, useFactory: initializeApp, deps: [AppInitService], multi: true }
   ],
   bootstrap: [AppComponent]
 })
