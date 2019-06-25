@@ -23,20 +23,20 @@
         </div>
   </div>
   
-  <div *ngIf="false" class="col">
+  <div *ngIf="!isAuthenticated" class="col">
     <a class="text-white float-right pl-2" routerLink="/login" routerLinkActive="text-secondary">Log in </a>
     <a class="text-white pr-2 float-right border-right" routerLink="/signUp" routerLinkActive="text-secondary" >sign up</a>
   </div>
-  <div *ngIf="true" class="col">
+  <div *ngIf="isAuthenticated" class="col">
     <a class="text-white float-right pl-2" routerLink="/home" (click)="logOut()" >Log out </a>
-    <p class="text-white float-right pr-2 border-right">Hello</p>
+    <p class="text-white float-right pr-2 border-right">Hello {{currentUser.firstName}} <img height="25px" width="25px" class="rounded-circle" [src]="currentUser.photo"></p>
   </div>
 </nav>
 
 
 <nav class="nav-bar">
   <div class="logo-container">
-    <img class="logo" src="assets/images/logo-2.png" alt="logo">
+    <img class="logo" height="90px" src="assets/images/artisan.jpg" alt="logo">
   </div>
 
   <div class="drop-downs-container">
