@@ -22,8 +22,9 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { AuthService } from './_auth/auth.service';
 import { AuthGuard } from './_auth/auth.guard';
 import { CountryCityService } from './_service/country-city.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { JwtInterceptor } from './_utilities/interceptor';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { HttpClient } from '@angular/common/http';
     CanDeactivateGuard,
     AuthService,
     AuthGuard,
-    CountryCityService
+    CountryCityService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
