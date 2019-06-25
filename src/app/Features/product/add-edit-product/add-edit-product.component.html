@@ -1,5 +1,5 @@
 <div class="container-fluid bg-grey">
-  <div class="row justify-content-center title p-5" >
+  <div class="row justify-content-center title p-4" >
     <!-- <div class="col-sm-12 "> -->
       <h1 class="text-primary">
         <span *ngIf="editMode">Edit</span>
@@ -86,20 +86,16 @@
 
         <!-- Sale / Not Sale -->
         <div class="form-group mt-2 row justify-content-around align-items-center pl-3">
-          <div class="col">
-            <div class="row ">
-              <div class="form-check col ">
-                <input class="form-check-input" type="radio" value="sale" [formControl]="productOnSale" >
-                <label class="form-check-label" for=sale>On Sale</label>
-              </div>
-              <div class="form-check col  sale">
-                <input class="form-check-input" type="radio" value="notSale" [formControl]="productOnSale" > 
-                <label class="form-check-label" for="notSale">Not on Sale</label>
-              </div>
-            </div>   
+          <div class="form-check col-sm-12 col-lg-6 ">
+            <input class="form-check-input" type="radio" value="sale" [formControl]="productOnSale" >
+            <label class="form-check-label" for=sale>On Sale</label>
+          </div>
+          <div class="form-check col-sm-12 col-lg-6 sale">
+            <input class="form-check-input" type="radio" value="notSale" [formControl]="productOnSale" > 
+            <label class="form-check-label" for="notSale">Not on Sale</label>
           </div>
 
-          <!-- Product Discount -->
+           <!-- Product Discount -->
           <div class="form-group col-2 ">
             <input formControlName="discount" type="text" class="form-control form-control mt-2 discount" id="exampleFormControlInput1"
               placeholder="Discount">
@@ -123,11 +119,11 @@
             <span *ngIf="addProductForm.get('category').errors && addProductForm.get('category').invalid && addProductForm.get('category').touched"
               class="error__msg">Please Choose Product Category !</span>
         </span>
-        <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
-          Customizations
-        </button> -->
-        <button *ngIf="!editMode" type="submit" class="btn btn-primary btn-lg btn-block mt-5">Submit</button>
-        <button *ngIf="editMode" type="submit" class="btn btn-primary btn-lg btn-block mt-5">Edit</button>
+        <button type="button" class="btn btn-primary btn-lg mt-5"(click)="showProductVariationModal=true">
+          Variations
+        </button>
+        <button *ngIf="!editMode" type="submit" class="btn btn-primary btn-lg mt-5">Submit</button>
+        <button *ngIf="editMode" type="submit" class="btn btn-primary btn-lg mt-5">Edit</button>
 
         <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Cancel</button>
 
@@ -135,41 +131,24 @@
     </div>
   </form>
 
-
-<!-- Custmization modal not working yet -->
-<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Customizations</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- <p>Modal body text goes here.</p> -->
-        <h2><i class="fas fa-times-circle"></i> Color</h2>
-        <div class="card">
-          <div class="card-body">
-            <span class="badge badge-pill badge-primary">Blue <i class="fas fa-times-circle"></i></span>
-            <span class="badge badge-pill badge-primary">Red <i class="fas fa-times-circle"></i></span>
-            <span class="badge badge-pill badge-primary">Black <i class="fas fa-times-circle"></i></span>
-          </div>
-        </div>
-        <input class="mb-3 mt-2 card" type="text">
-        <button class="btn btn-primary btn-lg btn-block">Add variant <i class="fas fa-plus"></i></button>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-lg btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <app-modal title="Upload Photo" [actions]="['OK','Cancel']" (clicked)="handleProductPhoto($event)"
   *ngIf="showProductUploadModal">
   <app-img-cropper (onCrop)="productPhoto=$event"></app-img-cropper>
+</app-modal>
+
+<app-modal  title="Add Variation" [actions]="['Save','Cancel']" (clicked)="showVariationModel($event)"
+  *ngIf="showProductVariationModal">
+  <div id="textBoxContainer">
+    <button type="submit" class="btn btn-primary" (click)="addTextbox()" >Add Variation</button>
+    <div *ngFor="let v of variation; let i = index;">
+      <input class="mb-3 mt-3 card" type="text" *ngIf="!enterValue[i],else label" (keydown.enter)="getTextBoxKey($event,i)" >
+      <ng-template #label> 
+        <label class="mb-1 mt-2" *ngIf="enterValue[enterValue.length-1]">{{this.variation[i].key}}: </label>
+        <div *ngFor="let e of variation[i].val" class="d-inline-block">
+          <label class="mb-1 mt-2 p-1" >{{e}} </label>
+        </div>
+        <input class="m-3 card d-inline-block" type="text"*ngIf="enterValue[enterValue.length-1]" (keydown.enter)="getTextBoxValue($event,i)" >
+      </ng-template>
+    </div>
+  </div>
 </app-modal>

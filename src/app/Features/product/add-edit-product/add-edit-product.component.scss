@@ -1,0 +1,16 @@
+
+
+@media only screen and (max-width: 420px) {
+    /* For mobile phones: */
+    .discount{
+        margin-left: -9rem;
+    }
+    .sale { margin: 0;}  
+}
+
+@media (min-width: 420px) and (max-width: 770px) {
+    .discount{
+        margin-left: -19rem;
+    }
+    .sale { margin: 0;}
+}

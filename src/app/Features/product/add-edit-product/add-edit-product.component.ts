@@ -5,7 +5,6 @@ import { ProductService } from 'src/app/_service/product.service';
 import { CategoryService } from 'src/app/_service/category.service';
 import { Category } from 'src/app/_models/category';
 import { Router, ActivatedRoute } from "@angular/router";
-import { validators } from "../../../_utilities/validators";
 
 @Component({
   selector: 'app-add-edit-product',
@@ -18,18 +17,23 @@ export class AddEditProductComponent implements OnInit {
   categories :Category[];
   addProductForm :FormGroup;
   showProductUploadModal :boolean = false;
+  showProductVariationModal :boolean = false;
+ 
   productPhoto = null;
   productOnSale = new FormControl('notSale');
 
   editMode: boolean = false;
   productImages: AbstractControl[] ;
+
+  variation: {key:string , val:string[]}[] = [];
+  enterValue: boolean[] = [];
+
   constructor(private productService :ProductService ,private categoryService :CategoryService , private router :Router, private route: ActivatedRoute) { 
     if(!this.categories)
      { this.categories = this.categoryService.getAll(); }
   }
 
   ngOnInit() {
-  
     const id = +this.route.snapshot.params['id'];
     if(id)
     {
@@ -38,9 +42,7 @@ export class AddEditProductComponent implements OnInit {
       this.productImages = this.convertArrayElmentsToFormControl(this.product.images)
     }
 
-
     this.addProductForm = new FormGroup({
-      // this.editMode ? this.productImages :
       'images' :new FormArray(this.editMode ? this.productImages :[] ,Validators.required),
       'name' :new FormControl(this.editMode ? this.product.name :'',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern(/^[A-Za-z ]+(?:[_-][A-Za-z ]+)*$/)]),
       'description' :new FormControl(this.editMode ? this.product.description :'',[Validators.required, Validators.minLength(10)]),
@@ -104,10 +106,38 @@ export class AddEditProductComponent implements OnInit {
   convertArrayElmentsToFormControl(imagesArray :string[]) :AbstractControl[] {
     let imagesFormArray : AbstractControl[] = [];
     for (let index = 0; index < imagesArray.length; index++) {
-      let element = imagesArray[index];
-      imagesFormArray.push(new FormControl(element));
+      let item = imagesArray[index];
+      imagesFormArray.push(new FormControl(item));
     }
     return imagesFormArray;
   }
+  showVariationModel(action :string){
+    this.showProductVariationModal = false;
+    switch (action) {
+      case 'OK':
+        break;
+      case 'Close':
+      case 'Cancel':
+      default:
+        break;
+    }
+  }
+  addTextbox(){
+    if(this.variation.length == 0 || this.enterValue[this.enterValue.length-1])
+    {
+      this.enterValue.push(false);
+      // console.log(this.enterValue)
+      this.variation.push({key:"" , val:[]})
+      // console.log(this.variation)
+    }
+  }
+  getTextBoxKey(event , i){
+    this.variation[i].key = event.target.value;
+    // this.variation[i].val = [""];
+    this.enterValue[i] = true;
+  }
+  getTextBoxValue(event , i){
+    this.variation[i].val.push(event.target.value);
+    console.log(this.variation[i].val)
+  }
 }
-
