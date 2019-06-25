@@ -7,6 +7,8 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { CategoryService } from 'src/app/_service/category.service';
 import { Category } from 'src/app/_models/category';
 import { AuthService } from 'src/app/_auth/auth.service';
+import { User } from 'src/app/_models/user';
+import { Router } from '@angular/router';
 
 
 
@@ -22,7 +24,9 @@ export class NavbarComponent implements OnInit {
   categories: Category[];
   productsNames :string[];
   isAuthenticated : boolean;
+  currentUser : User;
   public model: any;
+
 
 
   search = (text$: Observable<string>) =>
@@ -34,7 +38,7 @@ export class NavbarComponent implements OnInit {
     )
 
 
-  constructor(private productService : ProductService,private categoryService : CategoryService,private authServive:AuthService) { 
+  constructor(private productService : ProductService,private categoryService : CategoryService,private authServive:AuthService,private router : Router) { 
 
   }
 
@@ -47,10 +51,13 @@ export class NavbarComponent implements OnInit {
 
    this.categories = this.categoryService.getAll();
    this.isAuthenticated = this.authServive.isAuthenticated();
+   this.currentUser = this.authServive.getUser();
   }
 
   logOut(){
     this.authServive.logout();
+    this.router.navigate(['/home']);
+    
   }
 
 }
