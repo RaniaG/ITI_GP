@@ -19,7 +19,7 @@ export class AuthService {
     })
   };
   constructor(private router: Router, private http: HttpClient) {
-    this.token = " sdsfsdf";
+    this.token = null;
     this.currentUser = {
     }
   }
@@ -38,6 +38,8 @@ export class AuthService {
   }
   logout() {
     //remove token from local storage
+    this.token=null;
+    localStorage.removeItem("Token");
   }
   getToken() {
     //retrieve token from local storage
