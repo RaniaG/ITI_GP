@@ -15,7 +15,7 @@ export class AppComponent {
   }
   ngOnInit() {
 
-    debugger;
+    // debugger;
 
   }
 
