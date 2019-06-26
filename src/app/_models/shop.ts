@@ -20,5 +20,6 @@ export interface Shop {
     followers?: User[],
     products?: Product[],
     sales?: number,
-    deliveryAddresses?: { districtId: number, cityId: number, countryId: number }[]
+    deliveryAddresses?: { districtId: number, cityId: number, countryId: number }[],
+    userId: string
 }

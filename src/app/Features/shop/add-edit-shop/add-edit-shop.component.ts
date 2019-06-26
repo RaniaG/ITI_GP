@@ -18,7 +18,7 @@ import { City, District, Country } from 'src/app/_models/country-city';
 })
 export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
 
-  shop: Shop = { name: "" };
+  shop: Shop = { name: "", userId: "" };
   title: string = 'Create Shop';
   shopForm: FormGroup;
   validName: boolean;
@@ -57,10 +57,14 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
 
   ngOnInit() {
     var id = this.route.snapshot.params.id;
-    if (id) {
+
+
+    if (id !== undefined) {
+      debugger;
       this.title = 'Edit Shop';
       this.doneLoading = false;
-      this.shopService.getById(id);
+      this.shop = this.shopService.getById(id);
+      console.log(this.shop);
       this.fillEditForm();
       this.doneLoading = true;
       this.step = 1;
@@ -153,7 +157,6 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
     }
     else {
 
-      this.shopService.add(this.shopForm.value);
       this.shop = this.shopService.add(this.shopForm.value);
       this.doneLoading = true;
       this.step++;

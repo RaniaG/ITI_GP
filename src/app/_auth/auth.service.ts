@@ -9,9 +9,7 @@ import { AppInitService } from '../_service/app-init.service';
 
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
   token: string = null;
@@ -22,7 +20,7 @@ export class AuthService {
       'Content-Type': 'application/x-www-urlencoded'
     })
   };
-  constructor(private router: Router, private http: HttpClient, private shopService: ShopService, private appinit: AppInitService) {
+  constructor(private router: Router, private http: HttpClient, private appinit: AppInitService) {
     // debugger;
     this.appinit.retrievedCurrentUser.subscribe(obs => {
       this.currentUser = obs;
@@ -38,7 +36,7 @@ export class AuthService {
 
     let obs = this.http.post(`${baseurl}/Token`, data, this.httpOptions);
     obs.subscribe(res => {
-      
+
       this.currentUser = res;
       this.token = res['access_token'];
       localStorage.setItem("Token", this.token);

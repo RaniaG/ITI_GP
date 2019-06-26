@@ -16,15 +16,16 @@ const httpOptions = {
 export class ShopService {
 
   data: Shop[] = [
-    { id: '0', name: "EmbroideryShop", about: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", rating: 1.5, policy: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", subscription: 1, followers: [], products: [], sales: 10 },
-    { id: '1', name: "Creative_Shop", about: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", rating: 2, policy: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", subscription: 0, followers: [], products: [], sales: 0 }
+    { id: '0', name: "EmbroideryShop", about: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", rating: 1.5, policy: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", subscription: 1, followers: [], products: [], sales: 10, userId: '1', street: "asdsdfsdf", countryId: 1, cityId: 1, districtId: 1 },
+    { id: '1', name: "Creative_Shop", about: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", rating: 2, policy: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", subscription: 0, followers: [], products: [], sales: 0, userId: '2', street: "asdsdfsdf", countryId: 1, cityId: 1, districtId: 1 }
 
   ]
-  constructor(private http: HttpClient) {
+  constructor(private authService: AuthService, private http: HttpClient) {
   }
 
   add(shop: Shop): Shop {
     shop.id = "" + this.data.length;
+    shop.userId = this.authService.currentUser.id;
     this.data.push(shop);
     return this.data[this.data.length - 1];
     // return this.http.post(`${baseurl}/api/Shops`, shop);

@@ -17,7 +17,7 @@ export class UserService {
     return this.data;
   }
   getById(id: string) {
-
+    // return this.http.get(`${baseurl}/api/`)
     // return this.data.find(a => a.id === id);
   }
   add(user: User) {
@@ -28,7 +28,7 @@ export class UserService {
     // this.data[i] = user;
     debugger;
     return this.http.post(`${baseurl}/api/Account/ChangeUserInfo`, user);
-    
+
 
   }
   delete(id: number) {

@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="col-xs-1 d-flex flex-column justify-content-end pl-4"
-        *ngIf="authService.isAuthenticated()&&shop.id!=authService.currentUser.id">
+        *ngIf="authService.isAuthenticated()&&shop.userId==authService.currentUser.id">
         <button type="button" class="btn btn-secondary" *ngIf="!followedByUser">Follow</button>
         <button type="button" class="btn btn-secondary " *ngIf="followedByUser">Unfollow</button>
       </div>
@@ -70,14 +70,15 @@
             <a class="nav-link  text-light ">Products</a>
           </li>
           <li class=" nav-item">
-            <a class="nav-link  text-light " *ngIf="authService.isAuthenticated()&&shop.id==authService.currentUser.id"
+            <a class="nav-link  text-light "
+              *ngIf="authService.isAuthenticated()&&shop.userId==authService.currentUser.id"
               [routerLink]="['/products','add']">
               Add new Product</a>
           </li>
-          <li class="nav-item" *ngIf="authService.isAuthenticated()&&shop.id==authService.currentUser.id">
+          <li class="nav-item" *ngIf="authService.isAuthenticated()&&shop.userId==authService.currentUser.id">
             <a class="nav-link  text-light " [routerLink]="['/shop','edit',shop.id]">Edit shop</a>
           </li>
-          <li class="nav-item" *ngIf="authService.isAuthenticated()&&shop.id==authService.currentUser.id">
+          <li class="nav-item" *ngIf="authService.isAuthenticated()&&shop.userId==authService.currentUser.id">
             <a class="nav-link  text-light " [routerLink]="['dashboard']">Dashboard</a>
           </li>
         </ul>

@@ -17,8 +17,8 @@ const routes: Routes = [
   {
     path: 'shop', children: [
       { path: '', component: ShopListComponent },
-      { path: 'add', component: AddEditShopComponent, canActivate: [AuthGuard, AddEditGuardService], canDeactivate: [CanDeactivateGuard] },
-      { path: 'edit/:id', component: AddEditShopComponent, canActivate: [AuthGuard, AddEditGuardService], canDeactivate: [CanDeactivateGuard] },
+      { path: 'add', component: AddEditShopComponent, canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard] },
+      { path: 'edit/:id', component: AddEditShopComponent, canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard] },
       { path: ':id', component: ShopDetailsComponent }
     ]
   }
