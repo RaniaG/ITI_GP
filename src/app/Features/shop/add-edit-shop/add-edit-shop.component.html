@@ -1,8 +1,89 @@
-<app-page-header [title]="'Create Shop'" [paths]="[{name:'Home',url:'/'},{name:'Create Shop',url:''}]">
+<app-page-header [title]="title" [paths]="[{name:'Home',url:'/'},{name:title,url:''}]">
 </app-page-header>
+<div *ngIf="step==0" class="my-5">
+  <div class="row no-gutters justify-content-center">
+    <div class="col-8">
+      <h3 class="text-primary text-center my-5">Agree to policy</h3>
+      <ul>
+        <li>You Can only Create one shop</li>
+        <li>Every Product will be reviewed by us before being published</li>
+      </ul>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="step=step+1">Agree</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Subscription step  -->
+<div *ngIf="step==1" class="my-5">
+  <div class="d-flex">
+    <div class="container align-self-center">
+      <div class="row">
+        <div class="col-4">
+          <h1 class="text-center headline align-self-center text-primary" *ngIf="!shop">Choose your Subscription Plan
+          </h1>
+          <h1 class="text-center headline align-self-center text-primary" *ngIf="shop">Change your Subscription Plan?
+          </h1>
 
-<div class="container pt-5">
-  <form [formGroup]="shopForm" (ngSubmit)="finish()" (change)="saved=false">
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <div class="card mb-3 bg-transparent text-center justify-content-center" style="border:none;">
+                <img src="assets/images/basic.png" class="card-img-top mx-auto" alt="Classic plan" style="width:50%;">
+                <div class="card-body ">
+                  <ul class="list-group list-group-flush bg-transparent">
+                    <li class="list-group-item bg-transparent"><i class="far fa-times-circle" style="color:red;"></i>
+                      limitless listing</li>
+                    <li class="list-group-item bg-transparent"><i class="far fa-times-circle" style="color:red;"></i>
+                      Advertising</li>
+                    <li class="list-group-item bg-transparent"><i class="far fa-times-circle" style="color:red;"></i>
+                      Limitless Period</li>
+                  </ul>
+                  <!-- <div class=""> -->
+                  <p class="">Free</p>
+                  <!-- </div> -->
+                  <button type="button" class="btn btn-warning btn-lg btn-block" style="color: rgb(66, 51, 49);"
+                    (click)="shop.subscription=0;step=step+1">Subscribe
+                    Free</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-12">
+              <div class="card mb-3 bg-transparent text-center justify-content-center" style="border:none;">
+                <img src="assets/images/premium.png" class="card-img-top mx-auto" alt="Classic plan" style="width:50%;">
+                <div class="card-body ">
+                  <ul class="list-group list-group-flush bg-transparent">
+                    <li class="list-group-item bg-transparent"><i class="fas fa-check-circle"
+                        style="color:#F1C40F;"></i>
+                      limitless listing</li>
+                    <li class="list-group-item bg-transparent"><i class="fas fa-check-circle"
+                        style="color:#F1C40F;"></i>
+                      Advertising</li>
+                    <li class="list-group-item bg-transparent"><i class="fas fa-check-circle"
+                        style="color:#F1C40F;"></i>
+                      Limitless Period</li>
+                  </ul>
+                  <!-- <div class=""> -->
+                  <p class="">$ 9</p>
+                  <!-- </div> -->
+                  <button type="button" class="btn btn-warning btn-lg btn-block" style="color: rgb(66, 51, 49);"
+                    (click)="shop.subscription=1;step=step+1">Subscribe
+                    Premium</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Shop main info step -->
+<div class="container pt-5" *ngIf="step==2">
+  <form [formGroup]="shopForm" (change)="saved=false">
     <div class="form-group pt-4" id="">
       <h3 class='text-primary mb-3'>Shop Name</h3>
       <div class='text-danger' *ngIf="shopForm.get('name').hasError('required')&&shopForm.get('name').dirty">* Shop name
@@ -59,18 +140,19 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="">Country *</label>
-            <select formControlName="countryId" class="form-control" id="">
-              <option [ngValue]="1">Egypt</option>
-              <option [ngValue]="2">US</option>
+            <select formControlName="countryId" class="form-control" id=""
+              (change)="countrySelect($event.target.value)">
+              <option [value]="item.id" *ngFor="let item of countryCityService.getAllCountries()">{{item.name}}
+              </option>
             </select>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="">City *</label>
-            <select formControlName="cityId" class="form-control" id="">
-              <option [ngValue]="1">Cairo</option>
-              <option [ngValue]="2">Alex</option>
+            <select formControlName="cityId" class="form-control" id="" (change)="citySelect($event.target.value)">
+              <option [value]="item.id" *ngFor="let item of cities">
+                {{item.name}}</option>
             </select>
           </div>
         </div>
@@ -80,9 +162,8 @@
           <div class="form-group">
             <label for="">District*</label>
             <select formControlName="districtId" class="form-control" id="">
-              <option [ngValue]="1">October</option>
-              <option [ngValue]="2">Haram</option>
-              <option [ngValue]="3">Other</option>
+              <option [value]="item.id" *ngFor="let item of districts">
+                {{item.name}}</option>
             </select>
           </div>
         </div>
@@ -100,8 +181,82 @@
     <div class="form-row justify-content-end">
       <div>
         <button class="btn btn-light mr-3" (click)="cancel()">Cancel</button>
-        <button type="submit" class="btn btn-primary" [disabled]="shopForm.invalid||!validName">Next</button>
+        <button type="submit" class="btn btn-primary" (click)="finish()"
+          [disabled]="shopForm.invalid||!validName">Next</button>
       </div>
     </div>
   </form>
+</div>
+
+<app-loading *ngIf="!doneLoading"></app-loading>
+
+<!-- Delivery districts step -->
+<div *ngIf="step==3" class="my-5">
+  <div class="row no-gutters justify-content-center">
+    <div class="col-10">
+      <h3 class="text-primary text-center my-3">Shop Created Successfully</h3>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary " (click)="addDeliveryAddress()" [disabled]="!savedDeliveryAddress">Add Delivery
+          Addresses</button>
+      </div>
+
+      <table class="table ">
+        <thead class="thead-light">
+          <th>Country</th>
+          <th>City</th>
+          <th>District</th>
+          <th></th>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of deliveryAddresses;let i=index">
+            <td>{{countryCityService.getCountryById( item.countryId).name}}</td>
+            <td>{{countryCityService.getCityById( item.cityId).name}}</td>
+            <td>{{countryCityService.getDistrictById( item.districtId).name}}</td>
+            <td><i class="fas fa-trash text-primary" (click)="this.deliveryAddresses.splice(i,1)"></i></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div [formGroup]="deliveryAddressesForm" *ngIf="showDeliveryAddressForm">
+
+        <div class="form-row pt-3">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="">Country *</label>
+              <select class="form-control" formControlName="countryId" id=""
+                (change)="daCountryChange($event.target.value)">
+                <option [value]="item.id" *ngFor="let item of countryCityService.getAllCountries()">{{item.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="">City *</label>
+              <select class="form-control" formControlName="cityId" id="" (change)="daCityChange($event.target.value)">
+                <option [value]="item.id" *ngFor="let item of cities">
+                  {{item.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="">District *</label>
+              <select class="form-control" formControlName="districtId" id="">
+                <option [value]="item.id" *ngFor="let item of districts">
+                  {{item.name}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" (click)="saveDeliveryAddress()">save delivery address</button>
+      </div>
+
+
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary " [disabled]="deliveryAddresses.length===0" (click)="finalize()">Finish</button>
+      </div>
+    </div>
+  </div>
 </div>

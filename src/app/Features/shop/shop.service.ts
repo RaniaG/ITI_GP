@@ -21,7 +21,7 @@ export class ShopService {
   add(shop: Shop) {
     return this.http.post(`${baseurl}/api/Shops`, shop);
   }
-  edit(id: string, shop: Shop) {
+  edit(shop: Shop) {
     return this.http.put(`${baseurl}/api/Shops`, shop);
   }
   getAll(pageNumber: number) {
@@ -40,6 +40,9 @@ export class ShopService {
       return this.http.post(`${baseurl}/api/Shop/ValidateName/${name}?id=${id}`, {}, httpOptions);
     else return this.http.post(`${baseurl}/api/Shop/ValidateName/${name}`, {}, httpOptions);
 
+  }
+  deliveryAddresses(arr: { districtId: number, cityId: number, countryId: number, shopId: string }[]) {
+    return this.http.post(`${baseurl}/api/Shop/DeliveryAddress`, arr);
   }
   changeShopCover(photo: string) {
     //get id of logged in user shop
