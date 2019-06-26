@@ -23,7 +23,7 @@ export class AuthService {
     })
   };
   constructor(private router: Router, private http: HttpClient, private shopService: ShopService, private appinit: AppInitService) {
-    debugger;
+   
     this.appinit.retrievedCurrentUser.subscribe(obs => {
       this.currentUser = obs;
     })
@@ -38,7 +38,7 @@ export class AuthService {
 
     let obs = this.http.post(`${baseurl}/Token`, data, this.httpOptions);
     obs.subscribe(res => {
-      debugger;
+      
       this.currentUser = res;
       this.token = res['access_token'];
       localStorage.setItem("Token", this.token);
