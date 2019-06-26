@@ -29,6 +29,7 @@ import { AppInitService } from './_service/app-init.service';
 import { Observable } from 'rxjs';
 import { CartService } from './_service/cart.service';
 import { AddEditGuardService } from './Features/shop/add-edit-shop/add-edit.guard';
+import { FavitemsService } from './favitems.service';
 
 function initializeApp(appInitService: AppInitService) {
   return (): Promise<any> => {
@@ -62,6 +63,7 @@ function initializeApp(appInitService: AppInitService) {
     OrderedProductsService,
     CategoryService,
     ReviewService,
+    FavitemsService,
     UserService,
     CanDeactivateGuard,
     AuthService,

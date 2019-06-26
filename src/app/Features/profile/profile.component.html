@@ -16,9 +16,9 @@
                     </div>
                     <h3>{{username}}</h3>
                     <h5 class="text-info">{{bio}}</h5>
-                    <p>
+                    <!-- <p>
                         <a>View shop</a>
-                    </p>
+                    </p> -->
                 </div>
             </div>
         </div>
@@ -30,86 +30,23 @@
     <!-- myorders -->
     <div class="container profile--content">
         <ngb-tabset #t="ngbTabset">
-            <ngb-tab id="tab-selectbyid1" title="My Orders">
-                <ng-template ngbTabContent>
-                    <div class="row ml-5">
-                        <div class="col-12">
-                            <p>You have not ordered anything yet!</p>
-                            <!-- <table class="table table-hover">
-                                <thead class='thead-primary'>
-                                    <tr>
-                                        <th>Order-code</th>
-                                        <th>Status</th>
-                                        <th>More Details</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            67292
-                                        </td>
-                                        <td>
-                                            lorem ipsum
-                                        </td>
-                                        <td>
-                                            Go To Link
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>25373</p>
-                                        </td>
-                                        <td>
-                                            lorem ipsum
-                                        </td>
-                                        <td>
-                                            <p> Go To Link</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr class="table-secondary">
-                                        <td></td>
-                                        <td></td>
-                                        <td>lorem ipsum</td>
-                                    </tr>
-                                </tfoot>
-                            </table> -->
-                            <!-- <div class="d-flex justify-content-end">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-primary">Previous</button>
-                                    <button type="button" class="btn btn-primary">Next</button>
-                                </div>
-                            </div> -->
-                        </div>
-                    </div>
-
-                </ng-template>
-            </ngb-tab>
             <ngb-tab id="tab-selectbyid2">
                 <ng-template ngbTabTitle><b>Favorite</b> Items</ng-template>
                 <ng-template ngbTabContent>
-                    <!-- <div class="row ml-5">
-                        <div *ngFor="let p of products" class="col-md-4 col-lg-3 col-sm-6 mt-5">
-                            <app-product-card [Product]="p"></app-product-card>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <app-product-card *ngFor="let p of products" [Product]="p"></app-product-card>
                         </div>
-                    </div> -->
-                    <div class="row ml-5">
-                        <div *ngIf="shops.length>0; else noshops">
-                            <div class="col-md-4 col-lg-3 col-sm-6 mt-5" *ngFor="let p of products">
-                                <app-product-card [Product]="p"></app-product-card>
-                            </div>
-                        </div>
-                        <ng-template #noshops>
-                            <p>You have chosen any favorite items !</p>
-                        </ng-template>
                     </div>
+                    <p *ngIf="shops.length==0">You have not chosen any favorite items!</p>
+
                 </ng-template>
             </ngb-tab>
             <ngb-tab id="tab-selectbyid3">
                 <ng-template ngbTabTitle><b>Folllowed</b> Shops</ng-template>
                 <ng-template ngbTabContent>
-                    <div class="row ml-5">
+                    <div class="row">
                         <div *ngIf="shops.length>0; else noshops">
                             <div class="col-md-4 col-lg-3 col-sm-6 mt-5" *ngFor="let item of shops">
                                 <app-shop-card [shop]="item"></app-shop-card>
@@ -121,6 +58,62 @@
                     </div>
                 </ng-template>
             </ngb-tab>
+            <ngb-tab id="tab-selectbyid1" title="My Orders">
+                    <ng-template ngbTabContent>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>You have not ordered anything yet!</p>
+                                <!-- <table class="table table-hover">
+                                    <thead class='thead-primary'>
+                                        <tr>
+                                            <th>Order-code</th>
+                                            <th>Status</th>
+                                            <th>More Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                67292
+                                            </td>
+                                            <td>
+                                                lorem ipsum
+                                            </td>
+                                            <td>
+                                                Go To Link
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p>25373</p>
+                                            </td>
+                                            <td>
+                                                lorem ipsum
+                                            </td>
+                                            <td>
+                                                <p> Go To Link</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="table-secondary">
+                                            <td></td>
+                                            <td></td>
+                                            <td>lorem ipsum</td>
+                                        </tr>
+                                    </tfoot>
+                                </table> -->
+                                <!-- <div class="d-flex justify-content-end">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-primary">Previous</button>
+                                        <button type="button" class="btn btn-primary">Next</button>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+    
+                    </ng-template>
+                </ngb-tab>
         </ngb-tabset>
     </div>
 </div>

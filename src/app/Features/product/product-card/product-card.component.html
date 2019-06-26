@@ -28,8 +28,8 @@
       <i class="fas fa-shopping-basket fa-sm"></i>
       <!-- <div class="productcard__btn__title">Add to Cart</div> -->
     </div>
-    <div class="productcard__btn">
-      <i class="fas fa-heart fa-sm"></i>
+    <div class="productcard__btn"  (click)="addFavItem(product)">
+      <i class="fas fa-heart fa-sm "  [className]="clicked ? 'heartColor fas fa-heart fa-sm' : 'fas fa-heart fa-sm'"></i>
       <!-- <div class="productcard__btn__title">Add to Wishlist</div> -->
     </div>
     <div class="productcard__btn">
