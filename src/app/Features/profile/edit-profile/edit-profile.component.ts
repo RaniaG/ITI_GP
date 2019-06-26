@@ -4,6 +4,7 @@ import { UserService } from 'src/app/_service/user.service';
 import { CountryCityService } from 'src/app/_service/country-city.service';
 import { Country, City } from 'src/app/_models/country-city';
 import { AuthService } from 'src/app/_auth/auth.service';
+import { User } from 'src/app/_models/user';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -12,11 +13,12 @@ import { AuthService } from 'src/app/_auth/auth.service';
 export class EditProfileComponent implements OnInit {
 
 
-  constructor(private authService: AuthService, private countryCityService: CountryCityService) { }
+  constructor(private authService: AuthService, private countryCityService: CountryCityService, private userService: UserService) { }
   editProfileForm: FormGroup;
   validator: ValidatorFn;
   countries: Country[];
   cities: City[];
+  user: User;
   public imagePath;
   imgURL: any = this.authService.currentUser.photo;
   public message: string;
@@ -54,9 +56,24 @@ export class EditProfileComponent implements OnInit {
     this.countries = this.countryCityService.getAllCountries();
 
   }
-  onSubmit(editProfileForm) {
-    console.log(editProfileForm);
-  }
+
+  onSubmit(e) {
+    // e.preventDefault();
+ 
+     if (this.editProfileForm.valid) {
+       this.user = this.editProfileForm.value;
+       this.userService.update(this.user).subscribe(res => {
+         // debugger;
+         console.log("tamam")
+       }, err => {
+        console.log("msh tamam")
+         // debugger;
+       })
+ 
+     }
+   }
+
+
   MustMatch(control1: string, control2: string): ValidatorFn {
     return (control: FormGroup): ValidationErrors | null => {
       let result: ValidationErrors;
