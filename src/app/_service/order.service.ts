@@ -23,7 +23,7 @@ export class OrderService {
 
         this.order = {
             id: "id1",
-            status: "Preparation phase",
+            status: 1,
             deliveryMethod: 'byCar',
             paymentMethod: "cash",
         }
