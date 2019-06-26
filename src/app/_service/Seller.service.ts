@@ -4,10 +4,14 @@ import { OrderBrief } from '../_models/orderBrief';
 import { OrderSummary, SalesSummary } from '../_models/DataTransfereObjects';
 import { promise } from 'protractor';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-const serverName = "http://localhost:50589";
+const baseurl = "http://localhost:50589";
 const TOKEN = "";
 
+@Injectable()
 export class SellerService {
     ordersBriefs: OrderBrief[];
     visitsCount: number;
@@ -15,7 +19,7 @@ export class SellerService {
     ordersCount: number;
     totalRevenuValue: number;
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.ordersBriefs = [
             {
                 packageId: "14584",
@@ -146,53 +150,18 @@ export class SellerService {
         return this.visitsCount;
     }
     getSoldProductCount(): number {
-        this.soldProductsCount = 1000;
+        this.soldProductsCount = 500;
         return this.soldProductsCount;
     }
-    getTotalRevenu(): number {
-        this.totalRevenuValue = 1000;
-        return this.totalRevenuValue;
+    getTotalRevenu(shopId: string): Observable<any> {
+        return this.http.get(`${baseurl}/rpc/packages/GetPackagesRevenu/${shopId}`);
+
     }
-    getDoneOredersCount(): number {
-        this.ordersCount = 1000;
-        return this.ordersCount;
+    getDoneOredersCount(shopId: string): Observable<any> {
+        return this.http.get(`${baseurl}/rpc/packages/GetDeliveredPackagesCount/${shopId}`);
     }
     //-----------------------------------------
     // dashboard summary cards
-    getShopSubscription(shopId: string): string {
-        let output: any;
-        fetch(`${serverName}/rpc/shops/getsubscriptiontype/${shopId}`,
-            {
-                method: "GET",
-                mode: "cors",
-                headers: new Headers({
-                    'content-type': 'application/json',
-                    authentication: `bearer ${TOKEN}`
-                })
-            }).then(response => {
-                output = "uhuu";
-            }).catch(error => {
-                output = "404";
-            });
-        return output;
-    }
-    getShopUsedSlots(shopId: string): number {
-        let output: any;
-        fetch(`${serverName}/rpc/shops/getsubscriptiontype/${shopId}`,
-            {
-                method: "GET",
-                mode: "cors",
-                headers: new Headers({
-                    'content-type': 'application/json',
-                    authentication: `bearer ${TOKEN}`
-                })
-            }).then(response => {
-                output = "uhuu";
-            }).catch(error => {
-                output = "404";
-            });
-        return output;
-    }
     getOrdersSummary(): OrderSummary[] {
         return [
             { statusName: "pending", ordersCount: 10 },
@@ -243,56 +212,26 @@ export class SellerService {
     getOrderStatusOptions(): string[] {
         return ["pending", "delivered", "shipped"];
     }
-    getOrdersBriefsByFilterOptionsCount(status: string, searchKey: string, numberOfDataToFetch: number, pageNumber: number): number {
-        return 100;
+    getOrdersBriefsByFilterOptionsCount(shopId: string, status: number): Observable<any> {
+        return this.http.get(`${baseurl}/rpc/packages/GetPackagesCount?shopId=${shopId}&status=${status}`);
     }
 
-    getOrdersBriefsByFilterOptions(status: string, searchKey: string, numberOfDataToFetch: number, pageNumber: number): OrderBrief[] {
-        let stateIndex = (numberOfDataToFetch * pageNumber) - 1;
-        return this.ordersBriefs.filter(order => order.status.includes(status));
-    }
-
-    getAllOrdersBriefs(): OrderBrief[] {
-        return this.ordersBriefs;
+    getOrdersBriefsByFilterOptions(shopId: string, status: number, numberOfDataToFetch: number, pageNumber: number): Observable<any> {
+        return this.http.get(`${baseurl}/rpc/packages/GetPackagesBriefs?shopId=${shopId}&skip=${(pageNumber - 1) * numberOfDataToFetch}&take=${numberOfDataToFetch}&status=${status}`);
     }
     //---------------------------------------
     //seller order details
-    getPackageById(shopId: string, packageId: number): Order {
-        let order: Order;
-        if (packageId === 12547) {
-            order = {
-                id: "12547",
-                date: new Date(),
-                status: "pending",
-                deliveryMethod: "door to door",
-                paymentMethod: "cash on delivery",
-                invoice: {
-                    subtotal: 25.00,
-                    totalDiscount: 5,
-                    totalShippingFees: 10,
-                },
-                packageId: "jngtrhut",
-            }
-        }
-        return order;
+    getPackageById(shopId: string, packageId: number): Observable<any> {
+        return this.http.get(`${baseurl}/rpc/packages/GetPackageDetails/${packageId}?shopId=${shopId}`);
     }
 
 
-    updatePackageStatus(shopId, packageId, newStatus): Order {
-        let order: Order = {
-            id: "12547",
-            date: new Date(),
-            status: newStatus,
-            deliveryMethod: "door to door",
-            paymentMethod: "cash on delivery",
-            invoice: {
-                subtotal: 25.00,
-                totalDiscount: 5,
-                totalShippingFees: 10,
-            },
-            packageId: "jngtrhut",
-        }
-        return order;
+    updatePackageStatus(shopId: string, pkg): Observable<any> {
+        return this.http.post(`${baseurl}/rpc/packages/PutPackage`,
+            {
+
+            });
     }
+
 
 }

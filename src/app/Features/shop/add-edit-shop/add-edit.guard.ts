@@ -4,6 +4,8 @@ import { Observable, observable } from 'rxjs';
 import { AuthService } from 'src/app/_auth/auth.service';
 import { ShopService } from '../shop.service';
 
+
+
 @Injectable()
 export class AddEditGuardService implements CanActivate {
 
@@ -14,6 +16,8 @@ export class AddEditGuardService implements CanActivate {
     //2-check if the user has a shop
     //3-if the route is has id (edit) -> user must have a shop and check if the shop id is the same as user's shop id
     //-if the route doesnt have an id (add) ->user mustnt have a shop
+
+    debugger;
     return new Observable<boolean>((observer) => {
       // const { next, error } = observer;
       debugger;
@@ -30,8 +34,10 @@ export class AddEditGuardService implements CanActivate {
         }, err => {
           //doesnt have a shop
           debugger;
-          if (route.params['id'])
+          if (route.params['id']) {
+            console.log("error in add-edit");
             observer.error(false);
+          }
           else {
             console.log("add-edit guard true");
             observer.next(true);

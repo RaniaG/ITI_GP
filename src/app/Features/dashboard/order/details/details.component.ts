@@ -9,7 +9,7 @@ import { SellerService } from 'src/app/_service/Seller.service';
   styleUrls: ['./details.component.scss']
 })
 export class OrderDetailsComponent implements OnInit {
-  orderId: string; // known as package
+  orderId: number; // known as package
   shopId: string;
   readToShip: boolean;
   order: Order;
@@ -25,22 +25,26 @@ export class OrderDetailsComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.params.subscribe(
       (params: Params) => {
-        this.orderId = params['orderId'];
+        this.orderId = +params['orderId'];
         this.shopId = params['id'];
       }
     );
-    this.order = this.sellerService.getPackageById(this.shopId, +this.orderId);
+    this.sellerService.getPackageById(this.shopId, this.orderId).subscribe(
+      (res) => {
+        this.order = res;
+      }
+    );
 
     debugger;
     if (this.order) {
       this.router.navigate(['/404']);
     }
     else {
-      if (this.order.status == 'shipped') {
+      if (this.order.status == 2) {
         this.shipped = true;
         this.delivered = false;
       }
-      else if (this.order.status == 'delivered') {
+      else if (this.order.status == 3) {
         this.shipped = true;
         this.delivered = true;
       }
@@ -49,11 +53,19 @@ export class OrderDetailsComponent implements OnInit {
 
   onOrderReadyToShip() {
     this.shipped = true;
-    this.order = this.sellerService.updatePackageStatus(this.shopId, this.orderId, 'shipped');
+    this.sellerService.updatePackageStatus(this.shopId, this.order).subscribe(
+      (res) => {
+        this.order = res;
+      }
+    );
   }
   onOrderDelivered(packageId) {
     this.delivered = true;
-    this.order = this.sellerService.updatePackageStatus(this.shopId, this.orderId, 'delivered');
+    this.sellerService.updatePackageStatus(this.shopId, this.order).subscribe(
+      (res) => {
+        this.order = res;
+      }
+    );
   }
 
 }

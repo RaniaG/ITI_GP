@@ -1,7 +1,7 @@
 import { Country, City, District } from '../_models/country-city';
 import { HttpClient } from '@angular/common/http';
 import { baseurl } from '../_utilities/baseUrl';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 @Injectable()
 export class CountryCityService {
@@ -9,18 +9,21 @@ export class CountryCityService {
     countries: Country[] = [];
     cities: City[] = [];
     districts: District[] = [];
-    isLoaded: boolean = false;
+    isLoaded: Subject<any> = new Subject<any>();
     constructor(private http: HttpClient) {
     }
 
-    private getAll() {
+    getAll() {
         forkJoin(this.http.get(`${baseurl}/api/Countries`), this.http.get(`${baseurl}/api/Cities`),
             this.http.get(`${baseurl}/api/Districts`)).subscribe((results) => {
+                debugger;
                 const [countries, cities, districts] = results;
+                console.log(cities);
                 this.countries = countries as Country[];
+                console.log(this.countries);
                 this.cities = cities as City[];
                 this.districts = districts as District[];
-                this.isLoaded = true;
+                this.isLoaded.next();
             }, error => console.log(error))
 
     }
@@ -45,7 +48,7 @@ export class CountryCityService {
     }
 
     getCitiesByCountryId(id: number): City[] {
-        return this.cities.filter(city => city.CountryId == id);
+        return this.cities.filter(city => city.countryId == id);
     }
 
     getAllDistricts(): District[] {
@@ -57,7 +60,7 @@ export class CountryCityService {
     }
 
     getDistrictsByCityId(id: number): District[] {
-        return this.districts.filter(district => district.CityId == id)
+        return this.districts.filter(district => district.cityId == id)
     }
 
 }

@@ -7,6 +7,8 @@ import { FeesAndPaymentMethodsComponent } from './fees-and-payment-methods/fees-
 import { OrderSummaryComponent } from './order-summary/order-summary.component'
 import { SharedModule } from 'src/app/Shared/shared.module';
 import { AddAddressFormComponent } from './add-address-form/add-address-form.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,20 +16,25 @@ import { AddAddressFormComponent } from './add-address-form/add-address-form.com
     ShippingInformationComponent,
     FeesAndPaymentMethodsComponent,
     OrderSummaryComponent,
-    AddAddressFormComponent
+    AddAddressFormComponent,
+    CartPageComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild([
+      { path: 'cart', component: CartPageComponent }
+    ])
   ],
   exports: [
     CartTableComponent,
     ShippingInformationComponent,
     FeesAndPaymentMethodsComponent,
     OrderSummaryComponent,
-    AddAddressFormComponent
+    AddAddressFormComponent,
+    CartPageComponent
   ]
 })
 export class CartModule { }

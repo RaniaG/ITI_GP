@@ -1,3 +1,5 @@
+import { ShipmentData } from './shipmentData';
+
 export class User {
     id?: string;
     firstName?: string;
@@ -11,4 +13,5 @@ export class User {
     password?: string;
     phoneNumber?: number;
     shopId?: number;
+    shipmentData?: ShipmentData[]
 }

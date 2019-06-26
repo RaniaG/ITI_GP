@@ -4,10 +4,10 @@
 </app-page-header> -->
 
 <!-- Product Details -->
-<div class="container m-5">
-    <div class="row">
-        <div class="col-10 ">
-            <div class='row'>
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class='row '>
                 <div class="col-lg-6 product-details__images">
                     <div class="row no-gutters">
                         <div class="col-12 product-details__images__main-img">
@@ -18,7 +18,6 @@
                         <div class=" product-details__images__img" [ngStyle]="{'background-image': 'url(' + img + ')'}"
                             *ngFor="let img of product.images;let i = index;" (click)="activeImageIndex=i">
                         </div>
-
                     </div>
 
                 </div>
@@ -28,9 +27,17 @@
                         <div class='product-details__text__rating'>
                             <app-rating [readonly]="true" [rate]="product.rate"></app-rating>
                         </div>
-                        <div class="price price--new price--sterling">{{product.price}}</div>
-                        <div class="price price--old price--sterling" *ngIf="product.discount">
-                            {{product.price+product.discount}}</div>
+                        <span class="price price--new price--sterling">{{product.price}}</span>
+                        <span class="price price--old price--sterling" *ngIf="product.discount">
+                            {{product.price+product.discount}}</span>
+                        <span class="text-secondary"><span class="text-primary">Available Quantity:</span> {{product.quantity}}
+                        </span>
+                        <div class="text-secondary mt-2">
+                            <span class="text-primary">Description: </span>  {{product.description}}
+                        </div>
+                        <div class="text-secondary mt-2">
+                            <span class="text-primary">Terms and Condtions:</span>  {{product.terms}}
+                        </div>
                         <div class='product-details__text__controls'>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-light"
@@ -42,14 +49,14 @@
                                     [disabled]="numberOfAddedItems===product.quantity"><i
                                         class="fas fa-angle-right"></i></button>
                             </div>
-                            <button class='btn btn-primary' (click)="addToCart()"><i
+                            <button class='btn btn-primary ml-2' (click)="addToCart()"><i
                                     class="fas fa-shopping-basket"></i>Add to
                                 Cart</button>
                             <button class='btn btn-light'><i class="fas fa-heart text-primary"></i></button>
                         </div>
                         <div class='mt-3'>
                             <div class="text-secondary">Categories:
-                                <a href="">Books</a>
+                                <a>{{product.category.name}}</a>
                             </div>
                         </div>
                     </div>

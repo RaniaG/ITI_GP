@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { CanDeactivateGuard } from 'src/app/can-deactivate-guard.service';
 import { AuthGuard } from 'src/app/_auth/auth.guard';
-import { AddEditGuardService } from './add-edit-shop/add-edit-guard.service';
+import { AddEditGuardService } from './add-edit-shop/add-edit.guard';
 import { ProductModule } from '../product/product.module';
 
 
@@ -18,7 +18,7 @@ const routes: Routes = [
     path: 'shop', children: [
       { path: '', component: ShopListComponent },
       { path: 'add', component: AddEditShopComponent, canActivate: [AuthGuard, AddEditGuardService], canDeactivate: [CanDeactivateGuard] },
-      { path: 'edit/:id', component: AddEditShopComponent, canDeactivate: [CanDeactivateGuard] },
+      { path: 'edit/:id', component: AddEditShopComponent, canActivate: [AuthGuard, AddEditGuardService], canDeactivate: [CanDeactivateGuard] },
       { path: ':id', component: ShopDetailsComponent }
     ]
   }
@@ -32,9 +32,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ProductModule
   ],
-  providers: [
-    AddEditGuardService
-  ],
+  providers: [AuthGuard, AddEditGuardService],
   exports: [
     ShopDetailsComponent,
     ShopListComponent,

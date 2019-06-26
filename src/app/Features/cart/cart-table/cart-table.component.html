@@ -12,28 +12,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of orderedProducts">
+          <tr *ngFor="let item of cart">
             <td>
               <div class="d-flex align-items-start">
-                <img src="{{product.product.images[0]}}" alt="" width="100px">
-                <a href="" class="ml-3">{{product.product.name}}</a>
+                <img src="{{item.product.images[0]}}" alt="" width="100px">
+                <a [routerLink]="['/products/details', item.productId]" routerLinkActive="text-primary" class="ml-3">
+                  {{item.product.name}}
+                </a>
               </div>
             </td>
             <td>
               <div class="d-flex flex-column">
-                <span *ngFor="let property of product.details | keyvalue">
+                <span *ngFor="let property of item.variations | keyvalue">
                   {{property.key}}: {{property.value}}
                 </span>
               </div>
             </td>
             <td>
-              <app-quantity-picker [(quantity)]="product.quantity"></app-quantity-picker>
+              <app-quantity-picker [(quantity)]="item.quantity"></app-quantity-picker>
             </td>
             <td>
-              ${{product.price}}
+              ${{item.product.price}}
             </td>
             <td>
-              <button class='btn btn-primary' (click)="removeProduct(product.id)"><i class="fas fa-minus"></i></button>
+              <button class='btn btn-primary' (click)="removeProduct(item.productId)"><i
+                  class="fas fa-minus"></i></button>
             </td>
           </tr>
         </tbody>
@@ -42,12 +45,11 @@
             <td></td>
             <td></td>
             <td><strong>Total</strong></td>
-            <td>{{order.invoice.subtotal}}</td>
+            <td>{{totalPrice}}</td>
             <td></td>
           </tr>
         </tfoot>
       </table>
-      <app-pagination></app-pagination>
     </div>
   </div>
 </div>

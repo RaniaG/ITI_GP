@@ -4,7 +4,8 @@ import { Category } from './category';
 
 export class Product {
 
-    id?: number; 
+    id?: number;
+    shopId?: string;
     name?: string;
     price?: number;
     discount?: number;
@@ -19,5 +20,7 @@ export class Product {
         color?: string;
         size?: string;
     }
+    minDelieveryDate?: number;
+    maxDelieveryDate?: number;
     customizations?: { field: string, values: string[] }[]
 }
