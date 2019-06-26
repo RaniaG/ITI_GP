@@ -26,6 +26,9 @@ export class UserService {
   update(user: User) {
     // const i = this.data.findIndex(a => a.id === user.id);
     // this.data[i] = user;
+    debugger;
+    return this.http.post(`${baseurl}/api/Account/ChangeUserInfo`, user);
+    
 
   }
   delete(id: number) {

@@ -32,10 +32,10 @@
               </label>
               <select id="orderStatus" class="mx-2 px-2 border-2 form-control form-control-sm "
                 [(ngModel)]="statusFilter" (change)="onStatusChange($event)" name="statusFilterddl">
-                <option selected value="">All orders</option>
-                <option value="pending">Pedning</option>
-                <option value="shipped">Shipped</option>
-                <option value="deliver">Delivered</option>
+                <option selected value="-1">All orders</option>
+                <option value="0">Pedning</option>
+                <option value="2">Shipped</option>
+                <option value="3">Delivered</option>
               </select>
             </form>
           </div>

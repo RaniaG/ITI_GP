@@ -48,7 +48,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit(e) {
     e.preventDefault();
-
+debugger;
     if (this.signUpForm.valid) {
       this.user = this.signUpForm.value;
       this.userService.add(this.user).subscribe(res => {

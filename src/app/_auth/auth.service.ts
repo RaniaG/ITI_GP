@@ -23,7 +23,7 @@ export class AuthService {
     })
   };
   constructor(private router: Router, private http: HttpClient, private shopService: ShopService, private appinit: AppInitService) {
-    debugger;
+    // debugger;
     this.appinit.retrievedCurrentUser.subscribe(obs => {
       this.currentUser = obs;
     })

@@ -27,6 +27,10 @@ export class AddEditProductComponent implements OnInit {
 
   variation: { key: string, val: string[] }[] = [];
   enterValue: boolean[] = [];
+  // showTextBox: boolean = false;
+
+  variationKey: FormControl = new FormControl('');
+  variationValue: FormControl = new FormControl(['']);
 
   constructor(private productService: ProductService, private categoryService: CategoryService, private router: Router, private route: ActivatedRoute) {
     // if (!this.categories)
@@ -118,6 +122,7 @@ export class AddEditProductComponent implements OnInit {
     }
   }
   addTextbox() {
+    // this.showTextBox = true;
     if (this.variation.length == 0 || this.enterValue[this.enterValue.length - 1]) {
       this.enterValue.push(false);
       // console.log(this.enterValue)
@@ -129,9 +134,11 @@ export class AddEditProductComponent implements OnInit {
     this.variation[i].key = event.target.value;
     // this.variation[i].val = [""];
     this.enterValue[i] = true;
+    this.variationKey.setValue('');
   }
   getTextBoxValue(event, i) {
     this.variation[i].val.push(event.target.value);
-    console.log(this.variation[i].val)
+    // console.log(this.variation)
+    this.variationValue.setValue('')
   }
 }

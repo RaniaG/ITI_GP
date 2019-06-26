@@ -12,13 +12,13 @@ export class OrderListingComponent implements OnInit {
   totalElements: number; // total found orders
   pageNumber: number;
   orders: OrderBrief[]; // orders in page
-  statusFilter: string;
+  statusFilter: number;
   searchKey: string;
   shopId: string;
   numberOfpages: number;
   constructor(private sellerService: SellerService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.searchKey = "";
-    this.statusFilter = '';
+    this.statusFilter = -1;
     this.elementsPerPage = 10;
     this.pageNumber = 1;
 
@@ -30,26 +30,43 @@ export class OrderListingComponent implements OnInit {
       (params: Params) => {
         this.shopId = params['id'];
       }
-    )
-    this.totalElements = this.sellerService.getOrdersBriefsByFilterOptionsCount('', null, null, null);
-    this.orders = this.sellerService.getOrdersBriefsByFilterOptions('', null, null, null);
+    );
+    this.sellerService.getOrdersBriefsByFilterOptionsCount(this.shopId, -this.statusFilter).subscribe(
+      (data) => {
+        this.totalElements = data;
+      }
+    );
+
+    this.sellerService.getOrdersBriefsByFilterOptions(this.shopId, this.statusFilter, this.elementsPerPage, this.pageNumber).subscribe(
+      (res) => {
+        this.orders = res;
+      }
+    );
     this.numberOfpages = Math.ceil(this.orders.length / this.elementsPerPage);
   }
 
   onPageChanged(pageNumber: number) {
-    // console.log('success')
-    //get next/previous data
-    let startIndex = (pageNumber - 1) * this.elementsPerPage;
-    let limitIndex = startIndex + this.elementsPerPage;
-    this.orders = this.sellerService.getOrdersBriefsByFilterOptions('shipped', null, null, null);
+    this.sellerService.getOrdersBriefsByFilterOptions(this.shopId, this.statusFilter, this.elementsPerPage, this.pageNumber).subscribe(
+      (res) => {
+        this.orders = res;
+      }
+    );
   }
 
   onStatusChange(e) {
     // console.log(e);
     this.statusFilter = e.target.value;
     //based on each page
-    this.orders = this.sellerService.getOrdersBriefsByFilterOptions(this.statusFilter, null, null, null);
-    this.totalElements = this.orders.length; // leha get count of total
+    this.sellerService.getOrdersBriefsByFilterOptionsCount(this.shopId, -this.statusFilter).subscribe(
+      (data) => {
+        this.totalElements = data;
+      }
+    );
+    this.sellerService.getOrdersBriefsByFilterOptions(this.shopId, this.statusFilter, this.elementsPerPage, this.pageNumber).subscribe(
+      (res) => {
+        this.orders = res;
+      }
+    );
     this.numberOfpages = Math.ceil(this.orders.length / this.elementsPerPage);
     //reset pager number
     this.pageNumber = 1;
@@ -60,14 +77,19 @@ export class OrderListingComponent implements OnInit {
     //reset pagenumber
     this.pageNumber = 1;
     //get totalelements
-
-    //fetch new data
+    this.sellerService.getOrdersBriefsByFilterOptionsCount(this.shopId, -this.statusFilter).subscribe(
+      (data) => {
+        this.totalElements = data;
+      }
+    );
+    this.sellerService.getOrdersBriefsByFilterOptions(this.shopId, this.statusFilter, this.elementsPerPage, this.pageNumber).subscribe(
+      (res) => {
+        this.orders = res;
+      }
+    );
+    this.numberOfpages = Math.ceil(this.orders.length / this.elementsPerPage);
   }
 
-  // onOrderReadyToShip(packageId: string) {
-  //   console.log(packageId);
-  //   this.router.navigate(['/shop', this.shopId, 'order', packageId, 'details']);
-  // }
 
   onSearch(e) {
     e.preventDefault();

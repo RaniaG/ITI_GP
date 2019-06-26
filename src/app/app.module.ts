@@ -28,6 +28,7 @@ import { JwtInterceptor } from './_utilities/interceptor';
 import { AppInitService } from './_service/app-init.service';
 import { Observable } from 'rxjs';
 import { CartService } from './_service/cart.service';
+import { AddEditGuardService } from './Features/shop/add-edit-shop/add-edit.guard';
 
 function initializeApp(appInitService: AppInitService) {
   return (): Promise<any> => {
