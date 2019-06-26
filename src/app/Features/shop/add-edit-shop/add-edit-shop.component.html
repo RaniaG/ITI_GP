@@ -20,9 +20,11 @@
     <div class="container align-self-center">
       <div class="row">
         <div class="col-4">
-          <h1 class="text-center headline align-self-center text-primary" *ngIf="!shop">Choose your Subscription Plan
+          <h1 class="text-center headline align-self-center text-primary" *ngIf="!route.params['id']">Choose your
+            Subscription Plan
           </h1>
-          <h1 class="text-center headline align-self-center text-primary" *ngIf="shop">Change your Subscription Plan?
+          <h1 class="text-center headline align-self-center text-primary" *ngIf="route.params['id']">Change your
+            Subscription Plan?
           </h1>
 
         </div>

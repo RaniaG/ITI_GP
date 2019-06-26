@@ -4,6 +4,7 @@ import { Product } from 'src/app/_models/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { baseurl } from '../../_utilities/baseUrl';
+import { AuthService } from 'src/app/_auth/auth.service';
 const TOKEN = "";
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,35 +15,49 @@ const httpOptions = {
 @Injectable()
 export class ShopService {
 
-  data: Shop[] = []
+  data: Shop[] = [
+    { id: '0', name: "EmbroideryShop", about: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", rating: 1.5, policy: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", subscription: 1, followers: [], products: [], sales: 10 },
+    { id: '1', name: "Creative_Shop", about: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", rating: 2, policy: "lafdfgdfgdfgsfgggggggggggggggggg afsdsdsff       asdasd", subscription: 0, followers: [], products: [], sales: 0 }
+
+  ]
   constructor(private http: HttpClient) {
   }
 
-  add(shop: Shop) {
-    return this.http.post(`${baseurl}/api/Shops`, shop);
+  add(shop: Shop): Shop {
+    shop.id = "" + this.data.length;
+    this.data.push(shop);
+    return this.data[this.data.length - 1];
+    // return this.http.post(`${baseurl}/api/Shops`, shop);
   }
   edit(shop: Shop) {
-    return this.http.put(`${baseurl}/api/Shops`, shop);
+    let shopIndex = this.data.findIndex(el => el.id === shop.id);
+    this.data[shopIndex] = shop;
+    // return this.http.put(`${baseurl}/api/Shops`, shop);
   }
-  getAll(pageNumber: number) {
-    return this.http.get(`${baseurl}/api/Shops/${pageNumber}`);
+  getAll(pageNumber: number, filterString: string = "") {
+    return this.data;
+    // return this.http.get(`${baseurl}/api/Shops/${pageNumber}${filterString}`);
   }
   getById(id: string) {
-    return this.http.get(`${baseurl}/api/Shop/${id}`);
+    // return this.http.get(`${baseurl}/api/Shop/${id}`);
+    return this.data.find(el => el.id === id);
   }
   getFollowedShops() {
-    return this.http.get(`${baseurl}/api/FollowedShop`);
+    // return this.http.get(`${baseurl}/api/FollowedShop`);
   }
 
 
   validateShopName(name: string, id: string = null) {
-    if (id)
-      return this.http.post(`${baseurl}/api/Shop/ValidateName/${name}?id=${id}`, {}, httpOptions);
-    else return this.http.post(`${baseurl}/api/Shop/ValidateName/${name}`, {}, httpOptions);
+    return this.data.find(el => el.name == name) ? false : true;
+    // if (id)
+    //   return this.http.post(`${baseurl}/api/Shop/ValidateName/${name}?id=${id}`, {}, httpOptions);
+    // else return this.http.post(`${baseurl}/api/Shop/ValidateName/${name}`, {}, httpOptions);
 
   }
-  deliveryAddresses(arr: { districtId: number, cityId: number, countryId: number, shopId: string }[]) {
-    return this.http.post(`${baseurl}/api/Shop/DeliveryAddress`, arr);
+  deliveryAddresses(shopId: string, arr: { districtId: number, cityId: number, countryId: number, shopId: string }[]) {
+    // return this.http.post(`${baseurl}/api/Shop/DeliveryAddress`, arr);
+    let shopIndex = this.data.findIndex(el => el.id === shopId);
+    this.data[shopIndex].deliveryAddresses = arr;
   }
   changeShopCover(photo: string) {
     //get id of logged in user shop
@@ -51,7 +66,8 @@ export class ShopService {
     //get id of logged in user shop
   }
   followShop(id: string) {
-    return this.http.post(`${baseurl}/api/Shop/Follow/${id}`, {});
+    // return this.http.post(`${baseurl}/api/Shop/Follow/${id}`, {});
+    // this.data.find(el => el.id === id).followers.push(this.authService.currentUser);
   }
 
   // getShopSubscription(shopId: string):any any {

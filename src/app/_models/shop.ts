@@ -1,3 +1,6 @@
+import { Product } from './product';
+import { User } from './user';
+
 export interface Shop {
     id?: string,
     name: string,
@@ -13,5 +16,9 @@ export interface Shop {
     rating?: number,
     about?: string,
     policy?: string,
-    subscription?: number
+    subscription?: number,
+    followers?: User[],
+    products?: Product[],
+    sales?: number,
+    deliveryAddresses?: { districtId: number, cityId: number, countryId: number }[]
 }
