@@ -19,19 +19,19 @@ export class AppInitService {
   }
   Init() {
     // this.authService.getToken();
-    debugger;
+    // debugger;
     this.token = localStorage.getItem('Token');
     return new Promise((resolve, reject) => {
-      debugger;
+      // debugger;
       if (this.token) {
         this.http.get(`${baseurl}/api/Account/LoggedInUser`)
           .subscribe(res => {
-            debugger;
+            // debugger;
             this.currentUser = res;
             this.retrievedCurrentUser.next(res);
             resolve();
           }, err => {
-            debugger;
+            // debugger;
             console.log(err);
             this.retrievedCurrentUser.next(null);
             reject();

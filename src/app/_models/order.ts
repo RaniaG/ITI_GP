@@ -4,7 +4,7 @@ export class Order {
     packageId?: string;//seller order id
     id?: string;//guid // buyer order id
     shopId?: string;
-    status: string;
+    status: number;
     date: Date;
     // shippingAddress: string;
     shipmentData?: {
