@@ -71,6 +71,9 @@ export class ShopService {
     // this.data.find(el => el.id === id).followers.push(this.authService.currentUser);
   }
 
+  userHasShop() {
+    return this.data.find(el => el.userId === this.authService.currentUser.id);
+  }
   // getShopSubscription(shopId: string):any any {
   //   let output: any;
   //   fetch(`${baseurl}/rpc/shops/GetSubscriptionType/${shopId}`,

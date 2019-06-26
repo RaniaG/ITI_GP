@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../_models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { baseurl } from '../_utilities/baseUrl';
+import { ShopService } from '../Features/shop/shop.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,4 +36,5 @@ export class UserService {
     // const i = this.data.findIndex(a => a.id === id);
     // this.data.splice(i, 1);
   }
+
 }

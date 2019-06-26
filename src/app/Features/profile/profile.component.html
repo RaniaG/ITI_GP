@@ -23,7 +23,9 @@
             </div>
         </div>
         <div class="ml-auto mt-2"><a class="btn btn-primary" routerLink="/editprofile">Edit Profile</a></div>
-        <div class="mt-2"><a class="btn btn-primary ml-2" routerLink="/shop/add">Create shop</a></div>
+        <div class="mt-2"><a class="btn btn-primary ml-2" routerLink="/shop/add" *ngIf="!shop">Create shop</a></div>
+        <div class="mt-2"><a class="btn btn-primary ml-2" [routerLink]="['/shop','edit',shop.id]" *ngIf="shop">Edit
+                shop</a></div>
 
     </div>
 

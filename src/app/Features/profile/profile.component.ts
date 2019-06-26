@@ -18,9 +18,13 @@ export class ProfileComponent implements OnInit {
   // shops: Shop[];
   shops: any;
   products: Product[];
+  shop: Shop;
   imgURL: any = "http://www.iconarchive.com/download/i63426/dapino/beauty-consultant/girl-beauty-consultant-showing.ico";
 
-  constructor(private user: UserService, private FavitemsService: FavitemsService,private shopService: ShopService, private productService: ProductService, private authService: AuthService) { }
+  constructor(private user: UserService, private FavitemsService: FavitemsService, private shopService: ShopService, private productService: ProductService, private authService: AuthService) {
+    this.shop = this.shopService.userHasShop();
+
+  }
 
   ngOnInit() {
 
@@ -31,7 +35,6 @@ export class ProfileComponent implements OnInit {
     // }, (error) => {
     //   console.log(error);
     // })
-
 
     this.username = this.authService.currentUser.userName;
 
