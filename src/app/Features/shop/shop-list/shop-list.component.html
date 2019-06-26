@@ -9,13 +9,7 @@
             (click)="addFilter({key:'category',value:item.name})">{{item.name}}</li>
         </ul>
       </div>
-      <div class='mt-5'>
-        <label for="customRange3">
-          <div class='listing__filters__title'>Price</div>
-        </label>
-        <input type="range" class="custom-range" min="0" max="10000" step="0.5"
-          (change)="addFilter({key:'price',value:$event.target.value})">
-      </div>
+
 
       <div class='mt-5 listing__filters__rating'>
         <div class='listing__filters__title'>Rating</div>

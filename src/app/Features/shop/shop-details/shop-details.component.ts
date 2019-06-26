@@ -3,6 +3,8 @@ import { ShopService } from '../shop.service';
 import { Shop } from 'src/app/_models/shop';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/_models/product';
+import { debug } from 'util';
+import { AuthService } from 'src/app/_auth/auth.service';
 
 
 @Component({
@@ -19,14 +21,29 @@ export class ShopDetailsComponent implements OnInit {
   shopPhoto = null;
   shop: Shop;
   relatedProducts: Product[];
-  constructor(private shopService: ShopService, private route: ActivatedRoute) {
+  doneLoading: boolean = false;
+  followedByUser: boolean = false;
+  constructor(private shopService: ShopService, private route: ActivatedRoute, private authService: AuthService) {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.params['id']
-    // this.shop = this.shopService.getById(id);
+    const id = this.route.snapshot.params['id'];
+    this.shop = this.shopService.getById(id);
+    this.followedByUser = this.shop.followers && this.shop.followers.find(el => el.id == this.authService.currentUser.id) ? true : false;
+    this.doneLoading = true;
+    // this.shopService.getById(id).subscribe(res => {
+    //   debugger;
+    //   this.shop = res as Shop;
+
+    //   this.followedByUser = this.shop.followers && this.shop.followers.find(el => el.id == this.authService.currentUser.id) ? true : false;
+    //   this.doneLoading = true;
+    //   console.log(this.shop);
+    // }, err => {
+    //   this.doneLoading = true;
+    //   debugger;
+    // });
     // this.relatedProducts = this.shopService.getRelatedProducts();
-    //get shop's products from product service
+    // get shop's products from product service
   }
 
 
@@ -34,7 +51,14 @@ export class ShopDetailsComponent implements OnInit {
     this.showCoverUploadModal = false;
     switch (action) {
       case 'Save':
-        this.shopService.changeShopCover(this.coverPhoto);
+        // this.shopService.changeShopCover(this.coverPhoto);
+        let reader = new FileReader();
+        reader.readAsDataURL(this.coverPhoto);
+        let self = this;
+        reader.onload = function () {
+          debugger;
+          self.shop.cover = reader.result as string;
+        };
         break;
       case 'Close':
       case 'Cancel':
@@ -47,7 +71,8 @@ export class ShopDetailsComponent implements OnInit {
     this.showPhotoUploadModal = false;
     switch (action) {
       case 'Save':
-        this.shopService.changeShopPhoto(this.shopPhoto);
+        // this.shopService.changeShopPhoto(this.shopPhoto);
+        this.shop.photo = this.shopPhoto;
         break;
       case 'Close':
       case 'Cancel':
@@ -56,4 +81,5 @@ export class ShopDetailsComponent implements OnInit {
         break;
     }
   }
+
 }

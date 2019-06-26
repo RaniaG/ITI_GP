@@ -16,36 +16,40 @@ export class AddEditGuardService implements CanActivate {
     //2-check if the user has a shop
     //3-if the route is has id (edit) -> user must have a shop and check if the shop id is the same as user's shop id
     //-if the route doesnt have an id (add) ->user mustnt have a shop
+    let shop = this.shopService.getById(this.authService.currentUser.id);
+    if ((shop && route.params['id']) || (!shop && !route.params['id']))
+      return true;
+    return false;
+    // debugger;/
+    // return new Observable<boolean>((observer) => {
+    //   // const { next, error } = observer;
+    //   debugger;
+    //   if (this.authService.isAuthenticated()) {
+    //     //user is logged in and has a shop
+    //     debugger;
 
-    debugger;
-    return new Observable<boolean>((observer) => {
-      // const { next, error } = observer;
-      debugger;
-      if (this.authService.isAuthenticated()) {
-        //user is logged in and has a shop
-        debugger;
-        this.shopService.getById(this.authService.currentUser.id).subscribe(res => {
-          debugger;
-          if (route.params['id']) {
-            console.log("add-edit guard true");
-            observer.next(true);
-          }
-          else observer.error(false);
-        }, err => {
-          //doesnt have a shop
-          debugger;
-          if (route.params['id']) {
-            console.log("error in add-edit");
-            observer.error(false);
-          }
-          else {
-            console.log("add-edit guard true");
-            observer.next(true);
-          }
-        });
+    //     // this.shopService.getById(this.authService.currentUser.id).subscribe(res => {
+    //     //   debugger;
+    //     //   if (route.params['id']) {
+    //     //     console.log("add-edit guard true");
+    //     //     observer.next(true);
+    //     //   }
+    //     //   else observer.error(false);
+    //     // }, err => {
+    //     //   //doesnt have a shop
+    //     //   debugger;
+    //     //   if (route.params['id']) {
+    //     //     console.log("error in add-edit");
+    //     //     observer.error(false);
+    //     //   }
+    //     //   else {
+    //     //     console.log("add-edit guard true");
+    //     //     observer.next(true);
+    //     //   }
+    //     // });
 
-      }
-    })
+    //   }
+    // })
 
   }
 

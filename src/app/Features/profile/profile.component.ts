@@ -17,22 +17,22 @@ export class ProfileComponent implements OnInit {
   // shops: Shop[];
   shops: any;
   products: Product[];
- imgURL: any = "http://www.iconarchive.com/download/i63426/dapino/beauty-consultant/girl-beauty-consultant-showing.ico";
+  imgURL: any = "http://www.iconarchive.com/download/i63426/dapino/beauty-consultant/girl-beauty-consultant-showing.ico";
 
   constructor(private user: UserService, private shopService: ShopService, private productService: ProductService, private authService: AuthService) { }
 
   ngOnInit() {
 
     //this.bio = this.authService.currentUser.bio;
-    this.shops = this.shopService.getFollowedShops().subscribe((response: Shop) => {
-      this.shops = response;
-      console.log(this.shops);
-    }, (error) => {
-      console.log(error);
-    })
-  
+    // this.shops = this.shopService.getFollowedShops().subscribe((response: Shop) => {
+    //   this.shops = response;
+    //   console.log(this.shops);
+    // }, (error) => {
+    //   console.log(error);
+    // })
 
-    this.username=this.authService.currentUser.userName;
+
+    this.username = this.authService.currentUser.userName;
 
     this.products = this.productService.getAll();
   }
