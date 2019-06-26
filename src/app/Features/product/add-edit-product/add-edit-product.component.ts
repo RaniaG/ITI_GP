@@ -16,6 +16,7 @@ export class AddEditProductComponent implements OnInit {
   product: Product;
   categories: Category[];
   addProductForm: FormGroup;
+  addVariation: FormGroup;
   showProductUploadModal: boolean = false;
   showProductVariationModal: boolean = false;
 
@@ -33,8 +34,8 @@ export class AddEditProductComponent implements OnInit {
   variationValue: FormControl = new FormControl(['']);
 
   constructor(private productService: ProductService, private categoryService: CategoryService, private router: Router, private route: ActivatedRoute) {
-    // if (!this.categories)
-    //  { this.categories = this.categoryService.getAll(); }
+    if (!this.categories)
+     { this.categories = this.categoryService.getAll(); }
   }
 
   ngOnInit() {
@@ -53,6 +54,11 @@ export class AddEditProductComponent implements OnInit {
       'price': new FormControl(this.editMode ? this.product.price : '', [Validators.required, Validators.pattern('^[0-9]+$')]),
       'discount': new FormControl({ value: this.editMode ? this.product.discount : '', disabled: true }, [Validators.required, Validators.pattern('^[0-9]+$')]),
       'category': new FormControl(this.editMode ? this.product.category.id : '', Validators.required),
+      // 'variation': new FormGroup({
+      //   'variationKey' : new FormControl(''),
+      //   'variationValue': new FormControl([''])
+      // }),
+
     });
 
     if (this.editMode && this.product.discount) {
@@ -80,9 +86,10 @@ export class AddEditProductComponent implements OnInit {
 
       this.addProductForm.reset();
     }
-    // console.log(this.product)
-    // this.router.navigate(['/products'])
+    console.log(this.product)
+    this.router.navigate(['/products'])
   }
+ 
 
   handleProductPhoto(action: string) {
     this.showProductUploadModal = false;
@@ -97,7 +104,7 @@ export class AddEditProductComponent implements OnInit {
       case 'Close':
       case 'Cancel':
       default:
-        // this.productPhoto = null;
+        this.router.navigate(['/products'])
         break;
     }
   }

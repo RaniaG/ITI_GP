@@ -2,16 +2,21 @@
 
 <div class="container-fluid mt-5 mb-5">
 
+  <div class="row ml-5">
+    <a [routerLink]="['/products' , 'add' ]">
+    <button class="btn btn-primary ml-4">Add New Product</button>
+  </a>
+  </div>
   <div class="row listing">
     <div class="col-md-2 listing__filters">
       <div class='mt-5'>
         <div class='listing__filters__title'>Categories</div>
         <ul class="list-group list-group-flush listing__filters__categories">
-          <li class="list-group-item">Shoes</li>
-          <li class="list-group-item active">Bags</li>
+          <li class="list-group-item" *ngFor="let c of categories"><span class="text-secondary">{{c.name}}</span></li>
+          <!-- <li class="list-group-item active">Bags</li>
           <li class="list-group-item">Scarf</li>
           <li class="list-group-item">Carpet</li>
-          <li class="list-group-item">Accessories</li>
+          <li class="list-group-item">Accessories</li> -->
         </ul>
       </div>
       <div class='mt-5'>
@@ -39,6 +44,8 @@
       </div>
       <div class='mt-5'>
         <div class='listing__filters__title'>Rating</div>
+        <!-- <div *ngFor="let r of rate ; let i = index"> -->
+          <!-- </div> -->
         <app-rating [rate]="5" [readonly]="true" (rateChange)="rate=$event"></app-rating>
         <br>
         <app-rating [rate]="4" [readonly]="true" (rateChange)="rate=$event"></app-rating>
@@ -95,7 +102,7 @@
         </div> 
       </div>
       <!-- Paging -->
-      <app-pagination></app-pagination>
+      <app-pagination ></app-pagination>
     </div>
   </div>
 </div> 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
@@ -10,6 +10,8 @@ export class ImgCropperComponent implements OnInit {
 
   imageChangedEvent: any = '';
   croppedImg: any = '';
+  @Input()
+  aspectRatio: any = 4 / 3;
 
   @Output() onCrop: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }

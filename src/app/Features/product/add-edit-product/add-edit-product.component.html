@@ -1,156 +1,156 @@
 <div class="container-fluid bg-grey">
-  <div class="row justify-content-center title p-4" >
-    <!-- <div class="col-sm-12 "> -->
-      <h1 class="text-primary">
-        <span *ngIf="editMode">Edit</span>
-        <span *ngIf="!editMode">Add a new</span>  product !</h1>
-    <!-- </div> -->
-  </div>
-     
-  <form [formGroup] = "addProductForm" (ngSubmit) = "onSubmit()"> 
-    <div class="row justify-content-center " >
-      <div class="col-lg-3 col-sm-12" formArrayName="images">
-        <!-- Main Photo -->
-        <div class="row no-gutters">
-          <div class="col-sm-12">
-            <button type="button" class="btn btn-primary btn-block mb-2"(click)="showProductUploadModal=true">
-                Add Product Photo
-              </button>
-         <!-- <div class="productPhoto img-thumbnail" 
-              [ngStyle]="{background: 'url(' + !addProductForm.get('productImages').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('productImages').value[0] + ')', backgroundSize: 'contain' }">
-            </div> -->
-            <img [src]="!addProductForm.get('images').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('images').value[0]" 
-              alt="add-product" class="productPhoto btn-block img-thumbnail">
-          </div>
-        </div>
-        <!-- Product Photos -->
-        <div class="row no-gutters d-flex flex-nowrap justify-content-start">
-          <ng-container *ngFor="let p of addProductForm.get('images').value; let i = index ; ">
-            <div [ngClass]="{'d-none':i == 0}">
-              <img [src]="p" alt="add-product" class="img-zoom col mt-2 productPhotos">
-            </div>
-          </ng-container> 
-        </div>
-      </div>
-      <!-- Product Details -->
-      <div class="col-lg-5 col-sm-12 card p-5">
-        <!-- Product Name -->
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Product Name</label>
-          <input formControlName="name" type="text" class="form-control form-control" >
-        </div>
-        <!-- Product Name Validation -->
-        <span *ngIf="!addProductForm.get('name').valid">
-            <span *ngIf="addProductForm.get('name').errors && addProductForm.get('name').invalid && addProductForm.get('name').touched"
-              class="error__msg">Name should be 3 letters to 20 letters , No Numbers !</span>
-        </span>
-        <!-- Product Description -->
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Description</label>
-          <textarea formControlName="description" name="description" class="form-control form-control" rows="3"></textarea>
-        </div>
-        <!-- Product Description Validation -->
-        <span *ngIf="!addProductForm.get('description').valid">
-            <span *ngIf="addProductForm.get('description').errors && addProductForm.get('description').invalid && addProductForm.get('description').touched"
-              class="error__msg">Description should be 10 letters to 50 letters !</span>
-        </span>
-        <!-- Product Quantity -->
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Quantity</label>
-          <input formControlName="quantity" name="quantity" type="number" min="1" max="20" class="form-control form-control" >
-        </div>
-        <!-- Product Quantity Validation -->
-        <span *ngIf="!addProductForm.get('quantity').valid">
-            <span *ngIf="addProductForm.get('quantity').errors && addProductForm.get('quantity').invalid && addProductForm.get('quantity').touched"
-              class="error__msg">Quantity could be 1 to 20  !</span>
-        </span>
-
-        <!-- Product Price -->
-        <div class="form-group">
-          <label>Price</label>
-          <div class="input-group input-group">
-            <input formControlName="price" type="text" class="form-control"
-              aria-label="Dollar amount (with dot and two decimal places)">
-            <div class="input-group-append">
-              <span class="input-group-text">$</span>
+    <div class="row justify-content-center title p-4" >
+      <!-- <div class="col-sm-12 "> -->
+        <h1 class="text-primary">
+          <span *ngIf="editMode">Edit</span>
+          <span *ngIf="!editMode">Add a new</span>  product !</h1>
+      <!-- </div> -->
+    </div>
+       
+    <form [formGroup] = "addProductForm" (ngSubmit) = "onSubmit()"> 
+      <div class="row justify-content-center " >
+        <div class="col-lg-3 col-sm-12" formArrayName="images">
+          <!-- Main Photo -->
+          <div class="row no-gutters">
+            <div class="col-sm-12">
+              <button type="button" class="btn btn-primary btn-block mb-2"(click)="showProductUploadModal=true">
+                  Add Product Photo
+                </button>
+           <!-- <div class="productPhoto img-thumbnail" 
+                [ngStyle]="{background: 'url(' + !addProductForm.get('productImages').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('productImages').value[0] + ')', backgroundSize: 'contain' }">
+              </div> -->
+              <img [src]="!addProductForm.get('images').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('images').value[0]" 
+                alt="add-product" class="productPhoto btn-block img-thumbnail">
             </div>
           </div>
+          <!-- Product Photos -->
+          <div class="row no-gutters d-flex flex-nowrap justify-content-start">
+            <ng-container *ngFor="let p of addProductForm.get('images').value; let i = index ; ">
+              <div [ngClass]="{'d-none':i == 0}">
+                <img [src]="p" alt="add-product" class="img-zoom col mt-2 productPhotos">
+              </div>
+            </ng-container> 
+          </div>
         </div>
-
-        <!-- Product Price Validation -->
-        <span *ngIf="!addProductForm.get('price').valid">
-            <span *ngIf="addProductForm.get('price').errors && addProductForm.get('price').invalid && addProductForm.get('price').touched"
-              class="error__msg">Price should be in positive number , No Letters !</span>
-        </span>
-
-
-        <!-- Sale / Not Sale -->
-        <div class="form-group mt-2 row justify-content-around align-items-center pl-3">
-          <div class="form-check col-sm-12 col-lg-6 ">
-            <input class="form-check-input" type="radio" value="sale" [formControl]="productOnSale" >
-            <label class="form-check-label" for=sale>On Sale</label>
+        <!-- Product Details -->
+        <div class="col-lg-5 col-sm-12 card p-5">
+          <!-- Product Name -->
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Product Name</label>
+            <input formControlName="name" type="text" class="form-control form-control" >
           </div>
-          <div class="form-check col-sm-12 col-lg-6 sale">
-            <input class="form-check-input" type="radio" value="notSale" [formControl]="productOnSale" > 
-            <label class="form-check-label" for="notSale">Not on Sale</label>
-          </div>
-
-           <!-- Product Discount -->
-          <div class="form-group col-2 ">
-            <input formControlName="discount" type="text" class="form-control form-control mt-2 discount" id="exampleFormControlInput1"
-              placeholder="Discount">
-          </div>
-          <!-- Product Discount Validation -->
-          <span *ngIf="!addProductForm.get('discount').valid">
-              <span *ngIf="addProductForm.get('discount').errors && addProductForm.get('discount').invalid && addProductForm.get('discount').touched"
-                class="error__msg">Discount Should be in positive number !</span>
+          <!-- Product Name Validation -->
+          <span *ngIf="!addProductForm.get('name').valid">
+              <span *ngIf="addProductForm.get('name').errors && addProductForm.get('name').invalid && addProductForm.get('name').touched"
+                class="error__msg">Name should be 3 letters to 20 letters , No Numbers !</span>
           </span>
-        </div> 
-
-        <!-- Product Category -->
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Category</label>
-          <select formControlName="category" name="category" class="form-control form-control" id="exampleFormControlSelect1">
-            <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
-          </select>
+          <!-- Product Description -->
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea formControlName="description" name="description" class="form-control form-control" rows="3"></textarea>
+          </div>
+          <!-- Product Description Validation -->
+          <span *ngIf="!addProductForm.get('description').valid">
+              <span *ngIf="addProductForm.get('description').errors && addProductForm.get('description').invalid && addProductForm.get('description').touched"
+                class="error__msg">Description should be 10 letters to 50 letters !</span>
+          </span>
+          <!-- Product Quantity -->
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Quantity</label>
+            <input formControlName="quantity" name="quantity" type="number" min="1" max="20" class="form-control form-control" >
+          </div>
+          <!-- Product Quantity Validation -->
+          <span *ngIf="!addProductForm.get('quantity').valid">
+              <span *ngIf="addProductForm.get('quantity').errors && addProductForm.get('quantity').invalid && addProductForm.get('quantity').touched"
+                class="error__msg">Quantity could be 1 to 20  !</span>
+          </span>
+  
+          <!-- Product Price -->
+          <div class="form-group">
+            <label>Price</label>
+            <div class="input-group input-group">
+              <input formControlName="price" type="text" class="form-control"
+                aria-label="Dollar amount (with dot and two decimal places)">
+              <div class="input-group-append">
+                <span class="input-group-text">$</span>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Product Price Validation -->
+          <span *ngIf="!addProductForm.get('price').valid">
+              <span *ngIf="addProductForm.get('price').errors && addProductForm.get('price').invalid && addProductForm.get('price').touched"
+                class="error__msg">Price should be in positive number , No Letters !</span>
+          </span>
+  
+  
+          <!-- Sale / Not Sale -->
+          <div class="form-group mt-2 row justify-content-around align-items-center pl-3">
+            <div class="form-check col-sm-12 col-lg-6 ">
+              <input class="form-check-input" type="radio" value="sale" [formControl]="productOnSale" >
+              <label class="form-check-label" for=sale>On Sale</label>
+            </div>
+            <div class="form-check col-sm-12 col-lg-6 sale">
+              <input class="form-check-input" type="radio" value="notSale" [formControl]="productOnSale" > 
+              <label class="form-check-label" for="notSale">Not on Sale</label>
+            </div>
+  
+             <!-- Product Discount -->
+            <div class="form-group col-2 ">
+              <input formControlName="discount" type="text" class="form-control form-control mt-2 discount" id="exampleFormControlInput1"
+                placeholder="Discount">
+            </div>
+            <!-- Product Discount Validation -->
+            <span *ngIf="!addProductForm.get('discount').valid">
+                <span *ngIf="addProductForm.get('discount').errors && addProductForm.get('discount').invalid && addProductForm.get('discount').touched"
+                  class="error__msg">Discount Should be in positive number !</span>
+            </span>
+          </div> 
+  
+          <!-- Product Category -->
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Category</label>
+            <select formControlName="category" name="category" class="form-control form-control" id="exampleFormControlSelect1">
+              <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+            </select>
+          </div>
+          <!-- Product Category Validation -->
+          <span *ngIf="!addProductForm.get('category').valid">
+              <span *ngIf="addProductForm.get('category').errors && addProductForm.get('category').invalid && addProductForm.get('category').touched"
+                class="error__msg">Please Choose Product Category !</span>
+          </span>
+          <button type="button" class="btn btn-primary btn-lg mt-5"(click)="showProductVariationModal=true">
+            Variations
+          </button>
+          <button *ngIf="!editMode" type="submit" class="btn btn-primary btn-lg mt-5">Submit</button>
+          <button *ngIf="editMode" type="submit" class="btn btn-primary btn-lg mt-5">Edit</button>
+  
+          <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Cancel</button>
+  
         </div>
-        <!-- Product Category Validation -->
-        <span *ngIf="!addProductForm.get('category').valid">
-            <span *ngIf="addProductForm.get('category').errors && addProductForm.get('category').invalid && addProductForm.get('category').touched"
-              class="error__msg">Please Choose Product Category !</span>
-        </span>
-        <button type="button" class="btn btn-primary btn-lg mt-5"(click)="showProductVariationModal=true">
-          Variations
-        </button>
-        <button *ngIf="!editMode" type="submit" class="btn btn-primary btn-lg mt-5">Submit</button>
-        <button *ngIf="editMode" type="submit" class="btn btn-primary btn-lg mt-5">Edit</button>
-
-        <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Cancel</button>
-
+      </div>
+    </form>
+  
+  <app-modal title="Upload Photo" [actions]="['OK','Cancel']" (clicked)="handleProductPhoto($event)"
+    *ngIf="showProductUploadModal">
+    <app-img-cropper (onCrop)="productPhoto=$event"></app-img-cropper>
+  </app-modal>
+  
+  <app-modal  title="Add Variation" [actions]="['Save','Cancel']" (clicked)="showVariationModel($event)"
+    *ngIf="showProductVariationModal">
+    <div id="textBoxContainer">
+      <button type="submit" class="btn btn-primary" (click)="addTextbox()" >Add Variation</button>
+      <div *ngFor="let v of variation; let i = index;">
+        <input class="mb-3 mt-3 card" name="variationKey" type="text" *ngIf="!enterValue[i] ,else label" 
+        (keydown.enter)="getTextBoxKey($event,i)" [formControl] = "variationKey" >
+        <ng-template #label> 
+          <label class="mb-1 mt-2" >{{this.variation[i].key}}: </label>
+          <div *ngFor="let e of variation[i].val" class="d-inline-block">
+            <label class="mb-1 mt-2 p-1" >{{e}} </label>
+          </div>
+          <input class="m-3 card d-inline-block" type="text" name="variationValue"
+          (keydown.enter)="getTextBoxValue($event,i)" [formControl] = "variationValue">
+        </ng-template>
       </div>
     </div>
-  </form>
-
-<app-modal title="Upload Photo" [actions]="['OK','Cancel']" (clicked)="handleProductPhoto($event)"
-  *ngIf="showProductUploadModal">
-  <app-img-cropper (onCrop)="productPhoto=$event"></app-img-cropper>
-</app-modal>
-
-<app-modal  title="Add Variation" [actions]="['Save','Cancel']" (clicked)="showVariationModel($event)"
-  *ngIf="showProductVariationModal">
-  <div id="textBoxContainer">
-    <button type="submit" class="btn btn-primary" (click)="addTextbox()" >Add Variation</button>
-    <div *ngFor="let v of variation; let i = index;">
-      <input class="mb-3 mt-3 card" name="variationKey" type="text" *ngIf="!enterValue[i] ,else label" 
-      (keydown.enter)="getTextBoxKey($event,i)" [formControl] = "variationKey" >
-      <ng-template #label> 
-        <label class="mb-1 mt-2" >{{this.variation[i].key}}: </label>
-        <div *ngFor="let e of variation[i].val" class="d-inline-block">
-          <label class="mb-1 mt-2 p-1" >{{e}} </label>
-        </div>
-        <input class="m-3 card d-inline-block" type="text" name="variationValue"
-        (keydown.enter)="getTextBoxValue($event,i)" [formControl] = "variationValue">
-      </ng-template>
-    </div>
-  </div>
-</app-modal>
+  </app-modal>

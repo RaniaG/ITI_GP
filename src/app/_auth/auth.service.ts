@@ -38,7 +38,7 @@ export class AuthService {
 
     let obs = this.http.post(`${baseurl}/Token`, data, this.httpOptions);
     obs.subscribe(res => {
-      debugger;
+      
       this.currentUser = res;
       this.token = res['access_token'];
       localStorage.setItem("Token", this.token);
