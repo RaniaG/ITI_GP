@@ -107,7 +107,7 @@
   <hr>
   <!--listing-->
   <div id='products'>
-    <app-product-list></app-product-list>
+    <app-product-list [products]="shopProducts"></app-product-list>
   </div>
 
   <app-modal title="Upload Cover Photo" [actions]="['Save','Cancel']" (clicked)="handleCoverPhoto($event)"

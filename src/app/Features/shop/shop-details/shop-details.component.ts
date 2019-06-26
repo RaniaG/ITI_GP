@@ -3,6 +3,7 @@ import { ShopService } from '../shop.service';
 import { Shop } from 'src/app/_models/shop';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/_models/product';
+import { ProductService } from 'src/app/_service/product.service';
 
 
 @Component({
@@ -14,16 +15,18 @@ export class ShopDetailsComponent implements OnInit {
 
   showPhotoUploadModal: boolean = false;
   showCoverUploadModal: boolean = false;
-
+  id: string;
   coverPhoto = null;
   shopPhoto = null;
   shop: Shop;
+  shopProducts: Product[];
   relatedProducts: Product[];
-  constructor(private shopService: ShopService, private route: ActivatedRoute) {
+  constructor(private shopService: ShopService, private route: ActivatedRoute, private productService: ProductService) {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.params['id']
+    this.id = this.route.snapshot.params['id']
+    this.shopProducts = this.productService.getAllProducts(this.id);
     // this.shop = this.shopService.getById(id);
     // this.relatedProducts = this.shopService.getRelatedProducts();
     //get shop's products from product service

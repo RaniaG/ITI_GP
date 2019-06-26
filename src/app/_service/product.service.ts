@@ -60,6 +60,36 @@ export class ProductService {
         return this.products;
     }
 
+    getAllProducts(shopId: string) {
+        let newData = [];
+        if (shopId == "") {
+            newData = this.products.filter(p => p.shopId !== shopId);
+        }
+        else {
+            newData = this.products.filter(p => p.shopId === shopId);
+        }
+        return newData;
+    }
+    getProductsFiltered(shopId: string, startIndex: number, elementsToFetch: number, categoryId: number): Product[] {
+
+        let start = (startIndex - 1) * elementsToFetch;
+        let end = start + elementsToFetch;
+
+
+        let newData = this.getAllProducts(shopId);
+        if (end > newData.length) {
+            end = newData.length
+        }
+        if (categoryId == -1) {
+            newData = newData.filter(p => p.category.id !== categoryId).slice(start, end);
+        }
+        else {
+            newData = newData.filter(p => p.category.id === categoryId).slice(start, end);
+        }
+        return newData;
+
+    }
+
     getById(id: number): Product {
         return this.products.find(p => p.id === id);
     }
