@@ -1,8 +1,12 @@
 import { Product } from '../_models/product';
 import { ProductService } from './product.service'
 import { OrderedProduct } from '../_models/orderedProduct'
+import { Order } from '../_models/order';
+import { Injectable } from '@angular/core';
 
-
+@Injectable({
+    providedIn: 'root'
+})
 export class OrderedProductsService {
 
     productService: ProductService;
@@ -13,48 +17,46 @@ export class OrderedProductsService {
         this.products = this.productService.getAll();
         this.productOrders = [
             {
-                id: 1,
-                product: this.products[0],
-                details: {
+                orderId: 1,
+                productId: 1,
+                variations: {
                     color: "red",
-                    size: "L",
+                    size: "XL"
                 },
-                quantity: 1,
-                price: this.products[0].price - this.products[0].discount
+                quantity: 2
             },
             {
-                id: 2,
-                product: this.products[1],
-                details: {
-                    color: "yellow",
-                    size: "M",
+                orderId: 1,
+                productId: 1,
+                variations: {
+                    color: "red",
+                    size: "XL"
                 },
-                quantity: 1,
-                price: this.products[1].price - this.products[1].discount
-            }
+                quantity: 2
+            },
         ]
     }
 
-    getAll(): OrderedProduct[] {
-        return this.productOrders;
-    }
+    // getAll(): OrderedProduct[] {
+    //     return this.productOrders;
+    // }
 
-    getById(id: number): OrderedProduct {
-        return this.productOrders.find(order => order.id === id);
-    }
+    // getById(id: number): OrderedProduct {
+    //     return this.productOrders.find(order => order.orderId === id);
+    // }
 
-    addOrder(order: OrderedProduct) {
-        order.id = this.productOrders[length - 1].id + 1;
-        this.productOrders.push(order);
-    }
+    // addOrder(order: OrderedProduct) {
+    //     order.orderId = this.productOrders[length - 1].id + 1;
+    //     this.productOrders.push(order);
+    // }
 
-    updateOrder(order: OrderedProduct) {
-        const index = this.productOrders.findIndex(e => e.id === order.id);
-        this.productOrders[index] = order;
-    }
+    // updateOrder(order: OrderedProduct) {
+    //     const index = this.productOrders.findIndex(e => e.id === order.id);
+    //     this.productOrders[index] = order;
+    // }
 
-    deleteOrder(id: number) {
-        const index = this.productOrders.findIndex(orders => orders.id === id);
-        this.productOrders.splice(index, 1);
-    }
+    // deleteOrder(id: number) {
+    //     const index = this.productOrders.findIndex(orders => orders.id === id);
+    //     this.productOrders.splice(index, 1);
+    // }
 }

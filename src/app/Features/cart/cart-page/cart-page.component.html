@@ -1,0 +1,12 @@
+<!-- Cart Header
+<app-page-header title="Shopping Cart" [paths]="[{name:'Home',url:'/home'},{name:'Cart',url:'/cart'}]">
+</app-page-header> -->
+
+<!-- Cart Listing -->
+<app-cart-table [cart]="cart"></app-cart-table>
+
+<!-- shipping Information -->
+<app-shipping-information (shipTo)="shipmentDataHandler($event)"></app-shipping-information>
+
+<!-- Fees And Payment Methods -->
+<app-fees-and-payment-methods></app-fees-and-payment-methods>

@@ -8,6 +8,7 @@ export class ProductService {
         this.products = [
             {
                 id: 1,
+                shopId: "4",
                 name: 'Product A',
                 price: 10, discount: 2, quantity: 3,
                 images: ['assets/images/image_11-1-300x300.jpg', 'assets/images/image_52-300x300.jpg'],
@@ -22,6 +23,7 @@ export class ProductService {
             },
             {
                 id: 2,
+                shopId: "2",
                 name: 'Product B',
                 price: 40, discount: 2.5, quantity: 2,
                 images: ['assets/images/image_11-1-300x300.jpg', 'assets/images/image_52-300x300.jpg'],
@@ -31,6 +33,7 @@ export class ProductService {
             },
             {
                 id: 3,
+                shopId: "3",
                 name: 'Product C',
                 price: 50, discount: 3, quantity: 5,
                 images: ['assets/images/image_11-1-300x300.jpg', 'assets/images/image_52-300x300.jpg'],
@@ -40,6 +43,7 @@ export class ProductService {
             },
             {
                 id: 4,
+                shopId: "4",
                 name: 'Product D',
                 price: 50, discount: 3, quantity: 5,
                 images: ['assets/images/image_11-1-300x300.jpg', 'assets/images/image_52-300x300.jpg'],
@@ -77,9 +81,9 @@ export class ProductService {
 
 
     getRelated(id: number): Product[] {
-        const categoryId = this.products.find (e => e.id == id).category.id
+        const categoryId = this.products.find(e => e.id == id).category.id
         // console.log(c)
-        let related = this.products.filter( a => a.category.id == categoryId)
+        let related = this.products.filter(a => a.category.id == categoryId)
         // console.log(x)
         return related;
     }

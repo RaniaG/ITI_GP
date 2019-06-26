@@ -26,6 +26,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { JwtInterceptor } from './_utilities/interceptor';
 import { AppInitService } from './_service/app-init.service';
+import { Observable } from 'rxjs';
+import { CartService } from './_service/cart.service';
 import { AddEditGuardService } from './Features/shop/add-edit-shop/add-edit.guard';
 
 function initializeApp(appInitService: AppInitService) {
@@ -63,6 +65,7 @@ function initializeApp(appInitService: AppInitService) {
     UserService,
     CanDeactivateGuard,
     AuthService,
+    CartService,
     AuthGuard,
     CountryCityService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
