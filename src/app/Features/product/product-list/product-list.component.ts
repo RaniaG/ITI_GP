@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/_models/product';
 import { ProductService } from 'src/app/_service/product.service';
+import { Category } from 'src/app/_models/category';
+import { CategoryService } from 'src/app/_service/category.service';
 
 
 @Component({
@@ -8,18 +10,22 @@ import { ProductService } from 'src/app/_service/product.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
+
 export class ProductListComponent implements OnInit {
   @Input() products: Product[];
 
   product :Product;
+  categories: Category[];
+  // rate: number[] = [];
   ShowDeleteProductModal :boolean = false;
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private categoryService: CategoryService) { }
 
   ngOnInit() {
     if( !this.products)
       this.products = this.productService.getAll();
-
-      console.log(this.products)
+    if(!this.categories)
+      this.categories = this.categoryService.getAll();
+      // console.log(this.products)
   }
 
   openModal(id: number){

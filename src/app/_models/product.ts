@@ -22,5 +22,5 @@ export class Product {
     }
     minDelieveryDate?: number;
     maxDelieveryDate?: number;
-    customizations?: { field: string, values: string[] }[]
+    variation?: { key: string, val: string[] }[]
 }
