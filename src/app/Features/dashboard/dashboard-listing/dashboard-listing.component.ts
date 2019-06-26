@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SellerService } from 'src/app/_service/Seller.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 const assetsPath = '../../../../assets/images/png-dashboard';
 
@@ -18,23 +19,33 @@ export class DashboardListingComponent implements OnInit {
   productsValue: number;
   ordersValue: number;
   revenuValue: number;
-
   shopId: string;
 
-  constructor(private sellerService: SellerService) {
+  constructor(private sellerService: SellerService, private activatedRoute: ActivatedRoute) {
     this.visitsImage = `${assetsPath}/015-search.png`;
     this.productsImage = `${assetsPath}/008-cart.png`;
     this.ordersImage = `${assetsPath}/002-order-1.png`;
     this.revenuImage = `${assetsPath}/005-profit.png`;
-
-    this.shopId = "123";
   }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (params: Params) => {
+        this.shopId = params["id"];
+      }
+    );
     this.visitsValue = this.sellerService.getShopVisitsCount();
     this.productsValue = this.sellerService.getSoldProductCount();
-    this.ordersValue = this.sellerService.getDoneOredersCount();
-    this.revenuValue = this.sellerService.getTotalRevenu();
+    this.sellerService.getDoneOredersCount(this.shopId).subscribe(
+      res => {
+        this.ordersValue = res;
+      }
+    );
+    this.sellerService.getTotalRevenu(this.shopId).subscribe(
+      (res) => {
+        this.revenuValue = res;
+      }
+    );
   }
 
 }

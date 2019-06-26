@@ -150,7 +150,7 @@ export class SellerService {
         return this.visitsCount;
     }
     getSoldProductCount(): number {
-        this.soldProductsCount = 1000;
+        this.soldProductsCount = 500;
         return this.soldProductsCount;
     }
     getTotalRevenu(shopId: string): Observable<any> {
