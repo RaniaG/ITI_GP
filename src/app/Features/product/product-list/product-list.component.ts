@@ -16,11 +16,13 @@ export class ProductListComponent implements OnInit {
 
   product :Product;
   categories: Category[];
+  activeCategoryIndex: number;
   // rate: number[] = [];
   ShowDeleteProductModal :boolean = false;
   constructor(private productService: ProductService, private categoryService: CategoryService) { }
 
   ngOnInit() {
+    this.activeCategoryIndex = 0;
     if( !this.products)
       this.products = this.productService.getAll();
     if(!this.categories)

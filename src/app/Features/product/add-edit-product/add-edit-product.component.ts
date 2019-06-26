@@ -77,17 +77,16 @@ export class AddEditProductComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.addProductForm.valid) {
+    if (this.addProductForm.valid ) {
       this.product = this.addProductForm.value as Product;
       if (!this.editMode)
         this.productService.addProduct(this.product);
       else
         this.productService.updateProduct(this.product);
-
       this.addProductForm.reset();
+      this.router.navigate(['/products'])
     }
     console.log(this.product)
-    this.router.navigate(['/products'])
   }
  
 

@@ -18,7 +18,7 @@ import { City, District, Country } from 'src/app/_models/country-city';
 })
 export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
 
-  shop: Shop = { name: "" };
+  shop: Shop = { name: "", userId: "" };
   title: string = 'Create Shop';
   shopForm: FormGroup;
   validName: boolean;
@@ -29,7 +29,7 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
   cities: City[] = [];
   districts: District[] = [];
   countries: Country[] = [];
-  step: number = 1;
+  step: number = 0;
   deliveryAddressesForm: FormGroup;
   deliveryAddresses: { districtId: number, cityId: number, countryId: number, shopId: string }[] = [];
   savedDeliveryAddress: boolean = true;
@@ -57,18 +57,26 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
 
   ngOnInit() {
     var id = this.route.snapshot.params.id;
-    if (id) {
+
+
+    if (id !== undefined) {
+      debugger;
       this.title = 'Edit Shop';
       this.doneLoading = false;
-      this.shopService.getById(id).subscribe((response: Shop) => {
-        this.shop = response;
-        console.log(this.shop);
-        this.fillEditForm();
-        this.doneLoading = true;
-      }, (error) => {
-        this.doneLoading = true;
-        console.log(error);
-      })
+      this.shop = this.shopService.getById(id);
+      console.log(this.shop);
+      this.fillEditForm();
+      this.doneLoading = true;
+      this.step = 1;
+      // this.shopService.getById(id).subscribe((response: Shop) => {
+      //   this.shop = response;
+      //   console.log(this.shop);
+      //   this.fillEditForm();
+      //   this.doneLoading = true;
+      // }, (error) => {
+      //   this.doneLoading = true;
+      //   console.log(error);
+      // })
     }
   }
 
@@ -110,15 +118,24 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
       validationObservable = this.shopService.validateShopName(this.shopForm.get('name').value, this.shop.id)
     else
       validationObservable = this.shopService.validateShopName(this.shopForm.get('name').value)
-    validationObservable.subscribe((Response) => {
+    if (validationObservable) {
       this.checkingAvailability = false;
       (this.name.nativeElement as HTMLElement).classList.add("is-valid");
       this.validName = true;
-    }, (error) => {
+    } else {
       this.checkingAvailability = false;
       (this.name.nativeElement as HTMLElement).classList.add("is-invalid");
       this.validName = false;
-    });
+    }
+    // validationObservable.subscribe((Response) => {
+    //   this.checkingAvailability = false;
+    //   (this.name.nativeElement as HTMLElement).classList.add("is-valid");
+    //   this.validName = true;
+    // }, (error) => {
+    //   this.checkingAvailability = false;
+    //   (this.name.nativeElement as HTMLElement).classList.add("is-invalid");
+    //   this.validName = false;
+    // });
 
   }
   finish() {
@@ -126,24 +143,32 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
     let id = this.route.snapshot.params.id;
     if (id)//edit
     {
-      this.shopService.edit(this.shopForm.value).subscribe(res => {
-        this.doneLoading = true;
-        this.saved = true;
-        this.router.navigate(['/shop', this.shop.id]);
-      }, err => {
-        this.doneLoading = true;
-      })
+      this.shopService.edit(this.shopForm.value);
+      this.doneLoading = true;
+      this.saved = true;
+      this.router.navigate(['/shop', this.shop.id]);
+      // this.shopService.edit(this.shopForm.value).subscribe(res => {
+      //   this.doneLoading = true;
+      //   this.saved = true;
+      //   this.router.navigate(['/shop', this.shop.id]);
+      // }, err => {
+      //   this.doneLoading = true;
+      // })
     }
     else {
-      this.shopService.add(this.shopForm.value).subscribe(res => {
-        debugger;
-        this.doneLoading = true;
-        this.shop.id = res['id'];
-        this.step++;
-      }, err => {
-        this.doneLoading = true;
-        debugger;
-      });
+
+      this.shop = this.shopService.add(this.shopForm.value);
+      this.doneLoading = true;
+      this.step++;
+      // this.shopService.add(this.shopForm.value).subscribe(res => {
+      //   debugger;
+      //   this.doneLoading = true;
+      //   this.shop.id = res['id'];
+      //   this.step++;
+      // }, err => {
+      //   this.doneLoading = true;
+      //   debugger;
+      // });
     }
   }
   cancel() {
@@ -219,13 +244,17 @@ export class AddEditShopComponent implements OnInit, CanComponentDeactivate {
     this.deliveryAddressesForm.patchValue({ districtId: this.districts.length > 0 ? this.districts[0].id : 0 });
   }
   finalize() {
-    this.shopService.deliveryAddresses(this.deliveryAddresses).subscribe(res => {
-      debugger;
-      this.saved = true;
-      this.router.navigate(['/shop', this.shop.id]);
-    }, err => {
-      debugger;
-      console.log(err)
-    });
+    // this.shopService.deliveryAddresses(this.deliveryAddresses).subscribe(res => {
+    //   debugger;
+    //   this.saved = true;
+    //   this.router.navigate(['/shop', this.shop.id]);
+    // }, err => {
+    //   debugger;
+    //   console.log(err)
+    // });
+    debugger;
+    this.shopService.deliveryAddresses(this.shop.id, this.deliveryAddresses);
+    this.saved = true;
+    this.router.navigate(['/shop', this.shop.id]);
   }
 }

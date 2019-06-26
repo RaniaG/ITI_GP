@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   // shops: Shop[];
   shops: any;
   products: Product[];
- imgURL: any = "http://www.iconarchive.com/download/i63426/dapino/beauty-consultant/girl-beauty-consultant-showing.ico";
+  imgURL: any = "http://www.iconarchive.com/download/i63426/dapino/beauty-consultant/girl-beauty-consultant-showing.ico";
 
   constructor(private user: UserService, private FavitemsService: FavitemsService,private shopService: ShopService, private productService: ProductService, private authService: AuthService) { }
 
@@ -31,10 +31,9 @@ export class ProfileComponent implements OnInit {
     // }, (error) => {
     //   console.log(error);
     // })
-    this.shops = this.FavitemsService.getAll();
 
 
-    this.username=this.authService.currentUser.userName;
+    this.username = this.authService.currentUser.userName;
 
     this.products = this.productService.getAll();
   }

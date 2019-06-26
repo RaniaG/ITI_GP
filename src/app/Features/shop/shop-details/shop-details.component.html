@@ -1,10 +1,11 @@
+<app-loading *ngIf="!doneLoading"></app-loading>
 <div class="shop">
   <!--cover-->
   <div class="container-fluid no-gutters">
     <div class="row no-gutters no-gutters">
       <div class="col-md-12">
-        <div class="shop__cover d-flex justify-content-end">
-          <img src="assets/images/vendor-bg.jpg" alt="" srcset="">
+        <div class="shop__cover d-flex justify-content-end bg-secondary">
+          <img [src]="shop.cover" alt="" srcset="">
           <div class="shop__cover__img-btn" (click)="showCoverUploadModal=true"><i class="fas fa-camera"></i></div>
         </div>
       </div>
@@ -20,7 +21,8 @@
     </div>
     <div class="row no-gutters justify-content-center " style="position: relative">
       <div class="col-md-3">
-        <div class="shop__photo " style="background-image: url('assets/images/shop-default.png')">
+        <div class="shop__photo "
+          [ngStyle]="{'background-image': 'url(' + (shop.photo||'assets/images/add-photo-icon.png' )+ ')'}">
           <div class="shop__photo__img-btn" (click)="showPhotoUploadModal=true"><i class="fas fa-camera"></i></div>
         </div>
 
@@ -30,27 +32,28 @@
           <div>
             <h2>{{shop.name}}</h2>
             <div class="d-flex flex-row justify-content-between">
-              <div><span>12</span> Followers</div>
+              <div><span>{{(shop.followers&&shop.followers.length)||0}}</span> Followers</div>
               <span>|</span>
-              <div><span>100</span> Products</div>
+              <div><span>{{(shop.products&&shop.products.length)||0}}</span> Products</div>
             </div>
-            <div><span>50</span> Sales</div>
+            <div><span>{{shop.sales||0}}</span> Sales</div>
           </div>
 
           <div>
             <div>
 
               <app-rating [rate]="shop.rating" [readonly]="true" (rateChange)="rate=$event"></app-rating>
-              <span>(300)</span>
+              <!-- <span>(300)</span> -->
             </div>
           </div>
           <div class="shop__user-photo" style="background-image:url('assets/images/vendor-avatar.jpg')"></div>
 
         </div>
       </div>
-      <div class="col-xs-1 d-flex flex-column justify-content-end pl-4">
-        <button type="button" class="btn btn-secondary">Follow</button>
-        <button type="button" class="btn btn-secondary ">Unfollow</button>
+      <div class="col-xs-1 d-flex flex-column justify-content-end pl-4"
+        *ngIf="authService.isAuthenticated()&&shop.userId==authService.currentUser.id">
+        <button type="button" class="btn btn-secondary" *ngIf="!followedByUser">Follow</button>
+        <button type="button" class="btn btn-secondary " *ngIf="followedByUser">Unfollow</button>
       </div>
     </div>
 
@@ -64,12 +67,18 @@
             <a class="nav-link  text-light ">Overview</a>
           </li>
           <li class=" nav-item">
-            <a class="nav-link  text-light " href="#products">Products</a>
+            <a class="nav-link  text-light ">Products</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link  text-light " href="#">Edit shop</a>
+          <li class=" nav-item">
+            <a class="nav-link  text-light "
+              *ngIf="authService.isAuthenticated()&&shop.userId==authService.currentUser.id"
+              [routerLink]="['/products','add']">
+              Add new Product</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="authService.isAuthenticated()&&shop.userId==authService.currentUser.id">
+            <a class="nav-link  text-light " [routerLink]="['/shop','edit',shop.id]">Edit shop</a>
+          </li>
+          <li class="nav-item" *ngIf="authService.isAuthenticated()&&shop.userId==authService.currentUser.id">
             <a class="nav-link  text-light " [routerLink]="['dashboard']">Dashboard</a>
           </li>
         </ul>
@@ -86,7 +95,7 @@
       </div>
       <div class="col-12 mt-5">
         <h2 class='text-center'>Policies and Returns</h2>
-        <p>{{shop.policies}}</p>
+        <p>{{shop.policy}}</p>
       </div>
     </div>
   </div>
@@ -107,12 +116,13 @@
   <hr>
   <!--listing-->
   <div id='products'>
-    <app-product-list></app-product-list>
+    <app-product-list [products]="shopProducts"></app-product-list>
   </div>
 
   <app-modal title="Upload Cover Photo" [actions]="['Save','Cancel']" (clicked)="handleCoverPhoto($event)"
     *ngIf="showCoverUploadModal">
-    <app-img-cropper (onCrop)="coverPhoto=$event"></app-img-cropper>
+    <!-- <app-img-cropper (onCrop)="coverPhoto=$event"></app-img-cropper> -->
+    <input type="file" (change)="coverPhoto=$event.target.files[0]">
   </app-modal>
 
   <app-modal title="Upload Shop Photo" [actions]="['Save','Cancel']" (clicked)="handleShopPhoto($event)"
