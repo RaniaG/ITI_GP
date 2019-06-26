@@ -29,7 +29,7 @@
   </div>
   <div *ngIf="isAuthenticated" class="col">
     <a class="text-white float-right pl-2" routerLink="/home" (click)="logOut()" >Log out </a>
-    <a class="text-white float-right pr-2 border-right" routerLink="/profile">Hello {{currentUser.firstName}} <img height="25px" width="25px" class="rounded-circle" [src]="currentUser.photo"></a>
+    <p class="text-white float-right pr-2 border-right" routerLink="/profile">Hello {{currentUser.firstName}} <img height="25px" width="25px" class="rounded-circle" src="../../../../assets/images/up.png"></p>
   </div>
 </nav>
 
