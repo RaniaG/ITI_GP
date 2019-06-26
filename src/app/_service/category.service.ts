@@ -10,13 +10,11 @@ export class CategoryService {
     categories: Category[];
     isLoaded: Subject<any> = new Subject();
     constructor(private http: HttpClient) {
-        this.http.get(`${baseurl}/api/Categories`).subscribe((response: Category[]) => {
-            this.categories = response;
-            this.isLoaded.next();
-        }, error => {
-            this.isLoaded.next();
-            console.log(error);
-        })
+        this.categories = [
+            {id: 1 , name: 'Accessories' },
+            {id: 2 , name: 'Decor' },
+            {id: 3 , name: 'Clothes' }
+        ]
     }
 
     getAll() {
