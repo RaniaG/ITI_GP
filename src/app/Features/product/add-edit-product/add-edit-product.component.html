@@ -16,8 +16,8 @@
               <button type="button" class="btn btn-primary btn-block mb-2"(click)="showProductUploadModal=true">
                   Add Product Photo
                 </button>
-           <!-- <div class="productPhoto img-thumbnail" 
-                [ngStyle]="{background: 'url(' + !addProductForm.get('productImages').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('productImages').value[0] + ')', backgroundSize: 'contain' }">
+              <!-- <div class="productPhoto" 
+                [ngStyle]="{background: 'url(' + !addProductForm.get('images').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('images').value[0] + ')', backgroundSize: 'contain' }">
               </div> -->
               <img [src]="!addProductForm.get('images').value[0] ? 'assets/images/addPhoto.png' : addProductForm.get('images').value[0]" 
                 alt="add-product" class="productPhoto btn-block img-thumbnail">

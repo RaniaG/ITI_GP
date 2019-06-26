@@ -12,19 +12,16 @@
       <div class='mt-5'>
         <div class='listing__filters__title'>Categories</div>
         <ul class="list-group list-group-flush listing__filters__categories">
-          <li class="list-group-item" *ngFor="let c of categories"><span class="text-secondary">{{c.name}}</span></li>
-          <!-- <li class="list-group-item active">Bags</li>
-          <li class="list-group-item">Scarf</li>
-          <li class="list-group-item">Carpet</li>
-          <li class="list-group-item">Accessories</li> -->
+          <li class="list-group-item" *ngFor="let c of categories ; let i = index" (click)="activeCategoryIndex=i">
+            <span class="text-secondary">{{c.name}}</span></li>
         </ul>
       </div>
-      <div class='mt-5'>
+      <!-- <div class='mt-5'>
         <label for="customRange3">
           <div class='listing__filters__title'>Price</div>
         </label>
         <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3">
-      </div>
+      </div> -->
       <div class='mt-5'>
         <div class='listing__filters__title'>Sellers</div>
         <div class="d-flex justify-content-center flex-column">
@@ -102,7 +99,7 @@
         </div> 
       </div>
       <!-- Paging -->
-      <app-pagination ></app-pagination>
+      <!-- <app-pagination ></app-pagination> -->
     </div>
   </div>
 </div> 
