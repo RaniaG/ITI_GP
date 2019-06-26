@@ -1,22 +1,15 @@
 import { OrderedProduct } from './orderedProduct';
+import { ShipmentData } from './shipmentData';
 
 export class Order {
     packageId?: string;//seller order id
     id?: string;//guid // buyer order id
     shopId?: string;
     status: string;
-    date: Date;
+    date?: Date;
     // shippingAddress: string;
-    shipmentData?: {
-        fullName: string;
-        phone: string;
-        email: string;
-        address: string;
-        country: string;
-        city: string;
-        district: string;
-        postalCode: string;
-    };
+    shipmentDataId?: number;
+    shipmentData?: ShipmentData;
     deliveryMethod: string;
     paymentMethod: string;
     invoice?: {

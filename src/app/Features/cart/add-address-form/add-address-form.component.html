@@ -4,7 +4,7 @@
   <form [formGroup]="addAddressData" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="">Full name</label>
-      <input type="text" class="form-control" formControlName="fullName">
+      <input type="text" class="form-control" formControlName="ContactName">
     </div>
     <div class="row">
       <div class="col-6">
@@ -16,14 +16,14 @@
       <div class="col-6">
         <div class="form-group">
           <label for="">Email</label>
-          <input type="email" class="form-control" formControlName="email">
+          <input type="email" class="form-control" formControlName="ContactEmail">
         </div>
       </div>
     </div>
     <div class="border rounded p-3">
       <div class="form-group">
         <label for="">Full address</label>
-        <input type="text" class="form-control" formControlName="fullAddress">
+        <input type="text" class="form-control" formControlName="FullAddress">
       </div>
       <div class="row">
         <div class="col-6">

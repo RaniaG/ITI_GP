@@ -27,6 +27,7 @@ import { HttpClient } from '@angular/common/http';
 import { JwtInterceptor } from './_utilities/interceptor';
 import { AppInitService } from './_service/app-init.service';
 import { Observable } from 'rxjs';
+import { CartService } from './_service/cart.service';
 
 function initializeApp(appInitService: AppInitService) {
   return (): Promise<any> => {
@@ -63,6 +64,7 @@ function initializeApp(appInitService: AppInitService) {
     UserService,
     CanDeactivateGuard,
     AuthService,
+    CartService,
     AuthGuard,
     CountryCityService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

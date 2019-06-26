@@ -1,16 +1,15 @@
 import { Product } from './product';
+import { Order } from './order';
 
 export class OrderedProduct {
-    id: number;
-    product: Product;
-    details?: {
+    // id: number;
+    orderId: number;
+    order?: Order;
+    productId: number;
+    product?: Product;
+    variations: {
         color?: string,
         size?: string,
     };
     quantity: number;
-    invoice?: {
-        price: number,
-        discount?: number,
-    };
-    price: number;
 }   
