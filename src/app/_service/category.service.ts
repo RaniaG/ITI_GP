@@ -9,24 +9,31 @@ export class CategoryService {
     categories: Category[];
     isLoaded: boolean = false;
     constructor(private http: HttpClient) {
+        this.categories = [
+            {id: 1 , name: 'Accessories' },
+            {id: 2 , name: 'Decor' },
+            {id: 3 , name: 'Clothes' },
+            // {id: 4 , name: 'Category 4' },
+            // {id: 5 , name: 'Category 5' },
+        ]
 
     }
 
     getAll(): Category[] {
-        if (!this.isLoaded) {
-            this.http.get(`${baseurl}/api/Categories`).subscribe((response: Category[]) => {
-                this.categories = response;
-                this.isLoaded;
-            }, error => {
-                console.log(error);
-            })
-        }
+        // if (!this.isLoaded) {
+        //     this.http.get(`${baseurl}/api/Categories`).subscribe((response: Category[]) => {
+        //         this.categories = response;
+        //         this.isLoaded;
+        //     }, error => {
+        //         console.log(error);
+        //     })
+        // }
         return this.categories;
     }
 
     getById(id: number): Category {
-        if (!this.isLoaded)
-            this.getAll();
+        // if (!this.isLoaded)
+        //     this.getAll();
         return this.categories.find(c => c.id === id);
     }
 
